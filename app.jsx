@@ -14,9 +14,10 @@ const ROUTE_PATHS = {
 };
 
 function routeFromPath(pathname) {
-  const found = Object.entries(ROUTE_PATHS).find(([, path]) => path === pathname);
+  const normalized = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+  const found = Object.entries(ROUTE_PATHS).find(([, path]) => path === normalized);
   if (found) return found[0];
-  if (pathname === "/cases") return "cases";
+  if (normalized === "/cases") return "cases";
   return "home";
 }
 
