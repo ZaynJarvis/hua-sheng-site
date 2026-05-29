@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>华盛企业动态 · Huasheng Blog</title>
+  <meta name="description" content="华盛企业动态、项目案例、产品更新与服务说明。" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="stylesheet" href="/blog/blog.css" />
+</head>
+<body>
+  <div class="blog-shell">
+    <header class="blog-topbar">
+      <div class="blog-topbar__inner">
+        <a class="blog-brand" href="/blog/">HUASHENG <span>// Blog</span></a>
+        <nav class="blog-nav">
+          <a href="/">官网</a>
+          <div class="blog-lang" aria-label="Language">
+            <button type="button" class="is-active" data-lang-set="zh">中文</button>
+            <button type="button" data-lang-set="en">EN</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-main">
+      <section class="blog-hero">
+        <div>
+          <div class="eyebrow">Huasheng Updates</div>
+          <h1 data-lang-block="zh">企业动态</h1>
+          <h1 data-lang-block="en">Huasheng Blog</h1>
+          <p class="blog-lede" data-lang-block="zh">记录华盛的项目案例、产品更新、资质能力、服务流程和企业内部实践。这里不是临时 H5，而是后续可以持续上新的内容中心。</p>
+          <p class="blog-lede" data-lang-block="en">Updates on Huasheng projects, product capabilities, certifications, service workflows, and operational practice. This is built as a long-term content hub, not a one-off campaign page.</p>
+        </div>
+        <div class="blog-count">
+          <strong>01</strong>
+          <span data-lang-block="zh">已发布文章</span>
+          <span data-lang-block="en">Published post</span>
+        </div>
+      </section>
+
+      <section class="post-list" aria-label="Posts">
+        <a class="post-card" href="/blog/ai-application-meeting/">
+          <div class="post-card__body">
+            <div>
+              <div class="post-meta">
+                <span class="post-pill red">2026.05.27</span>
+                <span class="post-pill">AI 应用专项会议</span>
+                <span class="post-pill">群组管理</span>
+              </div>
+              <h2 data-lang-block="zh">借力 AI 提效赋能，深耕服务聚力前行</h2>
+              <h2 data-lang-block="en">Leveraging AI for Efficiency, Deepening Service for Growth</h2>
+              <p data-lang-block="zh">华盛召开 AI 工具应用及群组管理专项会议，把内容表达、报价准备、组织协同和客户服务带入更清晰的工作流程。</p>
+              <p data-lang-block="en">Huasheng held a special meeting on AI tool applications and group management, bringing content, quotations, collaboration, and service into clearer workflows.</p>
+            </div>
+            <span class="post-card__arrow" data-lang-block="zh">阅读文章 →</span>
+            <span class="post-card__arrow" data-lang-block="en">Read post →</span>
+          </div>
+          <div class="post-card__cover">
+            <img src="/blog/assets/meeting-room.jpg" alt="" loading="lazy" decoding="async" />
+          </div>
+        </a>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const html = document.documentElement;
+    const params = new URLSearchParams(location.search);
+    const initialLang = params.get('lang') === 'en' ? 'en' : 'zh';
+    function setLang(lang) {
+      html.dataset.lang = lang;
+      html.lang = lang === 'en' ? 'en' : 'zh-CN';
+      document.querySelectorAll('[data-lang-set]').forEach((button) => {
+        button.classList.toggle('is-active', button.dataset.langSet === lang);
+      });
+      const url = new URL(location.href);
+      if (lang === 'en') url.searchParams.set('lang', 'en');
+      else url.searchParams.delete('lang');
+      history.replaceState(null, '', url);
+    }
+    document.querySelectorAll('[data-lang-set]').forEach((button) => {
+      button.addEventListener('click', () => setLang(button.dataset.langSet));
+    });
+    setLang(initialLang);
+  </script>
+</body>
+</html>
