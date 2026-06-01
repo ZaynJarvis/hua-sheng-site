@@ -135,6 +135,26 @@
           </div>
         </section>
 
+        {/* ----- Official profiles ----- */}
+        {h.resources && (
+          <section>
+            <div className="container">
+              <SectionHead eyebrow={h.resources.eyebrow} title={h.resources.title} lede={h.resources.lede} />
+              <div className="resource-grid reveal">
+                {h.resources.items.map((item, i) => (
+                  <a className="resource-card" key={i} href={item.href} target="_blank" rel="noopener noreferrer">
+                    <span className="resource-tag">{item.tag}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                    <span className="resource-link">{item.display} <span className="arrow">→</span></span>
+                  </a>
+                ))}
+              </div>
+              {h.resources.note && <p className="resource-note reveal">{h.resources.note}</p>}
+            </div>
+          </section>
+        )}
+
         {/* ----- Footer CTA ----- */}
         <CTABlock
           title={h.footerCta.title}

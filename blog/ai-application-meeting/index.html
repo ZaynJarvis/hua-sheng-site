@@ -11,29 +11,59 @@
   <meta property="og:title" content="借力 AI 提效赋能，深耕服务聚力前行" />
   <meta property="og:description" content="华盛召开 AI 工具应用及群组管理专项会议。" />
   <meta property="og:image" content="https://hua-sheng.org/blog/assets/meeting-room.jpg" />
-  <link rel="stylesheet" href="/blog/blog.css" />
+  <link rel="stylesheet" href="/styles.css?v=huasheng-site-20260601-blog3" />
+  <link rel="stylesheet" href="/blog/blog.css?v=huasheng-site-20260601-blog3" />
 </head>
-<body>
+<body data-theme="clarity" data-lang="cn" data-screen="blog">
   <div class="blog-shell">
-    <header class="blog-topbar">
-      <div class="blog-topbar__inner">
-        <a class="blog-brand" href="/blog/">HUASHENG <span>// Blog</span></a>
-        <nav class="blog-nav">
-          <a data-site-home href="/zh/">
-            <span data-lang-block="zh">官网</span>
-            <span data-lang-block="en">Corporate site</span>
-          </a>
-          <a data-blog-home href="/blog/">
-            <span data-lang-block="zh">全部文章</span>
-            <span data-lang-block="en">All posts</span>
-          </a>
-          <div class="blog-lang" aria-label="Language">
-            <button type="button" class="is-active" data-lang-set="zh">ZH</button>
-            <button type="button" data-lang-set="en">EN</button>
-          </div>
+    <header class="site-header blog-site-header scrolled">
+      <div class="container-wide nav-inner">
+        <a class="brand" data-site-home href="/zh/">
+          <span class="brand-mark"><img src="/assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+          <span class="brand-text">
+            <span class="a" data-lang-block="zh">华盛金属</span>
+            <span class="a" data-lang-block="en">HUASHENG</span>
+            <span class="b" data-lang-block="zh">企业动态 · BLOG</span>
+            <span class="b" data-lang-block="en">BLOG · UPDATES</span>
+          </span>
+        </a>
+        <nav class="nav-links">
+          <a class="nav-link" data-site-home href="/zh/"><span data-lang-block="zh">首页</span><span data-lang-block="en">Home</span></a>
+          <a class="nav-link" data-nav-about href="/zh/about/"><span data-lang-block="zh">关于我们</span><span data-lang-block="en">About</span></a>
+          <a class="nav-link" data-nav-capabilities href="/zh/capabilities/"><span data-lang-block="zh">核心能力</span><span data-lang-block="en">Capabilities</span></a>
+          <a class="nav-link" data-nav-projects href="/zh/projects/"><span data-lang-block="zh">项目案例</span><span data-lang-block="en">Projects</span></a>
+          <a class="nav-link" data-nav-quality href="/zh/quality/"><span data-lang-block="zh">质量与认证</span><span data-lang-block="en">Quality</span></a>
+          <a class="nav-link active" data-blog-home href="/blog/"><span data-lang-block="zh">企业动态</span><span data-lang-block="en">Blog</span></a>
+          <a class="nav-link" data-contact-link href="/zh/contact/"><span data-lang-block="zh">联系我们</span><span data-lang-block="en">Contact</span></a>
         </nav>
+        <div class="nav-actions">
+          <div class="lang-switch" role="tablist" aria-label="Language">
+            <button type="button" class="on" data-lang-set="zh" aria-pressed="true">ZH</button>
+            <button type="button" data-lang-set="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn-primary" data-contact-link href="/zh/contact/">
+            <span data-lang-block="zh">获取报价</span>
+            <span data-lang-block="en">Get a Quote</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <button class="menu-btn" type="button" data-blog-menu aria-label="Menu" aria-expanded="false">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6 H17 M3 10 H17 M3 14 H17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+        </div>
       </div>
     </header>
+    <div class="mobile-menu" data-blog-mobile-menu aria-hidden="true">
+      <a class="nav-link" data-site-home href="/zh/"><span data-lang-block="zh">首页</span><span data-lang-block="en">Home</span></a>
+      <a class="nav-link" data-nav-about href="/zh/about/"><span data-lang-block="zh">关于我们</span><span data-lang-block="en">About</span></a>
+      <a class="nav-link" data-nav-capabilities href="/zh/capabilities/"><span data-lang-block="zh">核心能力</span><span data-lang-block="en">Capabilities</span></a>
+      <a class="nav-link" data-nav-projects href="/zh/projects/"><span data-lang-block="zh">项目案例</span><span data-lang-block="en">Projects</span></a>
+      <a class="nav-link" data-nav-quality href="/zh/quality/"><span data-lang-block="zh">质量与认证</span><span data-lang-block="en">Quality</span></a>
+      <a class="nav-link active" data-blog-home href="/blog/"><span data-lang-block="zh">企业动态</span><span data-lang-block="en">Blog</span></a>
+      <a class="nav-link" data-contact-link href="/zh/contact/"><span data-lang-block="zh">联系我们</span><span data-lang-block="en">Contact</span></a>
+      <div class="mobile-actions">
+        <a class="btn btn-primary" data-contact-link href="/zh/contact/"><span data-lang-block="zh">获取报价</span><span data-lang-block="en">Get a Quote</span> →</a>
+      </div>
+    </div>
 
     <main class="blog-main">
       <div class="article-wrap">
@@ -199,39 +229,74 @@
           </div>
           <div class="side-card">
             <b>Links</b>
-            <a data-blog-home href="/blog/">All posts</a>
-            <a data-site-home href="/zh/">Huasheng website</a>
+            <a data-blog-home href="/blog/"><span data-lang-block="zh">全部文章</span><span data-lang-block="en">All posts</span></a>
+            <a data-site-home href="/zh/"><span data-lang-block="zh">华盛官网</span><span data-lang-block="en">Huasheng website</span></a>
           </div>
         </aside>
       </div>
     </main>
+
+    <footer class="site-footer blog-footer">
+      <div class="container-wide">
+        <div class="footer-grid">
+          <div class="footer-col brand-col">
+            <a class="brand" data-site-home href="/zh/" style="margin-bottom: 20px">
+              <span class="brand-mark"><img src="/assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+              <span class="brand-text">
+                <span class="a" data-lang-block="zh">华盛金属</span>
+                <span class="a" data-lang-block="en">HUASHENG</span>
+                <span class="b" data-lang-block="zh">广州 · 1989</span>
+                <span class="b" data-lang-block="en">Guangzhou · 1989</span>
+              </span>
+            </a>
+            <p class="footer-tag" data-lang-block="zh">30 年金属精工，匠造城市公共器物</p>
+            <p class="footer-tag" data-lang-block="en">30 Years of Metal Craft for Public Cityscapes</p>
+          </div>
+          <div class="footer-col">
+            <h4 data-lang-block="zh">网站地图</h4>
+            <h4 data-lang-block="en">Sitemap</h4>
+            <ul>
+              <li><a data-site-home href="/zh/"><span data-lang-block="zh">首页</span><span data-lang-block="en">Home</span></a></li>
+              <li><a data-nav-about href="/zh/about/"><span data-lang-block="zh">关于我们</span><span data-lang-block="en">About</span></a></li>
+              <li><a data-nav-projects href="/zh/projects/"><span data-lang-block="zh">项目案例</span><span data-lang-block="en">Projects</span></a></li>
+              <li><a data-blog-home href="/blog/"><span data-lang-block="zh">企业动态</span><span data-lang-block="en">Blog</span></a></li>
+              <li><a data-contact-link href="/zh/contact/"><span data-lang-block="zh">联系我们</span><span data-lang-block="en">Contact</span></a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 data-lang-block="zh">联系</h4>
+            <h4 data-lang-block="en">Contact</h4>
+            <ul>
+              <li data-lang-block="zh">Zayn Jarvis 刘经理</li>
+              <li data-lang-block="en">Zayn Jarvis / Manager Liu</li>
+              <li>+65 8309-9012</li>
+              <li>hi@hua-sheng.org</li>
+              <li>GMT+8 · 10:00-22:00</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 data-lang-block="zh">业务</h4>
+            <h4 data-lang-block="en">Lines of business</h4>
+            <ul>
+              <li data-lang-block="zh">公共候车亭与广告灯箱</li>
+              <li data-lang-block="en">Bus shelters & light boxes</li>
+              <li data-lang-block="zh">钢结构装修装饰工程</li>
+              <li data-lang-block="en">Steel structure & decoration</li>
+              <li data-lang-block="zh">精密金属 OEM / ODM</li>
+              <li data-lang-block="en">Precision metal OEM / ODM</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span data-lang-block="zh">© 2025 广州华盛金属材料有限公司 版权所有</span>
+          <span data-lang-block="en">© 2025 Guangzhou HuaSheng Metal Materials Co., Ltd. All Rights Reserved.</span>
+          <span data-lang-block="zh">粤 ICP 备 XXXXXXXX 号</span>
+          <span data-lang-block="en">ICP Filing No. XXXXXXXX</span>
+        </div>
+      </div>
+    </footer>
   </div>
 
-  <script>
-    const html = document.documentElement;
-    const params = new URLSearchParams(location.search);
-    const initialLang = params.get('lang') === 'en' ? 'en' : 'zh';
-    function setLang(lang) {
-      html.dataset.lang = lang;
-      html.lang = lang === 'en' ? 'en' : 'zh-CN';
-      document.querySelectorAll('[data-lang-set]').forEach((button) => {
-        button.classList.toggle('is-active', button.dataset.langSet === lang);
-      });
-      const url = new URL(location.href);
-      if (lang === 'en') url.searchParams.set('lang', 'en');
-      else url.searchParams.delete('lang');
-      history.replaceState(null, '', url);
-      document.querySelectorAll('[data-site-home]').forEach((link) => {
-        link.href = lang === 'en' ? '/en/' : '/zh/';
-      });
-      document.querySelectorAll('[data-blog-home]').forEach((link) => {
-        link.href = lang === 'en' ? '/blog/?lang=en' : '/blog/';
-      });
-    }
-    document.querySelectorAll('[data-lang-set]').forEach((button) => {
-      button.addEventListener('click', () => setLang(button.dataset.langSet));
-    });
-    setLang(initialLang);
-  </script>
+  <script src="/blog/blog-shell.js?v=huasheng-site-20260601-blog3"></script>
 </body>
 </html>
