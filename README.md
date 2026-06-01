@@ -23,5 +23,7 @@ For a new corporate page:
 
 1. Add the page module under `/pages/`.
 2. Register the route in `/app.jsx`.
-3. Add any direct route fallback in `/_redirects`.
-4. Keep language-scoped links under `/en/...` and `/zh/...`; legacy unprefixed paths redirect to `/en/...`.
+3. Rebuild the browser-ready files in `/compiled/`:
+   `npx -y esbuild@0.25.12 ui.jsx pages/*.jsx app.jsx --outbase=. --outdir=compiled --format=iife --jsx-factory=React.createElement --jsx-fragment=React.Fragment --target=es2017`
+4. Add any direct route fallback in `/_redirects`.
+5. Keep language-scoped links under `/en/...` and `/zh/...`; legacy unprefixed paths redirect to `/en/...`.

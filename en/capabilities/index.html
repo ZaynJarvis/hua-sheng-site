@@ -28,25 +28,24 @@
     // (no-op — reveal animation is additive polish only)
   </script>
 
-  <!-- React + Babel -->
+  <!-- React runtime -->
   <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <!-- Content (plain JS — sets window.HS_CONTENT) -->
   <script src="content.js?v=huasheng-site-20260601"></script>
 
   <!-- Shared UI primitives + pages -->
-  <script type="text/babel" src="ui.jsx?v=huasheng-site-20260601"></script>
-  <script type="text/babel" src="pages/home.jsx?v=huasheng-site-20260601"></script>
-  <script type="text/babel" src="pages/about.jsx?v=huasheng-site-20260601"></script>
-  <script type="text/babel" src="pages/capabilities.jsx?v=huasheng-site-20260601"></script>
-  <script type="text/babel" src="pages/cases.jsx?v=huasheng-site-20260601"></script>
-  <script type="text/babel" src="pages/quality.jsx?v=huasheng-site-20260601"></script>
-  <script type="text/babel" src="pages/contact.jsx?v=huasheng-site-20260601"></script>
+  <script src="compiled/ui.js?v=huasheng-site-20260601-runtime2"></script>
+  <script src="compiled/pages/home.js?v=huasheng-site-20260601-runtime2"></script>
+  <script src="compiled/pages/about.js?v=huasheng-site-20260601-runtime2"></script>
+  <script src="compiled/pages/capabilities.js?v=huasheng-site-20260601-runtime2"></script>
+  <script src="compiled/pages/cases.js?v=huasheng-site-20260601-runtime2"></script>
+  <script src="compiled/pages/quality.js?v=huasheng-site-20260601-runtime2"></script>
+  <script src="compiled/pages/contact.js?v=huasheng-site-20260601-runtime2"></script>
 
   <!-- App shell (mounts) -->
-  <script type="text/babel" src="app.jsx?v=huasheng-site-20260601" data-presets="env,react"></script>
-  <script type="text/babel">window.__startApp && window.__startApp();</script>
+  <script src="compiled/app.js?v=huasheng-site-20260601-runtime2"></script>
+  <script>window.__startApp && window.__startApp();</script>
 </body>
 </html>

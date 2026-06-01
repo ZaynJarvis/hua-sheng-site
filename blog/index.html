@@ -19,7 +19,7 @@
             <span data-lang-block="en">Corporate site</span>
           </a>
           <div class="blog-lang" aria-label="Language">
-            <button type="button" class="is-active" data-lang-set="zh">中文</button>
+            <button type="button" class="is-active" data-lang-set="zh">ZH</button>
             <button type="button" data-lang-set="en">EN</button>
           </div>
         </nav>
@@ -43,13 +43,15 @@
       </section>
 
       <section class="post-list" aria-label="Posts">
-        <a class="post-card" href="/blog/ai-application-meeting/">
+        <a class="post-card" data-post-link href="/blog/ai-application-meeting/">
           <div class="post-card__body">
             <div>
               <div class="post-meta">
                 <span class="post-pill red">2026.05.27</span>
-                <span class="post-pill">AI 应用专项会议</span>
-                <span class="post-pill">群组管理</span>
+                <span class="post-pill" data-lang-block="zh">AI 应用专项会议</span>
+                <span class="post-pill" data-lang-block="en">AI Application Meeting</span>
+                <span class="post-pill" data-lang-block="zh">群组管理</span>
+                <span class="post-pill" data-lang-block="en">Group Operations</span>
               </div>
               <h2 data-lang-block="zh">借力 AI 提效赋能，深耕服务聚力前行</h2>
               <h2 data-lang-block="en">Leveraging AI for Efficiency, Deepening Service for Growth</h2>
@@ -83,6 +85,9 @@
       history.replaceState(null, '', url);
       const siteHome = document.querySelector('[data-site-home]');
       if (siteHome) siteHome.href = lang === 'en' ? '/en/' : '/zh/';
+      document.querySelectorAll('[data-post-link]').forEach((link) => {
+        link.href = lang === 'en' ? '/blog/ai-application-meeting/?lang=en' : '/blog/ai-application-meeting/';
+      });
     }
     document.querySelectorAll('[data-lang-set]').forEach((button) => {
       button.addEventListener('click', () => setLang(button.dataset.langSet));
