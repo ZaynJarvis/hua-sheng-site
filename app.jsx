@@ -2,9 +2,7 @@
 // Pages are registered onto window.HS_PAGES by their individual files.
 
 const { useState, useEffect, useRef, useMemo, useCallback } = React;
-const { TweaksPanel, TweakSection, TweakRadio, useTweaks: useTweaksHook } = window;
-
-const ROUTE_PATHS = {
+const BASE_ROUTE_PATHS = {
   home: "/",
   about: "/about",
   capabilities: "/capabilities",
@@ -13,12 +11,46 @@ const ROUTE_PATHS = {
   contact: "/contact",
 };
 
+const LANG_PREFIX = {
+  en: "/en",
+  cn: "/zh",
+};
+
+function normalizePath(pathname) {
+  if (!pathname || pathname === "/") return "/";
+  return pathname.replace(/\/+$/, "") || "/";
+}
+
+function routePath(route, lang) {
+  const prefix = LANG_PREFIX[lang] || LANG_PREFIX.en;
+  const path = BASE_ROUTE_PATHS[route] || "/";
+  if (path === "/") return `${prefix}/`;
+  return `${prefix}${path}`;
+}
+
+function parseLocation(pathname) {
+  const normalized = normalizePath(pathname);
+  const parts = normalized.split("/").filter(Boolean);
+  let lang = "en";
+  let path = normalized;
+  let hasLanguagePrefix = false;
+
+  if (parts[0] === "zh" || parts[0] === "en") {
+    lang = parts[0] === "zh" ? "cn" : "en";
+    hasLanguagePrefix = true;
+    path = `/${parts.slice(1).join("/")}`;
+    if (path === "/") path = "/";
+    path = normalizePath(path);
+  }
+
+  const found = Object.entries(BASE_ROUTE_PATHS).find(([, routeBasePath]) => routeBasePath === path);
+  if (found) return { route: found[0], lang, hasLanguagePrefix };
+  if (path === "/cases") return { route: "cases", lang, hasLanguagePrefix };
+  return { route: "home", lang, hasLanguagePrefix };
+}
+
 function routeFromPath(pathname) {
-  const normalized = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
-  const found = Object.entries(ROUTE_PATHS).find(([, path]) => path === normalized);
-  if (found) return found[0];
-  if (normalized === "/cases") return "cases";
-  return "home";
+  return parseLocation(pathname).route;
 }
 
 // ---------- Reveal-on-scroll hook ----------
@@ -66,7 +98,7 @@ function useReveal() {
 }
 
 // ---------- Header ----------
-function Header({ route, setRoute, lang, setLang, theme, t, openMenu, setOpenMenu }) {
+function Header({ route, setRoute, lang, setLang, t, openMenu, setOpenMenu }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -76,13 +108,13 @@ function Header({ route, setRoute, lang, setLang, theme, t, openMenu, setOpenMen
   }, []);
 
   const nav = [
-    { id: "home", label: t.nav.home },
-    { id: "about", label: t.nav.about },
-    { id: "capabilities", label: t.nav.capabilities },
-    { id: "cases", label: t.nav.cases },
-    { id: "quality", label: t.nav.quality },
-    { id: "blog", label: t.nav.blog || "Blog", href: "/blog/" },
-    { id: "contact", label: t.nav.contact },
+    { id: "home", label: t.nav.home, href: routePath("home", lang) },
+    { id: "about", label: t.nav.about, href: routePath("about", lang) },
+    { id: "capabilities", label: t.nav.capabilities, href: routePath("capabilities", lang) },
+    { id: "cases", label: t.nav.cases, href: routePath("cases", lang) },
+    { id: "quality", label: t.nav.quality, href: routePath("quality", lang) },
+    { id: "blog", label: t.nav.blog || "Blog", href: lang === "cn" ? "/blog/" : "/blog/?lang=en", external: true },
+    { id: "contact", label: t.nav.contact, href: routePath("contact", lang) },
   ];
 
   const go = (id) => {
@@ -95,7 +127,7 @@ function Header({ route, setRoute, lang, setLang, theme, t, openMenu, setOpenMen
     <React.Fragment>
       <header className={"site-header" + (scrolled ? " scrolled" : "")}>
         <div className="container-wide nav-inner">
-          <a className="brand" href="#" onClick={(e) => { e.preventDefault(); go("home"); }} data-comment-anchor="brand">
+          <a className="brand" href={routePath("home", lang)} onClick={(e) => { e.preventDefault(); go("home"); }} data-comment-anchor="brand">
             <span className="brand-mark"><img src="assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
             <span className="brand-text">
               <span className="a">{t.brand.short}</span>
@@ -107,9 +139,9 @@ function Header({ route, setRoute, lang, setLang, theme, t, openMenu, setOpenMen
             {nav.map((n) => (
               <a key={n.id}
                  className={"nav-link" + (route === n.id ? " active" : "")}
-                 href={n.href || "#"}
+                 href={n.href}
                  onClick={(e) => {
-                   if (n.href) return;
+                   if (n.external) return;
                    e.preventDefault();
                    go(n.id);
                  }}>
@@ -120,10 +152,10 @@ function Header({ route, setRoute, lang, setLang, theme, t, openMenu, setOpenMen
 
           <div className="nav-actions">
             <div className="lang-switch" role="tablist" aria-label="Language">
-              <button className={lang === "cn" ? "on" : ""} onClick={() => setLang("cn")}>中</button>
-              <button className={lang === "en" ? "on" : ""} onClick={() => setLang("en")}>EN</button>
+              <button className={lang === "cn" ? "on" : ""} onClick={() => setLang("cn")} aria-pressed={lang === "cn"}>中文</button>
+              <button className={lang === "en" ? "on" : ""} onClick={() => setLang("en")} aria-pressed={lang === "en"}>EN</button>
             </div>
-            <a className="btn btn-primary" href="#" onClick={(e) => { e.preventDefault(); go("contact"); }}>
+            <a className="btn btn-primary" href={routePath("contact", lang)} onClick={(e) => { e.preventDefault(); go("contact"); }}>
               {t.nav.cta} <span aria-hidden="true">→</span>
             </a>
             <button className="menu-btn" aria-label="Menu" onClick={() => setOpenMenu(!openMenu)}>
@@ -140,9 +172,9 @@ function Header({ route, setRoute, lang, setLang, theme, t, openMenu, setOpenMen
         {nav.map((n) => (
           <a key={n.id}
              className={"nav-link" + (route === n.id ? " active" : "")}
-             href={n.href || "#"}
+             href={n.href}
              onClick={(e) => {
-               if (n.href) return;
+               if (n.external) return;
                e.preventDefault();
                go(n.id);
              }}>
@@ -150,13 +182,13 @@ function Header({ route, setRoute, lang, setLang, theme, t, openMenu, setOpenMen
           </a>
         ))}
         <div className="mobile-actions">
-          <a className="btn btn-primary" href="#" onClick={(e) => { e.preventDefault(); go("contact"); }}>
+          <a className="btn btn-primary" href={routePath("contact", lang)} onClick={(e) => { e.preventDefault(); go("contact"); }}>
             {t.nav.cta} →
           </a>
           <div className="row" style={{ justifyContent: "center" }}>
             <div className="lang-switch">
-              <button className={lang === "cn" ? "on" : ""} onClick={() => setLang("cn")}>中文</button>
-              <button className={lang === "en" ? "on" : ""} onClick={() => setLang("en")}>English</button>
+              <button className={lang === "cn" ? "on" : ""} onClick={() => setLang("cn")} aria-pressed={lang === "cn"}>中文</button>
+              <button className={lang === "en" ? "on" : ""} onClick={() => setLang("en")} aria-pressed={lang === "en"}>English</button>
             </div>
           </div>
         </div>
@@ -173,7 +205,7 @@ function Footer({ lang, t, setRoute }) {
       <div className="container-wide">
         <div className="footer-grid">
           <div className="footer-col brand-col">
-            <a className="brand" href="#" onClick={(e) => { e.preventDefault(); go("home"); }} style={{ marginBottom: 20 }}>
+            <a className="brand" href={routePath("home", lang)} onClick={(e) => { e.preventDefault(); go("home"); }} style={{ marginBottom: 20 }}>
               <span className="brand-mark"><img src="assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
               <span className="brand-text">
                 <span className="a">{t.brand.short}</span>
@@ -185,13 +217,13 @@ function Footer({ lang, t, setRoute }) {
           <div className="footer-col">
             <h4>{lang === "cn" ? "网站地图" : "Sitemap"}</h4>
             <ul>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); go("home"); }}>{t.nav.home}</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); go("about"); }}>{t.nav.about}</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); go("capabilities"); }}>{t.nav.capabilities}</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); go("cases"); }}>{t.nav.cases}</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); go("quality"); }}>{t.nav.quality}</a></li>
-              <li><a href="/blog/">{t.nav.blog || "Blog"}</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); go("contact"); }}>{t.nav.contact}</a></li>
+              <li><a href={routePath("home", lang)} onClick={(e) => { e.preventDefault(); go("home"); }}>{t.nav.home}</a></li>
+              <li><a href={routePath("about", lang)} onClick={(e) => { e.preventDefault(); go("about"); }}>{t.nav.about}</a></li>
+              <li><a href={routePath("capabilities", lang)} onClick={(e) => { e.preventDefault(); go("capabilities"); }}>{t.nav.capabilities}</a></li>
+              <li><a href={routePath("cases", lang)} onClick={(e) => { e.preventDefault(); go("cases"); }}>{t.nav.cases}</a></li>
+              <li><a href={routePath("quality", lang)} onClick={(e) => { e.preventDefault(); go("quality"); }}>{t.nav.quality}</a></li>
+              <li><a href={lang === "cn" ? "/blog/" : "/blog/?lang=en"}>{t.nav.blog || "Blog"}</a></li>
+              <li><a href={routePath("contact", lang)} onClick={(e) => { e.preventDefault(); go("contact"); }}>{t.nav.contact}</a></li>
             </ul>
           </div>
           <div className="footer-col">
@@ -223,31 +255,6 @@ function Footer({ lang, t, setRoute }) {
   );
 }
 
-// ---------- Tweaks ----------
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "theme": "clarity",
-  "lang": "en",
-  "accent": "default"
-}/*EDITMODE-END*/;
-
-function HSTweaksPanel({ tweaks, setTweak }) {
-  return (
-      <TweaksPanel title={tweaks.lang === "en" ? "Tweaks" : "Tweaks · 调节"}>
-      <window.TweakSection title={tweaks.lang === "en" ? "Language" : "语言"}>
-        <window.TweakRadio
-          label={tweaks.lang === "en" ? "Language" : "语言"}
-          options={[
-            { value: "cn", label: "中文" },
-            { value: "en", label: "English" },
-          ]}
-          value={tweaks.lang}
-          onChange={(v) => setTweak("lang", v)}
-        />
-      </window.TweakSection>
-      </TweaksPanel>
-  );
-}
-
 // ---------- Page wrapper for reveal ----------
 function PageHost({ routeKey, children }) {
   useReveal();
@@ -256,24 +263,49 @@ function PageHost({ routeKey, children }) {
 
 // ---------- App ----------
 function App() {
-  const [values, setTweak] = useTweaksHook ? useTweaksHook(TWEAK_DEFAULTS) : [TWEAK_DEFAULTS, () => {}];
-
-  const [route, setRouteState] = useState(() => routeFromPath(window.location.pathname));
+  const initialLocation = parseLocation(window.location.pathname);
+  const [route, setRouteState] = useState(initialLocation.route);
+  const [lang, setLangState] = useState(initialLocation.lang);
   const [openMenu, setOpenMenu] = useState(false);
-  const lang = values.lang || "cn";
-  const theme = values.theme || "heritage";
+  const theme = "clarity";
 
-  const setRoute = useCallback((id) => {
-    const next = ROUTE_PATHS[id] || "/";
+  const setRoute = useCallback((id, nextLang = lang) => {
+    const next = routePath(id, nextLang);
     if (window.location.pathname !== next) {
-      window.history.pushState({ route: id }, "", next);
+      window.history.pushState({ route: id, lang: nextLang }, "", next);
     }
     setRouteState(id);
+    setLangState(nextLang);
     window.scrollTo({ top: 0, behavior: "instant" });
+  }, [lang]);
+
+  const setLang = useCallback((nextLang) => {
+    const next = routePath(route, nextLang);
+    if (window.location.pathname !== next) {
+      window.history.pushState({ route, lang: nextLang }, "", next);
+    }
+    setLangState(nextLang);
+    setOpenMenu(false);
+  }, [route]);
+
+  useEffect(() => {
+    const parsed = parseLocation(window.location.pathname);
+    if (!parsed.hasLanguagePrefix) {
+      window.history.replaceState(
+        { route: parsed.route, lang: parsed.lang },
+        "",
+        routePath(parsed.route, parsed.lang)
+      );
+    }
   }, []);
 
   useEffect(() => {
-    const onPopState = () => setRouteState(routeFromPath(window.location.pathname));
+    const onPopState = () => {
+      const parsed = parseLocation(window.location.pathname);
+      setRouteState(parsed.route);
+      setLangState(parsed.lang);
+      setOpenMenu(false);
+    };
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
@@ -287,20 +319,16 @@ function App() {
 
   const t = (window.HS_CONTENT || {})[lang] || {};
 
-  // Allow language to be controlled from header too
-  const setLang = (l) => setTweak("lang", l);
-
   const Page = (window.HS_PAGES || {})[route];
 
   return (
     <React.Fragment>
-      <Header route={route} setRoute={setRoute} lang={lang} setLang={setLang} theme={theme} t={t}
+      <Header route={route} setRoute={setRoute} lang={lang} setLang={setLang} t={t}
               openMenu={openMenu} setOpenMenu={setOpenMenu} />
       <PageHost key={route + ":" + lang + ":" + theme}>
         {Page ? <Page t={t} lang={lang} setRoute={setRoute} /> : <div style={{ padding: 200, textAlign: "center" }}>Loading…</div>}
       </PageHost>
       <Footer lang={lang} t={t} setRoute={setRoute} />
-      <HSTweaksPanel tweaks={values} setTweak={setTweak} />
     </React.Fragment>
   );
 }

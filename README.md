@@ -4,7 +4,8 @@ Static Cloudflare Pages version of the Huasheng corporate website and blog.
 
 ## Structure
 
-- `/` corporate website
+- `/en/` English corporate website root
+- `/zh/` Chinese corporate website root
 - `/blog/` blog index
 - `/blog/ai-application-meeting/` first blog post
 - `/blog/assets/` blog media
@@ -23,3 +24,4 @@ For a new corporate page:
 1. Add the page module under `/pages/`.
 2. Register the route in `/app.jsx`.
 3. Add any direct route fallback in `/_redirects`.
+4. Keep language-scoped links under `/en/...` and `/zh/...`; legacy unprefixed paths redirect to `/en/...`.

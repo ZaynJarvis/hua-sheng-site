@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hua-sheng.org/</loc>
+    <loc>https://hua-sheng.org/en/</loc>
   </url>
   <url>
-    <loc>https://hua-sheng.org/about</loc>
+    <loc>https://hua-sheng.org/en/about</loc>
   </url>
   <url>
-    <loc>https://hua-sheng.org/capabilities</loc>
+    <loc>https://hua-sheng.org/en/capabilities</loc>
   </url>
   <url>
-    <loc>https://hua-sheng.org/projects</loc>
+    <loc>https://hua-sheng.org/en/projects</loc>
   </url>
   <url>
-    <loc>https://hua-sheng.org/quality</loc>
+    <loc>https://hua-sheng.org/en/quality</loc>
   </url>
   <url>
-    <loc>https://hua-sheng.org/contact</loc>
+    <loc>https://hua-sheng.org/en/contact</loc>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/zh/</loc>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/zh/about</loc>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/zh/capabilities</loc>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/zh/projects</loc>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/zh/quality</loc>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/zh/contact</loc>
   </url>
   <url>
     <loc>https://hua-sheng.org/blog/</loc>

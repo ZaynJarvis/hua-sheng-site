@@ -19,8 +19,14 @@
       <div class="blog-topbar__inner">
         <a class="blog-brand" href="/blog/">HUASHENG <span>// Blog</span></a>
         <nav class="blog-nav">
-          <a href="/">官网</a>
-          <a href="/blog/">全部文章</a>
+          <a data-site-home href="/zh/">
+            <span data-lang-block="zh">官网</span>
+            <span data-lang-block="en">Corporate site</span>
+          </a>
+          <a data-blog-home href="/blog/">
+            <span data-lang-block="zh">全部文章</span>
+            <span data-lang-block="en">All posts</span>
+          </a>
           <div class="blog-lang" aria-label="Language">
             <button type="button" class="is-active" data-lang-set="zh">中文</button>
             <button type="button" data-lang-set="en">EN</button>
@@ -193,8 +199,8 @@
           </div>
           <div class="side-card">
             <b>Links</b>
-            <a href="/blog/">All posts</a>
-            <a href="/">Huasheng website</a>
+            <a data-blog-home href="/blog/">All posts</a>
+            <a data-site-home href="/zh/">Huasheng website</a>
           </div>
         </aside>
       </div>
@@ -215,6 +221,12 @@
       if (lang === 'en') url.searchParams.set('lang', 'en');
       else url.searchParams.delete('lang');
       history.replaceState(null, '', url);
+      document.querySelectorAll('[data-site-home]').forEach((link) => {
+        link.href = lang === 'en' ? '/en/' : '/zh/';
+      });
+      document.querySelectorAll('[data-blog-home]').forEach((link) => {
+        link.href = lang === 'en' ? '/blog/?lang=en' : '/blog/';
+      });
     }
     document.querySelectorAll('[data-lang-set]').forEach((button) => {
       button.addEventListener('click', () => setLang(button.dataset.langSet));
