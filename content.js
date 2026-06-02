@@ -192,7 +192,7 @@ window.HS_CONTENT = {
         items: [
           { tag: "北京", title: "智能 LED 公交线路指示牌", body: "高亮 LED 屏、远程更新、节能组件和全天候结构，让线路信息在高峰与夜间都清晰可见。" },
           { tag: "上海", title: "智能候车亭项目", body: "高强度钢结构、耐候材料、模块化安装、曲面排水顶棚和集成照明，提升城市候车体验。" },
-          { tag: "广州", title: "花城书屋、木棉亭与南沙项目", body: "以城市文化为设计线索，结合公共服务、信息服务、照明、Wi-Fi、共享充电和自助售卖功能。" },
+          { tag: "广州", title: "花城书屋、木棉亭与南沙项目", body: "以城市文化为设计线索，其中南沙项目包含何镜堂院士设计背书，并结合公共服务、信息服务、照明、Wi-Fi、共享充电和自助售卖功能。" },
           { tag: "深圳", title: "前海与福田智慧候车亭", body: "集成导视屏、触控查询、夜间照明和开放式结构，让候车亭成为城市数字入口。" },
           { tag: "无锡 / 西安 / 重庆", title: "运河城市与 LCD 智能候车亭", body: "将不锈钢结构、镜面细节、USB 充电、智能售卖和高分辨率信息屏结合到日常通勤场景。" },
           { tag: "中东", title: "利雅得、达曼、麦加与卡塔尔项目", body: "面向高温、强日照和本地文化语境，提供遮阳、通风、预制构件、海外物流和现场安装支持。" },
@@ -553,7 +553,7 @@ window.HS_CONTENT = {
         items: [
           { tag: "Beijing", title: "Smart LED bus route signs", body: "High-brightness LED display, remote updates, energy-saving components and all-weather structure for clear route information day and night." },
           { tag: "Shanghai", title: "Smart bus shelter project", body: "High-strength steel, weather-resistant materials, modular installation, curved drainage canopy and integrated lighting for better waiting experiences." },
-          { tag: "Guangzhou", title: "Huacheng Book House, Kapok kiosks and Nansha shelters", body: "Cultural design language with public service, information service, lighting, Wi-Fi, shared power banks and self-service vending." },
+          { tag: "Guangzhou", title: "Huacheng Book House, Kapok kiosks and Nansha shelters", body: "Cultural design language with the Nansha project carrying design credibility from Academician He Jingtang, plus public service, information service, lighting, Wi-Fi, shared power banks and self-service vending." },
           { tag: "Shenzhen", title: "Qianhai and Futian smart shelters", body: "Wayfinding screens, touch interaction, evening lighting and open structures that turn bus stops into digital gateways." },
           { tag: "Wuxi / Xi'an / Chongqing", title: "Canal-city and LCD smart shelters", body: "Stainless structures, mirror-finish details, USB charging, vending integration and high-resolution information displays." },
           { tag: "Middle East", title: "Riyadh, Dammam, Mecca and Qatar projects", body: "Shade, ventilation, prefabricated units, overseas logistics and on-site support for high-heat environments and local architectural language." },
