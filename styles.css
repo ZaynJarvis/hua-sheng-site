@@ -96,6 +96,9 @@ body[data-theme="clarity"] {
 .display-xl  { font-family: var(--font-display); font-size: clamp(36px, 5.6vw, 72px); line-height: 1.05; letter-spacing: -0.015em; font-weight: 500; }
 .display-l   { font-family: var(--font-display); font-size: clamp(28px, 3.6vw, 48px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 500; }
 .display-m   { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 32px); line-height: 1.18; letter-spacing: -0.005em; font-weight: 500; }
+.display-xl,
+.display-l,
+.display-m { overflow-wrap: anywhere; }
 body[data-theme="clarity"] .display-xxl,
 body[data-theme="clarity"] .display-xl,
 body[data-theme="clarity"] .display-l,
@@ -693,11 +696,61 @@ body[data-lang="cn"] .resource-tag {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 56px;
   align-items: end;
+  min-width: 0;
 }
-.page-hero-text { display: flex; flex-direction: column; gap: 18px; }
-.page-hero-text .display-xl { margin: 8px 0 0; }
+.page-hero-grid > * { min-width: 0; }
+.page-hero-text { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.page-hero-text .display-xl { margin: 8px 0 0; max-width: 100%; }
 .page-hero-media .imgslot { aspect-ratio: 4 / 3; border-radius: var(--r-lg); }
 @media (max-width: 900px) { .page-hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 600px) {
+  .container,
+  .container-wide {
+    width: calc(100vw - 56px);
+    max-width: calc(100vw - 56px);
+    padding-left: 0;
+    padding-right: 0;
+    overflow: visible;
+  }
+  .site-header .container {
+    width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+  }
+  .page-hero-grid,
+  .story-grid {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+  .page-hero-media,
+  .story-paragraphs {
+    margin-top: 36px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .page-hero-media .imgslot,
+  .section-head,
+  .about-card-grid,
+  .group-grid,
+  .timeline {
+    width: 100%;
+    max-width: 100%;
+  }
+  .lede,
+  .story-paragraphs p,
+  .about-card p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .page-hero-text .display-xl,
+  .story-grid .display-l,
+  .section-head .display-l {
+    font-size: 30px;
+    line-height: 1.14;
+    letter-spacing: 0;
+    word-break: break-all;
+  }
+}
 
 /* =============================================================
    About — milestone timeline + story
@@ -768,6 +821,58 @@ body[data-theme="clarity"] .tl-year { font-weight: 700; letter-spacing: -0.04em;
 }
 .group-row:hover { background: var(--bg-elev); }
 @media (max-width: 780px) { .group-grid { grid-template-columns: 1fr; } }
+
+.about-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.container-wide .about-card-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.about-card {
+  min-height: 190px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.03), transparent 38%),
+    var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.about-card .tag {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-elev);
+}
+.about-card h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.about-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.68;
+  font-size: 15px;
+}
+@media (max-width: 1000px) {
+  .container-wide .about-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .about-card-grid,
+  .container-wide .about-card-grid { grid-template-columns: 1fr; }
+  .about-card { min-height: auto; padding: 24px; }
+}
 
 .mission-block {
   padding: 64px;

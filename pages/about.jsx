@@ -5,6 +5,18 @@
   function About({ t, lang, setRoute }) {
     const a = t.about;
     const go = (id) => { setRoute(id); window.scrollTo({ top: 0, behavior: "instant" }); };
+    const renderCards = (items) => (
+      <div className="about-card-grid reveal">
+        {items.map((item, i) => (
+          <article className="about-card" key={i}>
+            {item.tag && <div className="tag">{item.tag}</div>}
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))}
+      </div>
+    );
+
     return (
       <React.Fragment>
         {/* Hero */}
@@ -71,6 +83,42 @@
           </div>
         </section>
 
+        {a.business && (
+          <section>
+            <div className="container">
+              <SectionHead eyebrow={a.business.eyebrow} title={a.business.title} lede={a.business.sub} />
+              {renderCards(a.business.items)}
+            </div>
+          </section>
+        )}
+
+        {a.clients && (
+          <section>
+            <div className="container">
+              <SectionHead eyebrow={a.clients.eyebrow} title={a.clients.title} lede={a.clients.sub} />
+              {renderCards(a.clients.items)}
+            </div>
+          </section>
+        )}
+
+        {a.projects && (
+          <section>
+            <div className="container-wide">
+              <SectionHead eyebrow={a.projects.eyebrow} title={a.projects.title} lede={a.projects.sub} />
+              {renderCards(a.projects.items)}
+            </div>
+          </section>
+        )}
+
+        {a.technology && (
+          <section>
+            <div className="container">
+              <SectionHead eyebrow={a.technology.eyebrow} title={a.technology.title} lede={a.technology.sub} />
+              {renderCards(a.technology.items)}
+            </div>
+          </section>
+        )}
+
         {/* Mission */}
         <section>
           <div className="container">
@@ -84,9 +132,18 @@
           </div>
         </section>
 
+        {a.values && (
+          <section>
+            <div className="container">
+              <SectionHead eyebrow={a.values.eyebrow} title={a.values.title} />
+              {renderCards(a.values.items)}
+            </div>
+          </section>
+        )}
+
         <CTABlock
           title={lang === "cn" ? "想看看我们造过什么？" : "Want to see what we have built?"}
-          sub={lang === "cn" ? "三十年里，国内外四十多个国家落地的金属项目。" : "Three decades of metal projects across 40+ countries."}
+          sub={lang === "cn" ? "三十六年里，华盛的公共设施、城市家具与金属制造项目已服务 100+ 城市和地区。" : "Thirty-six years of public facilities, urban furniture and metal manufacturing projects across 100+ cities and regions."}
           btn={lang === "cn" ? "浏览项目案例" : "Browse the projects"}
           onClick={() => go("cases")}
         />
