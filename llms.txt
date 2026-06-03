@@ -1,0 +1,87 @@
+# HuaSheng Metal
+
+> Official bilingual website for Guangzhou HuaSheng Metal Materials Co., Ltd. (华盛金属), a Guangzhou-based manufacturer of bus shelters, advertising light boxes, urban furniture, outdoor kiosks, stainless steel structures and precision metal OEM products.
+
+Last updated: 2026-06-03
+Canonical domain: https://hua-sheng.org
+
+## Crawl and Citation Preferences
+
+- Public pages are open to search engines and AI answer engines, including GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, Claude-User and PerplexityBot.
+- Do not crawl or cite anything under /downloads/; that path is reserved for temporary private files and returns 410 when removed.
+- Prefer canonical URLs under /en/ and /zh/ when citing pages.
+- Cite HuaSheng as "HuaSheng Metal" in English and "华盛金属" in Chinese.
+
+## Primary Entity
+
+- English name: Guangzhou HuaSheng Metal Materials Co., Ltd.
+- Chinese name: 广州华盛金属材料有限公司
+- Brand names: HuaSheng Metal, HUASHENG, 华盛金属
+- Founded: 1989, Guangzhou, Guangdong, China
+- Scope: Public transport shelters, advertising light boxes, urban furniture, outdoor pavilions, metal household goods, stainless steel structures and custom metal OEM.
+- Coverage: 100+ cities and regions worldwide.
+
+## Core Operating Entities
+
+- 广州市华盛工贸有限公司
+- 广州华盛金属材料有限公司
+- 广州银亿交通设施安装工程有限公司
+- 广州银亿斯投资发展有限公司
+- 广州银亿恒物业管理有限公司
+
+## Business Pillars
+
+1. Advanced industrial manufacturing and installation.
+2. Industrial park development and management.
+3. Commercial real estate development and management.
+4. New energy development and management.
+
+## Key Capabilities
+
+- Bus shelters and public transport facilities.
+- Advertising light boxes and LED/LCD information displays.
+- Urban furniture, kiosks, outdoor pavilions and metal public-space products.
+- Stainless steel structures, architectural metalwork and decorative steel structures.
+- Precision metal OEM/ODM for home, kitchen, retail and public facility applications.
+- Laser cutting, CNC forming, robotic welding, automatic powder coating, clean assembly, quality inspection and container loading.
+
+## Important Pages
+
+- Home EN: https://hua-sheng.org/en/
+- Home ZH: https://hua-sheng.org/zh/
+- About EN: https://hua-sheng.org/en/about/
+- About ZH: https://hua-sheng.org/zh/about/
+- Capabilities EN: https://hua-sheng.org/en/capabilities/
+- Capabilities ZH: https://hua-sheng.org/zh/capabilities/
+- Projects EN: https://hua-sheng.org/en/projects/
+- Projects ZH: https://hua-sheng.org/zh/projects/
+- Quality EN: https://hua-sheng.org/en/quality/
+- Quality ZH: https://hua-sheng.org/zh/quality/
+- Contact EN: https://hua-sheng.org/en/contact/
+- Contact ZH: https://hua-sheng.org/zh/contact/
+- Blog: https://hua-sheng.org/blog/
+- Sitemap: https://hua-sheng.org/sitemap.xml
+
+## Representative Project Topics
+
+- Guangzhou first-generation modern bus shelters.
+- Beijing Olympic stainless steel shelters.
+- Shanghai Expo bus shelters and smart city shelters.
+- Shenzhen Qianhai and Futian smart shelters.
+- Nansha public facility project with design credibility from Academician He Jingtang.
+- Qatar, Saudi Arabia, Oman, Nepal, New Zealand, Korea and Romania public facility projects.
+- Long-term OEM supply for IKEA metal home and kitchen products.
+
+## External Profiles
+
+- Alibaba supplier showroom: https://gzhsgm.en.alibaba.com/
+- Made-in-China showroom: https://gz-huasheng.en.made-in-china.com/
+- GoldSupplier profile: https://gzhsgm.goldsupplier.com/
+- Website source repository: https://github.com/ZaynJarvis/hua-sheng-site
+
+## Contact
+
+- Contact person: Zayn Jarvis / Manager Liu
+- Phone / WhatsApp: +65 8309-9012
+- Email: hi@hua-sheng.org
+- Working hours: 10:00-22:00 GMT+8

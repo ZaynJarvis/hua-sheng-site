@@ -1,14 +1,16 @@
+/sitemap /sitemap.xml 301
+/llm.txt /llms.txt 301
 / /en/ 302
 
 /en /en/ 301
 /zh /zh/ 301
 
-/about /en/about 301
-/capabilities /en/capabilities 301
-/cases /en/projects 301
-/projects /en/projects 301
-/quality /en/quality 301
-/contact /en/contact 301
+/about /en/about/ 301
+/capabilities /en/capabilities/ 301
+/cases /en/projects/ 301
+/projects /en/projects/ 301
+/quality /en/quality/ 301
+/contact /en/contact/ 301
 
 /blog /blog/ 301
 /blog/ai-application-meeting /blog/ai-application-meeting/ 301

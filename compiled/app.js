@@ -12,6 +12,69 @@
     en: "/en",
     cn: "/zh"
   };
+  const SITE_ORIGIN = "https://hua-sheng.org";
+  const SEO_META = {
+    home: {
+      en: {
+        title: "HuaSheng Metal | Bus Shelters, Light Boxes & Metal OEM Since 1989",
+        description: "HuaSheng Metal is a Guangzhou manufacturer of bus shelters, advertising light boxes, urban furniture, outdoor kiosks and precision metal OEM products serving 100+ cities and regions."
+      },
+      cn: {
+        title: "\u534E\u76DB\u91D1\u5C5E | \u5019\u8F66\u4EAD\u3001\u5E7F\u544A\u706F\u7BB1\u4E0E\u57CE\u5E02\u91D1\u5C5E\u8BBE\u65BD\u5236\u9020\u5546",
+        description: "\u534E\u76DB\u91D1\u5C5E\u59CB\u4E8E\u5E7F\u5DDE1989\u5E74\uFF0C\u5236\u9020\u516C\u5171\u4EA4\u901A\u5019\u8F66\u4EAD\u3001\u5E7F\u544A\u706F\u7BB1\u3001\u57CE\u5E02\u5BB6\u5177\u3001\u6237\u5916\u4EAD\u4F53\u4E0E\u7CBE\u5BC6\u91D1\u5C5EOEM\u4EA7\u54C1\uFF0C\u670D\u52A1\u5168\u7403100+\u57CE\u5E02\u548C\u5730\u533A\u3002"
+      }
+    },
+    about: {
+      en: {
+        title: "About HuaSheng | Guangzhou Manufacturer Founded in 1989",
+        description: "Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, smart city projects, manufacturing technology and quality values."
+      },
+      cn: {
+        title: "\u5173\u4E8E\u534E\u76DB | \u59CB\u4E8E1989\u5E74\u7684\u5E7F\u5DDE\u91D1\u5C5E\u5236\u9020\u4F01\u4E1A\u96C6\u56E2",
+        description: "\u4E86\u89E3\u534E\u76DB1989\u5E74\u521B\u7ACB\u3001\u4E94\u5BB6\u6838\u5FC3\u4E3B\u4F53\u3001\u56DB\u5927\u4E1A\u52A1\u677F\u5757\u3001\u5168\u7403\u5BA2\u6237\u3001\u57CE\u5E02\u9879\u76EE\u6848\u4F8B\u3001\u667A\u80FD\u5236\u9020\u80FD\u529B\u4E0E\u8D28\u91CF\u4EF7\u503C\u89C2\u3002"
+      }
+    },
+    capabilities: {
+      en: {
+        title: "Manufacturing Capabilities | 120,000 m2 Metal Fabrication Base",
+        description: "HuaSheng's production capability includes 120,000 m2 of plant area, five workshops, 297 precision machines, robotic welding, CNC forming and automated powder coating."
+      },
+      cn: {
+        title: "\u6838\u5FC3\u5236\u9020\u80FD\u529B | \u534E\u76DB120,000\u5E73\u65B9\u7C73\u91D1\u5C5E\u52A0\u5DE5\u57FA\u5730",
+        description: "\u534E\u76DB\u5236\u9020\u80FD\u529B\u8986\u76D6120,000\u5E73\u65B9\u7C73\u57FA\u5730\u3001\u4E94\u5927\u8F66\u95F4\u3001297\u53F0\u7CBE\u5BC6\u8BBE\u5907\u3001\u673A\u5668\u4EBA\u710A\u63A5\u3001CNC\u6210\u578B\u548C\u81EA\u52A8\u5316\u7C89\u672B\u55B7\u6D82\u751F\u4EA7\u7EBF\u3002"
+      }
+    },
+    cases: {
+      en: {
+        title: "Bus Shelter & Metal Project Cases | HuaSheng Metal",
+        description: "Explore HuaSheng bus shelter, smart transport, stainless steel, overseas public facility and OEM cases across Beijing, Shanghai, Guangzhou, Qatar, Nepal and more."
+      },
+      cn: {
+        title: "\u9879\u76EE\u6848\u4F8B | \u534E\u76DB\u5019\u8F66\u4EAD\u3001\u667A\u6167\u4EA4\u901A\u4E0E\u91D1\u5C5E\u516C\u5171\u8BBE\u65BD",
+        description: "\u67E5\u770B\u534E\u76DB\u5728\u5317\u4EAC\u3001\u4E0A\u6D77\u3001\u5E7F\u5DDE\u3001\u6DF1\u5733\u3001\u5361\u5854\u5C14\u3001\u6C99\u7279\u3001\u5C3C\u6CCA\u5C14\u7B49\u5730\u7684\u5019\u8F66\u4EAD\u3001\u667A\u6167\u4EA4\u901A\u3001\u91D1\u5C5E\u516C\u5171\u8BBE\u65BD\u548COEM\u9879\u76EE\u6848\u4F8B\u3002"
+      }
+    },
+    quality: {
+      en: {
+        title: "Quality & Certifications | ISO 9001, Patents and DMAIC Process",
+        description: "HuaSheng's quality system covers ISO 9001, bus shelter design patents, utility patents, IKEA supplier qualification and DMAIC-based quality control."
+      },
+      cn: {
+        title: "\u8D28\u91CF\u4E0E\u8BA4\u8BC1 | ISO 9001\u3001\u5019\u8F66\u4EAD\u4E13\u5229\u4E0EDMAIC\u6D41\u7A0B",
+        description: "\u534E\u76DB\u8D28\u91CF\u4F53\u7CFB\u8986\u76D6ISO 9001\u3001\u5019\u8F66\u4EAD\u5916\u89C2\u8BBE\u8BA1\u4E13\u5229\u3001\u7ED3\u6784\u5B9E\u7528\u65B0\u578B\u4E13\u5229\u3001IKEA\u4F9B\u5E94\u5546\u8D44\u683C\u548CDMAIC\u8D28\u91CF\u7BA1\u63A7\u6D41\u7A0B\u3002"
+      }
+    },
+    contact: {
+      en: {
+        title: "Contact HuaSheng Metal | Bus Shelter & Metal OEM Enquiries",
+        description: "Contact HuaSheng for bus shelter projects, advertising light boxes, steel structures, outdoor kiosks and long-term precision metal OEM manufacturing."
+      },
+      cn: {
+        title: "\u8054\u7CFB\u534E\u76DB | \u5019\u8F66\u4EAD\u3001\u5E7F\u544A\u706F\u7BB1\u4E0E\u91D1\u5C5EOEM\u9879\u76EE\u54A8\u8BE2",
+        description: "\u8054\u7CFB\u534E\u76DB\u54A8\u8BE2\u5019\u8F66\u4EAD\u3001\u5E7F\u544A\u706F\u7BB1\u3001\u94A2\u7ED3\u6784\u5DE5\u7A0B\u3001\u6237\u5916\u4EAD\u4F53\u3001\u57CE\u5E02\u5BB6\u5177\u548C\u957F\u671F\u7CBE\u5BC6\u91D1\u5C5EOEM\u5236\u9020\u5408\u4F5C\u3002"
+      }
+    }
+  };
   function normalizePath(pathname) {
     if (!pathname || pathname === "/") return "/";
     return pathname.replace(/\/+$/, "") || "/";
@@ -20,7 +83,7 @@
     const prefix = LANG_PREFIX[lang] || LANG_PREFIX.en;
     const path = BASE_ROUTE_PATHS[route] || "/";
     if (path === "/") return `${prefix}/`;
-    return `${prefix}${path}`;
+    return `${prefix}${path}/`;
   }
   function parseLocation(pathname) {
     const normalized = normalizePath(pathname);
@@ -39,6 +102,31 @@
     if (found) return { route: found[0], lang, hasLanguagePrefix };
     if (path === "/cases") return { route: "cases", lang, hasLanguagePrefix };
     return { route: "home", lang, hasLanguagePrefix };
+  }
+  function setMeta(selector, attribute, value) {
+    const el = document.querySelector(selector);
+    if (el) el.setAttribute(attribute, value);
+  }
+  function setHeadForRoute(route, lang) {
+    const meta = (SEO_META[route] || SEO_META.home)[lang] || SEO_META.home.en;
+    const canonical = SITE_ORIGIN + routePath(route, lang);
+    const alternateEn = SITE_ORIGIN + routePath(route, "en");
+    const alternateZh = SITE_ORIGIN + routePath(route, "cn");
+    document.title = meta.title;
+    setMeta('meta[name="description"]', "content", meta.description);
+    setMeta('link[rel="canonical"]', "href", canonical);
+    const alternates = Array.from(document.querySelectorAll('link[rel="alternate"][hreflang]'));
+    alternates.forEach((el) => {
+      const hreflang = el.getAttribute("hreflang");
+      if (hreflang === "en") el.setAttribute("href", alternateEn);
+      if (hreflang === "zh-CN") el.setAttribute("href", alternateZh);
+      if (hreflang === "x-default") el.setAttribute("href", alternateEn);
+    });
+    setMeta('meta[property="og:url"]', "content", canonical);
+    setMeta('meta[property="og:title"]', "content", meta.title);
+    setMeta('meta[property="og:description"]', "content", meta.description);
+    setMeta('meta[name="twitter:title"]', "content", meta.title);
+    setMeta('meta[name="twitter:description"]', "content", meta.description);
   }
   function useReveal() {
     useEffect(() => {
@@ -217,6 +305,7 @@
       document.body.setAttribute("data-theme", theme);
       document.body.setAttribute("data-lang", lang);
       document.body.setAttribute("data-screen", route);
+      setHeadForRoute(route, lang);
     }, [theme, lang, route]);
     const t = (window.HS_CONTENT || {})[lang] || {};
     const Page = (window.HS_PAGES || {})[route];

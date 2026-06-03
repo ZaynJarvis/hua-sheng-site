@@ -16,6 +16,70 @@ const LANG_PREFIX = {
   cn: "/zh",
 };
 
+const SITE_ORIGIN = "https://hua-sheng.org";
+const SEO_META = {
+  home: {
+    en: {
+      title: "HuaSheng Metal | Bus Shelters, Light Boxes & Metal OEM Since 1989",
+      description: "HuaSheng Metal is a Guangzhou manufacturer of bus shelters, advertising light boxes, urban furniture, outdoor kiosks and precision metal OEM products serving 100+ cities and regions.",
+    },
+    cn: {
+      title: "华盛金属 | 候车亭、广告灯箱与城市金属设施制造商",
+      description: "华盛金属始于广州1989年，制造公共交通候车亭、广告灯箱、城市家具、户外亭体与精密金属OEM产品，服务全球100+城市和地区。",
+    },
+  },
+  about: {
+    en: {
+      title: "About HuaSheng | Guangzhou Manufacturer Founded in 1989",
+      description: "Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, smart city projects, manufacturing technology and quality values.",
+    },
+    cn: {
+      title: "关于华盛 | 始于1989年的广州金属制造企业集团",
+      description: "了解华盛1989年创立、五家核心主体、四大业务板块、全球客户、城市项目案例、智能制造能力与质量价值观。",
+    },
+  },
+  capabilities: {
+    en: {
+      title: "Manufacturing Capabilities | 120,000 m2 Metal Fabrication Base",
+      description: "HuaSheng's production capability includes 120,000 m2 of plant area, five workshops, 297 precision machines, robotic welding, CNC forming and automated powder coating.",
+    },
+    cn: {
+      title: "核心制造能力 | 华盛120,000平方米金属加工基地",
+      description: "华盛制造能力覆盖120,000平方米基地、五大车间、297台精密设备、机器人焊接、CNC成型和自动化粉末喷涂生产线。",
+    },
+  },
+  cases: {
+    en: {
+      title: "Bus Shelter & Metal Project Cases | HuaSheng Metal",
+      description: "Explore HuaSheng bus shelter, smart transport, stainless steel, overseas public facility and OEM cases across Beijing, Shanghai, Guangzhou, Qatar, Nepal and more.",
+    },
+    cn: {
+      title: "项目案例 | 华盛候车亭、智慧交通与金属公共设施",
+      description: "查看华盛在北京、上海、广州、深圳、卡塔尔、沙特、尼泊尔等地的候车亭、智慧交通、金属公共设施和OEM项目案例。",
+    },
+  },
+  quality: {
+    en: {
+      title: "Quality & Certifications | ISO 9001, Patents and DMAIC Process",
+      description: "HuaSheng's quality system covers ISO 9001, bus shelter design patents, utility patents, IKEA supplier qualification and DMAIC-based quality control.",
+    },
+    cn: {
+      title: "质量与认证 | ISO 9001、候车亭专利与DMAIC流程",
+      description: "华盛质量体系覆盖ISO 9001、候车亭外观设计专利、结构实用新型专利、IKEA供应商资格和DMAIC质量管控流程。",
+    },
+  },
+  contact: {
+    en: {
+      title: "Contact HuaSheng Metal | Bus Shelter & Metal OEM Enquiries",
+      description: "Contact HuaSheng for bus shelter projects, advertising light boxes, steel structures, outdoor kiosks and long-term precision metal OEM manufacturing.",
+    },
+    cn: {
+      title: "联系华盛 | 候车亭、广告灯箱与金属OEM项目咨询",
+      description: "联系华盛咨询候车亭、广告灯箱、钢结构工程、户外亭体、城市家具和长期精密金属OEM制造合作。",
+    },
+  },
+};
+
 function normalizePath(pathname) {
   if (!pathname || pathname === "/") return "/";
   return pathname.replace(/\/+$/, "") || "/";
@@ -25,7 +89,7 @@ function routePath(route, lang) {
   const prefix = LANG_PREFIX[lang] || LANG_PREFIX.en;
   const path = BASE_ROUTE_PATHS[route] || "/";
   if (path === "/") return `${prefix}/`;
-  return `${prefix}${path}`;
+  return `${prefix}${path}/`;
 }
 
 function parseLocation(pathname) {
@@ -51,6 +115,33 @@ function parseLocation(pathname) {
 
 function routeFromPath(pathname) {
   return parseLocation(pathname).route;
+}
+
+function setMeta(selector, attribute, value) {
+  const el = document.querySelector(selector);
+  if (el) el.setAttribute(attribute, value);
+}
+
+function setHeadForRoute(route, lang) {
+  const meta = (SEO_META[route] || SEO_META.home)[lang] || SEO_META.home.en;
+  const canonical = SITE_ORIGIN + routePath(route, lang);
+  const alternateEn = SITE_ORIGIN + routePath(route, "en");
+  const alternateZh = SITE_ORIGIN + routePath(route, "cn");
+  document.title = meta.title;
+  setMeta('meta[name="description"]', "content", meta.description);
+  setMeta('link[rel="canonical"]', "href", canonical);
+  const alternates = Array.from(document.querySelectorAll('link[rel="alternate"][hreflang]'));
+  alternates.forEach((el) => {
+    const hreflang = el.getAttribute("hreflang");
+    if (hreflang === "en") el.setAttribute("href", alternateEn);
+    if (hreflang === "zh-CN") el.setAttribute("href", alternateZh);
+    if (hreflang === "x-default") el.setAttribute("href", alternateEn);
+  });
+  setMeta('meta[property="og:url"]', "content", canonical);
+  setMeta('meta[property="og:title"]', "content", meta.title);
+  setMeta('meta[property="og:description"]', "content", meta.description);
+  setMeta('meta[name="twitter:title"]', "content", meta.title);
+  setMeta('meta[name="twitter:description"]', "content", meta.description);
 }
 
 // ---------- Reveal-on-scroll hook ----------
@@ -315,6 +406,7 @@ function App() {
     document.body.setAttribute("data-theme", theme);
     document.body.setAttribute("data-lang", lang);
     document.body.setAttribute("data-screen", route);
+    setHeadForRoute(route, lang);
   }, [theme, lang, route]);
 
   const t = (window.HS_CONTENT || {})[lang] || {};
