@@ -230,6 +230,29 @@ h1 {
   margin-top: 14px;
 }
 
+.article-body h3 {
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 1.25;
+  margin: 26px 0 10px;
+}
+
+.article-body ul,
+.article-body ol {
+  margin: 18px 0 0;
+  padding-left: 22px;
+}
+
+.article-body li {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.85;
+  margin-top: 8px;
+}
+
 .article-body strong {
   color: var(--accent);
   font-weight: 950;
@@ -264,6 +287,79 @@ h1 {
   font-size: clamp(24px, 3vw, 34px);
   font-weight: 950;
   line-height: 1.25;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.report-card,
+.case-note {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fafafa;
+  padding: 18px;
+}
+
+.report-card h3,
+.case-note h3 {
+  margin-top: 0;
+}
+
+.case-stack {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.table-scroll {
+  width: 100%;
+  margin-top: 22px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.research-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.research-table th,
+.research-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 14px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.research-table th {
+  background: var(--soft);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.research-table td {
+  color: #333333;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.7;
+}
+
+.research-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.source-list a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .article-side {
@@ -306,7 +402,8 @@ html[data-lang="en"] [data-lang-block="en"] { display: revert !important; }
   .blog-main { padding: 116px 0 64px; }
   .blog-hero,
   .post-card,
-  .article-wrap { grid-template-columns: 1fr; }
+  .article-wrap,
+  .report-grid { grid-template-columns: 1fr; }
 
   .post-card__cover { order: -1; height: 220px; }
   .post-card__body { padding: 24px; }

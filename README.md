@@ -8,6 +8,7 @@ Static Cloudflare Pages version of the Huasheng corporate website and blog.
 - `/zh/` Chinese corporate website root
 - `/blog/` blog index
 - `/blog/ai-application-meeting/` first blog post
+- `/blog/steel-structure-toc-market-report-2026-2027/` ToC steel outdoor structures market report
 - `/blog/assets/` blog media
 
 ## Updating

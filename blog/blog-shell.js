@@ -11,7 +11,6 @@
       quality: "/zh/quality/",
       contact: "/zh/contact/",
       blog: "/blog/",
-      article: "/blog/ai-application-meeting/",
     },
     en: {
       home: "/en/",
@@ -21,7 +20,6 @@
       quality: "/en/quality/",
       contact: "/en/contact/",
       blog: "/blog/?lang=en",
-      article: "/blog/ai-application-meeting/?lang=en",
     },
   };
 
@@ -53,7 +51,12 @@
     setHref("[data-nav-quality]", route.quality);
     setHref("[data-contact-link]", route.contact);
     setHref("[data-blog-home]", route.blog);
-    setHref("[data-post-link]", route.article);
+
+    document.querySelectorAll("[data-post-link]").forEach((link) => {
+      const currentHref = link.getAttribute("href") || "";
+      const path = currentHref.split("?")[0] || "/blog/";
+      link.href = nextLang === "en" ? `${path}?lang=en` : path;
+    });
 
     const nextUrl = new URL(location.href);
     if (nextLang === "en") nextUrl.searchParams.set("lang", "en");
