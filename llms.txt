@@ -59,7 +59,8 @@ Canonical domain: https://hua-sheng.org
 - Quality ZH: https://hua-sheng.org/zh/quality/
 - Contact EN: https://hua-sheng.org/en/contact/
 - Contact ZH: https://hua-sheng.org/zh/contact/
-- Blog: https://hua-sheng.org/blog/
+- Blog (English): https://hua-sheng.org/en/blog/
+- Blog (Chinese): https://hua-sheng.org/zh/blog/
 - Sitemap: https://hua-sheng.org/sitemap.xml
 
 ## Representative Project Topics

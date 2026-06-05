@@ -110,25 +110,57 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://hua-sheng.org/blog/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/blog/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/blog/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/blog/" />
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://hua-sheng.org/en/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/blog/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/blog/" />
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hua-sheng.org/blog/ai-application-meeting/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/blog/ai-application-meeting/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/blog/ai-application-meeting/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/blog/ai-application-meeting/" />
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://hua-sheng.org/zh/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/blog/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/blog/" />
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/en/blog/ai-application-meeting/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/blog/ai-application-meeting/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/blog/ai-application-meeting/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/blog/ai-application-meeting/" />
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://hua-sheng.org/blog/steel-structure-toc-market-report-2026-2027/</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://hua-sheng.org/zh/blog/ai-application-meeting/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/blog/ai-application-meeting/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/blog/ai-application-meeting/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/blog/ai-application-meeting/" />
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/en/blog/steel-structure-toc-market-report-2026-2027/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/blog/steel-structure-toc-market-report-2026-2027/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/blog/steel-structure-toc-market-report-2026-2027/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/blog/steel-structure-toc-market-report-2026-2027/" />
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/zh/blog/steel-structure-toc-market-report-2026-2027/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/blog/steel-structure-toc-market-report-2026-2027/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/blog/steel-structure-toc-market-report-2026-2027/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/blog/steel-structure-toc-market-report-2026-2027/" />
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
 </urlset>

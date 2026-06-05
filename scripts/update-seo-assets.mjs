@@ -3,8 +3,8 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const SITE = "https://hua-sheng.org";
-const VERSION = "huasheng-site-20260603-seo";
-const LASTMOD = "2026-06-03";
+const VERSION = "huasheng-site-20260605-routes1";
+const LASTMOD = "2026-06-05";
 const DEFAULT_IMAGE = `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`;
 const LOGO = `${SITE}/assets/logo.png`;
 
@@ -395,8 +395,8 @@ function updateBlogIndex() {
       organization,
       {
         "@type": "CollectionPage",
-        "@id": `${SITE}/blog/#webpage`,
-        url: `${SITE}/blog/`,
+        "@id": `${SITE}/zh/blog/#webpage`,
+        url: `${SITE}/zh/blog/`,
         name: title,
         description,
         inLanguage: ["zh-CN", "en"],
@@ -411,16 +411,16 @@ function updateBlogIndex() {
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <title>${title}</title>
   <meta name="description" content="${description}" />
-  <link rel="canonical" href="${SITE}/blog/" />
-  <link rel="alternate" hreflang="zh-CN" href="${SITE}/blog/" />
-  <link rel="alternate" hreflang="en" href="${SITE}/blog/?lang=en" />
-  <link rel="alternate" hreflang="x-default" href="${SITE}/blog/" />
+  <link rel="canonical" href="${SITE}/zh/blog/" />
+  <link rel="alternate" hreflang="zh-CN" href="${SITE}/zh/blog/" />
+  <link rel="alternate" hreflang="en" href="${SITE}/en/blog/" />
+  <link rel="alternate" hreflang="x-default" href="${SITE}/en/blog/" />
   <link rel="alternate" type="text/plain" title="LLMs.txt" href="${SITE}/llms.txt" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="HuaSheng Metal" />
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${description}" />
-  <meta property="og:url" content="${SITE}/blog/" />
+  <meta property="og:url" content="${SITE}/zh/blog/" />
   <meta property="og:image" content="${SITE}/blog/assets/meeting-room.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${title}" />
@@ -448,8 +448,8 @@ function updateBlogArticle() {
       organization,
       {
         "@type": "BlogPosting",
-        "@id": `${SITE}/blog/ai-application-meeting/#article`,
-        mainEntityOfPage: `${SITE}/blog/ai-application-meeting/`,
+        "@id": `${SITE}/zh/blog/ai-application-meeting/#article`,
+        mainEntityOfPage: `${SITE}/zh/blog/ai-application-meeting/`,
         headline: "借力 AI 提效赋能，深耕服务聚力前行",
         alternativeHeadline: "Leveraging AI for Efficiency, Deepening Service for Growth",
         description,
@@ -469,16 +469,16 @@ function updateBlogArticle() {
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <title>${title}</title>
   <meta name="description" content="${description}" />
-  <link rel="canonical" href="${SITE}/blog/ai-application-meeting/" />
-  <link rel="alternate" hreflang="zh-CN" href="${SITE}/blog/ai-application-meeting/" />
-  <link rel="alternate" hreflang="en" href="${SITE}/blog/ai-application-meeting/?lang=en" />
-  <link rel="alternate" hreflang="x-default" href="${SITE}/blog/ai-application-meeting/" />
+  <link rel="canonical" href="${SITE}/zh/blog/ai-application-meeting/" />
+  <link rel="alternate" hreflang="zh-CN" href="${SITE}/zh/blog/ai-application-meeting/" />
+  <link rel="alternate" hreflang="en" href="${SITE}/en/blog/ai-application-meeting/" />
+  <link rel="alternate" hreflang="x-default" href="${SITE}/en/blog/ai-application-meeting/" />
   <link rel="alternate" type="text/plain" title="LLMs.txt" href="${SITE}/llms.txt" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="HuaSheng Metal" />
   <meta property="og:title" content="借力 AI 提效赋能，深耕服务聚力前行" />
   <meta property="og:description" content="${description}" />
-  <meta property="og:url" content="${SITE}/blog/ai-application-meeting/" />
+  <meta property="og:url" content="${SITE}/zh/blog/ai-application-meeting/" />
   <meta property="og:image" content="${SITE}/blog/assets/meeting-room.jpg" />
   <meta property="article:published_time" content="2026-05-27T00:00:00+08:00" />
   <meta property="article:modified_time" content="2026-06-03T00:00:00+08:00" />
@@ -537,10 +537,19 @@ function writeSitemap() {
     { loc: `${SITE}${meta.enPath}`, route, lang: "en", priority: meta.priority, changefreq: meta.changefreq },
     { loc: `${SITE}${meta.zhPath}`, route, lang: "zh", priority: meta.priority, changefreq: meta.changefreq },
   ]);
-  urls.push(
-    { loc: `${SITE}/blog/`, priority: "0.7", changefreq: "weekly", alternates: [{ lang: "zh-CN", href: `${SITE}/blog/` }, { lang: "en", href: `${SITE}/blog/?lang=en` }] },
-    { loc: `${SITE}/blog/ai-application-meeting/`, priority: "0.65", changefreq: "monthly", alternates: [{ lang: "zh-CN", href: `${SITE}/blog/ai-application-meeting/` }, { lang: "en", href: `${SITE}/blog/ai-application-meeting/?lang=en` }] },
-  );
+  [
+    { path: "/blog/", priority: "0.7", changefreq: "weekly" },
+    { path: "/blog/ai-application-meeting/", priority: "0.65", changefreq: "monthly" },
+    { path: "/blog/steel-structure-toc-market-report-2026-2027/", priority: "0.65", changefreq: "monthly" },
+  ].forEach((blogRoute) => {
+    const enHref = `${SITE}/en${blogRoute.path}`;
+    const zhHref = `${SITE}/zh${blogRoute.path}`;
+    const alternates = [{ lang: "en", href: enHref }, { lang: "zh-CN", href: zhHref }];
+    urls.push(
+      { loc: enHref, priority: blogRoute.priority, changefreq: blogRoute.changefreq, alternates, xDefault: enHref },
+      { loc: zhHref, priority: blogRoute.priority, changefreq: blogRoute.changefreq, alternates, xDefault: enHref },
+    );
+  });
   const entries = urls.map((item) => {
     const meta = item.route ? routeMeta[item.route] : null;
     const alternates = item.alternates || [
@@ -549,7 +558,7 @@ function writeSitemap() {
     ];
     const xhtml = [
       ...alternates,
-      { lang: "x-default", href: item.route ? `${SITE}${meta.enPath}` : item.loc },
+      { lang: "x-default", href: item.xDefault || (item.route ? `${SITE}${meta.enPath}` : item.loc) },
     ].map((alt) => `    <xhtml:link rel="alternate" hreflang="${alt.lang}" href="${escapeXml(alt.href)}" />`).join("\n");
     return `  <url>
     <loc>${escapeXml(item.loc)}</loc>

@@ -1,7 +1,23 @@
 (() => {
   const html = document.documentElement;
   const params = new URLSearchParams(location.search);
-  const initialLang = params.get("lang") === "en" ? "en" : "zh";
+  const pathParts = location.pathname.split("/").filter(Boolean);
+  const pathLang = pathParts[0] === "en" || pathParts[0] === "zh" ? pathParts[0] : "";
+  const initialLang = pathLang || (params.get("lang") === "en" ? "en" : "zh");
+
+  function getBlogSegments(pathname = location.pathname) {
+    const parts = pathname.split("/").filter(Boolean);
+    if (parts[0] === "blog") return parts.slice(1);
+    if ((parts[0] === "zh" || parts[0] === "en") && parts[1] === "blog") return parts.slice(2);
+    return [];
+  }
+
+  function blogPathFor(lang, segments = getBlogSegments()) {
+    const prefix = lang === "en" ? "en" : "zh";
+    const cleanSegments = segments.filter(Boolean);
+    return `/${prefix}/blog/${cleanSegments.length ? `${cleanSegments.join("/")}/` : ""}`;
+  }
+
   const routes = {
     zh: {
       home: "/zh/",
@@ -10,7 +26,7 @@
       projects: "/zh/projects/",
       quality: "/zh/quality/",
       contact: "/zh/contact/",
-      blog: "/blog/",
+      blog: "/zh/blog/",
     },
     en: {
       home: "/en/",
@@ -19,7 +35,7 @@
       projects: "/en/projects/",
       quality: "/en/quality/",
       contact: "/en/contact/",
-      blog: "/blog/?lang=en",
+      blog: "/en/blog/",
     },
   };
 
@@ -54,14 +70,14 @@
 
     document.querySelectorAll("[data-post-link]").forEach((link) => {
       const currentHref = link.getAttribute("href") || "";
-      const path = currentHref.split("?")[0] || "/blog/";
-      link.href = nextLang === "en" ? `${path}?lang=en` : path;
+      const postUrl = new URL(currentHref || "/blog/", location.origin);
+      link.href = blogPathFor(nextLang, getBlogSegments(postUrl.pathname));
     });
 
-    const nextUrl = new URL(location.href);
-    if (nextLang === "en") nextUrl.searchParams.set("lang", "en");
-    else nextUrl.searchParams.delete("lang");
-    history.replaceState(null, "", nextUrl);
+    const nextPath = blogPathFor(nextLang);
+    if (location.pathname !== nextPath || location.search) {
+      history.replaceState(null, "", `${nextPath}${location.hash}`);
+    }
   }
 
   document.querySelectorAll("[data-lang-set]").forEach((button) => {

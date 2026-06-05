@@ -6,17 +6,18 @@ Static Cloudflare Pages version of the Huasheng corporate website and blog.
 
 - `/en/` English corporate website root
 - `/zh/` Chinese corporate website root
-- `/blog/` blog index
-- `/blog/ai-application-meeting/` first blog post
-- `/blog/steel-structure-toc-market-report-2026-2027/` ToC steel outdoor structures market report
+- `/en/blog/` English blog index
+- `/zh/blog/` Chinese blog index
+- `/en/blog/ai-application-meeting/` and `/zh/blog/ai-application-meeting/` first blog post
+- `/en/blog/steel-structure-toc-market-report-2026-2027/` and `/zh/blog/steel-structure-toc-market-report-2026-2027/` ToC steel outdoor structures market report
 - `/blog/assets/` blog media
 
 ## Updating
 
 For a new blog post:
 
-1. Create `/blog/<slug>/index.html`.
-2. Add the post card to `/blog/index.html`.
+1. Create language-scoped pages under `/en/blog/<slug>/index.html` and `/zh/blog/<slug>/index.html`.
+2. Add the post card to `/en/blog/index.html` and `/zh/blog/index.html`.
 3. Add the URL to `/sitemap.xml`.
 4. Push to GitHub or redeploy the directory to Cloudflare Pages.
 
