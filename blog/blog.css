@@ -296,6 +296,50 @@ h1 {
   line-height: 1.6;
 }
 
+.answer-list {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.answer-list li {
+  display: grid;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+  padding: 18px;
+}
+
+.answer-list span {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.65;
+}
+
+.faq-stack {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.faq-stack details {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  padding: 18px;
+}
+
+.faq-stack summary {
+  cursor: pointer;
+  color: var(--ink);
+  font-weight: 950;
+  line-height: 1.35;
+}
+
 [data-lang-block] { display: none !important; }
 html[data-lang="zh"] [data-lang-block="zh"],
 html[data-lang="en"] [data-lang-block="en"] { display: revert !important; }

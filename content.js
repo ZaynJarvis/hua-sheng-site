@@ -79,6 +79,20 @@ window.HS_CONTENT = {
         note: "这些入口用于客户核验企业主体、产品目录和历史公开资料；正式询价仍建议回到 hua-sheng.org 或直接联系华盛团队。",
         items: [
           {
+            tag: "GEO",
+            title: "AI 搜索答案页",
+            body: "面向 AI 搜索、采购调研和客户核验的华盛事实摘要、制造能力与常见问答。",
+            href: "/zh/answers/",
+            display: "hua-sheng.org/zh/answers/",
+          },
+          {
+            tag: "JSON-LD",
+            title: "机器可读实体资料",
+            body: "结构化描述华盛主体、产品服务分类、代表项目和外部资料链接。",
+            href: "/entity-profile.jsonld",
+            display: "entity-profile.jsonld",
+          },
+          {
             tag: "Legacy",
             title: "旧官网",
             body: "原有企业官网入口，后续应在页头、页脚、联系页和站点地图中显著指向新官网。",
@@ -439,6 +453,20 @@ window.HS_CONTENT = {
         lede: "Connecting the legacy website, B2B directory profiles, and the new canonical website. When account access is available, each external profile should set its website field to https://hua-sheng.org.",
         note: "These links help buyers verify the company entity, product directories, and historical public information. Formal enquiries should still return to hua-sheng.org or contact the Huasheng team directly.",
         items: [
+          {
+            tag: "GEO",
+            title: "AI search answers",
+            body: "Answer-ready company facts, manufacturing capabilities, project references, and buyer FAQ for AI search and procurement research.",
+            href: "/en/answers/",
+            display: "hua-sheng.org/en/answers/",
+          },
+          {
+            tag: "JSON-LD",
+            title: "Machine-readable entity profile",
+            body: "Structured data describing the HuaSheng entity, product categories, representative projects, and external profile links.",
+            href: "/entity-profile.jsonld",
+            display: "entity-profile.jsonld",
+          },
           {
             tag: "Legacy",
             title: "Legacy official website",

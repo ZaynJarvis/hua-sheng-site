@@ -1,42 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
-<base href="/" />
-<meta name="theme-color" content="#f5f5f2" />
-<meta name="robots" content="index, follow, max-image-preview:large" />
-<title>About HuaSheng | Guangzhou Manufacturer Founded in 1989</title>
-<meta name="description" content="Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, smart city projects, manufacturing technology and quality values." />
-<link rel="canonical" href="https://hua-sheng.org/en/about/" />
-<link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/about/" />
-<link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/about/" />
-<link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/about/" />
-<link rel="alternate" type="text/plain" title="LLMs.txt" href="https://hua-sheng.org/llms.txt" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="HuaSheng Metal" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:locale:alternate" content="zh_CN" />
-<meta property="og:url" content="https://hua-sheng.org/en/about/" />
-<meta property="og:title" content="About HuaSheng | Guangzhou Manufacturer Founded in 1989" />
-<meta property="og:description" content="Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, smart city projects, manufacturing technology and quality values." />
-<meta property="og:image" content="https://hua-sheng.org/assets/huasheng/about-factory-campus.webp" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="About HuaSheng | Guangzhou Manufacturer Founded in 1989" />
-<meta name="twitter:description" content="Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, smart city projects, manufacturing technology and quality values." />
-<meta name="twitter:image" content="https://hua-sheng.org/assets/huasheng/about-factory-campus.webp" />
-<meta name="geo.region" content="CN-GD" />
-<meta name="geo.placename" content="Guangzhou" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=huasheng-site-20260612-geo" />
-<link rel="shortcut icon" href="favicon.ico?v=huasheng-site-20260612-geo" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=huasheng-site-20260612-geo" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-<link rel="stylesheet" href="styles.css?v=huasheng-site-20260612-geo" />
-<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -252,92 +213,102 @@
       }
     },
     {
-      "@type": "BreadcrumbList",
-      "@id": "https://hua-sheng.org/en/about/#breadcrumb",
+      "@type": "ItemList",
+      "@id": "https://hua-sheng.org/#representative-projects",
+      "name": "HuaSheng Metal representative projects and market references",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
-          "item": "https://hua-sheng.org/en/"
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Guangzhou first-generation modern bus shelters",
+            "alternateName": "广州第一代现代化公交候车亭",
+            "contentLocation": "Guangzhou, Guangdong, China",
+            "about": {
+              "@id": "https://hua-sheng.org/#organization"
+            }
+          }
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "About HuaSheng | Guangzhou Manufacturer Founded in 1989",
-          "item": "https://hua-sheng.org/en/about/"
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Beijing Olympic bus shelter and stainless steel facility projects",
+            "alternateName": "北京奥运候车亭与不锈钢公共设施项目",
+            "contentLocation": "Beijing, China",
+            "about": {
+              "@id": "https://hua-sheng.org/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Shanghai Expo and smart bus shelter projects",
+            "alternateName": "上海世博候车亭与智能候车亭项目",
+            "contentLocation": "Shanghai, China",
+            "about": {
+              "@id": "https://hua-sheng.org/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Shenzhen Qianhai and Futian smart shelter projects",
+            "alternateName": "深圳前海与福田智慧候车亭项目",
+            "contentLocation": "Shenzhen, Guangdong, China",
+            "about": {
+              "@id": "https://hua-sheng.org/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Nansha Phase 2 bus shelter manufacturing project",
+            "alternateName": "南沙项目二期公交站亭制造项目",
+            "contentLocation": "Nansha, Guangzhou, Guangdong, China",
+            "about": {
+              "@id": "https://hua-sheng.org/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Qatar, Saudi Arabia, Oman and Nepal public facility projects",
+            "alternateName": "卡塔尔、沙特、阿曼与尼泊尔公共设施项目",
+            "contentLocation": "Middle East and Asia",
+            "about": {
+              "@id": "https://hua-sheng.org/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "IKEA and international precision metal OEM supply",
+            "alternateName": "IKEA 与国际精密金属 OEM 供应",
+            "contentLocation": "International OEM supply chain",
+            "about": {
+              "@id": "https://hua-sheng.org/#organization"
+            }
+          }
         }
       ]
-    },
-    {
-      "@type": "AboutPage",
-      "@id": "https://hua-sheng.org/en/about/#webpage",
-      "url": "https://hua-sheng.org/en/about/",
-      "name": "About HuaSheng | Guangzhou Manufacturer Founded in 1989",
-      "description": "Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, smart city projects, manufacturing technology and quality values.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@id": "https://hua-sheng.org/#website"
-      },
-      "about": {
-        "@id": "https://hua-sheng.org/#organization"
-      },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://hua-sheng.org/assets/huasheng/about-factory-campus.webp"
-      },
-      "mainEntity": {
-        "@id": "https://hua-sheng.org/#organization"
-      },
-      "breadcrumb": {
-        "@id": "https://hua-sheng.org/en/about/#breadcrumb"
-      }
     }
   ]
 }
-</script>
-  <link rel="alternate" type="application/ld+json" title="HuaSheng entity profile" href="https://hua-sheng.org/entity-profile.jsonld" />
-</head>
-<body data-theme="clarity" data-lang="en">
-  <div id="root"></div>
-
-  <noscript>
-    <main class="seo-fallback">
-      <h1>About HuaSheng</h1>
-      <p>HuaSheng was founded in Guangzhou in 1989 and now operates across advanced manufacturing, industrial park management, commercial property and new energy facilities.</p>
-      <p>The latest company profile lists five core entities and removes older entities that are no longer part of the group.</p>
-      <p>The About page summarizes global clients, domestic and Middle East project cases, in-house LED/LCD systems, coating lines, laser cutting and welding robots.</p>
-      <ul>
-        <li><a href="/en/">Home</a></li>
-        <li><a href="/en/about/">About</a></li>
-        <li><a href="/en/capabilities/">Capabilities</a></li>
-        <li><a href="/en/projects/">Projects</a></li>
-        <li><a href="/en/quality/">Quality</a></li>
-        <li><a href="/en/contact/">Contact</a></li>
-      </ul>
-    </main>
-  </noscript><script>
-    // (no-op — reveal animation is additive polish only)
-  </script>
-
-  <!-- React runtime -->
-  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
-
-  <!-- Content (plain JS — sets window.HS_CONTENT) -->
-  <script src="content.js?v=huasheng-site-20260612-geo"></script>
-
-  <!-- Shared UI primitives + pages -->
-  <script src="compiled/ui.js?v=huasheng-site-20260612-geo"></script>
-  <script src="compiled/pages/home.js?v=huasheng-site-20260612-geo"></script>
-  <script src="compiled/pages/about.js?v=huasheng-site-20260612-geo"></script>
-  <script src="compiled/pages/capabilities.js?v=huasheng-site-20260612-geo"></script>
-  <script src="compiled/pages/cases.js?v=huasheng-site-20260612-geo"></script>
-  <script src="compiled/pages/quality.js?v=huasheng-site-20260612-geo"></script>
-  <script src="compiled/pages/contact.js?v=huasheng-site-20260612-geo"></script>
-
-  <!-- App shell (mounts) -->
-  <script src="compiled/app.js?v=huasheng-site-20260612-geo"></script>
-  <script>window.__startApp && window.__startApp();</script>
-</body>
-</html>

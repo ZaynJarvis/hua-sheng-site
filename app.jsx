@@ -204,7 +204,7 @@ function Header({ route, setRoute, lang, setLang, t, openMenu, setOpenMenu }) {
     { id: "capabilities", label: t.nav.capabilities, href: routePath("capabilities", lang) },
     { id: "cases", label: t.nav.cases, href: routePath("cases", lang) },
     { id: "quality", label: t.nav.quality, href: routePath("quality", lang) },
-    { id: "blog", label: t.nav.blog || "Blog", href: lang === "cn" ? "/blog/" : "/blog/?lang=en", external: true },
+    { id: "blog", label: t.nav.blog || "Blog", href: lang === "cn" ? "/zh/blog/" : "/en/blog/", external: true },
     { id: "contact", label: t.nav.contact, href: routePath("contact", lang) },
   ];
 
@@ -313,7 +313,8 @@ function Footer({ lang, t, setRoute }) {
               <li><a href={routePath("capabilities", lang)} onClick={(e) => { e.preventDefault(); go("capabilities"); }}>{t.nav.capabilities}</a></li>
               <li><a href={routePath("cases", lang)} onClick={(e) => { e.preventDefault(); go("cases"); }}>{t.nav.cases}</a></li>
               <li><a href={routePath("quality", lang)} onClick={(e) => { e.preventDefault(); go("quality"); }}>{t.nav.quality}</a></li>
-              <li><a href={lang === "cn" ? "/blog/" : "/blog/?lang=en"}>{t.nav.blog || "Blog"}</a></li>
+              <li><a href={lang === "cn" ? "/zh/blog/" : "/en/blog/"}>{t.nav.blog || "Blog"}</a></li>
+              <li><a href={lang === "cn" ? "/zh/answers/" : "/en/answers/"}>{lang === "cn" ? "AI 搜索答案页" : "AI search answers"}</a></li>
               <li><a href={routePath("contact", lang)} onClick={(e) => { e.preventDefault(); go("contact"); }}>{t.nav.contact}</a></li>
             </ul>
           </div>
