@@ -10,6 +10,7 @@ Static Cloudflare Pages version of the Huasheng corporate website and blog.
 - `/zh/blog/ai-application-meeting/` AI application meeting blog post
 - `/zh/blog/steel-structure-toc-market-report-2026-2027/` steel structure market report
 - `/blog/assets/` blog media
+- `/nansha-phase-2/` standalone Nansha Phase 2 H5 page
 
 ## Updating
 

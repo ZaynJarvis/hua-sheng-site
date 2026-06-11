@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="description" content="南沙项目二期：一期落地参考，二期23座候车亭制作启动。" />
+  <link rel="canonical" href="https://hua-sheng.org/nansha-phase-2/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=huasheng-site-20260603-seo" />
+  <title>华盛项目｜南沙项目二期：从一期落地到二期制作启动</title>
+  <style>
+    :root {
+      --red: #c40012;
+      --ink: #111317;
+      --muted: #6b7280;
+      --line: #e7e7e7;
+      --soft: #f6f6f4;
+      --paper: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #e9e9e9;
+      -webkit-font-smoothing: antialiased;
+      color: var(--ink);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      letter-spacing: 0.024em;
+    }
+    .poster {
+      width: min(750px, 100%);
+      margin: 0 auto;
+      background: var(--paper);
+      overflow: hidden;
+    }
+    section {
+      position: relative;
+      padding: 76px 54px 80px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .cover {
+      min-height: 1020px;
+      padding: 0;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+    .cover .hero {
+      height: 560px;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .cover .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+    .cover .copy {
+      padding: 56px 54px 64px;
+    }
+    .eyebrow {
+      color: var(--red);
+      font-size: 21px;
+      line-height: 1.4;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+    .cover .eyebrow { color: #ff5a64; }
+    h1 {
+      margin: 0;
+      font-size: 58px;
+      line-height: 1.05;
+      font-weight: 850;
+      letter-spacing: 0.024em;
+    }
+    .cover h1 { color: #fff; }
+    h2 {
+      margin: 0 0 18px;
+      font-size: 39px;
+      line-height: 1.18;
+      font-weight: 850;
+      letter-spacing: 0.026em;
+    }
+    h3 {
+      margin: 0 0 22px;
+      font-size: 27px;
+      line-height: 1.35;
+      font-weight: 780;
+      color: #2a2d33;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 0 0 18px;
+      font-size: 21px;
+      line-height: 1.78;
+      color: #25282e;
+    }
+    .lead {
+      font-size: 26px;
+      line-height: 1.55;
+      color: #f0f0f0;
+      margin-top: 26px;
+    }
+    .section-no {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--red);
+      font-size: 20px;
+      font-weight: 850;
+      margin-bottom: 16px;
+    }
+    .section-no::before {
+      content: "";
+      display: block;
+      width: 34px;
+      height: 4px;
+      background: var(--red);
+    }
+    .redline {
+      width: 52px;
+      height: 5px;
+      background: var(--red);
+      margin: 24px 0 26px;
+    }
+    .metric-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 28px 0;
+    }
+    .metric-row.four {
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .metric {
+      background: var(--soft);
+      padding: 24px 22px;
+      border-left: 5px solid var(--red);
+    }
+    .metric b {
+      display: block;
+      font-size: 46px;
+      line-height: 1;
+      color: var(--red);
+      margin-bottom: 10px;
+      letter-spacing: 0;
+    }
+    .metric span {
+      font-size: 19px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .image-block {
+      margin: 34px 0 14px;
+    }
+    .image-block img,
+    .image-grid img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #f0f0f0;
+      border-radius: 6px;
+    }
+    .image-frame {
+      background: #f5f5f3;
+      border-radius: 6px;
+      padding: 10px;
+    }
+    .image-frame img {
+      border-radius: 3px;
+    }
+    .caption {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 17px;
+      color: #8a8f98;
+      line-height: 1.35;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 34px 0 12px;
+    }
+    .image-grid.three {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+    .quote {
+      margin: 30px 0;
+      padding: 22px 24px;
+      background: #fff6f6;
+      border-left: 5px solid var(--red);
+      color: #2a2d33;
+      font-size: 21px;
+      line-height: 1.68;
+      font-weight: 650;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0 18px;
+    }
+    .tag-list span {
+      border: 1px solid #e4e4e4;
+      background: #fafafa;
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 17px;
+      color: #555b65;
+    }
+    .point-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 26px 0 10px;
+    }
+    .point-list span {
+      background: #fafafa;
+      border: 1px solid #e7e7e7;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 17px;
+      color: #4b515b;
+      line-height: 1.35;
+    }
+    .emph {
+      color: var(--red);
+      font-weight: 850;
+    }
+    .dark {
+      background: #15171b;
+      color: #fff;
+    }
+    .dark h2, .dark h3, .dark p { color: #fff; }
+    .dark .caption { color: #b7bdc6; }
+    .dark .section-no { color: #ff5a64; }
+    .dark .section-no::before { background: #ff5a64; }
+    .dark .quote { background: rgba(255,255,255,0.08); color: #fff; }
+    .workflow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 34px 0;
+    }
+    .workflow-step {
+      background: var(--soft);
+      border-left: 5px solid var(--red);
+      padding: 22px 24px;
+    }
+    .workflow-step b {
+      display: block;
+      color: var(--red);
+      font-size: 23px;
+      line-height: 1.35;
+      margin-bottom: 6px;
+      letter-spacing: 0.03em;
+    }
+    .workflow-step span {
+      display: block;
+      color: #2f333a;
+      font-size: 20px;
+      line-height: 1.58;
+    }
+    .file-card {
+      background: var(--soft);
+      padding: 30px 28px 24px;
+      border-radius: 8px;
+      margin-top: 28px;
+    }
+    .file-row {
+      display: grid;
+      grid-template-columns: 148px 1fr;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid #e2e2e0;
+      font-size: 19px;
+      line-height: 1.55;
+    }
+    .file-row:last-child { border-bottom: 0; }
+    .file-row b { color: var(--red); }
+    .cta {
+      min-height: 1040px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      background: #efece5;
+    }
+    .cta h2 {
+      font-size: 46px;
+      margin-bottom: 18px;
+    }
+    .cta p {
+      text-align: left;
+      max-width: 610px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .qr-wrap {
+      margin: 42px -54px 0;
+      width: calc(100% + 108px);
+      background: #efece5;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+    .qr-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .qr-caption {
+      margin-top: 22px;
+      color: var(--red);
+      font-size: 24px;
+      font-weight: 850;
+      text-align: center;
+    }
+    .note {
+      margin-top: 18px;
+      color: #8a8f98;
+      font-size: 18px;
+      text-align: center;
+      line-height: 1.5;
+    }
+    @media (max-width: 760px) {
+      section { padding-left: 28px; padding-right: 28px; }
+      .cover { min-height: auto; }
+      .cover .hero { height: 74vw; max-height: 560px; }
+      .cover .copy { padding: 42px 28px 50px; }
+      h1 { font-size: 42px; }
+      h2 { font-size: 30px; }
+      h3 { font-size: 23px; }
+      p { font-size: 18px; }
+      .lead { font-size: 21px; }
+      .metric-row,
+      .point-list,
+      .image-grid,
+      .image-grid.three {
+        grid-template-columns: 1fr;
+      }
+      .file-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+  </style>
+  <!-- Source: outputs/task-763-nansha-h5/index.html, H5 v9 content preserved as standalone site page. -->
+</head>
+<body>
+  <main class="poster">
+    <section class="cover">
+      <div class="hero"><img src="assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.png" alt="南沙候车亭落地夜景"></div>
+      <div class="copy">
+        <div class="eyebrow">华盛项目档案｜Huasheng Project Files</div>
+        <h1>南沙项目二期</h1>
+        <p class="lead">一期落地参考｜二期23座制作启动</p>
+        <div class="redline"></div>
+        <p class="lead">从一期多站型落地，到二期候车亭制作推进</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-no">01｜项目缘起</div>
+      <h2>一座站亭，连接城市日常</h2>
+      <p>在南沙，公交站亭不只是道路边的候车设施。它关系到市民每天的出行体验：烈日下能不能多一点遮蔽，雨天上下车能不能少一点狼狈，夜晚候车能不能更安全、更清晰。</p>
+      <div class="metric-row">
+        <div class="metric"><b>30 个</b><span>一期安装点位，作为已落地实景参考</span></div>
+        <div class="metric"><b>23 座</b><span>二期制作范围，进入制造交付推进阶段</span></div>
+      </div>
+      <div class="image-block">
+        <img src="assets/9-f9e17db0.png" alt="南沙候车亭日景落地实拍">
+        <div class="caption">南沙候车亭一期落地实景参考</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-no">02｜一期落地参考</div>
+      <h2>30个安装点位，形成真实道路样本</h2>
+      <p>南沙项目一期已完成多种站型在真实道路场景中的安装应用，覆盖蕉门地铁、区政务服务中心、万达广场、金洲地铁、南沙中心医院等城市日常出行节点。</p>
+      <p>这些已落地站亭和现场安装记录，成为二期继续推进制作的实景参考。</p>
+      <div class="metric-row four">
+        <div class="metric"><b>9m</b><span>小型站亭：1 个点位</span></div>
+        <div class="metric"><b>12m</b><span>中型站亭：19 个点位</span></div>
+        <div class="metric"><b>15m</b><span>示范型站亭：3 个点位</span></div>
+        <div class="metric"><b>18m</b><span>大型站亭：7 个点位</span></div>
+      </div>
+      <div class="point-list">
+        <span>蕉门地铁 / 区政府</span>
+        <span>区政务服务中心</span>
+        <span>南沙中心医院</span>
+        <span>金洲地铁 / 金洲站</span>
+        <span>万达广场</span>
+        <span>南沙牌坊</span>
+      </div>
+      <div class="image-grid">
+        <div><img src="assets/phase1-extra-1-bb3d3f6f.jpg" alt="金洲站一期现场安装记录"><div class="caption">一期现场安装记录：金洲站</div></div>
+        <div><img src="assets/phase1-extra-2-27d1a311.jpg" alt="万达广场站一期现场安装记录"><div class="caption">一期现场安装记录：万达广场站</div></div>
+      </div>
+      <div class="note">数据来源：南沙新建公交站安装进度表。此处为一期已落地点位统计，不代表二期23座已完成。</div>
+    </section>
+
+    <section>
+      <div class="section-no">03｜设计目标</div>
+      <h2>图纸里的站亭，先有了城市气质</h2>
+      <p>南沙新站亭方案由华南理工大学建筑设计研究院有限公司何镜堂院士团队设计。2.7 米出挑顶棚、Y 字形柱头、六边形模块化顶棚，让这组站亭在设计阶段已经有了鲜明识别。</p>
+      <p>对华盛来说，任务不是展示效果图，而是把设计语言转化为可制造、可运输、可现场安装的交付系统。</p>
+      <div class="image-block image-frame">
+        <img src="assets/design-target-clean-90e1d5b6.jpg" alt="南沙候车亭设计效果图">
+      </div>
+      <div class="caption">南沙候车亭设计效果图 / Design Rendering</div>
+    </section>
+
+    <section>
+      <div class="section-no">04｜落地难点</div>
+      <h2>理念清晰，落地并不简单</h2>
+      <p>效果图里的轻盈结构，进入生产阶段后会变成具体问题：结构怎么拆？构件怎么做？现场怎么装？批量怎么保持一致？</p>
+      <div class="image-grid">
+        <div>
+          <img src="assets/7d66b758d7adfd01a4df3eaa599c0672-091a7404.jpg" alt="南沙候车亭夜景效果图">
+          <div class="caption">设计效果图 / Design Rendering</div>
+        </div>
+        <div>
+          <img src="assets/250f5c7f503323c7365bc62706ca640e-9c4eb230.jpg" alt="南沙候车亭俯视效果图">
+          <div class="caption">设计效果图 / Design Rendering</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-no">05｜前期转译</div>
+      <h2>把设计语言转译成制造方案</h2>
+      <p>项目进入华盛的第一步，不是下料或焊接，而是确认“如何落地”。</p>
+      <p>设计、工程、生产和项目团队一起把顶棚、Y 字柱头、灯箱主体、电气预留和现场条件，拆成可生产、可运输、可安装的方案。</p>
+      <div class="quote">把设计语言，转译成制造语言。</div>
+      <div class="image-grid">
+        <div><img src="assets/asset-bc1d8dae.png" alt="项目会议图"><div class="caption">项目沟通与需求理解</div></div>
+        <div><img src="assets/asset-79ec4764.png" alt="设计深化图"><div class="caption">从设计方案到制造交付方案</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-no">06｜批量制造准备</div>
+      <h2>难点不在做一座，而在推进 23 座制作</h2>
+      <p>南沙站亭不是普通标准亭。更宽的顶棚、Y 字柱头和模块化结构，都要同时满足视觉效果、主体支撑、运输和现场安装要求。</p>
+      <p>面对二期 12 米与 9 米两种规格、共 23 座候车亭，华盛需要在制作准备阶段先统一结构逻辑、外观质感和安装效率。</p>
+      <div class="tag-list">
+        <span>2.7 米出挑顶棚</span><span>Y 字形柱头</span><span>六边形模块</span><span>多规格制作准备</span>
+      </div>
+      <div class="image-grid three">
+        <img src="assets/5-81459e83.png" alt="顶棚结构制作">
+        <img src="assets/4-6716e175.png" alt="Y字结构构件">
+        <img src="assets/1-6dda538e.png" alt="批量构件">
+      </div>
+      <div class="caption">结构拆解与构件制作实拍</div>
+    </section>
+
+    <section class="dark">
+      <div class="section-no">07｜工厂主体装配</div>
+      <h2>工厂先完成主体装配</h2>
+      <p>华盛并不是把所有零散构件运到现场后再从零拼装。</p>
+      <p>在工厂阶段，立柱与灯箱主体先完成装配，形成可运输、可现场安装的主体单元，减少现场零散拼装的不确定性。</p>
+      <div class="quote">工厂完成主体装配，现场完成落位安装。</div>
+      <div class="image-grid">
+        <img src="assets/2-928c5eda.png" alt="工厂主体装配">
+        <img src="assets/3-af9121e9.png" alt="工厂主体装配">
+        <img src="assets/2-8ada25e9.png" alt="立柱灯箱主体装配">
+        <img src="assets/3-50b33d10.png" alt="工厂主体装配过程">
+      </div>
+      <div class="caption">立柱与灯箱主体装配实拍</div>
+    </section>
+
+    <section class="dark">
+      <div class="section-no">08｜现场吊装合拢</div>
+      <h2>顶棚留到现场，完成最后形态</h2>
+      <p>顶棚是南沙站亭最有识别度的部分，也最依赖现场安装条件。</p>
+      <p>顶棚模块在工厂完成制作和检查；到现场后，先完成主体落位固定，再进行顶棚吊装安装。</p>
+      <div class="quote">主体落位固定后，顶棚模块在现场吊装完成整体形态。</div>
+      <div class="image-grid">
+        <img src="assets/8-a0b70075.png" alt="顶棚模块制作">
+        <img src="assets/6-0bd9f4f9.png" alt="顶棚模块">
+        <img src="assets/7-76ecc9df.png" alt="顶棚构件">
+        <img src="assets/2026-06-11-163539-080-a69d809d.png" alt="现场安装衔接">
+      </div>
+      <div class="caption">顶棚模块制作 / 现场安装衔接</div>
+    </section>
+
+    <section>
+      <div class="section-no">09｜一期实景参考</div>
+      <h2>从一期实景，看二期制作目标</h2>
+      <p>下方实景图为南沙一期已落地效果参考，用来说明候车亭最终进入城市道路后的使用状态。</p>
+      <p>二期 23 座候车亭仍处于制作与交付推进阶段。华盛需要把工厂主体装配、现场落位和顶棚吊装提前纳入交付计划。</p>
+      <div class="image-grid">
+        <img src="assets/1-173604a8.png" alt="现场完成">
+        <img src="assets/9-f9e17db0.png" alt="市民使用场景">
+      </div>
+      <div class="image-block">
+        <img src="assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.png" alt="夜景落地效果">
+        <div class="caption">南沙候车亭一期落地实景参考</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-no">10｜华盛能力</div>
+      <h2>推进的，不只是一座候车亭</h2>
+      <p>南沙项目二期说明了华盛的定制交付方式：从制作准备阶段开始，就考虑它如何生产、运输、安装和长期使用。</p>
+      <div class="workflow">
+        <div class="workflow-step"><b>前期转译</b><span>把设计语言变成可执行的制造方案。</span></div>
+        <div class="workflow-step"><b>工厂主体装配</b><span>立柱与灯箱先形成可运输的主体单元。</span></div>
+        <div class="workflow-step"><b>现场吊装合拢</b><span>主体落位后，再完成顶棚吊装与整体收口。</span></div>
+      </div>
+      <div class="image-grid">
+        <img src="assets/988ad91c7a1ffe4848b3cb9e5274d772-ed252d37.jpg" alt="长站亭设计效果图">
+        <img src="assets/5-89173a4a.png" alt="工厂主体装配实拍">
+      </div>
+      <div class="caption">从设计目标到工厂装配能力</div>
+    </section>
+
+    <section>
+      <div class="section-no">11｜项目档案</div>
+      <h2>南沙候车亭项目</h2>
+      <div class="file-card">
+        <div class="file-row"><b>项目名称</b><span>广州市南沙区公交站亭品质提升项目二期</span></div>
+        <div class="file-row"><b>项目地点</b><span>广州市南沙区蕉门片区</span></div>
+        <div class="file-row"><b>一期落地参考</b><span>30 个安装点位：小型 9m 1 个，中型 12m 19 个，示范型 15m 3 个，大型 18m 7 个</span></div>
+        <div class="file-row"><b>二期制作范围</b><span>23 座候车亭：12 米长站亭 19 座，9 米长站亭 4 座</span></div>
+        <div class="file-row"><b>设计单位</b><span>华南理工大学建筑设计研究院有限公司何镜堂院士团队</span></div>
+        <div class="file-row"><b>当前阶段</b><span>二期制作准备 / 制造交付推进中</span></div>
+        <div class="file-row"><b>制造单位</b><span>华盛集团</span></div>
+        <div class="file-row"><b>图片说明</b><span>文中实景图与安装记录为南沙一期已落地效果参考</span></div>
+        <div class="file-row"><b>项目关键词</b><span>一期落地参考｜二期制作启动｜候车亭定制｜工厂主体装配｜现场吊装合拢</span></div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="section-no">12｜合作入口</div>
+      <h2>把项目需求发给华盛</h2>
+      <p>如果您的项目涉及公交候车亭、城市家具、广告灯箱、报刊亭或定制金属公共设施，欢迎发送设计图、现场照片或项目需求。</p>
+      <p>华盛可提供方案深化、主体装配、批量生产到现场安装支持。</p>
+      <div class="qr-wrap">
+        <img src="assets/final-qr-precise-clean-3b86f28d.jpg" alt="华盛二维码">
+      </div>
+      <div class="qr-caption">扫码联系华盛｜获取定制公共设施项目方案</div>
+    </section>
+  </main>
+</body>
+</html>
