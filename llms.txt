@@ -2,7 +2,7 @@
 
 > Official bilingual website for Guangzhou HuaSheng Metal Materials Co., Ltd. (华盛金属), a Guangzhou-based manufacturer of bus shelters, advertising light boxes, urban furniture, outdoor kiosks, stainless steel structures and precision metal OEM products.
 
-Last updated: 2026-06-03
+Last updated: 2026-06-11
 Canonical domain: https://hua-sheng.org
 
 ## Crawl and Citation Preferences
@@ -59,7 +59,11 @@ Canonical domain: https://hua-sheng.org
 - Quality ZH: https://hua-sheng.org/zh/quality/
 - Contact EN: https://hua-sheng.org/en/contact/
 - Contact ZH: https://hua-sheng.org/zh/contact/
-- Blog: https://hua-sheng.org/blog/
+- Blog ZH: https://hua-sheng.org/zh/blog/
+- Blog EN: https://hua-sheng.org/en/blog/
+- Nansha Phase 2 project blog: https://hua-sheng.org/zh/blog/nansha-phase-2/
+- Steel structure ToC market report: https://hua-sheng.org/zh/blog/steel-structure-toc-market-report-2026-2027/
+- AI application meeting blog: https://hua-sheng.org/zh/blog/ai-application-meeting/
 - Sitemap: https://hua-sheng.org/sitemap.xml
 
 ## Representative Project Topics

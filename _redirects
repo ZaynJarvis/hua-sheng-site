@@ -13,10 +13,13 @@
 /contact /en/contact/ 301
 
 /blog /blog/ 301
-/blog/ai-application-meeting /blog/ai-application-meeting/ 301
+/blog/ai-application-meeting /zh/blog/ai-application-meeting/ 301
+/blog/ai-application-meeting/ /zh/blog/ai-application-meeting/ 301
+/blog/nansha-phase-2 /zh/blog/nansha-phase-2/ 301
+/blog/nansha-phase-2/ /zh/blog/nansha-phase-2/ 301
 
-/en/blog /blog/?lang=en 302
-/zh/blog /blog/ 302
+/en/blog /en/blog/ 301
+/zh/blog /zh/blog/ 301
 
 /en/* /index.html 200
 /zh/* /index.html 200
