@@ -8,7 +8,6 @@ Static Cloudflare Pages version of the Huasheng corporate website and blog.
 - `/zh/` Chinese corporate website root
 - `/zh/blog/` and `/en/blog/` blog indexes
 - `/zh/blog/ai-application-meeting/` AI application meeting blog post
-- `/zh/blog/nansha-phase-2/` Nansha Phase 2 project blog post
 - `/zh/blog/steel-structure-toc-market-report-2026-2027/` steel structure market report
 - `/blog/assets/` blog media
 

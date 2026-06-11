@@ -15,8 +15,12 @@
 /blog /blog/ 301
 /blog/ai-application-meeting /zh/blog/ai-application-meeting/ 301
 /blog/ai-application-meeting/ /zh/blog/ai-application-meeting/ 301
-/blog/nansha-phase-2 /zh/blog/nansha-phase-2/ 301
-/blog/nansha-phase-2/ /zh/blog/nansha-phase-2/ 301
+/blog/nansha-phase-2 /zh/blog/ 302
+/blog/nansha-phase-2/ /zh/blog/ 302
+/zh/blog/nansha-phase-2 /zh/blog/ 302
+/zh/blog/nansha-phase-2/ /zh/blog/ 302
+/en/blog/nansha-phase-2 /en/blog/ 302
+/en/blog/nansha-phase-2/ /en/blog/ 302
 
 /en/blog /en/blog/ 301
 /zh/blog /zh/blog/ 301

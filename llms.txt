@@ -61,7 +61,6 @@ Canonical domain: https://hua-sheng.org
 - Contact ZH: https://hua-sheng.org/zh/contact/
 - Blog ZH: https://hua-sheng.org/zh/blog/
 - Blog EN: https://hua-sheng.org/en/blog/
-- Nansha Phase 2 project blog: https://hua-sheng.org/zh/blog/nansha-phase-2/
 - Steel structure ToC market report: https://hua-sheng.org/zh/blog/steel-structure-toc-market-report-2026-2027/
 - AI application meeting blog: https://hua-sheng.org/zh/blog/ai-application-meeting/
 - Sitemap: https://hua-sheng.org/sitemap.xml
