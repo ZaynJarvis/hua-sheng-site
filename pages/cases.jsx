@@ -4,7 +4,6 @@
   const { useState } = React;
 
   const CASE_IMAGES = [
-    "/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.png",
     "assets/huasheng/case-guangzhou-1993.webp",
     "assets/huasheng/case-shanghai-expo-v2.webp",
     "assets/huasheng/case-hangzhou-bicycle.webp",
@@ -93,33 +92,21 @@
               ))}
             </div>
             <div className="case-grid reveal">
-              {items.map((it, i) => {
-                const inner = (
-                  <React.Fragment>
-                    <ImgSlot src={it.image} alt={it.title} label={it.title} />
-                    <div className="case-card-body">
-                      <div className="cat">{it.cat}</div>
-                      <h4>{it.title}</h4>
-                      <div className="meta">
-                        <span>{it.loc}</span>
-                        <span>{it.year}</span>
-                      </div>
-                      {it.amount !== "—" && <div className="cat" style={{ color: "var(--accent)" }}>{it.amount}</div>}
-                      <p>{it.body}</p>
-                      {it.href && <span className="case-link">{it.cta || (lang === "cn" ? "查看案例" : "View case")} →</span>}
+              {items.map((it, i) => (
+                <article className="case-card" key={it.title + i}>
+                  <ImgSlot src={it.image} alt={it.title} label={it.title} />
+                  <div className="case-card-body">
+                    <div className="cat">{it.cat}</div>
+                    <h4>{it.title}</h4>
+                    <div className="meta">
+                      <span>{it.loc}</span>
+                      <span>{it.year}</span>
                     </div>
-                  </React.Fragment>
-                );
-                return it.href ? (
-                  <a className="case-card linked" href={it.href} key={it.title + i}>
-                    {inner}
-                  </a>
-                ) : (
-                  <article className="case-card" key={it.title + i}>
-                    {inner}
-                  </article>
-                );
-              })}
+                    {it.amount !== "—" && <div className="cat" style={{ color: "var(--accent)" }}>{it.amount}</div>}
+                    <p>{it.body}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
