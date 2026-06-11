@@ -1004,8 +1004,11 @@ body[data-theme="clarity"] .case-hero-text h3 { font-weight: 700; letter-spacing
   overflow: hidden;
   display: flex; flex-direction: column;
   transition: all var(--tr);
+  color: inherit;
 }
 .case-card:hover { transform: translateY(-4px); border-color: var(--line-strong); }
+.case-card.linked { cursor: pointer; }
+.case-card.linked:hover .case-link { color: var(--ink); }
 .case-card .imgslot { aspect-ratio: 4 / 3; }
 .case-card-body { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 8px; }
 .case-card-body .cat {
@@ -1018,6 +1021,12 @@ body[data-lang="cn"] .case-card-body .cat { font-family: var(--font-body); lette
 body[data-theme="clarity"] .case-card-body h4 { font-weight: 600; }
 .case-card-body .meta { font-size: 12px; color: var(--ink-mute); display: flex; gap: 12px; }
 .case-card-body p { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 4px 0 0; }
+.case-link {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+}
 @media (max-width: 900px) { .case-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .case-grid { grid-template-columns: 1fr; } }
 

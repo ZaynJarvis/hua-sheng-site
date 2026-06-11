@@ -293,6 +293,7 @@ window.HS_CONTENT = {
         body: "为北京奥运场馆周边设计制作的不锈钢候车亭项目，是华盛承接的标志性国家级工程。",
       },
       items: [
+        { cat: "国内候车亭", title: "南沙项目二期", loc: "中国 · 广州南沙", year: "2026", amount: "二期23座制作启动", href: "/nansha-phase-2/", cta: "查看 H5 案例", body: "在一期30个安装点位的落地参考基础上，二期进入23座候车亭制作推进阶段，覆盖前期转译、工厂主体装配与现场吊装合拢。" },
         { cat: "国内候车亭", title: "广州第一代现代候车亭", loc: "中国 · 广州", year: "1993", amount: "—", body: "为广州城市打造的第一代现代化公交候车亭，开启国内现代候车亭制造序章。" },
         { cat: "国内候车亭", title: "上海世博会候车亭", loc: "中国 · 上海", year: "2010", amount: "¥25,645,000", body: "上海世博会及主城区公交候车亭项目，结合城市景观、广告灯箱与无障碍候车体验。" },
         { cat: "国内候车亭", title: "杭州公共自行车亭", loc: "中国 · 杭州", year: "2012", amount: "¥7,963,000", body: "杭州公共自行车系统配套候车与停放亭，集成信息显示与照明。" },
@@ -645,6 +646,7 @@ window.HS_CONTENT = {
         body: "Stainless steel bus shelters around the Beijing Olympic venues — HuaSheng's flagship national contract.",
       },
       items: [
+        { cat: "Domestic shelters", title: "Nansha Phase 2 shelter project", loc: "Nansha, Guangzhou, China", year: "2026", amount: "Phase 2: 23 shelters in production", href: "/nansha-phase-2/", cta: "View H5 case", body: "A standalone H5 case page showing Phase 1 installed references and the Phase 2 manufacturing launch for 23 bus shelters." },
         { cat: "Domestic shelters", title: "Guangzhou's first modern shelter", loc: "Guangzhou, China", year: "1993", amount: "—", body: "The first generation of modern bus shelters for the city of Guangzhou — the opening chapter of modern shelter manufacturing in China." },
         { cat: "Domestic shelters", title: "Shanghai Expo bus shelters", loc: "Shanghai, China", year: "2010", amount: "RMB 25,645,000", body: "Bus shelters for the Shanghai Expo and downtown corridors, integrating cityscape design, light boxes and accessible waiting areas." },
         { cat: "Domestic shelters", title: "Hangzhou public bicycle stations", loc: "Hangzhou, China", year: "2012", amount: "RMB 7,963,000", body: "Stations for Hangzhou's public bicycle system, integrating information display and lighting." },

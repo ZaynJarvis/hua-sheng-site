@@ -22,6 +22,7 @@
     const { ImgSlot, Eyebrow, SectionHead, CTABlock } = window.HSUI;
     const { useState } = React;
     const CASE_IMAGES = [
+      "/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.png",
       "assets/huasheng/case-guangzhou-1993.webp",
       "assets/huasheng/case-shanghai-expo-v2.webp",
       "assets/huasheng/case-hangzhou-bicycle.webp",
@@ -65,7 +66,10 @@
         },
         f,
         /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 8, color: filter === f ? "inherit" : "var(--ink-mute)" } }, f === c.filters[0] ? c.items.length : c.items.filter((it) => it.cat === f).length)
-      ))), /* @__PURE__ */ React.createElement("div", { className: "case-grid reveal" }, items.map((it, i) => /* @__PURE__ */ React.createElement("article", { className: "case-card", key: it.title + i }, /* @__PURE__ */ React.createElement(ImgSlot, { src: it.image, alt: it.title, label: it.title }), /* @__PURE__ */ React.createElement("div", { className: "case-card-body" }, /* @__PURE__ */ React.createElement("div", { className: "cat" }, it.cat), /* @__PURE__ */ React.createElement("h4", null, it.title), /* @__PURE__ */ React.createElement("div", { className: "meta" }, /* @__PURE__ */ React.createElement("span", null, it.loc), /* @__PURE__ */ React.createElement("span", null, it.year)), it.amount !== "\u2014" && /* @__PURE__ */ React.createElement("div", { className: "cat", style: { color: "var(--accent)" } }, it.amount), /* @__PURE__ */ React.createElement("p", null, it.body))))))), /* @__PURE__ */ React.createElement(
+      ))), /* @__PURE__ */ React.createElement("div", { className: "case-grid reveal" }, items.map((it, i) => {
+        const inner = /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(ImgSlot, { src: it.image, alt: it.title, label: it.title }), /* @__PURE__ */ React.createElement("div", { className: "case-card-body" }, /* @__PURE__ */ React.createElement("div", { className: "cat" }, it.cat), /* @__PURE__ */ React.createElement("h4", null, it.title), /* @__PURE__ */ React.createElement("div", { className: "meta" }, /* @__PURE__ */ React.createElement("span", null, it.loc), /* @__PURE__ */ React.createElement("span", null, it.year)), it.amount !== "\u2014" && /* @__PURE__ */ React.createElement("div", { className: "cat", style: { color: "var(--accent)" } }, it.amount), /* @__PURE__ */ React.createElement("p", null, it.body), it.href && /* @__PURE__ */ React.createElement("span", { className: "case-link" }, it.cta || (lang === "cn" ? "\u67E5\u770B\u6848\u4F8B" : "View case"), " \u2192")));
+        return it.href ? /* @__PURE__ */ React.createElement("a", { className: "case-card linked", href: it.href, key: it.title + i }, inner) : /* @__PURE__ */ React.createElement("article", { className: "case-card", key: it.title + i }, inner);
+      })))), /* @__PURE__ */ React.createElement(
         CTABlock,
         {
           title: lang === "cn" ? "\u60F3\u505A\u4E00\u4E2A\u7C7B\u4F3C\u7684\u9879\u76EE\uFF1F" : "Got a similar project in mind?",
