@@ -1,34 +1,40 @@
-/sitemap /sitemap.xml 301
+/ai.txt /llms.txt 301
 /llm.txt /llms.txt 301
+/entity-profile /entity-profile.jsonld 301
+/answers /en/answers/ 301
+/answers/ /en/answers/ 301
+/faq /en/answers/ 301
+/faq/ /en/answers/ 301
+/en/faq /en/answers/ 301
+/en/faq/ /en/answers/ 301
+/zh/faq /zh/answers/ 301
+/zh/faq/ /zh/answers/ 301
+/blog /zh/blog/ 301
+/blog/ /zh/blog/ 301
+/blog/steel-structure-toc-market-report-2026-2027 /zh/blog/steel-structure-toc-market-report-2026-2027/ 301
+/blog/steel-structure-toc-market-report-2026-2027/ /zh/blog/steel-structure-toc-market-report-2026-2027/ 301
+/sitemap /sitemap.xml 301
 / /en/ 302
-
 /en /en/ 301
 /zh /zh/ 301
-
 /about /en/about/ 301
 /capabilities /en/capabilities/ 301
 /cases /en/projects/ 301
 /projects /en/projects/ 301
 /quality /en/quality/ 301
 /contact /en/contact/ 301
-
-/blog /zh/blog/ 301
 /blog/ai-application-meeting /zh/blog/ai-application-meeting/ 301
-/blog/steel-structure-toc-market-report-2026-2027 /zh/blog/steel-structure-toc-market-report-2026-2027/ 301
-
 /en/blog /en/blog/ 301
 /zh/blog /zh/blog/ 301
 /en/blog/ai-application-meeting /en/blog/ai-application-meeting/ 301
 /zh/blog/ai-application-meeting /zh/blog/ai-application-meeting/ 301
 /en/blog/steel-structure-toc-market-report-2026-2027 /en/blog/steel-structure-toc-market-report-2026-2027/ 301
 /zh/blog/steel-structure-toc-market-report-2026-2027 /zh/blog/steel-structure-toc-market-report-2026-2027/ 301
-
 /en/blog/ /en/blog/index.html 200
 /zh/blog/ /zh/blog/index.html 200
 /en/blog/ai-application-meeting/ /en/blog/ai-application-meeting/index.html 200
 /zh/blog/ai-application-meeting/ /zh/blog/ai-application-meeting/index.html 200
 /en/blog/steel-structure-toc-market-report-2026-2027/ /en/blog/steel-structure-toc-market-report-2026-2027/index.html 200
 /zh/blog/steel-structure-toc-market-report-2026-2027/ /zh/blog/steel-structure-toc-market-report-2026-2027/index.html 200
-
 /en/* /index.html 200
 /zh/* /index.html 200

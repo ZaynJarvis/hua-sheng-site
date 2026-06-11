@@ -201,15 +201,19 @@ body[data-lang="en"] .brand-text .b { letter-spacing: 0.15em; }
   font-family: var(--font-body); font-size: 12px;
   box-shadow: 0 1px 0 rgba(20,24,29,.04);
 }
-.lang-switch button {
+.lang-switch button,
+.lang-switch a {
   min-width: 42px;
   padding: 6px 11px;
   border-radius: 999px;
   color: var(--ink-mute);
   font-weight: 650;
   transition: all var(--tr);
+  text-align: center;
+  text-decoration: none;
 }
-.lang-switch button.on { background: var(--accent); color: #fff; }
+.lang-switch button.on,
+.lang-switch a.on { background: var(--accent); color: #fff; }
 
 .menu-btn { display: none; }
 

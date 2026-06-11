@@ -314,6 +314,7 @@ function Footer({ lang, t, setRoute }) {
               <li><a href={routePath("cases", lang)} onClick={(e) => { e.preventDefault(); go("cases"); }}>{t.nav.cases}</a></li>
               <li><a href={routePath("quality", lang)} onClick={(e) => { e.preventDefault(); go("quality"); }}>{t.nav.quality}</a></li>
               <li><a href={lang === "cn" ? "/zh/blog/" : "/en/blog/"}>{t.nav.blog || "Blog"}</a></li>
+              <li><a href={lang === "cn" ? "/zh/answers/" : "/en/answers/"}>{lang === "cn" ? "AI 搜索答案页" : "AI search answers"}</a></li>
               <li><a href={routePath("contact", lang)} onClick={(e) => { e.preventDefault(); go("contact"); }}>{t.nav.contact}</a></li>
             </ul>
           </div>

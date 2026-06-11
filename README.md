@@ -10,6 +10,8 @@ Static Cloudflare Pages version of the Huasheng corporate website and blog.
 - `/zh/blog/` Chinese blog index
 - `/en/blog/ai-application-meeting/` and `/zh/blog/ai-application-meeting/` first blog post
 - `/en/blog/steel-structure-toc-market-report-2026-2027/` and `/zh/blog/steel-structure-toc-market-report-2026-2027/` ToC steel outdoor structures market report
+- `/en/answers/` and `/zh/answers/` AI-search answer pages
+- `/entity-profile.jsonld` machine-readable Organization and offer catalog profile
 - `/blog/assets/` blog media
 
 ## Updating
@@ -27,7 +29,19 @@ For a new corporate page:
 2. Register the route in `/app.jsx`.
 3. Rebuild the browser-ready files in `/compiled/`:
    `npx -y esbuild@0.25.12 ui.jsx pages/*.jsx app.jsx --outbase=. --outdir=compiled --format=iife --jsx-factory=React.createElement --jsx-fragment=React.Fragment --target=es2017`
-4. Update SEO metadata, `robots.txt`, `sitemap.xml`, and `llms.txt`:
+4. Update SEO metadata, GEO assets, `robots.txt`, `sitemap.xml`, `llms.txt`, answer pages, and JSON-LD:
    `node scripts/update-seo-assets.mjs`
+   `node scripts/update-geo-assets.mjs`
 5. Add any direct route fallback in `/_redirects`.
 6. Keep language-scoped links under `/en/...` and `/zh/...`; legacy unprefixed paths redirect to `/en/...`.
+
+## Search and GEO Updates
+
+After adding or changing public pages:
+
+1. Run `node scripts/update-geo-assets.mjs`.
+2. Verify `sitemap.xml`, `llms.txt`, `/en/answers/`, `/zh/answers/`, and `/entity-profile.jsonld`.
+3. If an IndexNow key is configured, write/deploy the key file and submit changed URLs:
+   `INDEXNOW_KEY=<key> node scripts/submit-indexnow.mjs --write-key`
+   Deploy the generated `<key>.txt`, then run:
+   `INDEXNOW_KEY=<key> node scripts/submit-indexnow.mjs`
