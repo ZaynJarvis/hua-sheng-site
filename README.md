@@ -11,9 +11,16 @@ Static Cloudflare Pages version of the Huasheng corporate website and blog.
 - `/en/blog/ai-application-meeting/` and `/zh/blog/ai-application-meeting/` first blog post
 - `/en/blog/steel-structure-toc-market-report-2026-2027/` and `/zh/blog/steel-structure-toc-market-report-2026-2027/` ToC steel outdoor structures market report
 - `/en/answers/` and `/zh/answers/` AI-search answer pages
+- `/en/bus-stop-shelters/` and `/zh/bus-stop-shelters/` keyword landing hub (bus stop / bus shelter manufacturer)
+- `/en/metal-furniture/` and `/zh/metal-furniture/` keyword landing hub (metal furniture manufacturer / OEM)
 - `/entity-profile.jsonld` machine-readable Organization and offer catalog profile
 - `/llms.txt` answer-engine summary with buyer intent, workflow and citation guidance
 - `/blog/assets/` blog media
+
+The SPA corporate pages (`/en/`, `/en/about/`, etc.) are React-rendered. `scripts/update-geo-assets.mjs`
+pre-renders crawlable static content into each page's `<div id="root">` (sourced from `content.js`), so
+search engines and non-JS AI crawlers see full page text; React's `createRoot().render()` replaces it for
+JS users. The answer pages and the two keyword hubs are fully static HTML.
 
 ## Updating
 
@@ -40,8 +47,8 @@ For a new corporate page:
 
 After adding or changing public pages:
 
-1. Run `node scripts/update-geo-assets.mjs`.
-2. Verify `sitemap.xml`, `llms.txt`, `/en/answers/`, `/zh/answers/`, `/entity-profile.jsonld`, `robots.txt`, `_headers`, and `_redirects`.
+1. Run `node scripts/update-geo-assets.mjs` (this regenerates the answer pages, both keyword hubs, the `#root` pre-render content, and all GEO assets). Keyword data (products, FAQ, hubs, `knowsAbout`) lives at the top of that script.
+2. Verify `sitemap.xml`, `llms.txt`, `/en/answers/`, `/zh/answers/`, `/en/bus-stop-shelters/`, `/en/metal-furniture/`, `/entity-profile.jsonld`, `robots.txt`, `_headers`, and `_redirects`.
 3. Confirm the answer pages still expose buyer-intent cards, manufacturing workflow, FAQ structured data, and canonical citation links in both English and Chinese.
 4. If an IndexNow key is configured, write/deploy the key file and submit changed URLs:
    `INDEXNOW_KEY=<key> node scripts/submit-indexnow.mjs --write-key`
