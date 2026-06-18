@@ -22,7 +22,7 @@ window.HS_CONTENT = {
     home: {
       eyebrow: "始于 1989 · 国内第一批现代化候车亭制造商",
       heroTitle: "为城市，造一件\n经得起时间的金属作品",
-      heroSub: "从北京奥运到香港高铁，从卡塔尔到尼泊尔——华盛 30 年专注公共候车亭、广告灯箱、不锈钢工程与精密金属 OEM。",
+      heroSub: "从北京奥运到香港高铁，从卡塔尔到尼泊尔——华盛 30 年专注公交候车亭与公交站亭、广告灯箱、不锈钢工程、金属家具与精密金属 OEM。",
       heroCta1: "查看项目案例",
       heroCta2: "了解生产能力",
       stats: [
@@ -42,8 +42,8 @@ window.HS_CONTENT = {
         items: [
           {
             tag: "01",
-            title: "公共候车亭与广告灯箱",
-            body: "国内第一批现代化候车亭制造商，多项设计专利。覆盖全国大中城市，落地北京奥运、香港高铁、海外政府项目。",
+            title: "公交站亭、候车亭与广告灯箱",
+            body: "国内第一批现代化候车亭（公交站亭）制造商，多项设计专利。覆盖全国大中城市，落地北京奥运、香港高铁、海外政府项目。",
           },
           {
             tag: "02",
@@ -52,8 +52,8 @@ window.HS_CONTENT = {
           },
           {
             tag: "03",
-            title: "精密金属 OEM / ODM",
-            body: "为 IKEA 等国际品牌提供厨房手推车、橱柜、置物架、卫浴金属配件等 OEM 代工。",
+            title: "金属家具与精密金属 OEM / ODM",
+            body: "为 IKEA 等国际品牌提供金属家具、厨房手推车、橱柜、置物架、卫浴金属配件等 OEM / ODM 代工。",
           },
           {
             tag: "04",
@@ -139,7 +139,7 @@ window.HS_CONTENT = {
       hero: {
         eyebrow: "关于我们",
         title: "始于 1989 的华盛企业集团",
-        sub: "华盛从广州出发，围绕公共交通设施、城市家具、户外亭体与金属制品，把设计、制造、安装和项目交付连接成完整能力。",
+        sub: "华盛从广州出发，围绕公共交通设施、城市家具、金属家具、户外亭体与金属制品，把设计、制造、安装和项目交付连接成完整能力。",
       },
       story: {
         title: "从工贸起步，到多元产业",
@@ -147,7 +147,7 @@ window.HS_CONTENT = {
           "1989 年，广州市华盛工贸有限公司在广州创立。“华盛”二字由华国锋同志亲笔题写，这一历史印记也成为企业长期发展的精神锚点。",
           "三十余年来，华盛逐步形成先进工业制造与安装、产业园开发与管理、商业地产开发与管理、新能源开发与管理协同发展的业务框架。",
           "在先进工业制造与安装领域，华盛持续投入广州花都银亿斯先进智造产业园，建设现代化厂房、员工宿舍、高效生产线与智能制造设施，形成公共设施和金属制品的综合制造基地。",
-          "华盛长期拓展国内与国际市场，业务已覆盖全球 100+ 城市和地区，主要产品包括公共交通候车亭、城市家具、户外亭体与厨房、金属家居用品及定制金属构件。",
+          "华盛长期拓展国内与国际市场，业务已覆盖全球 100+ 城市和地区，主要产品包括公共交通候车亭与公交站亭、城市家具、金属家具、户外亭体与厨房、金属家居用品及定制金属构件。",
           "依托项目经验、制造设备和质量管理体系，华盛与 White Horse Outdoor、IKEA、Belson Outdoors、Valeo、BYD Backyard、Ladenbau Schmidt 等客户和伙伴建立长期合作。",
           "从广州第一代现代化候车亭，到北京 LED 公交线路牌、上海智能候车亭、深圳前海与福田智慧候车亭，再到沙特、卡塔尔等海外交通设施项目，华盛始终把城市公共空间里的小设施做成可持续交付的工程产品。",
         ],
@@ -385,7 +385,7 @@ window.HS_CONTENT = {
           phone: "电话 / WhatsApp",
           country: "国家 / 地区",
           type: "项目类型",
-          types: ["候车亭项目", "广告灯箱", "钢结构工程", "OEM 代工", "其他"],
+          types: ["公交站亭 / 候车亭项目", "广告灯箱", "钢结构工程", "金属家具 / OEM 代工", "其他"],
           message: "请简单描述您的需求（数量、时间、预算等）",
           submit: "发送咨询",
         },
@@ -413,7 +413,7 @@ window.HS_CONTENT = {
     home: {
       eyebrow: "Since 1989 · China's first generation of modern bus shelter makers",
       heroTitle: "Built for the street.\nMade to last decades.",
-      heroSub: "From the Beijing Olympics to Hong Kong MTR, from Qatar to Nepal — HuaSheng has spent 30 years designing and manufacturing bus shelters, advertising light boxes, stainless steel structures and precision metal OEM.",
+      heroSub: "From the Beijing Olympics to Hong Kong MTR, from Qatar to Nepal — HuaSheng has spent 30 years designing and manufacturing bus stop shelters, advertising light boxes, stainless steel structures, metal furniture and precision metal OEM.",
       heroCta1: "Browse projects",
       heroCta2: "Our capabilities",
       stats: [
@@ -431,9 +431,9 @@ window.HS_CONTENT = {
         eyebrow: "What we do",
         title: "From a drawing to a piece of the city",
         items: [
-          { tag: "01", title: "Bus shelters & light boxes", body: "Among the first modern bus shelter makers in China. Multiple design patents. Delivered to the Beijing Olympics, Hong Kong MTR and dozens of overseas governments." },
+          { tag: "01", title: "Bus stops, shelters & light boxes", body: "Among the first modern bus stop shelter makers in China. Multiple design patents. Delivered to the Beijing Olympics, Hong Kong MTR and dozens of overseas governments." },
           { tag: "02", title: "Steel structure & decoration", body: "Stainless steel facades, decorative structures, custom architectural metalwork for public and commercial spaces." },
-          { tag: "03", title: "Precision metal OEM / ODM", body: "Long-term OEM partner of IKEA: kitchen trolleys, cabinets, shelving, bathroom metal parts." },
+          { tag: "03", title: "Metal furniture & precision metal OEM / ODM", body: "Long-term OEM partner of IKEA: metal furniture, kitchen trolleys, cabinets, shelving and bathroom metal parts." },
           { tag: "04", title: "End-to-end delivery", body: "Design, R&D, fabrication, finishing, assembly, container loading, overseas installation guidance — all in-house." },
         ],
       },
@@ -514,7 +514,7 @@ window.HS_CONTENT = {
       hero: {
         eyebrow: "About us",
         title: "Founded in 1989, built for urban public facilities and advanced manufacturing",
-        sub: "From Guangzhou, HuaSheng connects design, metal manufacturing, installation support and project delivery for public transport facilities, urban furniture, outdoor pavilions and custom metal products.",
+        sub: "From Guangzhou, HuaSheng connects design, metal manufacturing, installation support and project delivery for public transport facilities, bus stop shelters, urban furniture, metal furniture, outdoor pavilions and custom metal products.",
       },
       story: {
         title: "From industry and trade to a diversified industrial ecosystem",
@@ -522,7 +522,7 @@ window.HS_CONTENT = {
           "HuaSheng was founded in Guangzhou in 1989. The name HuaSheng was personally inscribed by Hua Guofeng, a historical mark that became part of the company's long-term identity.",
           "Over more than three decades, HuaSheng has developed a coordinated business framework covering advanced industrial manufacturing and installation, industrial park development and management, commercial real estate development and management, and new energy development and management.",
           "In advanced manufacturing, HuaSheng continues to invest in the Yinyisi Advanced Intelligent Manufacturing Industrial Park in Huadu, Guangzhou, combining modern workshops, staff dormitories, efficient production lines and smart manufacturing facilities.",
-          "HuaSheng serves more than 100 cities and regions worldwide. Its products include public transport shelters, urban furniture, outdoor pavilions and kitchens, metal household goods and custom metal components.",
+          "HuaSheng serves more than 100 cities and regions worldwide. Its products include public transport shelters and bus stops, urban furniture, metal furniture, outdoor pavilions and kitchens, metal household goods and custom metal components.",
           "With project experience, manufacturing equipment and quality systems, HuaSheng has built long-term relationships with White Horse Outdoor, IKEA, Belson Outdoors, Valeo, BYD Backyard, Ladenbau Schmidt and other clients and partners.",
           "From Guangzhou's first generation of modern bus shelters to Beijing LED bus route signs, Shanghai smart shelters, Shenzhen Qianhai and Futian smart shelters, and public transport projects in Saudi Arabia and Qatar, HuaSheng turns small urban facilities into deliverable engineering products.",
         ],
@@ -751,7 +751,7 @@ window.HS_CONTENT = {
           phone: "Phone / WhatsApp",
           country: "Country / region",
           type: "Project type",
-          types: ["Bus shelter project", "Advertising light box", "Steel structure", "OEM manufacturing", "Other"],
+          types: ["Bus stop / shelter project", "Advertising light box", "Steel structure", "Metal furniture / OEM", "Other"],
           message: "Briefly describe your needs (quantity, timing, budget…)",
           submit: "Send enquiry",
         },

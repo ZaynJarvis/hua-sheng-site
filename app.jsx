@@ -20,18 +20,18 @@ const SITE_ORIGIN = "https://hua-sheng.org";
 const SEO_META = {
   home: {
     en: {
-      title: "HuaSheng Metal | Bus Shelters, Light Boxes & Metal OEM Since 1989",
-      description: "HuaSheng Metal is a Guangzhou manufacturer of bus shelters, advertising light boxes, urban furniture, outdoor kiosks and precision metal OEM products serving 100+ cities and regions.",
+      title: "Bus Stop Shelter & Metal Furniture Manufacturer | HuaSheng",
+      description: "HuaSheng Metal is a Guangzhou manufacturer of bus stop shelters, bus shelters, advertising light boxes, urban and metal furniture, outdoor kiosks and precision metal OEM products serving 100+ cities and regions.",
     },
     cn: {
-      title: "华盛金属 | 候车亭、广告灯箱与城市金属设施制造商",
-      description: "华盛金属始于广州1989年，制造公共交通候车亭、广告灯箱、城市家具、户外亭体与精密金属OEM产品，服务全球100+城市和地区。",
+      title: "华盛金属 | 公交候车亭、公交站亭与金属家具制造商",
+      description: "华盛金属始于广州1989年，制造公交候车亭、公交站亭、广告灯箱、城市家具、金属家具、户外亭体与精密金属OEM产品，服务全球100+城市和地区。",
     },
   },
   about: {
     en: {
       title: "About HuaSheng | Guangzhou Manufacturer Founded in 1989",
-      description: "Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, smart city projects, manufacturing technology and quality values.",
+      description: "Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, bus stop shelter and metal furniture projects, manufacturing technology and quality values.",
     },
     cn: {
       title: "关于华盛 | 始于1989年的广州金属制造企业集团",
@@ -50,11 +50,11 @@ const SEO_META = {
   },
   cases: {
     en: {
-      title: "Bus Shelter & Metal Project Cases | HuaSheng Metal",
-      description: "Explore HuaSheng bus shelter, smart transport, stainless steel, overseas public facility and OEM cases across Beijing, Shanghai, Guangzhou, Qatar, Nepal and more.",
+      title: "Bus Stop Shelter & Metal Project Cases | HuaSheng Metal",
+      description: "Explore HuaSheng bus stop shelter, smart transport, stainless steel, metal furniture, overseas public facility and OEM cases across Beijing, Shanghai, Guangzhou, Qatar, Nepal and more.",
     },
     cn: {
-      title: "项目案例 | 华盛候车亭、智慧交通与金属公共设施",
+      title: "项目案例 | 华盛公交站亭、智慧交通与金属公共设施",
       description: "查看华盛在北京、上海、广州、深圳、卡塔尔、沙特、尼泊尔等地的候车亭、智慧交通、金属公共设施和OEM项目案例。",
     },
   },
@@ -70,11 +70,11 @@ const SEO_META = {
   },
   contact: {
     en: {
-      title: "Contact HuaSheng Metal | Bus Shelter & Metal OEM Enquiries",
-      description: "Contact HuaSheng for bus shelter projects, advertising light boxes, steel structures, outdoor kiosks and long-term precision metal OEM manufacturing.",
+      title: "Contact HuaSheng | Bus Stop Shelter & Metal Furniture OEM",
+      description: "Contact HuaSheng for bus stop shelter projects, advertising light boxes, steel structures, metal furniture and long-term precision metal OEM manufacturing.",
     },
     cn: {
-      title: "联系华盛 | 候车亭、广告灯箱与金属OEM项目咨询",
+      title: "联系华盛 | 公交站亭、广告灯箱与金属家具OEM咨询",
       description: "联系华盛咨询候车亭、广告灯箱、钢结构工程、户外亭体、城市家具和长期精密金属OEM制造合作。",
     },
   },
@@ -314,6 +314,8 @@ function Footer({ lang, t, setRoute }) {
               <li><a href={routePath("cases", lang)} onClick={(e) => { e.preventDefault(); go("cases"); }}>{t.nav.cases}</a></li>
               <li><a href={routePath("quality", lang)} onClick={(e) => { e.preventDefault(); go("quality"); }}>{t.nav.quality}</a></li>
               <li><a href={lang === "cn" ? "/zh/blog/" : "/en/blog/"}>{t.nav.blog || "Blog"}</a></li>
+              <li><a href={lang === "cn" ? "/zh/bus-stop-shelters/" : "/en/bus-stop-shelters/"}>{lang === "cn" ? "公交站亭 / 候车亭" : "Bus stop shelters"}</a></li>
+              <li><a href={lang === "cn" ? "/zh/metal-furniture/" : "/en/metal-furniture/"}>{lang === "cn" ? "金属家具" : "Metal furniture"}</a></li>
               <li><a href={lang === "cn" ? "/zh/answers/" : "/en/answers/"}>{lang === "cn" ? "AI 搜索答案页" : "AI search answers"}</a></li>
               <li><a href={routePath("contact", lang)} onClick={(e) => { e.preventDefault(); go("contact"); }}>{t.nav.contact}</a></li>
             </ul>
@@ -331,9 +333,9 @@ function Footer({ lang, t, setRoute }) {
           <div className="footer-col">
             <h4>{lang === "cn" ? "业务" : "Lines of business"}</h4>
             <ul>
-              <li>{lang === "cn" ? "公共候车亭与广告灯箱" : "Bus shelters & light boxes"}</li>
+              <li>{lang === "cn" ? "公交站亭、候车亭与广告灯箱" : "Bus stops, shelters & light boxes"}</li>
               <li>{lang === "cn" ? "钢结构装修装饰工程" : "Steel structure & decoration"}</li>
-              <li>{lang === "cn" ? "精密金属 OEM / ODM" : "Precision metal OEM / ODM"}</li>
+              <li>{lang === "cn" ? "金属家具与精密金属 OEM / ODM" : "Metal furniture & precision metal OEM / ODM"}</li>
               <li>{lang === "cn" ? "海外项目工程服务" : "Overseas project services"}</li>
             </ul>
           </div>

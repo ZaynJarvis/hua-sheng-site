@@ -16,18 +16,18 @@
   const SEO_META = {
     home: {
       en: {
-        title: "HuaSheng Metal | Bus Shelters, Light Boxes & Metal OEM Since 1989",
-        description: "HuaSheng Metal is a Guangzhou manufacturer of bus shelters, advertising light boxes, urban furniture, outdoor kiosks and precision metal OEM products serving 100+ cities and regions."
+        title: "Bus Stop Shelter & Metal Furniture Manufacturer | HuaSheng",
+        description: "HuaSheng Metal is a Guangzhou manufacturer of bus stop shelters, bus shelters, advertising light boxes, urban and metal furniture, outdoor kiosks and precision metal OEM products serving 100+ cities and regions."
       },
       cn: {
-        title: "\u534E\u76DB\u91D1\u5C5E | \u5019\u8F66\u4EAD\u3001\u5E7F\u544A\u706F\u7BB1\u4E0E\u57CE\u5E02\u91D1\u5C5E\u8BBE\u65BD\u5236\u9020\u5546",
-        description: "\u534E\u76DB\u91D1\u5C5E\u59CB\u4E8E\u5E7F\u5DDE1989\u5E74\uFF0C\u5236\u9020\u516C\u5171\u4EA4\u901A\u5019\u8F66\u4EAD\u3001\u5E7F\u544A\u706F\u7BB1\u3001\u57CE\u5E02\u5BB6\u5177\u3001\u6237\u5916\u4EAD\u4F53\u4E0E\u7CBE\u5BC6\u91D1\u5C5EOEM\u4EA7\u54C1\uFF0C\u670D\u52A1\u5168\u7403100+\u57CE\u5E02\u548C\u5730\u533A\u3002"
+        title: "\u534E\u76DB\u91D1\u5C5E | \u516C\u4EA4\u5019\u8F66\u4EAD\u3001\u516C\u4EA4\u7AD9\u4EAD\u4E0E\u91D1\u5C5E\u5BB6\u5177\u5236\u9020\u5546",
+        description: "\u534E\u76DB\u91D1\u5C5E\u59CB\u4E8E\u5E7F\u5DDE1989\u5E74\uFF0C\u5236\u9020\u516C\u4EA4\u5019\u8F66\u4EAD\u3001\u516C\u4EA4\u7AD9\u4EAD\u3001\u5E7F\u544A\u706F\u7BB1\u3001\u57CE\u5E02\u5BB6\u5177\u3001\u91D1\u5C5E\u5BB6\u5177\u3001\u6237\u5916\u4EAD\u4F53\u4E0E\u7CBE\u5BC6\u91D1\u5C5EOEM\u4EA7\u54C1\uFF0C\u670D\u52A1\u5168\u7403100+\u57CE\u5E02\u548C\u5730\u533A\u3002"
       }
     },
     about: {
       en: {
         title: "About HuaSheng | Guangzhou Manufacturer Founded in 1989",
-        description: "Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, smart city projects, manufacturing technology and quality values."
+        description: "Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, bus stop shelter and metal furniture projects, manufacturing technology and quality values."
       },
       cn: {
         title: "\u5173\u4E8E\u534E\u76DB | \u59CB\u4E8E1989\u5E74\u7684\u5E7F\u5DDE\u91D1\u5C5E\u5236\u9020\u4F01\u4E1A\u96C6\u56E2",
@@ -46,11 +46,11 @@
     },
     cases: {
       en: {
-        title: "Bus Shelter & Metal Project Cases | HuaSheng Metal",
-        description: "Explore HuaSheng bus shelter, smart transport, stainless steel, overseas public facility and OEM cases across Beijing, Shanghai, Guangzhou, Qatar, Nepal and more."
+        title: "Bus Stop Shelter & Metal Project Cases | HuaSheng Metal",
+        description: "Explore HuaSheng bus stop shelter, smart transport, stainless steel, metal furniture, overseas public facility and OEM cases across Beijing, Shanghai, Guangzhou, Qatar, Nepal and more."
       },
       cn: {
-        title: "\u9879\u76EE\u6848\u4F8B | \u534E\u76DB\u5019\u8F66\u4EAD\u3001\u667A\u6167\u4EA4\u901A\u4E0E\u91D1\u5C5E\u516C\u5171\u8BBE\u65BD",
+        title: "\u9879\u76EE\u6848\u4F8B | \u534E\u76DB\u516C\u4EA4\u7AD9\u4EAD\u3001\u667A\u6167\u4EA4\u901A\u4E0E\u91D1\u5C5E\u516C\u5171\u8BBE\u65BD",
         description: "\u67E5\u770B\u534E\u76DB\u5728\u5317\u4EAC\u3001\u4E0A\u6D77\u3001\u5E7F\u5DDE\u3001\u6DF1\u5733\u3001\u5361\u5854\u5C14\u3001\u6C99\u7279\u3001\u5C3C\u6CCA\u5C14\u7B49\u5730\u7684\u5019\u8F66\u4EAD\u3001\u667A\u6167\u4EA4\u901A\u3001\u91D1\u5C5E\u516C\u5171\u8BBE\u65BD\u548COEM\u9879\u76EE\u6848\u4F8B\u3002"
       }
     },
@@ -66,11 +66,11 @@
     },
     contact: {
       en: {
-        title: "Contact HuaSheng Metal | Bus Shelter & Metal OEM Enquiries",
-        description: "Contact HuaSheng for bus shelter projects, advertising light boxes, steel structures, outdoor kiosks and long-term precision metal OEM manufacturing."
+        title: "Contact HuaSheng | Bus Stop Shelter & Metal Furniture OEM",
+        description: "Contact HuaSheng for bus stop shelter projects, advertising light boxes, steel structures, metal furniture and long-term precision metal OEM manufacturing."
       },
       cn: {
-        title: "\u8054\u7CFB\u534E\u76DB | \u5019\u8F66\u4EAD\u3001\u5E7F\u544A\u706F\u7BB1\u4E0E\u91D1\u5C5EOEM\u9879\u76EE\u54A8\u8BE2",
+        title: "\u8054\u7CFB\u534E\u76DB | \u516C\u4EA4\u7AD9\u4EAD\u3001\u5E7F\u544A\u706F\u7BB1\u4E0E\u91D1\u5C5E\u5BB6\u5177OEM\u54A8\u8BE2",
         description: "\u8054\u7CFB\u534E\u76DB\u54A8\u8BE2\u5019\u8F66\u4EAD\u3001\u5E7F\u544A\u706F\u7BB1\u3001\u94A2\u7ED3\u6784\u5DE5\u7A0B\u3001\u6237\u5916\u4EAD\u4F53\u3001\u57CE\u5E02\u5BB6\u5177\u548C\u957F\u671F\u7CBE\u5BC6\u91D1\u5C5EOEM\u5236\u9020\u5408\u4F5C\u3002"
       }
     }
@@ -249,10 +249,10 @@
     } }, t.nav.cases)), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: routePath("quality", lang), onClick: (e) => {
       e.preventDefault();
       go("quality");
-    } }, t.nav.quality)), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: lang === "cn" ? "/zh/blog/" : "/en/blog/" }, t.nav.blog || "Blog")), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: lang === "cn" ? "/zh/answers/" : "/en/answers/" }, lang === "cn" ? "AI \u641C\u7D22\u7B54\u6848\u9875" : "AI search answers")), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: routePath("contact", lang), onClick: (e) => {
+    } }, t.nav.quality)), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: lang === "cn" ? "/zh/blog/" : "/en/blog/" }, t.nav.blog || "Blog")), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: lang === "cn" ? "/zh/bus-stop-shelters/" : "/en/bus-stop-shelters/" }, lang === "cn" ? "\u516C\u4EA4\u7AD9\u4EAD / \u5019\u8F66\u4EAD" : "Bus stop shelters")), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: lang === "cn" ? "/zh/metal-furniture/" : "/en/metal-furniture/" }, lang === "cn" ? "\u91D1\u5C5E\u5BB6\u5177" : "Metal furniture")), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: lang === "cn" ? "/zh/answers/" : "/en/answers/" }, lang === "cn" ? "AI \u641C\u7D22\u7B54\u6848\u9875" : "AI search answers")), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: routePath("contact", lang), onClick: (e) => {
       e.preventDefault();
       go("contact");
-    } }, t.nav.contact)))), /* @__PURE__ */ React.createElement("div", { className: "footer-col" }, /* @__PURE__ */ React.createElement("h4", null, lang === "cn" ? "\u8054\u7CFB" : "Contact"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", null, t.contact.info.contact.v), /* @__PURE__ */ React.createElement("li", null, t.contact.info.phone.v), /* @__PURE__ */ React.createElement("li", null, t.contact.info.email.v), /* @__PURE__ */ React.createElement("li", null, t.contact.info.hours.v), /* @__PURE__ */ React.createElement("li", null, t.contact.info.addr.v))), /* @__PURE__ */ React.createElement("div", { className: "footer-col" }, /* @__PURE__ */ React.createElement("h4", null, lang === "cn" ? "\u4E1A\u52A1" : "Lines of business"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", null, lang === "cn" ? "\u516C\u5171\u5019\u8F66\u4EAD\u4E0E\u5E7F\u544A\u706F\u7BB1" : "Bus shelters & light boxes"), /* @__PURE__ */ React.createElement("li", null, lang === "cn" ? "\u94A2\u7ED3\u6784\u88C5\u4FEE\u88C5\u9970\u5DE5\u7A0B" : "Steel structure & decoration"), /* @__PURE__ */ React.createElement("li", null, lang === "cn" ? "\u7CBE\u5BC6\u91D1\u5C5E OEM / ODM" : "Precision metal OEM / ODM"), /* @__PURE__ */ React.createElement("li", null, lang === "cn" ? "\u6D77\u5916\u9879\u76EE\u5DE5\u7A0B\u670D\u52A1" : "Overseas project services")))), /* @__PURE__ */ React.createElement("div", { className: "footer-bottom" }, /* @__PURE__ */ React.createElement("span", null, t.brand.legal), /* @__PURE__ */ React.createElement("span", null, lang === "cn" ? "\u7CA4 ICP \u5907 XXXXXXXX \u53F7" : "ICP Filing No. XXXXXXXX"))));
+    } }, t.nav.contact)))), /* @__PURE__ */ React.createElement("div", { className: "footer-col" }, /* @__PURE__ */ React.createElement("h4", null, lang === "cn" ? "\u8054\u7CFB" : "Contact"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", null, t.contact.info.contact.v), /* @__PURE__ */ React.createElement("li", null, t.contact.info.phone.v), /* @__PURE__ */ React.createElement("li", null, t.contact.info.email.v), /* @__PURE__ */ React.createElement("li", null, t.contact.info.hours.v), /* @__PURE__ */ React.createElement("li", null, t.contact.info.addr.v))), /* @__PURE__ */ React.createElement("div", { className: "footer-col" }, /* @__PURE__ */ React.createElement("h4", null, lang === "cn" ? "\u4E1A\u52A1" : "Lines of business"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", null, lang === "cn" ? "\u516C\u4EA4\u7AD9\u4EAD\u3001\u5019\u8F66\u4EAD\u4E0E\u5E7F\u544A\u706F\u7BB1" : "Bus stops, shelters & light boxes"), /* @__PURE__ */ React.createElement("li", null, lang === "cn" ? "\u94A2\u7ED3\u6784\u88C5\u4FEE\u88C5\u9970\u5DE5\u7A0B" : "Steel structure & decoration"), /* @__PURE__ */ React.createElement("li", null, lang === "cn" ? "\u91D1\u5C5E\u5BB6\u5177\u4E0E\u7CBE\u5BC6\u91D1\u5C5E OEM / ODM" : "Metal furniture & precision metal OEM / ODM"), /* @__PURE__ */ React.createElement("li", null, lang === "cn" ? "\u6D77\u5916\u9879\u76EE\u5DE5\u7A0B\u670D\u52A1" : "Overseas project services")))), /* @__PURE__ */ React.createElement("div", { className: "footer-bottom" }, /* @__PURE__ */ React.createElement("span", null, t.brand.legal), /* @__PURE__ */ React.createElement("span", null, lang === "cn" ? "\u7CA4 ICP \u5907 XXXXXXXX \u53F7" : "ICP Filing No. XXXXXXXX"))));
   }
   function PageHost({ routeKey, children }) {
     useReveal();
