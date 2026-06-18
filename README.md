@@ -12,6 +12,7 @@ Static Cloudflare Pages version of the Huasheng corporate website and blog.
 - `/en/blog/steel-structure-toc-market-report-2026-2027/` and `/zh/blog/steel-structure-toc-market-report-2026-2027/` ToC steel outdoor structures market report
 - `/en/answers/` and `/zh/answers/` AI-search answer pages
 - `/entity-profile.jsonld` machine-readable Organization and offer catalog profile
+- `/llms.txt` answer-engine summary with buyer intent, workflow and citation guidance
 - `/blog/assets/` blog media
 
 ## Updating
@@ -40,8 +41,9 @@ For a new corporate page:
 After adding or changing public pages:
 
 1. Run `node scripts/update-geo-assets.mjs`.
-2. Verify `sitemap.xml`, `llms.txt`, `/en/answers/`, `/zh/answers/`, and `/entity-profile.jsonld`.
-3. If an IndexNow key is configured, write/deploy the key file and submit changed URLs:
+2. Verify `sitemap.xml`, `llms.txt`, `/en/answers/`, `/zh/answers/`, `/entity-profile.jsonld`, `robots.txt`, `_headers`, and `_redirects`.
+3. Confirm the answer pages still expose buyer-intent cards, manufacturing workflow, FAQ structured data, and canonical citation links in both English and Chinese.
+4. If an IndexNow key is configured, write/deploy the key file and submit changed URLs:
    `INDEXNOW_KEY=<key> node scripts/submit-indexnow.mjs --write-key`
    Deploy the generated `<key>.txt`, then run:
    `INDEXNOW_KEY=<key> node scripts/submit-indexnow.mjs`

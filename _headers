@@ -5,13 +5,16 @@
 /llms.txt
   Content-Type: text/plain; charset=utf-8
   X-Robots-Tag: index, follow
+  Access-Control-Allow-Origin: *
 
 /entity-profile.jsonld
   Content-Type: application/ld+json; charset=utf-8
   X-Robots-Tag: index, follow
+  Access-Control-Allow-Origin: *
 
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
+  Access-Control-Allow-Origin: *
 
 /downloads/*
   X-Robots-Tag: noindex, nofollow, noarchive
