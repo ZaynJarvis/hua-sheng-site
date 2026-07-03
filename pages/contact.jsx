@@ -81,7 +81,7 @@
                       </div>
                       <div className="field">
                         <label>{c.form.fields.phone}</label>
-                        <input value={form.phone} onChange={update("phone")} placeholder="+65 ..." />
+                        <input value={form.phone} onChange={update("phone")} placeholder={lang === "cn" ? "国际/WhatsApp: +65 ..." : "Intl / WhatsApp: +65 ..."} />
                       </div>
                       <div className="field">
                         <label>{c.form.fields.country}</label>

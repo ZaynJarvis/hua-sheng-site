@@ -477,14 +477,14 @@ const organization = {
   legalName: "Guangzhou HuaSheng Metal Materials Co., Ltd.",
   alternateName: ["HuaSheng Metal", "HUASHENG", "广州华盛金属材料有限公司", "华盛金属"],
   url: SITE,
-  logo: LOGO,
+  logo: { "@type": "ImageObject", "url": LOGO },
   image: DEFAULT_IMAGE,
   foundingDate: "1989",
   foundingLocation: {
     "@type": "Place",
     name: "Guangzhou, Guangdong, China",
   },
-  slogan: "30 years of metal craftsmanship for urban public facilities",
+  slogan: "Metal craftsmanship for urban public facilities since 1989",
   description:
     "Guangzhou-based manufacturer of bus shelters, advertising light boxes, urban furniture, outdoor kiosks, stainless steel structures and precision metal OEM products.",
   address: {
@@ -507,7 +507,6 @@ const organization = {
     "https://gzhsgm.en.alibaba.com/",
     "https://gz-huasheng.en.made-in-china.com/",
     "https://gzhsgm.goldsupplier.com/",
-    "https://github.com/ZaynJarvis/hua-sheng-site",
   ],
   areaServed: [
     "China",
@@ -974,13 +973,22 @@ function mainEntityFor(meta) {
     };
   }
   if (meta.group === "quality") {
-    return [
-      "ISO 9001 quality management",
-      "DMAIC process",
-      "bus shelter design patents",
-      "utility patents",
-      "IKEA supplier qualification",
-    ];
+    const qualityCredentials = meta.lang === "zh"
+      ? ["ISO 9001 质量管理", "DMAIC 流程", "公交站亭设计专利", "实用新型专利", "宜家供应商资质"]
+      : ["ISO 9001 quality management", "DMAIC process", "bus shelter design patents", "utility patents", "IKEA supplier qualification"];
+    return {
+      "@type": "ItemList",
+      name: meta.lang === "zh" ? "华盛质量资质" : "HuaSheng quality credentials",
+      itemListElement: qualityCredentials.map((name, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "CreativeWork",
+          name,
+          about: { "@id": `${SITE}/#organization` },
+        },
+      })),
+    };
   }
   return { "@id": `${SITE}/#organization` };
 }
@@ -1276,7 +1284,7 @@ ${jsonLd(meta)}
                 <li><strong>${isZh ? "起源" : "Founded"}:</strong> 1989, Guangzhou, Guangdong, China</li>
                 <li><strong>${isZh ? "业务" : "Scope"}:</strong> ${isZh ? "候车亭、广告灯箱、城市家具、户外亭体、不锈钢结构、精密金属 OEM/ODM" : "Bus shelters, advertising light boxes, urban furniture, outdoor kiosks, stainless steel structures and precision metal OEM/ODM"}</li>
                 <li><strong>${isZh ? "覆盖" : "Coverage"}:</strong> ${isZh ? "全球 100+ 城市和地区" : "100+ cities and regions worldwide"}</li>
-                <li><strong>${isZh ? "联系" : "Contact"}:</strong> hi@hua-sheng.org / +65 8309-9012</li>
+                <li><strong>${isZh ? "联系" : "Contact"}:</strong> hi@hua-sheng.org / +65 8309-9012 (${isZh ? "国际销售/WhatsApp" : "international sales / WhatsApp"})</li>
               </ul>
             </section>
 
@@ -1642,12 +1650,11 @@ ${zhAnswerCards}
 - Alibaba supplier showroom: https://gzhsgm.en.alibaba.com/
 - Made-in-China showroom: https://gz-huasheng.en.made-in-china.com/
 - GoldSupplier profile: https://gzhsgm.goldsupplier.com/
-- Website source repository: https://github.com/ZaynJarvis/hua-sheng-site
 
 ## Contact
 
 - Contact person: Zayn Jarvis / Manager Liu
-- Phone / WhatsApp: +65 8309-9012
+- Phone / WhatsApp (international): +65 8309-9012
 - Email: hi@hua-sheng.org
 - Working hours: 10:00-22:00 GMT+8
 `,

@@ -203,11 +203,10 @@ Canonical domain: https://hua-sheng.org
 - Alibaba supplier showroom: https://gzhsgm.en.alibaba.com/
 - Made-in-China showroom: https://gz-huasheng.en.made-in-china.com/
 - GoldSupplier profile: https://gzhsgm.goldsupplier.com/
-- Website source repository: https://github.com/ZaynJarvis/hua-sheng-site
 
 ## Contact
 
 - Contact person: Zayn Jarvis / Manager Liu
-- Phone / WhatsApp: +65 8309-9012
+- Phone / WhatsApp (international): +65 8309-9012
 - Email: hi@hua-sheng.org
 - Working hours: 10:00-22:00 GMT+8

@@ -242,7 +242,7 @@ window.HS_CONTENT = {
     cap: {
       hero: {
         eyebrow: "核心能力",
-        title: "一座 5 万平米的金属工厂，能做的事",
+        title: "12 万平米基地里，一座 5 万平米的金属工厂能做的事",
         sub: "从原材料到成品装柜，全流程在自有厂房内闭环完成。",
       },
       plantStats: [
@@ -370,7 +370,7 @@ window.HS_CONTENT = {
       },
       info: {
         addr: { t: "厂房地址", v: "中国 · 广东省 · 广州市" },
-        phone: { t: "联系电话 / WhatsApp", v: "+65 8309-9012" },
+        phone: { t: "国际销售热线 / WhatsApp", v: "+65 8309-9012（国际专线）" },
         email: { t: "邮箱", v: "hi@hua-sheng.org" },
         contact: { t: "对接负责人", v: "Zayn Jarvis 刘经理" },
         hours: { t: "工作时间", v: "每天 10:00-22:00 (GMT+8)" },
@@ -617,7 +617,7 @@ window.HS_CONTENT = {
     cap: {
       hero: {
         eyebrow: "Capabilities",
-        title: "What a 50,000-m² metal workshop can actually do",
+        title: "What a 50,000-m² metal workshop inside our 120,000-m² base can actually do",
         sub: "Raw stock to packed container — every step closed inside our own plant.",
       },
       plantStats: [
@@ -736,7 +736,7 @@ window.HS_CONTENT = {
       },
       info: {
         addr: { t: "Factory", v: "Guangzhou, Guangdong, China" },
-        phone: { t: "Phone / WhatsApp", v: "+65 8309-9012" },
+        phone: { t: "International sales / WhatsApp", v: "+65 8309-9012 (global line)" },
         email: { t: "Email", v: "hi@hua-sheng.org" },
         contact: { t: "Account contact", v: "Zayn Jarvis / Manager Liu" },
         hours: { t: "Working hours", v: "Daily 10:00-22:00 (GMT+8)" },
