@@ -489,115 +489,134 @@
   <meta property="og:locale:alternate" content="zh_CN" />
   <link rel="shortcut icon" href="/favicon.ico?v=huasheng-site-20260703-geo3" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=huasheng-site-20260703-geo3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
-<body data-theme="clarity" data-lang="en" data-screen="blog">
+<body data-theme="clarity" data-lang="en">
   <div class="blog-shell">
-    <header class="site-header blog-site-header scrolled">
+    <header class="site-header scrolled">
       <div class="container-wide nav-inner">
-        <a class="brand" data-site-home href="/en/">
+        <a class="brand" href="/en/">
           <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
           <span class="brand-text">
-            <span class="a" data-lang-block="zh">华盛金属</span>
-            <span class="a" data-lang-block="en">HUASHENG</span>
-            <span class="b" data-lang-block="zh">企业动态 · BLOG</span>
-            <span class="b" data-lang-block="en">BLOG · UPDATES</span>
+            <span class="a">HUASHENG</span>
+            <span class="b">Est. 1989 · Guangzhou</span>
           </span>
         </a>
         <nav class="nav-links">
-          <a class="nav-link" data-site-home href="/en/"><span data-lang-block="zh">首页</span><span data-lang-block="en">Home</span></a>
-          <a class="nav-link" data-nav-about href="/en/about/"><span data-lang-block="zh">关于我们</span><span data-lang-block="en">About</span></a>
-          <a class="nav-link" data-nav-capabilities href="/en/capabilities/"><span data-lang-block="zh">核心能力</span><span data-lang-block="en">Capabilities</span></a>
-          <a class="nav-link" data-nav-projects href="/en/projects/"><span data-lang-block="zh">项目案例</span><span data-lang-block="en">Projects</span></a>
-          <a class="nav-link" data-nav-quality href="/en/quality/"><span data-lang-block="zh">质量与认证</span><span data-lang-block="en">Quality</span></a>
-          <a class="nav-link active" data-blog-home href="/en/blog/"><span data-lang-block="zh">企业动态</span><span data-lang-block="en">Blog</span></a>
-          <a class="nav-link" data-contact-link href="/en/contact/"><span data-lang-block="zh">联系我们</span><span data-lang-block="en">Contact</span></a>
+            <a class="nav-link" href="/en/">Home</a>
+            <a class="nav-link" href="/en/about/">About</a>
+            <a class="nav-link" href="/en/capabilities/">Capabilities</a>
+            <a class="nav-link" href="/en/projects/">Projects</a>
+            <a class="nav-link" href="/en/bus-stop-shelters/">Bus stop shelters</a>
+            <a class="nav-link" href="/en/metal-furniture/">Metal furniture</a>
+            <a class="nav-link" href="/en/quality/">Quality</a>
+            <a class="nav-link active" aria-current="page" href="/en/blog/">Blog</a>
+            <a class="nav-link" href="/en/contact/">Contact</a>
         </nav>
         <div class="nav-actions">
           <div class="lang-switch" role="tablist" aria-label="Language">
-            <button type="button" data-lang-set="zh" aria-pressed="false">ZH</button>
-            <button type="button" class="on" data-lang-set="en" aria-pressed="true">EN</button>
+            <a href="/en/blog/">中文</a>
+            <a class="on" href="/en/blog/">EN</a>
           </div>
-          <a class="btn btn-primary" data-contact-link href="/en/contact/">
-            <span data-lang-block="zh">获取报价</span>
-            <span data-lang-block="en">Get a Quote</span>
-            <span aria-hidden="true">→</span>
-          </a>
-          <button class="menu-btn" type="button" data-blog-menu aria-label="Menu" aria-expanded="false">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6 H17 M3 10 H17 M3 14 H17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          </button>
+          <a class="btn btn-primary" href="/en/contact/">Get a Quote <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </header>
-    <div class="mobile-menu" data-blog-mobile-menu aria-hidden="true">
-      <a class="nav-link" data-site-home href="/en/"><span data-lang-block="zh">首页</span><span data-lang-block="en">Home</span></a>
-      <a class="nav-link" data-nav-about href="/en/about/"><span data-lang-block="zh">关于我们</span><span data-lang-block="en">About</span></a>
-      <a class="nav-link" data-nav-capabilities href="/en/capabilities/"><span data-lang-block="zh">核心能力</span><span data-lang-block="en">Capabilities</span></a>
-      <a class="nav-link" data-nav-projects href="/en/projects/"><span data-lang-block="zh">项目案例</span><span data-lang-block="en">Projects</span></a>
-      <a class="nav-link" data-nav-quality href="/en/quality/"><span data-lang-block="zh">质量与认证</span><span data-lang-block="en">Quality</span></a>
-      <a class="nav-link active" data-blog-home href="/en/blog/"><span data-lang-block="zh">企业动态</span><span data-lang-block="en">Blog</span></a>
-      <a class="nav-link" data-contact-link href="/en/contact/"><span data-lang-block="zh">联系我们</span><span data-lang-block="en">Contact</span></a>
-      <div class="mobile-actions">
-        <a class="btn btn-primary" data-contact-link href="/en/contact/"><span data-lang-block="zh">获取报价</span><span data-lang-block="en">Get a Quote</span> →</a>
-      </div>
-    </div>
+
+    <nav class="hub-quicknav" aria-label="Site navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/about/">About</a>
+      <a href="/en/capabilities/">Capabilities</a>
+      <a href="/en/projects/">Projects</a>
+      <a href="/en/bus-stop-shelters/">Bus stop shelters</a>
+      <a href="/en/metal-furniture/">Metal furniture</a>
+      <a href="/en/quality/">Quality</a>
+      <a aria-current="page" href="/en/blog/">Blog</a>
+      <a href="/en/contact/">Contact</a>
+    </nav>
 
     <main class="blog-main">
       <section class="blog-hero">
         <div>
           <div class="eyebrow">Huasheng Updates</div>
-          <h1 data-lang-block="zh">企业动态</h1>
-          <h1 data-lang-block="en">Huasheng Blog</h1>
-          <p class="blog-lede" data-lang-block="zh">记录华盛的项目案例、产品更新、资质能力、服务流程和企业内部实践。这里不是临时 H5，而是后续可以持续上新的内容中心。</p>
-          <p class="blog-lede" data-lang-block="en">Updates on Huasheng projects, product capabilities, certifications, service workflows, and operational practice. This is built as a long-term content hub, not a one-off campaign page.</p>
+
+          <h1>Huasheng Blog</h1>
+
+          <p class="blog-lede">Updates on Huasheng projects, product capabilities, certifications, service workflows, and operational practice. This is built as a long-term content hub, not a one-off campaign page.</p>
         </div>
         <div class="blog-count">
-          <strong>02</strong>
-          <span data-lang-block="zh">已发布文章</span>
-          <span data-lang-block="en">Published posts</span>
+          <strong>03</strong>
+
+          <span>Published posts</span>
         </div>
       </section>
 
       <section class="post-list" aria-label="Posts">
-        <a class="post-card" data-post-link href="/en/blog/steel-structure-toc-market-report-2026-2027/">
+        <a class="post-card" href="/en/blog/nansha-phase-2/">
+          <div class="post-card__body">
+            <div>
+              <div class="post-meta">
+                <span class="post-pill red">2026.06.11</span>
+
+                <span class="post-pill">Project Update</span>
+
+                <span class="post-pill">Bus Shelters</span>
+              </div>
+
+              <h2>Nansha Phase 2: From Phase 1 References to Manufacturing Launch</h2>
+
+              <p>Phase 1 delivered 30 installed shelter points across Nansha; Phase 2 now launches manufacturing of 23 bus shelters, from design translation and factory body assembly to on-site roof hoisting.</p>
+            </div>
+
+            <span class="post-card__arrow">Read post →</span>
+          </div>
+          <div class="post-card__cover">
+            <img src="/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.webp" alt="Nansha Phase 1 installed bus stop shelter at night" loading="lazy" decoding="async" />
+          </div>
+        </a>
+
+        <a class="post-card" href="/en/blog/steel-structure-toc-market-report-2026-2027/">
           <div class="post-card__body">
             <div>
               <div class="post-meta">
                 <span class="post-pill red">2026.06.03</span>
-                <span class="post-pill" data-lang-block="zh">市场调研</span>
-                <span class="post-pill" data-lang-block="en">Market Research</span>
-                <span class="post-pill" data-lang-block="zh">品牌化方向</span>
-                <span class="post-pill" data-lang-block="en">Brand Direction</span>
+
+                <span class="post-pill">Market Research</span>
+
+                <span class="post-pill">Brand Direction</span>
               </div>
-              <h2 data-lang-block="zh">2026-2027 钢结构户外设施 ToC 市场调研与华盛品牌化方向</h2>
-              <h2 data-lang-block="en">2026-2027 ToC Market Report for Steel Outdoor Structures</h2>
-              <p data-lang-block="zh">围绕车棚、廊架、凉亭、储物棚、自行车棚和社区微型设施，梳理市场数据、成功案例、华盛适配度与 0-18 个月产品路线。</p>
-              <p data-lang-block="en">Market signals, successful product cases, Huasheng fit, and an 18-month product roadmap for carports, pergolas, sheds, bike shelters, and compact community structures.</p>
+
+              <h2>2026-2027 ToC Market Report for Steel Outdoor Structures</h2>
+
+              <p>Market signals, successful product cases, Huasheng fit, and an 18-month product roadmap for carports, pergolas, sheds, bike shelters, and compact community structures.</p>
             </div>
-            <span class="post-card__arrow" data-lang-block="zh">阅读报告 →</span>
-            <span class="post-card__arrow" data-lang-block="en">Read report →</span>
+
+            <span class="post-card__arrow">Read report →</span>
           </div>
           <div class="post-card__cover">
             <img src="/assets/huasheng/case-steel-structure.webp" alt="HuaSheng steel structure project" loading="lazy" decoding="async" />
           </div>
         </a>
 
-        <a class="post-card" data-post-link href="/en/blog/ai-application-meeting/">
+        <a class="post-card" href="/en/blog/ai-application-meeting/">
           <div class="post-card__body">
             <div>
               <div class="post-meta">
                 <span class="post-pill red">2026.05.27</span>
-                <span class="post-pill" data-lang-block="zh">AI 应用专项会议</span>
-                <span class="post-pill" data-lang-block="en">AI Application Meeting</span>
-                <span class="post-pill" data-lang-block="zh">群组管理</span>
-                <span class="post-pill" data-lang-block="en">Group Operations</span>
+
+                <span class="post-pill">AI Application Meeting</span>
+
+                <span class="post-pill">Group Operations</span>
               </div>
-              <h2 data-lang-block="zh">借力 AI 提效赋能，深耕服务聚力前行</h2>
-              <h2 data-lang-block="en">Leveraging AI for Efficiency, Deepening Service for Growth</h2>
-              <p data-lang-block="zh">华盛召开 AI 工具应用及群组管理专项会议，把内容表达、报价准备、组织协同和客户服务带入更清晰的工作流程。</p>
-              <p data-lang-block="en">Huasheng held a special meeting on AI tool applications and group management, bringing content, quotations, collaboration, and service into clearer workflows.</p>
+
+              <h2>Leveraging AI for Efficiency, Deepening Service for Growth</h2>
+
+              <p>Huasheng held a special meeting on AI tool applications and group management, bringing content, quotations, collaboration, and service into clearer workflows.</p>
             </div>
-            <span class="post-card__arrow" data-lang-block="zh">阅读文章 →</span>
-            <span class="post-card__arrow" data-lang-block="en">Read post →</span>
+
+            <span class="post-card__arrow">Read post →</span>
           </div>
           <div class="post-card__cover">
             <img src="/blog/assets/meeting-room.jpg" alt="HuaSheng AI application meeting" loading="lazy" decoding="async" />
@@ -606,67 +625,59 @@
       </section>
     </main>
 
-    <footer class="site-footer blog-footer">
+    <footer class="site-footer">
       <div class="container-wide">
         <div class="footer-grid">
           <div class="footer-col brand-col">
-            <a class="brand" data-site-home href="/en/" style="margin-bottom: 20px">
+            <a class="brand" href="/en/" style="margin-bottom:20px">
               <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
               <span class="brand-text">
-                <span class="a" data-lang-block="zh">华盛金属</span>
-                <span class="a" data-lang-block="en">HUASHENG</span>
-                <span class="b" data-lang-block="zh">广州 · 1989</span>
-                <span class="b" data-lang-block="en">Guangzhou · 1989</span>
+                <span class="a">HUASHENG</span>
+                <span class="b">Guangzhou · 1989</span>
               </span>
             </a>
-            <p class="footer-tag" data-lang-block="zh">30 年金属精工，匠造城市公共器物</p>
-            <p class="footer-tag" data-lang-block="en">30 Years of Metal Craft for Public Cityscapes</p>
+            <p class="footer-tag">37 Years of Metal Craft for Public Cityscapes</p>
           </div>
           <div class="footer-col">
-            <h4 data-lang-block="zh">网站地图</h4>
-            <h4 data-lang-block="en">Sitemap</h4>
+            <h4>Sitemap</h4>
             <ul>
-              <li><a data-site-home href="/en/"><span data-lang-block="zh">首页</span><span data-lang-block="en">Home</span></a></li>
-              <li><a data-nav-about href="/en/about/"><span data-lang-block="zh">关于我们</span><span data-lang-block="en">About</span></a></li>
-              <li><a data-nav-projects href="/en/projects/"><span data-lang-block="zh">项目案例</span><span data-lang-block="en">Projects</span></a></li>
-              <li><a data-blog-home href="/en/blog/"><span data-lang-block="zh">企业动态</span><span data-lang-block="en">Blog</span></a></li>
-              <li><a data-contact-link href="/en/contact/"><span data-lang-block="zh">联系我们</span><span data-lang-block="en">Contact</span></a></li>
+              <li><a href="/en/">Home</a></li>
+              <li><a href="/en/about/">About</a></li>
+              <li><a href="/en/capabilities/">Capabilities</a></li>
+              <li><a href="/en/projects/">Projects</a></li>
+              <li><a href="/en/bus-stop-shelters/">Bus stop shelters</a></li>
+              <li><a href="/en/metal-furniture/">Metal furniture</a></li>
+              <li><a href="/en/quality/">Quality</a></li>
+              <li><a href="/en/blog/">Blog</a></li>
+              <li><a href="/en/contact/">Contact</a></li>
+              <li><a href="/en/answers/">AI search answers</a></li>
             </ul>
           </div>
           <div class="footer-col">
-            <h4 data-lang-block="zh">联系</h4>
-            <h4 data-lang-block="en">Contact</h4>
+            <h4>Contact</h4>
             <ul>
-              <li data-lang-block="zh">Zayn Jarvis 刘经理</li>
-              <li data-lang-block="en">Zayn Jarvis / Manager Liu</li>
-              <li>+65 8309-9012</li>
               <li>hi@hua-sheng.org</li>
-              <li>GMT+8 · 10:00-22:00</li>
+              <li>+65 8309 9012 (International sales / WhatsApp)</li>
+              <li>Guangzhou, Guangdong, China</li>
             </ul>
           </div>
           <div class="footer-col">
-            <h4 data-lang-block="zh">业务</h4>
-            <h4 data-lang-block="en">Lines of business</h4>
+            <h4>Lines of business</h4>
             <ul>
-              <li data-lang-block="zh">公共候车亭与广告灯箱</li>
-              <li data-lang-block="en">Bus shelters & light boxes</li>
-              <li data-lang-block="zh">钢结构装修装饰工程</li>
-              <li data-lang-block="en">Steel structure & decoration</li>
-              <li data-lang-block="zh">精密金属 OEM / ODM</li>
-              <li data-lang-block="en">Precision metal OEM / ODM</li>
+              <li>Bus stops, shelters &amp; light boxes</li>
+              <li>Steel structure &amp; decoration</li>
+              <li>Metal furniture &amp; precision metal OEM / ODM</li>
+              <li>Overseas project services</li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <span data-lang-block="zh">© 2025 广州华盛金属材料有限公司 版权所有</span>
-          <span data-lang-block="en">© 2025 Guangzhou HuaSheng Metal Materials Co., Ltd. All Rights Reserved.</span>
-          <span data-lang-block="zh">粤 ICP 备 XXXXXXXX 号</span>
-          <span data-lang-block="en">ICP Filing No. XXXXXXXX</span>
+          <span>© 2025 Guangzhou HuaSheng Metal Materials Co., Ltd. All Rights Reserved.</span>
+          <span>hua-sheng.org</span>
         </div>
       </div>
     </footer>
   </div>
 
-  <script src="/blog/blog-shell.js?v=huasheng-site-20260703-geo3"></script>
 </body>
 </html>

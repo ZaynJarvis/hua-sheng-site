@@ -1,13 +1,16 @@
 // Bilingual content for Huasheng Metal corporate site
 // All copy is data-driven so language can be toggled without re-rendering structure.
 
+// Years since founding (1989), computed at load so year-count copy never goes stale.
+var HS_YEARS = new Date().getFullYear() - 1989;
+
 window.HS_CONTENT = {
   cn: {
     brand: {
       short: "华盛金属",
       full: "广州华盛金属材料有限公司",
       legal: "© 2025 广州华盛金属材料有限公司 版权所有",
-      tagline: "30 年金属精工，匠造城市公共器物",
+      tagline: `${HS_YEARS} 年金属精工，匠造城市公共器物`,
     },
     nav: {
       home: "首页",
@@ -22,7 +25,7 @@ window.HS_CONTENT = {
     home: {
       eyebrow: "始于 1989 · 国内第一批现代化候车亭制造商",
       heroTitle: "为城市，造一件经得起时间的\n公交候车亭与金属作品",
-      heroSub: "从北京奥运到香港高铁，从卡塔尔到尼泊尔——华盛 30 年专注公交候车亭与公交站亭、广告灯箱、不锈钢工程、金属家具与精密金属 OEM。",
+      heroSub: `从北京奥运到香港高铁，从卡塔尔到尼泊尔——华盛 ${HS_YEARS} 年专注公交候车亭与公交站亭、广告灯箱、不锈钢工程、金属家具与精密金属 OEM。`,
       heroCta1: "查看项目案例",
       heroCta2: "了解生产能力",
       stats: [
@@ -398,7 +401,7 @@ window.HS_CONTENT = {
       short: "HUASHENG",
       full: "Guangzhou HuaSheng Metal Materials Co., Ltd.",
       legal: "© 2025 Guangzhou HuaSheng Metal Materials Co., Ltd. All Rights Reserved.",
-      tagline: "30 Years of Metal Craft for Public Cityscapes",
+      tagline: `${HS_YEARS} Years of Metal Craft for Public Cityscapes`,
     },
     nav: {
       home: "Home",
@@ -413,7 +416,7 @@ window.HS_CONTENT = {
     home: {
       eyebrow: "Since 1989 · China's first generation of modern bus shelter makers",
       heroTitle: "Bus stop shelters built for the street.\nMade to last decades.",
-      heroSub: "From the Beijing Olympics to Hong Kong MTR, from Qatar to Nepal — HuaSheng has spent 30 years designing and manufacturing bus stop shelters, advertising light boxes, stainless steel structures, metal furniture and precision metal OEM.",
+      heroSub: `From the Beijing Olympics to Hong Kong MTR, from Qatar to Nepal — HuaSheng has spent ${HS_YEARS} years designing and manufacturing bus stop shelters, advertising light boxes, stainless steel structures, metal furniture and precision metal OEM.`,
       heroCta1: "Browse projects",
       heroCta2: "Our capabilities",
       stats: [

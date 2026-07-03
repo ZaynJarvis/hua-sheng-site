@@ -56,7 +56,7 @@
         <section>
           <div className="container-wide">
             <SectionHead
-              eyebrow={lang === "cn" ? "30 年 · 7 个节点" : "30 years · 7 markers"}
+              eyebrow={lang === "cn" ? `${window.HS_YEARS || 30} 年 · 7 个节点` : `${window.HS_YEARS || 30} years · 7 markers`}
               title={a.milestones.title}
             />
             <div className="timeline reveal">

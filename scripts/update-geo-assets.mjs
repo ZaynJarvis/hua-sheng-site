@@ -5,6 +5,8 @@ const ROOT = process.cwd();
 const SITE = "https://hua-sheng.org";
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 const LASTMOD = BUILD_DATE;
+// Years since founding (1989), computed per build so generated year-count copy never goes stale.
+const YEARS = new Date().getFullYear() - 1989;
 const VERSION = `huasheng-site-${BUILD_DATE.replace(/-/g, "")}-geo3`;
 const DEFAULT_IMAGE = `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`;
 const LOGO = `${SITE}/assets/logo.png`;
@@ -316,7 +318,7 @@ const hubs = {
     en: {
       h1: "Bus Stop Shelter Manufacturer",
       tagline: "Metal & steel bus stops · smart bus shelters · export-ready",
-      lede: "HuaSheng is a Guangzhou-based bus stop shelter manufacturer with 30+ years building custom metal and steel bus stops, smart bus shelters and public transport facilities for cities and export markets in 40+ countries.",
+      lede: `HuaSheng is a Guangzhou-based bus stop shelter manufacturer with ${YEARS} years building custom metal and steel bus stops, smart bus shelters and public transport facilities for cities and export markets in 40+ countries.`,
       sections: [
         {
           h2: "What we manufacture",
@@ -368,7 +370,7 @@ const hubs = {
     zh: {
       h1: "公交站亭与候车亭制造商",
       tagline: "金属与钢结构公交站台 · 智慧候车亭 · 出口模块化",
-      lede: "华盛是位于广州的公交站亭（候车亭）制造商，30 多年专注定制金属与钢结构公交站台、智慧候车亭与公共交通设施，项目落地 40+ 个国家。",
+      lede: `华盛是位于广州的公交站亭（候车亭）制造商，${YEARS} 年专注定制金属与钢结构公交站台、智慧候车亭与公共交通设施，项目落地 40+ 个国家。`,
       sections: [
         {
           h2: "我们制造什么",
@@ -1543,8 +1545,21 @@ function updateExistingFile(meta, file) {
   let html = fs.readFileSync(fullPath, "utf8");
   html = updateHead(html, meta);
   html = injectPrerender(html, meta);
-  if (file.startsWith("en/blog/")) html = fixBlogStaticLinks(html, "en");
-  if (file.startsWith("zh/blog/")) html = fixBlogStaticLinks(html, "zh");
+  if (file.startsWith("en/blog/") || file.startsWith("zh/blog/")) {
+    const lang = file.startsWith("en/") ? "en" : "zh";
+    html = fixBlogStaticLinks(html, lang);
+    // Blog heads are hand-authored without webfonts; give them the same clarity font stack.
+    const fontHref = lang === "zh"
+      ? "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      : "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap";
+    html = ensureHeadLink(html, "fonts.gstatic.com", `<link rel="preconnect" href="https://fonts.googleapis.com" />\n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />`);
+    html = ensureHeadLink(html, "fonts.googleapis.com/css2", `<link href="${fontHref}" rel="stylesheet" />`);
+    // Keep the footer year-count in sync with the computed YEARS at every build.
+    html = html.replace(
+      /<p class="footer-tag">[^<]*<\/p>/,
+      `<p class="footer-tag">${lang === "zh" ? `${YEARS} 年金属精工，匠造城市公共器物` : `${YEARS} Years of Metal Craft for Public Cityscapes`}</p>`,
+    );
+  }
   fs.writeFileSync(fullPath, html);
 }
 
@@ -1562,23 +1577,6 @@ function fixBlogStaticLinks(html, lang) {
 
 function writeAnswersPage(meta) {
   const isZh = meta.lang === "zh";
-  const nav = isZh
-    ? [
-        ["首页", "/zh/"],
-        ["公交站亭", "/zh/bus-stop-shelters/"],
-        ["金属家具", "/zh/metal-furniture/"],
-        ["项目案例", "/zh/projects/"],
-        ["核心能力", "/zh/capabilities/"],
-        ["联系", "/zh/contact/"],
-      ]
-    : [
-        ["Home", "/en/"],
-        ["Bus stop shelters", "/en/bus-stop-shelters/"],
-        ["Metal furniture", "/en/metal-furniture/"],
-        ["Projects", "/en/projects/"],
-        ["Capabilities", "/en/capabilities/"],
-        ["Contact", "/en/contact/"],
-      ];
   const other = isZh ? "/en/answers/" : "/zh/answers/";
   const answers = faq[meta.lang];
   const productRows = products
@@ -1599,7 +1597,6 @@ function writeAnswersPage(meta) {
                 <p>${escapeHtml(item.a)}</p>
               </details>`)
     .join("\n              ");
-  const navLinks = nav.map(([label, href]) => `<a class="nav-link" href="${href}">${escapeHtml(label)}</a>`).join("\n            ");
   const bodyLang = isZh ? "cn" : "en";
   const html = `<!doctype html>
 <html lang="${isZh ? "zh-CN" : "en"}" data-lang="${meta.lang}">
@@ -1632,50 +1629,37 @@ function writeAnswersPage(meta) {
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=${VERSION}" />
   <link rel="shortcut icon" href="/favicon.ico?v=${VERSION}" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=${VERSION}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="${isZh
+    ? "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    : "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"}" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css?v=${VERSION}" />
-  <link rel="stylesheet" href="/blog/blog.css?v=${VERSION}" />
+  <link rel="stylesheet" href="/hub.css?v=${VERSION}" />
   <script type="application/ld+json">
 ${jsonLd(meta)}
   </script>
 </head>
-<body data-theme="clarity" data-lang="${bodyLang}" data-screen="blog">
-  <div class="blog-shell">
-    <header class="site-header blog-site-header scrolled">
-      <div class="container-wide nav-inner">
-        <a class="brand" href="${isZh ? "/zh/" : "/en/"}">
-          <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
-          <span class="brand-text">
-            <span class="a">${isZh ? "华盛金属" : "HUASHENG"}</span>
-            <span class="b">${isZh ? "AI 搜索答案页" : "AI SEARCH ANSWERS"}</span>
-          </span>
-        </a>
-        <nav class="nav-links">
-            ${navLinks}
-        </nav>
-        <div class="nav-actions">
-          <div class="lang-switch" role="tablist" aria-label="Language">
-            <a class="${isZh ? "on" : ""}" href="/zh/answers/">ZH</a>
-            <a class="${isZh ? "" : "on"}" href="/en/answers/">EN</a>
+<body data-theme="clarity" data-lang="${bodyLang}">
+    ${siteHeaderHtml(meta.lang, meta.urlPath, "/en/answers/", "/zh/answers/")}
+
+    <main>
+      <section class="hub-hero">
+        <div class="container">
+          <span class="eyebrow"><span class="dot"></span>${isZh ? "AI 搜索答案页" : "AI search answers"}</span>
+          <h1 class="display-xl">${isZh ? "华盛金属 AI 搜索答案页" : "HuaSheng Metal AI Search Answers"}</h1>
+          <p class="lede">${isZh ? "本页把华盛金属的核心事实、业务范围、项目参考和采购问答整理成可引用、可抓取、结构化的网页内容。" : "This page turns HuaSheng Metal's core facts, business scope, project references and buyer FAQ into crawlable, citation-ready content."}</p>
+          <div class="hub-pills">
+            <span>${LASTMOD}</span>
+            <span>${isZh ? "事实摘要" : "Answer facts"}</span>
+            <span>GEO</span>
           </div>
-          <a class="btn btn-primary" href="${isZh ? "/zh/contact/" : "/en/contact/"}">${isZh ? "获取报价" : "Get a Quote"} <span aria-hidden="true">→</span></a>
         </div>
-      </div>
-    </header>
+      </section>
 
-    <main class="blog-main">
-      <div class="article-wrap">
-        <article class="article">
-          <header class="article-head">
-            <div class="post-meta">
-              <span class="post-pill red">${LASTMOD}</span>
-              <span class="post-pill">${isZh ? "事实摘要" : "Answer facts"}</span>
-              <span class="post-pill">GEO</span>
-            </div>
-            <h1>${isZh ? "华盛金属 AI 搜索答案页" : "HuaSheng Metal AI Search Answers"}</h1>
-            <p class="blog-lede">${isZh ? "本页把华盛金属的核心事实、业务范围、项目参考和采购问答整理成可引用、可抓取、结构化的网页内容。" : "This page turns HuaSheng Metal's core facts, business scope, project references and buyer FAQ into crawlable, citation-ready content."}</p>
-          </header>
-
-          <div class="article-body">
+      <div class="container">
+        <div class="hub-layout">
+          <article class="hub-article">
             <section>
               <h2>${isZh ? "核心事实" : "Core Facts"}</h2>
               <ul>
@@ -1718,30 +1702,31 @@ ${jsonLd(meta)}
 
             <section>
               <h2>${isZh ? "常见问答" : "Frequently Asked Questions"}</h2>
-              <div class="faq-stack">
+              <div class="hub-faq">
               ${faqRows}
               </div>
             </section>
-          </div>
-        </article>
+          </article>
 
-        <aside class="article-side">
-          <div class="side-card">
-            <b>${isZh ? "引用入口" : "Citation URLs"}</b>
-            <a href="${absolute(isZh ? "/zh/" : "/en/")}">${isZh ? "公司概览" : "Company overview"}</a>
-            <a href="${absolute(isZh ? "/zh/projects/" : "/en/projects/")}">${isZh ? "项目案例" : "Project cases"}</a>
-            <a href="${absolute(isZh ? "/zh/capabilities/" : "/en/capabilities/")}">${isZh ? "制造能力" : "Capabilities"}</a>
-            <a href="${SITE}/llms.txt">llms.txt</a>
-            <a href="${ENTITY_PROFILE}">entity-profile.jsonld</a>
-          </div>
-          <div class="side-card">
-            <b>${isZh ? "语言" : "Language"}</b>
-            <a href="${other}">${isZh ? "English version" : "中文版本"}</a>
-          </div>
-        </aside>
+          <aside class="hub-side">
+            <div class="side-card">
+              <b>${isZh ? "引用入口" : "Citation URLs"}</b>
+              <a href="${absolute(isZh ? "/zh/" : "/en/")}">${isZh ? "公司概览" : "Company overview"}</a>
+              <a href="${absolute(isZh ? "/zh/projects/" : "/en/projects/")}">${isZh ? "项目案例" : "Project cases"}</a>
+              <a href="${absolute(isZh ? "/zh/capabilities/" : "/en/capabilities/")}">${isZh ? "制造能力" : "Capabilities"}</a>
+              <a href="${SITE}/llms.txt">llms.txt</a>
+              <a href="${ENTITY_PROFILE}">entity-profile.jsonld</a>
+            </div>
+            <div class="side-card">
+              <b>${isZh ? "语言" : "Language"}</b>
+              <a href="${other}">${isZh ? "English version" : "中文版本"}</a>
+            </div>
+          </aside>
+        </div>
       </div>
     </main>
-  </div>
+
+    ${siteFooterHtml(meta.lang)}
 </body>
 </html>
 `;
@@ -2551,6 +2536,85 @@ function hubQuickNav(lang, currentPath) {
     .join("\n      ");
 }
 
+// Canonical page chrome shared by all generated static pages (hubs, answers) so
+// they read as sub-modules of the same app as the SPA.
+function siteHeaderHtml(lang, currentPath, enPath, zhPath) {
+  const isZh = lang === "zh";
+  return `<header class="site-header scrolled">
+      <div class="container-wide nav-inner">
+        <a class="brand" href="${isZh ? "/zh/" : "/en/"}">
+          <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+          <span class="brand-text">
+            <span class="a">${isZh ? "华盛金属" : "HUASHENG"}</span>
+            <span class="b">${isZh ? "HUASHENG · 1989" : "Est. 1989 · Guangzhou"}</span>
+          </span>
+        </a>
+        <nav class="nav-links">
+            ${hubNav(lang, currentPath)}
+        </nav>
+        <div class="nav-actions">
+          <div class="lang-switch" role="tablist" aria-label="Language">
+            <a class="${isZh ? "on" : ""}" href="${zhPath}">中文</a>
+            <a class="${isZh ? "" : "on"}" href="${enPath}">EN</a>
+          </div>
+          <a class="btn btn-primary" href="${isZh ? "/zh/contact/" : "/en/contact/"}">${isZh ? "获取报价" : "Get a Quote"} <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="hub-quicknav" aria-label="${isZh ? "页面导航" : "Site navigation"}">
+      ${hubQuickNav(lang, currentPath)}
+    </nav>`;
+}
+
+function siteFooterHtml(lang) {
+  const isZh = lang === "zh";
+  return `<footer class="site-footer">
+      <div class="container-wide">
+        <div class="footer-grid">
+          <div class="footer-col brand-col">
+            <a class="brand" href="${isZh ? "/zh/" : "/en/"}" style="margin-bottom:20px">
+              <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+              <span class="brand-text">
+                <span class="a">${isZh ? "华盛金属" : "HUASHENG"}</span>
+                <span class="b">${isZh ? "广州 · 1989" : "Guangzhou · 1989"}</span>
+              </span>
+            </a>
+            <p class="footer-tag">${isZh ? `${YEARS} 年金属精工，匠造城市公共器物` : `${YEARS} Years of Metal Craft for Public Cityscapes`}</p>
+          </div>
+          <div class="footer-col">
+            <h4>${isZh ? "网站地图" : "Sitemap"}</h4>
+            <ul>
+              ${hubNavLinks(lang).map(([label, href]) => `<li><a href="${href}">${escapeHtml(label)}</a></li>`).join("\n              ")}
+              <li><a href="${isZh ? "/zh/answers/" : "/en/answers/"}">${isZh ? "AI 搜索答案页" : "AI search answers"}</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>${isZh ? "联系" : "Contact"}</h4>
+            <ul>
+              <li>hi@hua-sheng.org</li>
+              <li>+65 8309 9012${isZh ? "（国际销售 / WhatsApp）" : " (International sales / WhatsApp)"}</li>
+              <li>${isZh ? "中国广东省广州市" : "Guangzhou, Guangdong, China"}</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>${isZh ? "业务" : "Lines of business"}</h4>
+            <ul>
+              <li>${isZh ? "公交站亭、候车亭与广告灯箱" : "Bus stops, shelters &amp; light boxes"}</li>
+              <li>${isZh ? "钢结构装修装饰工程" : "Steel structure &amp; decoration"}</li>
+              <li>${isZh ? "金属家具与精密金属 OEM / ODM" : "Metal furniture &amp; precision metal OEM / ODM"}</li>
+              <li>${isZh ? "海外项目工程服务" : "Overseas project services"}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>${isZh ? "© 2025 广州华盛金属材料有限公司 版权所有" : "© 2025 Guangzhou HuaSheng Metal Materials Co., Ltd. All Rights Reserved."}</span>
+          <span>hua-sheng.org</span>
+        </div>
+      </div>
+    </footer>`;
+}
+
 // Two-column spec/comparison table rendered from a hub section's existing [label, detail]
 // bullets — no invented values, just the tabular form of copy already on the page.
 function specTable(bullets, isZh) {
@@ -2713,31 +2777,7 @@ ${hubJsonLd(meta)}
   </script>
 </head>
 <body data-theme="clarity" data-lang="${isZh ? "cn" : "en"}">
-    <header class="site-header scrolled">
-      <div class="container-wide nav-inner">
-        <a class="brand" href="${isZh ? "/zh/" : "/en/"}">
-          <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
-          <span class="brand-text">
-            <span class="a">${isZh ? "华盛金属" : "HUASHENG"}</span>
-            <span class="b">${isZh ? "HUASHENG · 1989" : "Est. 1989 · Guangzhou"}</span>
-          </span>
-        </a>
-        <nav class="nav-links">
-            ${hubNav(meta.lang, meta.urlPath)}
-        </nav>
-        <div class="nav-actions">
-          <div class="lang-switch" role="tablist" aria-label="Language">
-            <a class="${isZh ? "on" : ""}" href="${zhPath}">中文</a>
-            <a class="${isZh ? "" : "on"}" href="${enPath}">EN</a>
-          </div>
-          <a class="btn btn-primary" href="${isZh ? "/zh/contact/" : "/en/contact/"}">${isZh ? "获取报价" : "Get a Quote"} <span aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </header>
-
-    <nav class="hub-quicknav" aria-label="${isZh ? "页面导航" : "Site navigation"}">
-      ${hubQuickNav(meta.lang, meta.urlPath)}
-    </nav>
+    ${siteHeaderHtml(meta.lang, meta.urlPath, enPath, zhPath)}
 
     <main>
       <section class="hub-hero">
@@ -2797,50 +2837,7 @@ ${sectionsHtml}
       </div>
     </main>
 
-    <footer class="site-footer">
-      <div class="container-wide">
-        <div class="footer-grid">
-          <div class="footer-col brand-col">
-            <a class="brand" href="${isZh ? "/zh/" : "/en/"}" style="margin-bottom:20px">
-              <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
-              <span class="brand-text">
-                <span class="a">${isZh ? "华盛金属" : "HUASHENG"}</span>
-                <span class="b">${isZh ? "广州 · 1989" : "Guangzhou · 1989"}</span>
-              </span>
-            </a>
-            <p class="footer-tag">${isZh ? "30 年金属精工，匠造城市公共器物" : "30 Years of Metal Craft for Public Cityscapes"}</p>
-          </div>
-          <div class="footer-col">
-            <h4>${isZh ? "网站地图" : "Sitemap"}</h4>
-            <ul>
-              ${hubNavLinks(meta.lang).map(([label, href]) => `<li><a href="${href}">${escapeHtml(label)}</a></li>`).join("\n              ")}
-              <li><a href="${isZh ? "/zh/answers/" : "/en/answers/"}">${isZh ? "AI 搜索答案页" : "AI search answers"}</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>${isZh ? "联系" : "Contact"}</h4>
-            <ul>
-              <li>hi@hua-sheng.org</li>
-              <li>+65 8309 9012${isZh ? "（国际销售 / WhatsApp）" : " (International sales / WhatsApp)"}</li>
-              <li>${isZh ? "中国广东省广州市" : "Guangzhou, Guangdong, China"}</li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>${isZh ? "业务" : "Lines of business"}</h4>
-            <ul>
-              <li>${isZh ? "公交站亭、候车亭与广告灯箱" : "Bus stops, shelters &amp; light boxes"}</li>
-              <li>${isZh ? "钢结构装修装饰工程" : "Steel structure &amp; decoration"}</li>
-              <li>${isZh ? "金属家具与精密金属 OEM / ODM" : "Metal furniture &amp; precision metal OEM / ODM"}</li>
-              <li>${isZh ? "海外项目工程服务" : "Overseas project services"}</li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <span>${isZh ? "© 2025 广州华盛金属材料有限公司 版权所有" : "© 2025 Guangzhou HuaSheng Metal Materials Co., Ltd. All Rights Reserved."}</span>
-          <span>hua-sheng.org</span>
-        </div>
-      </div>
-    </footer>
+    ${siteFooterHtml(meta.lang)}
 </body>
 </html>
 `;

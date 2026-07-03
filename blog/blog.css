@@ -1,27 +1,9 @@
-:root {
-  --bg: #f6f6f3;
-  --paper: #ffffff;
-  --ink: #111111;
-  --text: #333333;
-  --muted: #7b7b80;
-  --line: #e2e2dc;
-  --accent: #1456b8;
-  --soft: #efefea;
-  --shadow: 0 18px 60px rgba(0, 0, 0, .08);
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-body);
-}
-
-a { color: inherit; text-decoration: none; }
+/* ============================================================
+   Blog module — skinned in the site's clarity design system.
+   Loads after styles.css and builds on its tokens (--bg, --ink,
+   --ink-soft, --ink-mute, --line, --accent, --warm, --card,
+   --bg-elev-2…); no standalone palette. Also used by /answers/.
+   ============================================================ */
 
 .blog-shell {
   min-height: 100vh;
@@ -33,12 +15,21 @@ a { color: inherit; text-decoration: none; }
   padding: 144px 0 90px;
 }
 
-.blog-site-header .nav-link.active::after {
-  background: var(--accent);
-}
+/* styles.css pads every bare <section> 96px for the SPA; blog
+   prose and list sections define their own rhythm instead. */
+.article-body section { padding: 0; }
+section.blog-hero { padding: 0; }
+section.post-list { padding: 0; }
 
-.blog-footer {
-  margin-top: 0;
+h1, h2, h3, p { margin: 0; }
+
+h1 {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5.6vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
 }
 
 .blog-hero {
@@ -49,55 +40,37 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 42px;
 }
 
-.eyebrow {
-  color: var(--muted);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .16em;
-  margin-bottom: 18px;
-  text-transform: uppercase;
-}
-
-h1, h2, h3, p { margin: 0; }
-
-h1 {
-  color: var(--ink);
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 950;
-  letter-spacing: 0;
-  line-height: .98;
-}
+.blog-hero .eyebrow { margin-bottom: 18px; }
 
 .blog-lede {
   max-width: 780px;
   margin-top: 22px;
-  color: #3f3f3f;
-  font-size: clamp(17px, 2vw, 22px);
-  font-weight: 700;
+  color: var(--ink-soft);
+  font-size: clamp(17px, 1.6vw, 20px);
   line-height: 1.65;
 }
 
 .blog-count {
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--paper);
-  box-shadow: var(--shadow);
+  border-radius: var(--r-lg);
+  background: var(--card);
   padding: 22px;
 }
 
 .blog-count strong {
   display: block;
   color: var(--accent);
+  font-family: var(--font-mono);
   font-size: 42px;
+  font-weight: 500;
   line-height: 1;
 }
 
 .blog-count span {
   display: block;
   margin-top: 10px;
-  color: var(--muted);
-  font-weight: 800;
+  color: var(--ink-mute);
+  font-size: 14px;
 }
 
 .post-list {
@@ -111,15 +84,15 @@ h1 {
   gap: 24px;
   min-height: 260px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--paper);
+  border-radius: var(--r-lg);
+  background: var(--card);
   overflow: hidden;
-  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+  transition: border-color var(--tr-fast), transform var(--tr-fast), box-shadow var(--tr-fast);
 }
 
 .post-card:hover {
-  border-color: rgba(20, 86, 184, .35);
-  box-shadow: var(--shadow);
+  border-color: var(--accent);
+  box-shadow: 0 18px 60px rgba(20, 24, 29, 0.08);
   transform: translateY(-1px);
 }
 
@@ -135,38 +108,41 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  color: var(--muted);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--ink-mute);
+  font-family: var(--font-mono);
   font-size: 12px;
-  font-weight: 800;
+  letter-spacing: 0.04em;
 }
+body[data-lang="cn"] .post-meta { font-family: var(--font-body); }
 
 .post-pill {
   border-radius: 999px;
-  background: var(--soft);
-  color: var(--ink);
-  padding: 7px 10px;
+  border: 1px solid var(--line);
+  background: var(--bg-elev-2);
+  color: var(--ink-soft);
+  padding: 6px 12px;
 }
 
 .post-pill.red {
+  border-color: var(--accent);
   background: var(--accent);
   color: #fff;
 }
 
 .post-card h2 {
   color: var(--ink);
-  font-size: clamp(28px, 4vw, 46px);
-  font-weight: 950;
-  letter-spacing: 0;
-  line-height: 1.08;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
 }
 
 .post-card p {
   margin-top: 14px;
   max-width: 660px;
-  color: #3f3f3f;
+  color: var(--ink-soft);
   font-size: 16px;
-  font-weight: 700;
   line-height: 1.75;
 }
 
@@ -180,7 +156,7 @@ h1 {
 
 .post-card__arrow {
   color: var(--accent);
-  font-weight: 900;
+  font-weight: 600;
 }
 
 .article-wrap {
@@ -192,8 +168,8 @@ h1 {
 
 .article {
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--paper);
+  border-radius: var(--r-lg);
+  background: var(--card);
   overflow: hidden;
 }
 
@@ -204,6 +180,7 @@ h1 {
 
 .article-head h1 {
   max-width: 860px;
+  font-size: clamp(32px, 4.4vw, 54px);
 }
 
 .article-body {
@@ -216,25 +193,27 @@ h1 {
 
 .article-body h2 {
   color: var(--ink);
-  font-size: clamp(26px, 3vw, 40px);
-  font-weight: 950;
-  letter-spacing: 0;
-  line-height: 1.12;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.14;
   margin-bottom: 16px;
+  scroll-margin-top: 96px;
 }
 
 .article-body p {
+  color: var(--ink-soft);
   font-size: 17px;
-  font-weight: 650;
-  line-height: 1.9;
+  line-height: 1.85;
   margin-top: 14px;
 }
 
 .article-body h3 {
   color: var(--ink);
-  font-size: 20px;
-  font-weight: 950;
-  letter-spacing: 0;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
   line-height: 1.25;
   margin: 26px 0 10px;
 }
@@ -246,17 +225,23 @@ h1 {
 }
 
 .article-body li {
-  color: #333333;
+  color: var(--ink-soft);
   font-size: 16px;
-  font-weight: 650;
-  line-height: 1.85;
+  line-height: 1.8;
   margin-top: 8px;
 }
 
 .article-body strong {
-  color: var(--accent);
-  font-weight: 950;
+  color: var(--ink);
+  font-weight: 650;
 }
+
+.article-body a {
+  color: var(--accent);
+}
+.article-body a:hover { color: var(--ink); }
+.article-body a.btn-primary { color: #fff; }
+.article-body a.btn-primary:hover { color: #fff; }
 
 .figure {
   margin: 26px 0 0;
@@ -265,28 +250,29 @@ h1 {
 .figure img {
   display: block;
   width: 100%;
-  border-radius: 8px;
-  background: var(--soft);
+  border-radius: var(--r-md);
+  background: var(--bg-elev-2);
 }
 
 .figure figcaption {
   margin-top: 10px;
-  color: var(--muted);
+  color: var(--ink-mute);
   font-size: 13px;
-  font-weight: 800;
   line-height: 1.5;
 }
 
 .quote {
   margin: 30px 0;
-  border-left: 5px solid var(--accent);
-  background: var(--soft);
-  border-radius: 8px;
+  border-left: 3px solid var(--warm);
+  background: var(--bg-elev-2);
+  border-radius: var(--r-md);
   padding: 24px;
   color: var(--ink);
-  font-size: clamp(24px, 3vw, 34px);
-  font-weight: 950;
-  line-height: 1.25;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
 }
 
 .report-grid {
@@ -299,8 +285,8 @@ h1 {
 .report-card,
 .case-note {
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fafafa;
+  border-radius: var(--r-md);
+  background: var(--card-hover);
   padding: 18px;
 }
 
@@ -320,14 +306,14 @@ h1 {
   margin-top: 22px;
   overflow-x: auto;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--r-md);
 }
 
 .research-table {
   width: 100%;
   min-width: 720px;
   border-collapse: collapse;
-  background: #fff;
+  background: var(--card);
 }
 
 .research-table th,
@@ -339,16 +325,15 @@ h1 {
 }
 
 .research-table th {
-  background: var(--soft);
+  background: var(--bg-elev-2);
   color: var(--ink);
   font-size: 13px;
-  font-weight: 950;
+  font-weight: 650;
 }
 
 .research-table td {
-  color: #333333;
+  color: var(--ink-soft);
   font-size: 15px;
-  font-weight: 650;
   line-height: 1.7;
 }
 
@@ -361,36 +346,42 @@ h1 {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+.source-list a:hover { color: var(--ink); }
 
 .article-side {
   position: sticky;
-  top: 88px;
+  top: 96px;
   display: grid;
   gap: 10px;
 }
 
 .side-card {
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--paper);
+  border-radius: var(--r-lg);
+  background: var(--card);
   padding: 16px;
 }
 
 .side-card b {
   display: block;
-  color: var(--ink);
-  font-size: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ink-mute);
   margin-bottom: 8px;
 }
+body[data-lang="cn"] .side-card b { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.2em; }
 
 .side-card a,
 .side-card span {
   display: block;
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 13px;
-  font-weight: 800;
-  line-height: 1.6;
+  line-height: 1.7;
 }
+.side-card a:hover { color: var(--accent); }
 
 .answer-list {
   display: grid;
@@ -404,15 +395,14 @@ h1 {
   display: grid;
   gap: 7px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--soft);
+  border-radius: var(--r-md);
+  background: var(--card-hover);
   padding: 18px;
 }
 
 .answer-list span {
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 14px;
-  font-weight: 750;
   line-height: 1.65;
 }
 
@@ -424,26 +414,52 @@ h1 {
 
 .faq-stack details {
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--paper);
+  border-radius: var(--r-md);
+  background: var(--card);
   padding: 18px;
 }
 
 .faq-stack summary {
   cursor: pointer;
   color: var(--ink);
-  font-weight: 950;
+  font-weight: 600;
   line-height: 1.35;
 }
 
-[data-lang-block] { display: none !important; }
-html[data-lang="zh"] [data-lang-block="zh"],
-html[data-lang="en"] [data-lang-block="en"] { display: revert !important; }
+/* ----- Mobile quick nav (desktop nav-links hide ≤920px) -----
+   Mirrors hub.css .hub-quicknav; blog pages load blog.css only. */
+.hub-quicknav { display: none; }
+@media (max-width: 920px) {
+  .hub-quicknav {
+    display: flex; gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-top: 72px; /* clear the fixed site header */
+    padding: 12px var(--container-pad);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .hub-quicknav::-webkit-scrollbar { display: none; }
+  .hub-quicknav a {
+    flex: 0 0 auto;
+    font-size: 13px; color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 7px 14px;
+    white-space: nowrap;
+  }
+  .hub-quicknav a[aria-current="page"] { color: var(--ink); border-color: var(--accent); }
+
+  /* the quicknav already clears the fixed header, so the page
+     body no longer needs the large top offset (answers pages
+     have no quicknav and keep the default padding) */
+  .hub-quicknav ~ .blog-main { padding-top: 40px; }
+}
 
 @media (max-width: 780px) {
-  .blog-main { width: min(100% - 32px, 1120px); }
+  .blog-main { width: min(100% - 32px, 1120px); padding: 116px 0 64px; }
 
-  .blog-main { padding: 116px 0 64px; }
   .blog-hero,
   .post-card,
   .article-wrap,
