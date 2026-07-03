@@ -3,8 +3,9 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const SITE = "https://hua-sheng.org";
-const LASTMOD = "2026-06-18";
-const VERSION = "huasheng-site-20260618-geo2";
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
+const LASTMOD = BUILD_DATE;
+const VERSION = `huasheng-site-${BUILD_DATE.replace(/-/g, "")}-geo3`;
 const DEFAULT_IMAGE = `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`;
 const LOGO = `${SITE}/assets/logo.png`;
 const ENTITY_PROFILE = `${SITE}/entity-profile.jsonld`;
@@ -311,6 +312,7 @@ const hubs = {
   "bus-stop-shelters": {
     serviceName: "Bus stop shelter and bus shelter manufacturing",
     image: `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`,
+    related: ["advertising-light-boxes", "street-furniture"],
     en: {
       h1: "Bus Stop Shelter Manufacturer",
       tagline: "Metal & steel bus stops · smart bus shelters · export-ready",
@@ -329,11 +331,25 @@ const hubs = {
         },
         {
           h2: "Materials & build quality",
+          spec: true,
           bullets: [
             ["Structure", "Hot-dip galvanized steel, 304/201 stainless steel or aluminium profiles, finished with outdoor powder coating or electrophoresis."],
             ["Glazing & roofing", "Tempered safety glass panels, polycarbonate or metal canopies with curved drainage and shading."],
             ["Process", "Laser cutting, CNC forming, robotic welding, automatic powder coating, clean assembly and pre-shipment testing in a 120,000 m² plant."],
             ["Certification", "ISO 9001 quality management, bus shelter design patents and structural utility patents."],
+          ],
+        },
+        {
+          h2: "Smart bus shelters",
+          spec: true,
+          p: "HuaSheng smart bus shelters turn a standard metal bus stop into a connected city touchpoint, integrating displays, lighting and power features that are tested before shipment. Dimensions and bay layout are engineered to your route, footprint and local transit standards — not fixed to a single size.",
+          bullets: [
+            ["Bay configuration", "Single-bay to multi-bay shelters engineered to your route, footprint and local transit standards."],
+            ["Structure & finish", "Hot-dip galvanized or 304/201 stainless steel and aluminium profiles with outdoor powder coating or electrophoresis."],
+            ["Displays & information", "Integrated LED/LCD route displays, e-paper and touch information screens using HuaSheng in-house LED/LCD display systems."],
+            ["Connectivity & power", "Wi-Fi, USB charging and integrated lighting for day-and-night use."],
+            ["Advertising", "Backlit advertising light boxes and route media built into the shelter for transit-advertising operators."],
+            ["Proven deployments", "Beijing LED route signs, Shanghai smart shelters, Shenzhen Qianhai and Futian smart shelters, and Xi'an LCD shelters."],
           ],
         },
         {
@@ -367,11 +383,25 @@ const hubs = {
         },
         {
           h2: "材料与制造质量",
+          spec: true,
           bullets: [
             ["结构", "热镀锌钢、304/201 不锈钢或铝型材，配合户外粉末喷涂或电泳处理。"],
             ["玻璃与顶棚", "钢化安全玻璃面板、聚碳酸酯或金属顶棚，配曲面排水与遮阳。"],
             ["工艺", "在 120,000 平方米基地完成激光切割、CNC 成型、机器人焊接、自动粉末喷涂、清洁装配与出厂前测试。"],
             ["认证", "ISO 9001 质量管理体系、候车亭外观设计专利与结构实用新型专利。"],
+          ],
+        },
+        {
+          h2: "智慧候车亭",
+          spec: true,
+          p: "华盛智慧候车亭将标准金属公交站台升级为互联城市触点，集成显示、照明与供电功能，并在出厂前完成测试。尺寸与舱位布局按线路、占地与当地公交标准进行工程设计，并非固定单一规格。",
+          bullets: [
+            ["舱位配置", "从单舱到多舱候车亭，按线路、占地与当地公交标准进行工程设计。"],
+            ["结构与表面", "热镀锌或 304/201 不锈钢与铝型材，配合户外粉末喷涂或电泳处理。"],
+            ["显示与信息", "集成 LED/LCD 线路屏、电子纸与触控信息屏，采用华盛自研 LED/LCD 显示系统。"],
+            ["联网与供电", "Wi-Fi、USB 充电与集成照明，适应昼夜使用。"],
+            ["广告", "在候车亭内集成背光广告灯箱与线路媒体，服务交通广告运营商。"],
+            ["落地案例", "北京 LED 公交线路牌、上海智能候车亭、深圳前海与福田智慧候车亭、西安 LCD 智能候车亭。"],
           ],
         },
         {
@@ -391,6 +421,7 @@ const hubs = {
   "metal-furniture": {
     serviceName: "Metal furniture manufacturing and OEM/ODM",
     image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    related: ["street-furniture", "stainless-steel-fabrication"],
     en: {
       h1: "Metal Furniture Manufacturer & OEM",
       tagline: "Outdoor, home, kitchen & street metal furniture · IKEA-grade OEM",
@@ -413,6 +444,7 @@ const hubs = {
         },
         {
           h2: "Materials, finishes & process",
+          spec: true,
           bullets: [
             ["Materials", "Cold-rolled steel, stainless steel and aluminium profiles selected for indoor and outdoor metal furniture."],
             ["Finishes", "Automatic powder coating, electrophoresis and surface treatment for durable, weather-resistant finishes."],
@@ -451,6 +483,7 @@ const hubs = {
         },
         {
           h2: "材料、表面与工艺",
+          spec: true,
           bullets: [
             ["材料", "冷轧钢、不锈钢与铝型材，适配室内与户外金属家具。"],
             ["表面处理", "自动粉末喷涂、电泳与表面处理，实现耐用、耐候的表面效果。"],
@@ -468,6 +501,239 @@ const hubs = {
       ],
     },
   },
+  "advertising-light-boxes": {
+    serviceName: "Advertising light box and transit media manufacturing",
+    image: `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`,
+    related: ["bus-stop-shelters", "street-furniture"],
+    en: {
+      h1: "Advertising Light Box Manufacturer",
+      tagline: "Backlit light boxes · LED/LCD transit media · bus shelter advertising",
+      lede: "HuaSheng manufactures backlit advertising light boxes, LED/LCD route displays and transit media built into bus stop shelters and urban information kiosks, for transit-advertising operators and city projects worldwide.",
+      sections: [
+        {
+          h2: "Advertising light boxes we make",
+          bullets: [
+            ["Backlit poster light boxes", "Weather-resistant backlit poster light boxes built into bus stop shelters for outdoor transit advertising."],
+            ["Scrolling & route media", "Scrolling and route-media light boxes for transit-advertising operators."],
+            ["LED/LCD advertising screens", "In-house LED/LCD display systems for bus-shelter advertising screens, wayfinding screens and urban information kiosks, with real-time information and touch interaction."],
+            ["Information kiosks & pylons", "Standalone illuminated wayfinding pylons and urban information kiosks with integrated media."],
+          ],
+        },
+        {
+          h2: "Materials & build quality",
+          spec: true,
+          bullets: [
+            ["Frames", "Hot-dip galvanized steel, stainless steel or aluminium frames with outdoor powder coating for long outdoor life."],
+            ["Glazing", "Tempered safety glass or polycarbonate faces with weather-resistant sealing."],
+            ["Electrical", "Backlighting, LED/LCD components and wiring tested before shipment."],
+            ["Process", "Laser cutting, CNC forming, robotic welding and automatic powder coating in a 120,000 m² plant."],
+          ],
+        },
+        {
+          h2: "Where our light boxes are installed",
+          p: "HuaSheng integrates advertising light boxes into transit projects such as the Shanghai Expo shelters (city landscape, light boxes and accessible waiting), Qatar (Doha) shelters with shade, cooling and light-box integration, and smart-shelter programmes in Beijing, Shenzhen and Xi'an.",
+        },
+      ],
+      faq: [
+        ["Does HuaSheng make advertising light boxes for bus shelters?", "Yes. HuaSheng builds backlit advertising light boxes, LED/LCD displays and route media directly into bus stop shelters, with electrical components and weather-resistant frames tested before shipment."],
+        ["What materials are used for outdoor advertising light boxes?", "Galvanized steel, stainless steel or aluminium frames with tempered glass or polycarbonate faces and outdoor powder coating, so the light boxes withstand heat, rain and coastal climates."],
+        ["Can the light boxes use LED or LCD displays?", "Yes. HuaSheng uses in-house LED/LCD display systems for bus-shelter advertising screens, wayfinding screens and urban information kiosks, supporting real-time information and touch interaction."],
+        ["Can HuaSheng supply light boxes for transit-advertising operators?", "Yes. HuaSheng supplies backlit and scrolling/route-media light boxes for transit-advertising operators, integrated into shelters or as standalone kiosks and pylons, with export packaging and installation support."],
+      ],
+    },
+    zh: {
+      h1: "广告灯箱制造商",
+      tagline: "背光灯箱 · LED/LCD 交通媒体 · 候车亭广告",
+      lede: "华盛制造背光广告灯箱、LED/LCD 线路显示与交通媒体，可集成于公交候车亭与城市信息亭，服务全球交通广告运营商与城市项目。",
+      sections: [
+        {
+          h2: "我们制造的广告灯箱",
+          bullets: [
+            ["背光海报灯箱", "耐候背光海报灯箱，集成于公交候车亭，用于户外交通广告。"],
+            ["滚动与线路媒体", "为交通广告运营商提供滚动与线路媒体灯箱。"],
+            ["LED/LCD 广告屏", "自研 LED/LCD 显示系统，用于候车亭广告屏、导视屏与城市信息亭，支持实时信息与触控交互。"],
+            ["信息亭与立柱", "独立发光导视立柱与城市信息亭，集成媒体。"],
+          ],
+        },
+        {
+          h2: "材料与制造质量",
+          spec: true,
+          bullets: [
+            ["框架", "热镀锌钢、不锈钢或铝框架，配合户外粉末喷涂，保证长期户外使用寿命。"],
+            ["面板", "钢化安全玻璃或聚碳酸酯面板，耐候密封。"],
+            ["电气", "背光、LED/LCD 组件与线路在出货前完成测试。"],
+            ["工艺", "在 120,000 平方米基地完成激光切割、CNC 成型、机器人焊接与自动粉末喷涂。"],
+          ],
+        },
+        {
+          h2: "我们的灯箱落地在哪里",
+          p: "华盛将广告灯箱集成到交通项目中，例如上海世博候车亭（城市景观、灯箱与无障碍候车）、卡塔尔（多哈）候车亭（遮阳、降温与灯箱集成），以及北京、深圳和西安的智慧候车亭项目。",
+        },
+      ],
+      faq: [
+        ["华盛能为候车亭制造广告灯箱吗？", "可以。华盛在公交候车亭内直接集成背光广告灯箱、LED/LCD 显示与线路媒体，电气组件与耐候框架在出货前完成测试。"],
+        ["户外广告灯箱使用什么材料？", "镀锌钢、不锈钢或铝框架，配合钢化玻璃或聚碳酸酯面板与户外粉末喷涂，使灯箱耐高温、雨水与沿海气候。"],
+        ["灯箱可以用 LED 或 LCD 显示吗？", "可以。华盛采用自研 LED/LCD 显示系统，用于候车亭广告屏、导视屏与城市信息亭，支持实时信息与触控交互。"],
+        ["华盛能为交通广告运营商供应灯箱吗？", "可以。华盛为交通广告运营商供应背光与滚动/线路媒体灯箱，可集成于候车亭或作为独立信息亭与立柱，并提供出口包装与安装支持。"],
+      ],
+    },
+  },
+  "street-furniture": {
+    serviceName: "Street furniture and urban furniture manufacturing",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    related: ["bus-stop-shelters", "metal-furniture"],
+    en: {
+      h1: "Street Furniture Manufacturer",
+      tagline: "Benches · bins · planters · wayfinding · public-space metal furniture",
+      lede: "HuaSheng is a Guangzhou street furniture manufacturer producing benches, planters, waste bins, wayfinding pylons and public-space metal furniture for cities, parks and transit areas, with delivery references across Europe, the Middle East, Asia and Oceania.",
+      sections: [
+        {
+          h2: "Street furniture we make",
+          bullets: [
+            ["Benches & seating", "Metal benches and public seating engineered for weather and long outdoor life."],
+            ["Planters & bins", "Planters, waste bins and public-space metal furniture for cities, parks and transit areas."],
+            ["Wayfinding pylons", "Standalone wayfinding pylons and signage to complete a bus stop or public space."],
+            ["Bus stop street furniture", "Matching seating, bins and pylons designed alongside HuaSheng bus stop shelters."],
+            ["Custom urban furniture", "Custom public-space metal furniture from your drawings for parks, plazas and transit areas."],
+          ],
+        },
+        {
+          h2: "Materials, finishes & process",
+          spec: true,
+          bullets: [
+            ["Materials", "Hot-dip galvanized steel, stainless steel and aluminium profiles selected for outdoor street furniture."],
+            ["Finishes", "Automatic powder coating, electrophoresis and surface treatment for durable, weather-resistant finishes."],
+            ["Process", "Laser cutting, CNC forming, robotic welding, clean assembly and quality inspection across a 120,000 m² plant with 297 machines."],
+            ["Quality", "ISO 9001 quality management and DMAIC process control."],
+          ],
+        },
+        {
+          h2: "Street furniture for cities and brands",
+          p: "HuaSheng understands street furniture, public facilities and urban use cases, and has long supplied overseas outdoor public facilities and city furniture with White Horse Outdoor / Belson Outdoors, supporting structure, packaging and delivery across different city environments.",
+        },
+      ],
+      faq: [
+        ["What street furniture does HuaSheng manufacture?", "HuaSheng manufactures benches, planters, waste bins, wayfinding pylons and public-space metal furniture for cities, parks and transit areas, often matched to its bus stop shelters."],
+        ["What materials make street furniture last outdoors?", "Hot-dip galvanized steel, stainless steel and aluminium with outdoor powder coating and electrophoresis give street furniture long service life in heat, rain and coastal salt environments."],
+        ["Can HuaSheng make custom or branded street furniture?", "Yes. HuaSheng produces custom and OEM/ODM street furniture from your drawings, with material selection, welding, surface finishing and export packaging."],
+        ["Does HuaSheng export street furniture?", "Yes. HuaSheng has long supplied overseas outdoor public facilities and city furniture, with delivery references across Europe, the Middle East, Asia and Oceania."],
+      ],
+    },
+    zh: {
+      h1: "街道家具与城市家具制造商",
+      tagline: "座椅 · 垃圾箱 · 花箱 · 导视 · 公共空间金属家具",
+      lede: "华盛是位于广州的街道家具制造商，生产座椅、花箱、垃圾箱、导视立柱与公共空间金属家具，服务城市、公园与公交区域，交付参考覆盖欧洲、中东、亚洲与大洋洲。",
+      sections: [
+        {
+          h2: "我们制造的街道家具",
+          bullets: [
+            ["座椅", "针对气候与长期户外使用进行工程设计的金属座椅与公共座椅。"],
+            ["花箱与垃圾箱", "为城市、公园和交通区域提供花箱、垃圾箱与公共空间金属家具。"],
+            ["导视立柱", "独立导视立柱与标识，用于完善公交站台或公共空间。"],
+            ["公交站台街道家具", "与华盛公交站亭配套设计的座椅、垃圾箱与立柱。"],
+            ["定制城市家具", "按图纸定制的公共空间金属家具，适用于公园、广场与交通区域。"],
+          ],
+        },
+        {
+          h2: "材料、表面与工艺",
+          spec: true,
+          bullets: [
+            ["材料", "热镀锌钢、不锈钢与铝型材，适配户外街道家具。"],
+            ["表面处理", "自动粉末喷涂、电泳与表面处理，实现耐用、耐候的表面效果。"],
+            ["工艺", "在 120,000 平方米、297 台设备的基地完成激光切割、CNC 成型、机器人焊接、清洁装配与质量检验。"],
+            ["质量", "ISO 9001 质量管理与 DMAIC 过程控制。"],
+          ],
+        },
+        {
+          h2: "面向城市与品牌的街道家具",
+          p: "华盛深入理解街道家具、公共设施与城市使用场景，并长期与 White Horse Outdoor / Belson Outdoors 合作供应海外户外公共设施与城市家具，支持不同城市环境下的结构、包装与交付。",
+        },
+      ],
+      faq: [
+        ["华盛制造哪些街道家具？", "华盛制造座椅、花箱、垃圾箱、导视立柱与公共空间金属家具，服务城市、公园与交通区域，并常与其公交站亭配套。"],
+        ["什么材料让街道家具更耐用？", "热镀锌钢、不锈钢与铝材，配合户外粉末喷涂与电泳，使街道家具在高温、雨水和沿海盐雾环境下保持长久使用寿命。"],
+        ["华盛能定制或代工品牌街道家具吗？", "可以。华盛按图纸提供定制与 OEM/ODM 街道家具，包含材料选择、焊接、表面处理与出口包装。"],
+        ["华盛是否出口街道家具？", "是。华盛长期供应海外户外公共设施与城市家具，交付参考覆盖欧洲、中东、亚洲与大洋洲。"],
+      ],
+    },
+  },
+  "stainless-steel-fabrication": {
+    serviceName: "Stainless steel fabrication and stainless steel structure manufacturing",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    related: ["metal-furniture", "bus-stop-shelters"],
+    en: {
+      h1: "Stainless Steel Fabrication in Guangzhou",
+      tagline: "304/201 stainless steel · facades · shelters · retail fixtures",
+      lede: "HuaSheng provides stainless steel fabrication in Guangzhou, China — 304 and 201 stainless steel structures, facades, decorative metalwork, bus shelters and retail fixtures — with laser cutting, CNC forming, robotic welding and mirror-finish surface treatment.",
+      sections: [
+        {
+          h2: "Stainless steel work we fabricate",
+          bullets: [
+            ["Stainless steel structures & facades", "Stainless steel facades, decorative structures and custom architectural metalwork for public and commercial spaces."],
+            ["Stainless steel bus shelters", "Stainless steel bus stop shelters, including the Beijing Olympic stainless steel shelters."],
+            ["Retail & counter fixtures", "Stainless steel display, shelving and counters, including Hong Kong MTR ticket and information counters and Swiss retail fixtures for Coop and Migros."],
+            ["Stainless steel furniture & components", "Stainless steel furniture frames, kitchen and bathroom units and precision components."],
+          ],
+        },
+        {
+          h2: "Materials, finishes & process",
+          spec: true,
+          bullets: [
+            ["Grades", "304 and 201 stainless steel, and aluminium or galvanized steel where specified."],
+            ["Finishes", "Mirror-finish detailing, powder coating, electrophoresis and surface treatment."],
+            ["Process", "Laser cutting, CNC forming, robotic and manual welding, clean assembly and quality inspection across a 120,000 m² plant with 297 machines."],
+            ["Quality", "ISO 9001 quality management and DMAIC process control."],
+          ],
+        },
+        {
+          h2: "Representative stainless steel projects",
+          p: "HuaSheng stainless steel work includes the Beijing Olympic stainless steel bus shelters, Hong Kong MTR stainless steel ticket and information counters (2016), canal-city and LCD smart shelters with stainless structures and mirror-finish details, and stainless steel retail fixtures for Coop and Migros through Ladenbau Schmidt.",
+        },
+      ],
+      faq: [
+        ["Does HuaSheng offer stainless steel fabrication in Guangzhou?", "Yes. HuaSheng is a Guangzhou, China stainless steel fabrication manufacturer working in 304 and 201 stainless steel, from structures and facades to shelters, counters and furniture, with laser cutting, CNC forming and robotic welding."],
+        ["What stainless steel grades and finishes does HuaSheng use?", "HuaSheng works mainly in 304 and 201 stainless steel with mirror-finish detailing, powder coating, electrophoresis and surface treatment for durable indoor and outdoor use."],
+        ["What stainless steel projects has HuaSheng delivered?", "Representative work includes the Beijing Olympic stainless steel bus shelters, Hong Kong MTR stainless steel ticket and information counters, and stainless steel retail fixtures for Coop and Migros."],
+        ["Can HuaSheng fabricate custom stainless steel structures and fixtures?", "Yes. HuaSheng fabricates custom stainless steel structures, facades, counters and fixtures from your drawings, with welding, surface finishing, quality inspection and export packaging."],
+      ],
+    },
+    zh: {
+      h1: "不锈钢加工与不锈钢工程",
+      tagline: "304/201 不锈钢 · 幕墙 · 候车亭 · 零售陈列",
+      lede: "华盛提供广州不锈钢加工与不锈钢工程——304 与 201 不锈钢结构、幕墙、装饰构件、候车亭与零售陈列——配合激光切割、CNC 成型、机器人焊接与镜面表面处理。",
+      sections: [
+        {
+          h2: "我们制作的不锈钢产品",
+          bullets: [
+            ["不锈钢结构与幕墙", "不锈钢幕墙、装饰构件与定制建筑金属，用于公共与商业空间。"],
+            ["不锈钢候车亭", "不锈钢公交候车亭，包括北京奥运不锈钢候车亭。"],
+            ["零售与柜台陈列", "不锈钢陈列、货架与柜台，包括香港 MTR 售票与咨询柜台，以及为 Coop、Migros 提供的瑞士零售陈列。"],
+            ["不锈钢家具与配件", "不锈钢家具框架、厨房与卫浴单元及精密配件。"],
+          ],
+        },
+        {
+          h2: "材料、表面与工艺",
+          spec: true,
+          bullets: [
+            ["牌号", "304 与 201 不锈钢，并按需选用铝材或镀锌钢。"],
+            ["表面", "镜面细节处理、粉末喷涂、电泳与表面处理。"],
+            ["工艺", "在 120,000 平方米、297 台设备的基地完成激光切割、CNC 成型、机器人与人工焊接、清洁装配与质量检验。"],
+            ["质量", "ISO 9001 质量管理与 DMAIC 过程控制。"],
+          ],
+        },
+        {
+          h2: "代表性不锈钢项目",
+          p: "华盛的不锈钢项目包括北京奥运不锈钢候车亭、香港 MTR 不锈钢售票与咨询柜台（2016）、结合不锈钢结构与镜面细节的运河城市与 LCD 智能候车亭，以及通过 Ladenbau Schmidt 为 Coop、Migros 提供的不锈钢零售陈列。",
+        },
+      ],
+      faq: [
+        ["华盛在广州提供不锈钢加工吗？", "提供。华盛是位于广州的不锈钢加工制造商，采用 304 与 201 不锈钢，从结构、幕墙到候车亭、柜台与家具，配合激光切割、CNC 成型与机器人焊接。"],
+        ["华盛使用哪些不锈钢牌号和表面？", "华盛主要采用 304 与 201 不锈钢，配合镜面细节、粉末喷涂、电泳与表面处理，适用于耐用的室内外场景。"],
+        ["华盛交付过哪些不锈钢项目？", "代表性项目包括北京奥运不锈钢候车亭、香港 MTR 不锈钢售票与咨询柜台，以及为 Coop、Migros 提供的不锈钢零售陈列。"],
+        ["华盛能定制不锈钢结构与陈列吗？", "可以。华盛按图纸定制不锈钢结构、幕墙、柜台与陈列，包含焊接、表面处理、质量检验与出口包装。"],
+      ],
+    },
+  },
 };
 
 const organization = {
@@ -477,14 +743,15 @@ const organization = {
   legalName: "Guangzhou HuaSheng Metal Materials Co., Ltd.",
   alternateName: ["HuaSheng Metal", "HUASHENG", "广州华盛金属材料有限公司", "华盛金属"],
   url: SITE,
-  logo: LOGO,
+  logo: { "@type": "ImageObject", "url": LOGO },
   image: DEFAULT_IMAGE,
   foundingDate: "1989",
+  dateModified: LASTMOD,
   foundingLocation: {
     "@type": "Place",
     name: "Guangzhou, Guangdong, China",
   },
-  slogan: "30 years of metal craftsmanship for urban public facilities",
+  slogan: "Metal craftsmanship for urban public facilities since 1989",
   description:
     "Guangzhou-based manufacturer of bus shelters, advertising light boxes, urban furniture, outdoor kiosks, stainless steel structures and precision metal OEM products.",
   address: {
@@ -507,7 +774,6 @@ const organization = {
     "https://gzhsgm.en.alibaba.com/",
     "https://gz-huasheng.en.made-in-china.com/",
     "https://gzhsgm.goldsupplier.com/",
-    "https://github.com/ZaynJarvis/hua-sheng-site",
   ],
   areaServed: [
     "China",
@@ -610,6 +876,7 @@ const siteGraph = [
     name: "HuaSheng Metal",
     alternateName: ["华盛金属", "HUASHENG"],
     inLanguage: ["en", "zh-CN"],
+    dateModified: LASTMOD,
     publisher: { "@id": `${SITE}/#organization` },
   },
 ];
@@ -619,7 +886,7 @@ const pages = [
     aliases: ["index.html"],
     title: "Bus Stop Shelter & Metal Furniture Manufacturer | HuaSheng",
     description:
-      "HuaSheng Metal is a Guangzhou manufacturer of bus stop shelters, bus shelters, advertising light boxes, urban and metal furniture, outdoor kiosks and precision metal OEM products serving 100+ cities and regions.",
+      "HuaSheng Metal, Guangzhou bus stop shelter and metal furniture manufacturer, producing advertising light boxes and precision metal OEM for 100+ cities.",
     image: DEFAULT_IMAGE,
     priority: "1.0",
     changefreq: "weekly",
@@ -636,7 +903,7 @@ const pages = [
     aliases: ["about/index.html"],
     title: "About HuaSheng | Guangzhou Manufacturer Founded in 1989",
     description:
-      "Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, bus stop shelter and metal furniture projects, manufacturing technology and quality values.",
+      "Learn about HuaSheng's 1989 Guangzhou founding, five entities, four pillars, global bus stop shelter and metal furniture projects and quality values.",
     image: `${SITE}/assets/huasheng/about-factory-campus.webp`,
     priority: "0.9",
   }),
@@ -651,7 +918,7 @@ const pages = [
     aliases: ["capabilities/index.html"],
     title: "Manufacturing Capabilities | 120,000 m2 Metal Fabrication Base",
     description:
-      "HuaSheng's production capability includes 120,000 m2 of plant area, five workshops, 297 precision machines, robotic welding, CNC forming and automated powder coating.",
+      "HuaSheng's 120,000 m2 metal fabrication base: five workshops, 297 precision machines, robotic welding, CNC forming and automated powder coating.",
     image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
     priority: "0.85",
   }),
@@ -666,7 +933,7 @@ const pages = [
     aliases: ["projects/index.html", "cases/index.html"],
     title: "Bus Stop Shelter & Metal Project Cases | HuaSheng Metal",
     description:
-      "Explore HuaSheng bus stop shelter, smart transport, stainless steel, metal furniture, overseas public facility and OEM cases across Beijing, Shanghai, Guangzhou, Qatar, Nepal and more.",
+      "HuaSheng bus stop shelter, smart transport, stainless steel and metal furniture project cases in Beijing, Shanghai, Guangzhou, Qatar, Nepal and more.",
     image: `${SITE}/assets/huasheng/projects-overview.webp`,
     priority: "0.9",
   }),
@@ -729,7 +996,7 @@ const pages = [
     hub: "bus-stop-shelters",
     title: "Bus Stop Shelter Manufacturer | Metal & Steel Bus Stops",
     description:
-      "HuaSheng manufactures custom metal and steel bus stop shelters, smart bus shelters, advertising light boxes and modular bus stops for cities and export markets worldwide.",
+      "HuaSheng manufactures custom metal and steel bus stop shelters, smart shelters, advertising light boxes and modular bus stops for cities and export worldwide.",
     image: `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`,
     priority: "0.9",
     changefreq: "monthly",
@@ -747,7 +1014,7 @@ const pages = [
     hub: "metal-furniture",
     title: "Metal Furniture Manufacturer & OEM | Outdoor, Home & Street",
     description:
-      "HuaSheng is a Guangzhou metal furniture manufacturer and OEM/ODM partner for outdoor metal furniture, street furniture, and kitchen, bathroom and home metal furniture, with export packaging worldwide.",
+      "HuaSheng, Guangzhou metal furniture manufacturer and OEM/ODM partner for outdoor, street, kitchen, bathroom and home metal furniture, export worldwide.",
     image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
     priority: "0.9",
     changefreq: "monthly",
@@ -761,8 +1028,62 @@ const pages = [
     priority: "0.9",
     changefreq: "monthly",
   }),
+  page("advertising-light-boxes", "en", "/en/advertising-light-boxes/", "en/advertising-light-boxes/index.html", {
+    hub: "advertising-light-boxes",
+    title: "Advertising Light Box Manufacturer | Bus Shelter Media",
+    description:
+      "HuaSheng manufactures backlit advertising light boxes, LED/LCD displays and transit media built into bus stop shelters for operators worldwide.",
+    image: `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`,
+    priority: "0.85",
+    changefreq: "monthly",
+  }),
+  page("advertising-light-boxes", "zh", "/zh/advertising-light-boxes/", "zh/advertising-light-boxes/index.html", {
+    hub: "advertising-light-boxes",
+    title: "广告灯箱制造商 | 候车亭广告与 LED/LCD 媒体 | 华盛金属",
+    description:
+      "华盛制造背光广告灯箱、LED/LCD 线路显示与交通媒体，可集成于公交候车亭与城市信息亭，服务交通广告运营商与城市项目。",
+    image: `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`,
+    priority: "0.85",
+    changefreq: "monthly",
+  }),
+  page("street-furniture", "en", "/en/street-furniture/", "en/street-furniture/index.html", {
+    hub: "street-furniture",
+    title: "Street Furniture Manufacturer | Benches, Bins & Planters",
+    description:
+      "HuaSheng, a Guangzhou street furniture manufacturer of benches, planters, bins, wayfinding pylons and public-space metal furniture for cities worldwide.",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    priority: "0.85",
+    changefreq: "monthly",
+  }),
+  page("street-furniture", "zh", "/zh/street-furniture/", "zh/street-furniture/index.html", {
+    hub: "street-furniture",
+    title: "街道家具与城市家具制造商 | 座椅、垃圾箱与花箱 | 华盛金属",
+    description:
+      "华盛是广州街道家具制造商，生产座椅、花箱、垃圾箱、导视立柱与公共空间金属家具，服务城市、公园与公交区域，支持全球出口。",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    priority: "0.85",
+    changefreq: "monthly",
+  }),
+  page("stainless-steel-fabrication", "en", "/en/stainless-steel-fabrication/", "en/stainless-steel-fabrication/index.html", {
+    hub: "stainless-steel-fabrication",
+    title: "Stainless Steel Fabrication Guangzhou | 304/201 Structures",
+    description:
+      "HuaSheng offers stainless steel fabrication in Guangzhou, China: 304/201 structures, facades, bus shelters and retail fixtures with mirror-finish welding.",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    priority: "0.85",
+    changefreq: "monthly",
+  }),
+  page("stainless-steel-fabrication", "zh", "/zh/stainless-steel-fabrication/", "zh/stainless-steel-fabrication/index.html", {
+    hub: "stainless-steel-fabrication",
+    title: "不锈钢加工与不锈钢工程 | 广州 304/201 制造 | 华盛金属",
+    description:
+      "华盛提供广州不锈钢加工与不锈钢工程：304/201 不锈钢结构、幕墙、候车亭与零售陈列，配合激光切割、机器人焊接与镜面处理。",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    priority: "0.85",
+    changefreq: "monthly",
+  }),
   page("blog", "en", "/en/blog/", "en/blog/index.html", {
-    title: "Huasheng Blog | Project Cases, Product Capabilities and AI Workflows",
+    title: "Huasheng Blog | Project Cases, Capabilities & AI Workflows",
     description:
       "Huasheng Blog records project cases, product capabilities, certifications, service workflows, and AI-enabled operating practices.",
     image: `${SITE}/blog/assets/meeting-room.jpg`,
@@ -783,7 +1104,7 @@ const pages = [
     title: "Nansha Phase 2: From Phase 1 Reference to Phase 2 Production Start",
     description:
       "A Nansha Phase 2 case article showing Phase 1 installed references and the Phase 2 production start for 23 bus shelters.",
-    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.png`,
+    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.webp`,
     published: "2026-06-11",
     modified: LASTMOD,
   }),
@@ -791,7 +1112,7 @@ const pages = [
     title: "华盛项目｜南沙项目二期：从一期落地到二期制作启动",
     description:
       "南沙项目二期案例文章：以一期已落地实景为参考，记录二期 23 座候车亭制作启动与华盛定制推进方式。",
-    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.png`,
+    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.webp`,
     published: "2026-06-11",
     modified: LASTMOD,
   }),
@@ -814,7 +1135,7 @@ const pages = [
   article("steel-structure-toc-market-report-2026-2027", "en", "/en/blog/steel-structure-toc-market-report-2026-2027/", "en/blog/steel-structure-toc-market-report-2026-2027/index.html", {
     title: "2026-2027 ToC Market Report for Steel Outdoor Structures",
     description:
-      "Market signals, successful product cases, Huasheng fit and an 18-month product roadmap for carports, pergolas, sheds, bike shelters and compact community structures.",
+      "Market signals, product cases, HuaSheng fit and 18-month roadmap for carports, pergolas, sheds, bike shelters and compact community structures.",
     image: `${SITE}/assets/huasheng/case-steel-structure.webp`,
     published: "2026-06-03",
     modified: LASTMOD,
@@ -830,7 +1151,7 @@ const pages = [
   page("nansha-h5", "zh", "/nansha-phase-2/", "nansha-phase-2/index.html", {
     title: "华盛项目｜南沙项目二期：从一期落地到二期制作启动",
     description: "南沙项目二期：一期落地参考，二期23座候车亭制作启动。",
-    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.png`,
+    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.webp`,
     priority: "0.64",
     changefreq: "monthly",
     kind: "Article",
@@ -875,6 +1196,24 @@ function escapeXml(value) {
   return escapeHtml(value).replace(/'/g, "&apos;");
 }
 
+// Stable, language-neutral anchor slug. Slugs are always derived from the English
+// string so the same fragment id addresses a question/section in both locales.
+function slugify(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60)
+    .replace(/-+$/g, "");
+}
+
+// FAQ anchor id, keyed by index so EN and ZH answers share one fragment id.
+function faqAnchorId(index) {
+  const source = (faq.en[index] && faq.en[index].q) || `question-${index + 1}`;
+  return `q-${slugify(source)}`;
+}
+
 function graphFor(meta) {
   const canonical = absolute(meta.urlPath);
   const locale = meta.lang === "zh" ? "zh-CN" : "en";
@@ -889,7 +1228,7 @@ function graphFor(meta) {
   } else if (meta.kind === "Article") {
     graph.push(articleFor(meta));
   } else {
-    graph.push({
+    const webpage = {
       "@type": meta.group === "contact" ? "ContactPage" : meta.group === "about" ? "AboutPage" : "WebPage",
       "@id": `${canonical}#webpage`,
       url: canonical,
@@ -904,7 +1243,17 @@ function graphFor(meta) {
       },
       mainEntity: mainEntityFor(meta),
       breadcrumb: { "@id": `${canonical}#breadcrumb` },
-    });
+    };
+    graph.push(webpage);
+    if (meta.group === "capabilities") {
+      const howTo = howToFor(meta);
+      if (howTo) {
+        graph.push(howTo);
+        // Point the WebPage mainEntity at the ordered workflow; keep the service list as `about`.
+        webpage.about = [{ "@id": `${SITE}/#organization` }, ...mainEntityFor(meta)];
+        webpage.mainEntity = { "@id": howTo["@id"] };
+      }
+    }
   }
 
   return {
@@ -974,15 +1323,54 @@ function mainEntityFor(meta) {
     };
   }
   if (meta.group === "quality") {
-    return [
-      "ISO 9001 quality management",
-      "DMAIC process",
-      "bus shelter design patents",
-      "utility patents",
-      "IKEA supplier qualification",
-    ];
+    const qualityCredentials = meta.lang === "zh"
+      ? ["ISO 9001 质量管理", "DMAIC 流程", "公交站亭设计专利", "实用新型专利", "宜家供应商资质"]
+      : ["ISO 9001 quality management", "DMAIC process", "bus shelter design patents", "utility patents", "IKEA supplier qualification"];
+    return {
+      "@type": "ItemList",
+      name: meta.lang === "zh" ? "华盛质量资质" : "HuaSheng quality credentials",
+      itemListElement: qualityCredentials.map((name, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "CreativeWork",
+          name,
+          about: { "@id": `${SITE}/#organization` },
+        },
+      })),
+    };
   }
   return { "@id": `${SITE}/#organization` };
+}
+
+// HowTo built from the capabilities page's own "Standard process" steps (content.js),
+// so the ordered ItemList mirrors the visible workflow copy verbatim — no fabrication.
+function howToFor(meta) {
+  const clang = meta.lang === "zh" ? "cn" : "en";
+  const steps =
+    (CONTENT[clang] &&
+      CONTENT[clang].cap &&
+      CONTENT[clang].cap.process &&
+      CONTENT[clang].cap.process.steps) ||
+    [];
+  if (!steps.length) return null;
+  const canonical = absolute(meta.urlPath);
+  return {
+    "@type": "HowTo",
+    "@id": `${canonical}#howto`,
+    name: meta.lang === "zh" ? "华盛金属制造与交付流程" : "HuaSheng metal fabrication workflow",
+    description:
+      meta.lang === "zh"
+        ? "华盛金属从设计与工艺评审到包装、装柜、发货的标准生产工艺流程。"
+        : "HuaSheng's standard metal fabrication and delivery workflow, from design and process review through to packing, container loading and shipping.",
+    inLanguage: meta.lang === "zh" ? "zh-CN" : "en",
+    step: steps.map((s, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: s.t,
+      text: s.d,
+    })),
+  };
 }
 
 function collectionFor(meta) {
@@ -1042,17 +1430,24 @@ function faqPageFor(meta) {
     url: canonical,
     name: meta.title,
     description: meta.description,
+    datePublished: LASTMOD,
+    dateModified: LASTMOD,
     inLanguage: meta.lang === "zh" ? "zh-CN" : "en",
     isPartOf: { "@id": `${SITE}/#website` },
     about: { "@id": `${SITE}/#organization` },
-    mainEntity: faq[meta.lang].map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
+    mainEntity: faq[meta.lang].map((item, index) => {
+      const anchor = `${canonical}#${faqAnchorId(index)}`;
+      return {
+        "@type": "Question",
+        "@id": anchor,
+        url: anchor,
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      };
+    }),
     breadcrumb: { "@id": `${canonical}#breadcrumb` },
   };
 }
@@ -1079,13 +1474,16 @@ function ensureHeadLink(html, marker, line) {
 }
 
 function updateHead(html, meta) {
+  // nansha-h5 stays reachable but de-indexed; keep the canonical self-referential —
+  // noindex combined with a cross-page canonical sends contradictory signals to Google.
   const canonical = absolute(meta.urlPath);
+  const robotsContent = meta.group === "nansha-h5" ? "noindex,follow" : "index, follow, max-image-preview:large";
   const alternateEn = alternateFor(meta, "en");
   const alternateZh = alternateFor(meta, "zh");
   const ogType = meta.kind === "BlogPosting" || meta.kind === "Article" ? "article" : "website";
 
   html = html.replace(/<html lang="[^"]*"/, `<html lang="${meta.lang === "zh" ? "zh-CN" : "en"}"`);
-  html = replaceMeta(html, /<meta name="robots" content="[^"]*" \/>/, `<meta name="robots" content="index, follow, max-image-preview:large" />`);
+  html = replaceMeta(html, /<meta name="robots" content="[^"]*" \/>/, `<meta name="robots" content="${robotsContent}" />`);
   html = replaceMeta(html, /<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(meta.title)}</title>`);
   html = replaceMeta(html, /<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(meta.description)}" />`);
   html = replaceMeta(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonical}" />`);
@@ -1100,12 +1498,17 @@ function updateHead(html, meta) {
   html = replaceMeta(html, /<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${escapeHtml(meta.description)}" />`);
   html = replaceMeta(html, /<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${canonical}" />`);
   html = replaceMeta(html, /<meta property="og:image" content="[^"]*" \/>/, `<meta property="og:image" content="${meta.image || DEFAULT_IMAGE}" />`);
+  html = replaceMeta(html, /<meta property="og:locale" content="[^"]*" \/>/, `<meta property="og:locale" content="${meta.lang === "zh" ? "zh_CN" : "en_US"}" />`);
+  html = ensureHeadLink(html, 'property="og:locale:alternate"', `<meta property="og:locale:alternate" content="${meta.lang === "zh" ? "en_US" : "zh_CN"}" />`);
   html = replaceMeta(html, /<meta name="twitter:card" content="[^"]*" \/>/, `<meta name="twitter:card" content="summary_large_image" />`);
   html = replaceMeta(html, /<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${escapeHtml(meta.title)}" />`);
   html = replaceMeta(html, /<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${escapeHtml(meta.description)}" />`);
   html = replaceMeta(html, /<meta name="twitter:image" content="[^"]*" \/>/, `<meta name="twitter:image" content="${meta.image || DEFAULT_IMAGE}" />`);
   html = ensureHeadLink(html, 'name="geo.region"', '<meta name="geo.region" content="CN-GD" />');
   html = ensureHeadLink(html, 'name="geo.placename"', '<meta name="geo.placename" content="Guangzhou" />');
+  html = replaceMeta(html, /<link rel="icon" type="image\/png" sizes="32x32" href="[^"]*" \/>/, `<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=${VERSION}" />`);
+  html = ensureHeadLink(html, 'rel="shortcut icon"', `<link rel="shortcut icon" href="/favicon.ico?v=${VERSION}" />`);
+  html = ensureHeadLink(html, 'rel="apple-touch-icon"', `<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=${VERSION}" />`);
   html = html.replace(/huasheng-site-\d{8}[-a-z0-9]*/g, VERSION);
   html = replaceOrInsertJsonLd(html, meta);
 
@@ -1191,7 +1594,7 @@ function writeAnswersPage(meta) {
     .map((item, index) => `<li><strong>${String(index + 1).padStart(2, "0")}</strong><span>${escapeHtml(item)}</span></li>`)
     .join("\n              ");
   const faqRows = answers
-    .map((item) => `<details open>
+    .map((item, index) => `<details open id="${faqAnchorId(index)}">
                 <summary>${escapeHtml(item.q)}</summary>
                 <p>${escapeHtml(item.a)}</p>
               </details>`)
@@ -1218,6 +1621,8 @@ function writeAnswersPage(meta) {
   <meta property="og:description" content="${escapeHtml(meta.description)}" />
   <meta property="og:url" content="${absolute(meta.urlPath)}" />
   <meta property="og:image" content="${meta.image || DEFAULT_IMAGE}" />
+  <meta property="og:locale" content="${isZh ? "zh_CN" : "en_US"}" />
+  <meta property="og:locale:alternate" content="${isZh ? "en_US" : "zh_CN"}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeHtml(meta.title)}" />
   <meta name="twitter:description" content="${escapeHtml(meta.description)}" />
@@ -1225,6 +1630,8 @@ function writeAnswersPage(meta) {
   <meta name="geo.region" content="CN-GD" />
   <meta name="geo.placename" content="Guangzhou" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=${VERSION}" />
+  <link rel="shortcut icon" href="/favicon.ico?v=${VERSION}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=${VERSION}" />
   <link rel="stylesheet" href="/styles.css?v=${VERSION}" />
   <link rel="stylesheet" href="/blog/blog.css?v=${VERSION}" />
   <script type="application/ld+json">
@@ -1236,7 +1643,7 @@ ${jsonLd(meta)}
     <header class="site-header blog-site-header scrolled">
       <div class="container-wide nav-inner">
         <a class="brand" href="${isZh ? "/zh/" : "/en/"}">
-          <span class="brand-mark"><img src="/assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+          <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
           <span class="brand-text">
             <span class="a">${isZh ? "华盛金属" : "HUASHENG"}</span>
             <span class="b">${isZh ? "AI 搜索答案页" : "AI SEARCH ANSWERS"}</span>
@@ -1276,7 +1683,7 @@ ${jsonLd(meta)}
                 <li><strong>${isZh ? "起源" : "Founded"}:</strong> 1989, Guangzhou, Guangdong, China</li>
                 <li><strong>${isZh ? "业务" : "Scope"}:</strong> ${isZh ? "候车亭、广告灯箱、城市家具、户外亭体、不锈钢结构、精密金属 OEM/ODM" : "Bus shelters, advertising light boxes, urban furniture, outdoor kiosks, stainless steel structures and precision metal OEM/ODM"}</li>
                 <li><strong>${isZh ? "覆盖" : "Coverage"}:</strong> ${isZh ? "全球 100+ 城市和地区" : "100+ cities and regions worldwide"}</li>
-                <li><strong>${isZh ? "联系" : "Contact"}:</strong> hi@hua-sheng.org / +65 8309-9012</li>
+                <li><strong>${isZh ? "联系" : "Contact"}:</strong> hi@hua-sheng.org / +65 8309-9012 (${isZh ? "国际销售/WhatsApp" : "international sales / WhatsApp"})</li>
               </ul>
             </section>
 
@@ -1362,14 +1769,19 @@ function writeEntityProfile() {
             name: "HuaSheng Metal buyer and AI-search FAQ",
             inLanguage: "en",
             about: { "@id": `${SITE}/#organization` },
-            mainEntity: faq.en.map((item) => ({
-              "@type": "Question",
-              name: item.q,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: item.a,
-              },
-            })),
+            mainEntity: faq.en.map((item, index) => {
+              const anchor = `${SITE}/en/answers/#${faqAnchorId(index)}`;
+              return {
+                "@type": "Question",
+                "@id": anchor,
+                url: anchor,
+                name: item.q,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: item.a,
+                },
+              };
+            }),
           },
           {
             "@type": "FAQPage",
@@ -1378,14 +1790,19 @@ function writeEntityProfile() {
             name: "华盛金属采购与 AI 搜索问答",
             inLanguage: "zh-CN",
             about: { "@id": `${SITE}/#organization` },
-            mainEntity: faq.zh.map((item) => ({
-              "@type": "Question",
-              name: item.q,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: item.a,
-              },
-            })),
+            mainEntity: faq.zh.map((item, index) => {
+              const anchor = `${SITE}/zh/answers/#${faqAnchorId(index)}`;
+              return {
+                "@type": "Question",
+                "@id": anchor,
+                url: anchor,
+                name: item.q,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: item.a,
+                },
+              };
+            }),
           },
           {
             "@type": "ItemList",
@@ -1413,7 +1830,7 @@ function writeEntityProfile() {
 
 function writeSitemap() {
   const entries = pages
-    .filter((item) => item.urlPath.startsWith("/") && item.file && !item.aliasOnly)
+    .filter((item) => item.urlPath.startsWith("/") && item.file && !item.aliasOnly && item.group !== "nansha-h5")
     .map((item) => {
       const alternates = alternateLinksFor(item);
       const xhtml = alternates
@@ -1496,11 +1913,53 @@ Sitemap: ${SITE}/sitemap.xml
 
 function writeLlms() {
   const answerCards = faq.en
-    .map((item) => `- Q: ${item.q}\n  A: ${item.a}`)
+    .map((item, index) => `- [${item.q}](${SITE}/en/answers/#${faqAnchorId(index)}): ${item.a}`)
     .join("\n");
   const zhAnswerCards = faq.zh
-    .map((item) => `- 问：${item.q}\n  答：${item.a}`)
+    .map((item, index) => `- [${item.q}](${SITE}/zh/answers/#${faqAnchorId(index)})：${item.a}`)
     .join("\n");
+  const importantPages = [
+    ["Home EN", "/en/", "HuaSheng Metal English company overview"],
+    ["Home ZH", "/zh/", "华盛金属中文公司概览"],
+    ["About EN", "/en/about/", "Company background, entities and history since 1989"],
+    ["About ZH", "/zh/about/", "公司背景、核心主体与发展历程"],
+    ["Capabilities EN", "/en/capabilities/", "120,000 m² fabrication base, workshops, equipment and standard process"],
+    ["Capabilities ZH", "/zh/capabilities/", "120,000 平方米加工基地、车间、设备与标准工艺流程"],
+    ["Projects EN", "/en/projects/", "Bus shelter, smart transport, stainless steel and metal furniture project cases"],
+    ["Projects ZH", "/zh/projects/", "公交站亭、智慧交通、不锈钢与金属家具项目案例"],
+    ["Quality EN", "/en/quality/", "ISO 9001, bus shelter patents and DMAIC quality control"],
+    ["Quality ZH", "/zh/quality/", "ISO 9001、候车亭专利与 DMAIC 质量管控"],
+    ["Contact EN", "/en/contact/", "Contact HuaSheng for quotations, projects and OEM"],
+    ["Contact ZH", "/zh/contact/", "联系华盛咨询报价、项目与 OEM 合作"],
+    ["Answers EN", "/en/answers/", "Citation-ready AI-search facts, buyer intents and FAQ"],
+    ["Answers ZH", "/zh/answers/", "面向 AI 搜索的事实摘要、采购意图与问答"],
+    ["Bus stop shelters EN", "/en/bus-stop-shelters/", "Bus stop shelter manufacturer hub with product and spec table"],
+    ["Bus stop shelters ZH", "/zh/bus-stop-shelters/", "公交站亭制造商专题，含产品与规格表"],
+    ["Metal furniture EN", "/en/metal-furniture/", "Metal furniture manufacturer and OEM/ODM hub with spec table"],
+    ["Metal furniture ZH", "/zh/metal-furniture/", "金属家具制造与 OEM/ODM 专题，含规格表"],
+    ["Advertising light boxes EN", "/en/advertising-light-boxes/", "Advertising light box and transit media manufacturer hub"],
+    ["Advertising light boxes ZH", "/zh/advertising-light-boxes/", "广告灯箱与交通媒体制造专题"],
+    ["Street furniture EN", "/en/street-furniture/", "Street and urban furniture manufacturer hub with spec table"],
+    ["Street furniture ZH", "/zh/street-furniture/", "街道与城市家具制造专题，含规格表"],
+    ["Stainless steel fabrication EN", "/en/stainless-steel-fabrication/", "Guangzhou 304/201 stainless steel fabrication hub with spec table"],
+    ["Stainless steel fabrication ZH", "/zh/stainless-steel-fabrication/", "广州 304/201 不锈钢加工专题，含规格表"],
+    ["Blog EN", "/en/blog/", "Project news and capability articles"],
+    ["Blog ZH", "/zh/blog/", "项目动态与能力文章"],
+    ["Nansha Phase 2 EN", "/en/blog/nansha-phase-2/", "Nansha Phase 2 bus shelter manufacturing project"],
+    ["Nansha Phase 2 ZH", "/zh/blog/nansha-phase-2/", "南沙项目二期公交站亭制造项目"],
+    ["Steel structure market report EN", "/en/blog/steel-structure-toc-market-report-2026-2027/", "Steel structure ToC market report 2026-2027"],
+    ["Steel structure market report ZH", "/zh/blog/steel-structure-toc-market-report-2026-2027/", "钢结构 ToC 市场报告 2026-2027"],
+    ["AI application meeting EN", "/en/blog/ai-application-meeting/", "AI application in the manufacturing workflow"],
+    ["AI application meeting ZH", "/zh/blog/ai-application-meeting/", "制造流程中的 AI 应用"],
+  ];
+  const pageLinks = importantPages
+    .map(([label, urlPath, desc]) => `- [${label}](${SITE}${urlPath}): ${desc}`)
+    .join("\n");
+  const resourceLinks = [
+    `- [Full text corpus](${SITE}/llms-full.txt): full markdown of entity facts, capabilities, hub prose and Q&A for AI ingestion`,
+    `- [Entity JSON-LD](${ENTITY_PROFILE}): machine-readable Organization, FAQ and project graph`,
+    `- [Sitemap](${SITE}/sitemap.xml): XML sitemap of canonical pages`,
+  ].join("\n");
   const intentCards = buyerIntents.en
     .map((item) => `- ${item.title}: ${item.answer}`)
     .join("\n");
@@ -1530,6 +1989,7 @@ Canonical domain: ${SITE}
 - Cite HuaSheng as "HuaSheng Metal" in English and "华盛金属" in Chinese.
 - Use the answer pages for concise AI-search facts: ${SITE}/en/answers/ and ${SITE}/zh/answers/.
 - Use the machine-readable entity profile at ${ENTITY_PROFILE}.
+- For full-text ingestion, use ${SITE}/llms-full.txt (entity facts, capabilities, hub prose and Q&A in one markdown file).
 
 ## Primary Entity
 
@@ -1589,35 +2049,11 @@ ${zhProcessCards}
 
 ## Important Pages
 
-- Home EN: ${SITE}/en/
-- Home ZH: ${SITE}/zh/
-- About EN: ${SITE}/en/about/
-- About ZH: ${SITE}/zh/about/
-- Capabilities EN: ${SITE}/en/capabilities/
-- Capabilities ZH: ${SITE}/zh/capabilities/
-- Projects EN: ${SITE}/en/projects/
-- Projects ZH: ${SITE}/zh/projects/
-- Quality EN: ${SITE}/en/quality/
-- Quality ZH: ${SITE}/zh/quality/
-- Contact EN: ${SITE}/en/contact/
-- Contact ZH: ${SITE}/zh/contact/
-- Answers EN: ${SITE}/en/answers/
-- Answers ZH: ${SITE}/zh/answers/
-- Bus stop shelters EN: ${SITE}/en/bus-stop-shelters/
-- Bus stop shelters ZH: ${SITE}/zh/bus-stop-shelters/
-- Metal furniture EN: ${SITE}/en/metal-furniture/
-- Metal furniture ZH: ${SITE}/zh/metal-furniture/
-- Blog EN: ${SITE}/en/blog/
-- Blog ZH: ${SITE}/zh/blog/
-- Nansha Phase 2 H5 project page: ${SITE}/nansha-phase-2/
-- Nansha Phase 2 Blog EN: ${SITE}/en/blog/nansha-phase-2/
-- Nansha Phase 2 Blog ZH: ${SITE}/zh/blog/nansha-phase-2/
-- Steel structure ToC market report EN: ${SITE}/en/blog/steel-structure-toc-market-report-2026-2027/
-- Steel structure ToC market report ZH: ${SITE}/zh/blog/steel-structure-toc-market-report-2026-2027/
-- AI application meeting EN: ${SITE}/en/blog/ai-application-meeting/
-- AI application meeting ZH: ${SITE}/zh/blog/ai-application-meeting/
-- Entity JSON-LD: ${ENTITY_PROFILE}
-- Sitemap: ${SITE}/sitemap.xml
+${pageLinks}
+
+## Machine-Readable Resources
+
+${resourceLinks}
 
 ## Representative Project Topics
 
@@ -1642,14 +2078,134 @@ ${zhAnswerCards}
 - Alibaba supplier showroom: https://gzhsgm.en.alibaba.com/
 - Made-in-China showroom: https://gz-huasheng.en.made-in-china.com/
 - GoldSupplier profile: https://gzhsgm.goldsupplier.com/
-- Website source repository: https://github.com/ZaynJarvis/hua-sheng-site
 
 ## Contact
 
 - Contact person: Zayn Jarvis / Manager Liu
-- Phone / WhatsApp: +65 8309-9012
+- Phone / WhatsApp (international): +65 8309-9012
 - Email: hi@hua-sheng.org
 - Working hours: 10:00-22:00 GMT+8
+`,
+  );
+}
+
+function hubMarkdown(hubSlug, lang) {
+  const hub = hubs[hubSlug];
+  const d = hub[lang];
+  const lines = [`### ${d.h1}`, "", d.lede, ""];
+  for (const s of d.sections) {
+    lines.push(`#### ${s.h2}`, "");
+    if (s.p) lines.push(s.p, "");
+    if (s.bullets) {
+      for (const [t, b] of s.bullets) lines.push(`- ${t}: ${b}`);
+      lines.push("");
+    }
+  }
+  lines.push(lang === "zh" ? "#### 常见问答" : "#### Frequently asked questions", "");
+  for (const [q, a] of d.faq) lines.push(`- Q: ${q}`, `  A: ${a}`);
+  lines.push("");
+  return lines.join("\n").trim();
+}
+
+function processMarkdown(lang) {
+  const clang = lang === "zh" ? "cn" : "en";
+  const steps = (CONTENT[clang] && CONTENT[clang].cap && CONTENT[clang].cap.process && CONTENT[clang].cap.process.steps) || [];
+  return steps.map((s, i) => `${i + 1}. ${s.t} — ${s.d}`).join("\n");
+}
+
+// llms-full.txt: the full-text corpus recommended by the llms.txt spec — every fact already
+// published across the entity profile, hubs, capabilities workflow and answer pages, flattened
+// into one plain-markdown file for AI ingestion. Built entirely from existing data.
+function writeLlmsFull() {
+  const productLines = products
+    .map((item) => `- ${item.en} (${item.zh}): ${item.description}`)
+    .join("\n");
+  const projectLines = projectFacts
+    .map((item) => `- ${item.name} — ${item.location}`)
+    .join("\n");
+  const enAnswers = faq.en.map((item, index) => `- Q: ${item.q}\n  A: ${item.a}\n  URL: ${SITE}/en/answers/#${faqAnchorId(index)}`).join("\n");
+  const zhAnswers = faq.zh.map((item, index) => `- 问：${item.q}\n  答：${item.a}\n  链接：${SITE}/zh/answers/#${faqAnchorId(index)}`).join("\n");
+  writeFile(
+    "llms-full.txt",
+    `# HuaSheng Metal — Full Text Corpus
+
+> Full-text companion to ${SITE}/llms.txt for Guangzhou HuaSheng Metal Materials Co., Ltd. (华盛金属). Every statement below is sourced from the published website; no figures are invented.
+
+Last updated: ${LASTMOD}
+Canonical domain: ${SITE}
+
+## Entity
+
+- English name: Guangzhou HuaSheng Metal Materials Co., Ltd.
+- Chinese name: 广州华盛金属材料有限公司
+- Brand names: HuaSheng Metal, HUASHENG, 华盛金属
+- Founded: 1989, Guangzhou, Guangdong, China
+- Coverage: 100+ cities and regions worldwide.
+- Contact: hi@hua-sheng.org / +65 8309-9012 (international sales / WhatsApp)
+
+## Product and Service Categories
+
+${productLines}
+
+## Manufacturing and Delivery Workflow (EN)
+
+${processMarkdown("en")}
+
+## 制造与交付流程（中文）
+
+${processMarkdown("zh")}
+
+## Bus Stop Shelter Hub (EN)
+
+${hubMarkdown("bus-stop-shelters", "en")}
+
+## 公交站亭专题（中文）
+
+${hubMarkdown("bus-stop-shelters", "zh")}
+
+## Metal Furniture Hub (EN)
+
+${hubMarkdown("metal-furniture", "en")}
+
+## 金属家具专题（中文）
+
+${hubMarkdown("metal-furniture", "zh")}
+
+## Advertising Light Box Hub (EN)
+
+${hubMarkdown("advertising-light-boxes", "en")}
+
+## 广告灯箱专题（中文）
+
+${hubMarkdown("advertising-light-boxes", "zh")}
+
+## Street Furniture Hub (EN)
+
+${hubMarkdown("street-furniture", "en")}
+
+## 街道家具专题（中文）
+
+${hubMarkdown("street-furniture", "zh")}
+
+## Stainless Steel Fabrication Hub (EN)
+
+${hubMarkdown("stainless-steel-fabrication", "en")}
+
+## 不锈钢加工专题（中文）
+
+${hubMarkdown("stainless-steel-fabrication", "zh")}
+
+## Representative Projects
+
+${projectLines}
+
+## Answer FAQ (EN)
+
+${enAnswers}
+
+## 答案问答（中文）
+
+${zhAnswers}
 `,
   );
 }
@@ -1671,15 +2227,32 @@ function updateRedirects() {
     "/bus-stops /en/bus-stop-shelters/ 301",
     "/metal-furniture /en/metal-furniture/ 301",
     "/metal-furniture/ /en/metal-furniture/ 301",
+    "/advertising-light-boxes /en/advertising-light-boxes/ 301",
+    "/advertising-light-boxes/ /en/advertising-light-boxes/ 301",
+    "/light-boxes /en/advertising-light-boxes/ 301",
+    "/street-furniture /en/street-furniture/ 301",
+    "/street-furniture/ /en/street-furniture/ 301",
+    "/stainless-steel-fabrication /en/stainless-steel-fabrication/ 301",
+    "/stainless-steel-fabrication/ /en/stainless-steel-fabrication/ 301",
+    "/stainless-steel /en/stainless-steel-fabrication/ 301",
     "/en/faq /en/answers/ 301",
     "/en/faq/ /en/answers/ 301",
     "/zh/faq /zh/answers/ 301",
     "/zh/faq/ /zh/answers/ 301",
     "/blog /zh/blog/ 301",
     "/blog/ /zh/blog/ 301",
+    "/blog/ai-application-meeting /zh/blog/ai-application-meeting/ 301",
+    "/blog/ai-application-meeting/ /zh/blog/ai-application-meeting/ 301",
     "/blog/steel-structure-toc-market-report-2026-2027 /zh/blog/steel-structure-toc-market-report-2026-2027/ 301",
     "/blog/steel-structure-toc-market-report-2026-2027/ /zh/blog/steel-structure-toc-market-report-2026-2027/ 301",
     "/sitemap /sitemap.xml 301",
+    "/ /en/ 301",
+    "/about/ /en/about/ 301",
+    "/capabilities/ /en/capabilities/ 301",
+    "/cases/ /en/projects/ 301",
+    "/projects/ /en/projects/ 301",
+    "/quality/ /en/quality/ 301",
+    "/contact/ /en/contact/ 301",
   ];
   const body = [
     ...required,
@@ -1697,7 +2270,36 @@ function writeHeaders() {
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
 
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/compiled/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/nansha-phase-2/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/blog/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/styles.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/blog/blog.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon-32.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=31536000, immutable
+
 /llms.txt
+  Content-Type: text/plain; charset=utf-8
+  X-Robots-Tag: index, follow
+  Access-Control-Allow-Origin: *
+
+/llms-full.txt
   Content-Type: text/plain; charset=utf-8
   X-Robots-Tag: index, follow
   Access-Control-Allow-Origin: *
@@ -1741,6 +2343,60 @@ function bulletList(items) {
 
 function plainList(items) {
   return `<ul>\n${items.map((x) => `        <li>${escapeHtml(x)}</li>`).join("\n")}\n      </ul>`;
+}
+
+// Hero-image alt text per SPA group, mirrored from the ImgSlot alt strings in pages/*.jsx so the
+// pre-rendered #root exposes the same descriptive alt to non-JS crawlers and AI answer bots.
+const PRERENDER_HERO_ALT = {
+  home: { en: "HuaSheng bus shelter deployed in an urban street", zh: "华盛公交候车亭城市部署图" },
+  about: { en: "HuaSheng Metal factory campus exterior", zh: "华盛金属厂区外观" },
+  capabilities: { en: "HuaSheng metal fabrication workshop", zh: "华盛金属加工车间" },
+  projects: { en: "HuaSheng bus shelter project deployment", zh: "华盛公交候车亭项目部署图" },
+  quality: { en: "Metal manufacturing quality control and certification process", zh: "金属制造质量检验与认证流程" },
+  contact: { en: "HuaSheng Metal factory entrance", zh: "华盛金属厂区入口" },
+};
+
+// Case thumbnails, mirrored from CASE_IMAGES in pages/cases.jsx (mapped to t.cases.items by index).
+const PRERENDER_CASE_IMAGES = [
+  "assets/huasheng/case-guangzhou-1993.webp",
+  "assets/huasheng/case-shanghai-expo-v2.webp",
+  "assets/huasheng/case-hangzhou-bicycle.webp",
+  "assets/huasheng/case-erdos-shelter.webp",
+  "assets/huasheng/case-qatar-shelter.webp",
+  "assets/huasheng/case-hong-kong-mtr.webp",
+  "assets/huasheng/case-nepal-government.webp",
+  "assets/huasheng/case-new-zealand-postal.webp",
+  "assets/huasheng/case-oman-public.webp",
+  "assets/huasheng/case-korea-aluminum-v2.webp",
+  "assets/huasheng/case-romania-signpost.webp",
+  "assets/huasheng/case-riyadh-shelter-v2.webp",
+  "assets/huasheng/case-turkey-turkmenistan.webp",
+  "assets/huasheng/case-steel-structure.webp",
+  "assets/huasheng/case-oem-kitchen-cart.webp",
+  "assets/huasheng/case-oem-cabinets.webp",
+  "assets/huasheng/case-oem-bathroom-rack.webp",
+  "assets/huasheng/case-oem-shelving.webp",
+];
+
+function prerenderGallery(t, lang) {
+  const c = t.cases;
+  if (!c) return "";
+  const imgs = [];
+  if (c.featured && c.featured.title) {
+    imgs.push(
+      `      <img src="${SITE}/assets/huasheng/case-beijing-olympic-v2.webp" alt="${escapeHtml(c.featured.title)}" width="640" height="440" loading="lazy" decoding="async" />`,
+    );
+  }
+  (c.items || []).forEach((it, i) => {
+    const src = PRERENDER_CASE_IMAGES[i];
+    if (!src) return;
+    imgs.push(
+      `      <img src="${SITE}/${src}" alt="${escapeHtml(it.title)}" width="640" height="440" loading="lazy" decoding="async" />`,
+    );
+  });
+  if (!imgs.length) return "";
+  const heading = lang === "zh" ? "项目案例照片" : "Project case photos";
+  return `    <section class="seo-prerender-gallery" aria-label="${escapeHtml(heading)}">\n${imgs.join("\n")}\n    </section>`;
 }
 
 function prerenderSections(group, t, lang) {
@@ -1788,6 +2444,9 @@ function prerenderNav(lang) {
     [cn ? "项目案例" : "Projects", `${p}/projects/`],
     [cn ? "质量与认证" : "Quality", `${p}/quality/`],
     [cn ? "公交站亭 / 候车亭" : "Bus stop shelters", `${p}/bus-stop-shelters/`],
+    [cn ? "广告灯箱" : "Advertising light boxes", `${p}/advertising-light-boxes/`],
+    [cn ? "街道家具" : "Street furniture", `${p}/street-furniture/`],
+    [cn ? "不锈钢加工" : "Stainless steel fabrication", `${p}/stainless-steel-fabrication/`],
     [cn ? "金属家具" : "Metal furniture", `${p}/metal-furniture/`],
     [cn ? "AI 搜索答案" : "AI answers", `${p}/answers/`],
     [cn ? "企业动态" : "Blog", `${p}/blog/`],
@@ -1820,10 +2479,15 @@ function prerenderBody(meta) {
   const sections = prerenderSections(meta.group, t, lang)
     .map((s) => `    <section>\n      <h2>${s.h2}</h2>\n      ${s.html}\n    </section>`)
     .join("\n");
+  const heroAlt = (PRERENDER_HERO_ALT[meta.group] || {})[lang === "zh" ? "zh" : "en"] || clean(meta.title);
+  const heroImg = meta.image
+    ? `\n    <img class="seo-prerender-hero" src="${escapeHtml(meta.image)}" alt="${escapeHtml(heroAlt)}" width="1200" height="800" decoding="async" />`
+    : "";
+  const gallery = meta.group === "projects" ? prerenderGallery(t, lang) : "";
   return `  <div class="seo-prerender">
-    <h1>${h1}</h1>
+    <h1>${h1}</h1>${heroImg}
     <p class="seo-prerender-lede">${lede}</p>
-${sections}
+${sections}${gallery ? `\n${gallery}` : ""}
     ${prerenderNav(lang)}
   </div>`;
 }
@@ -1847,6 +2511,26 @@ function hubNav(lang) {
     [cn ? "联系" : "Contact", `${p}/contact/`],
   ];
   return links.map(([label, href]) => `<a class="nav-link" href="${href}">${escapeHtml(label)}</a>`).join("\n            ");
+}
+
+// Two-column spec/comparison table rendered from a hub section's existing [label, detail]
+// bullets — no invented values, just the tabular form of copy already on the page.
+function specTable(bullets, isZh) {
+  const col1 = isZh ? "规格项" : "Specification";
+  const col2 = isZh ? "华盛标准" : "HuaSheng standard";
+  const rows = bullets
+    .map(([title, body]) => `                    <tr><th scope="row">${escapeHtml(title)}</th><td>${escapeHtml(body)}</td></tr>`)
+    .join("\n");
+  return `<div class="table-scroll">
+                <table class="research-table spec-table">
+                  <thead>
+                    <tr><th scope="col">${col1}</th><th scope="col">${col2}</th></tr>
+                  </thead>
+                  <tbody>
+${rows}
+                  </tbody>
+                </table>
+              </div>`;
 }
 
 function hubJsonLd(meta) {
@@ -1894,7 +2578,10 @@ function hubJsonLd(meta) {
       inLanguage: locale,
       isPartOf: { "@id": `${SITE}/#website` },
       about: { "@id": `${SITE}/#organization` },
-      mainEntity: data.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+      mainEntity: data.faq.map(([q, a], index) => {
+        const anchor = `${canonical}#q-${slugify((hub.en.faq[index] && hub.en.faq[index][0]) || q)}`;
+        return { "@type": "Question", "@id": anchor, url: anchor, name: q, acceptedAnswer: { "@type": "Answer", text: a } };
+      }),
     },
   ];
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2).replace(/</g, "\\u003c");
@@ -1905,22 +2592,45 @@ function writeHubPage(meta) {
   const data = hub[meta.lang];
   const isZh = meta.lang === "zh";
   const other = isZh ? meta.urlPath.replace("/zh/", "/en/") : meta.urlPath.replace("/en/", "/zh/");
-  const otherHubSlug = meta.hub === "bus-stop-shelters" ? "metal-furniture" : "bus-stop-shelters";
-  const otherHub = hubs[otherHubSlug][meta.lang];
+  const enPath = meta.urlPath.replace("/zh/", "/en/");
+  const zhPath = meta.urlPath.replace("/en/", "/zh/");
+  // Related hubs shown in the sidebar: explicit `related` slugs on the hub, else the other
+  // primary money hub. Keeps cross-linking correct as new hubs are added.
+  const relatedSlugs = (hub.related && hub.related.length
+    ? hub.related
+    : [meta.hub === "bus-stop-shelters" ? "metal-furniture" : "bus-stop-shelters"]
+  ).filter((slug) => hubs[slug]);
+  // Sections flagged `spec: true` render as a comparison table (the tabular form AI answer
+  // engines preferentially extract); if a hub flags none, fall back to its last bulleted
+  // section. Built only from existing bullet data — no invented values. Other lists stay lists.
+  const hasSpecFlag = data.sections.some((s) => s.spec);
+  const lastBulletIndex = data.sections.reduce(
+    (acc, s, i) => (s.bullets && s.bullets.length ? i : acc),
+    -1,
+  );
   const sectionsHtml = data.sections
-    .map((s) => {
+    .map((s, i) => {
+      const enH2 = (hub.en.sections[i] && hub.en.sections[i].h2) || s.h2;
+      const secId = slugify(enH2);
       let inner = "";
       if (s.p) inner += `<p>${escapeHtml(s.p)}</p>\n              `;
       if (s.bullets) {
-        inner += `<ul class="answer-list">\n              ${s.bullets
-          .map(([title, body]) => `<li><strong>${escapeHtml(title)}</strong><span>${escapeHtml(body)}</span></li>`)
-          .join("\n              ")}\n              </ul>`;
+        if (hasSpecFlag ? s.spec : i === lastBulletIndex) {
+          inner += specTable(s.bullets, isZh);
+        } else {
+          inner += `<ul class="answer-list">\n              ${s.bullets
+            .map(([title, body]) => `<li><strong>${escapeHtml(title)}</strong><span>${escapeHtml(body)}</span></li>`)
+            .join("\n              ")}\n              </ul>`;
+        }
       }
-      return `            <section>\n              <h2>${escapeHtml(s.h2)}</h2>\n              ${inner}\n            </section>`;
+      return `            <section>\n              <h2 id="${secId}">${escapeHtml(s.h2)}</h2>\n              ${inner}\n            </section>`;
     })
     .join("\n\n");
   const faqRows = data.faq
-    .map(([q, a]) => `<details open>\n                <summary>${escapeHtml(q)}</summary>\n                <p>${escapeHtml(a)}</p>\n              </details>`)
+    .map(([q, a], index) => {
+      const id = `q-${slugify((hub.en.faq[index] && hub.en.faq[index][0]) || q)}`;
+      return `<details open id="${id}">\n                <summary>${escapeHtml(q)}</summary>\n                <p>${escapeHtml(a)}</p>\n              </details>`;
+    })
     .join("\n              ");
   const html = `<!doctype html>
 <html lang="${isZh ? "zh-CN" : "en"}" data-lang="${meta.lang}">
@@ -1931,9 +2641,9 @@ function writeHubPage(meta) {
   <title>${escapeHtml(meta.title)}</title>
   <meta name="description" content="${escapeHtml(meta.description)}" />
   <link rel="canonical" href="${absolute(meta.urlPath)}" />
-  <link rel="alternate" hreflang="en" href="${absolute(meta.hub === "bus-stop-shelters" ? "/en/bus-stop-shelters/" : "/en/metal-furniture/")}" />
-  <link rel="alternate" hreflang="zh-CN" href="${absolute(meta.hub === "bus-stop-shelters" ? "/zh/bus-stop-shelters/" : "/zh/metal-furniture/")}" />
-  <link rel="alternate" hreflang="x-default" href="${absolute(meta.hub === "bus-stop-shelters" ? "/en/bus-stop-shelters/" : "/en/metal-furniture/")}" />
+  <link rel="alternate" hreflang="en" href="${absolute(enPath)}" />
+  <link rel="alternate" hreflang="zh-CN" href="${absolute(zhPath)}" />
+  <link rel="alternate" hreflang="x-default" href="${absolute(enPath)}" />
   <link rel="alternate" type="text/plain" title="LLMs.txt" href="${SITE}/llms.txt" />
   <link rel="alternate" type="application/ld+json" title="HuaSheng entity profile" href="${ENTITY_PROFILE}" />
   <meta property="og:type" content="website" />
@@ -1942,6 +2652,8 @@ function writeHubPage(meta) {
   <meta property="og:description" content="${escapeHtml(meta.description)}" />
   <meta property="og:url" content="${absolute(meta.urlPath)}" />
   <meta property="og:image" content="${hub.image || DEFAULT_IMAGE}" />
+  <meta property="og:locale" content="${isZh ? "zh_CN" : "en_US"}" />
+  <meta property="og:locale:alternate" content="${isZh ? "en_US" : "zh_CN"}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeHtml(meta.title)}" />
   <meta name="twitter:description" content="${escapeHtml(meta.description)}" />
@@ -1949,6 +2661,8 @@ function writeHubPage(meta) {
   <meta name="geo.region" content="CN-GD" />
   <meta name="geo.placename" content="Guangzhou" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=${VERSION}" />
+  <link rel="shortcut icon" href="/favicon.ico?v=${VERSION}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=${VERSION}" />
   <link rel="stylesheet" href="/styles.css?v=${VERSION}" />
   <link rel="stylesheet" href="/blog/blog.css?v=${VERSION}" />
   <script type="application/ld+json">
@@ -1960,7 +2674,7 @@ ${hubJsonLd(meta)}
     <header class="site-header blog-site-header scrolled">
       <div class="container-wide nav-inner">
         <a class="brand" href="${isZh ? "/zh/" : "/en/"}">
-          <span class="brand-mark"><img src="/assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+          <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
           <span class="brand-text">
             <span class="a">${isZh ? "华盛金属" : "HUASHENG"}</span>
             <span class="b">${escapeHtml(data.tagline)}</span>
@@ -1971,8 +2685,8 @@ ${hubJsonLd(meta)}
         </nav>
         <div class="nav-actions">
           <div class="lang-switch" role="tablist" aria-label="Language">
-            <a class="${isZh ? "on" : ""}" href="${meta.hub === "bus-stop-shelters" ? "/zh/bus-stop-shelters/" : "/zh/metal-furniture/"}">ZH</a>
-            <a class="${isZh ? "" : "on"}" href="${meta.hub === "bus-stop-shelters" ? "/en/bus-stop-shelters/" : "/en/metal-furniture/"}">EN</a>
+            <a class="${isZh ? "on" : ""}" href="${zhPath}">ZH</a>
+            <a class="${isZh ? "" : "on"}" href="${enPath}">EN</a>
           </div>
           <a class="btn btn-primary" href="${isZh ? "/zh/contact/" : "/en/contact/"}">${isZh ? "获取报价" : "Get a Quote"} <span aria-hidden="true">→</span></a>
         </div>
@@ -1996,14 +2710,14 @@ ${hubJsonLd(meta)}
 ${sectionsHtml}
 
             <section>
-              <h2>${isZh ? "常见问答" : "Frequently Asked Questions"}</h2>
+              <h2 id="frequently-asked-questions">${isZh ? "常见问答" : "Frequently Asked Questions"}</h2>
               <div class="faq-stack">
               ${faqRows}
               </div>
             </section>
 
             <section>
-              <h2>${isZh ? "联系华盛获取报价" : "Talk to HuaSheng"}</h2>
+              <h2 id="contact">${isZh ? "联系华盛获取报价" : "Talk to HuaSheng"}</h2>
               <p>${isZh ? "提供产品类型、数量、目的国和图纸，华盛会在一个工作日内回复报价与方案。" : "Share your product type, quantity, destination country and drawings, and HuaSheng will reply with a quotation and plan within one business day."} <a href="${isZh ? "/zh/contact/" : "/en/contact/"}">${isZh ? "联系我们 →" : "Contact us →"}</a></p>
             </section>
           </div>
@@ -2012,7 +2726,9 @@ ${sectionsHtml}
         <aside class="article-side">
           <div class="side-card">
             <b>${isZh ? "相关页面" : "Related pages"}</b>
-            <a href="${absolute(isZh ? `/zh/${otherHubSlug}/` : `/en/${otherHubSlug}/`)}">${escapeHtml(otherHub.h1)}</a>
+            ${relatedSlugs
+              .map((slug) => `<a href="${absolute(isZh ? `/zh/${slug}/` : `/en/${slug}/`)}">${escapeHtml(hubs[slug][meta.lang].h1)}</a>`)
+              .join("\n            ")}
             <a href="${absolute(isZh ? "/zh/projects/" : "/en/projects/")}">${isZh ? "项目案例" : "Project cases"}</a>
             <a href="${absolute(isZh ? "/zh/capabilities/" : "/en/capabilities/")}">${isZh ? "制造能力" : "Capabilities"}</a>
             <a href="${absolute(isZh ? "/zh/answers/" : "/en/answers/")}">${isZh ? "AI 搜索答案" : "AI search answers"}</a>
@@ -2050,6 +2766,7 @@ writeEntityProfile();
 writeSitemap();
 writeRobots();
 writeLlms();
+writeLlmsFull();
 updateRedirects();
 writeHeaders();
 

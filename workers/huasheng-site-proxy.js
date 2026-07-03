@@ -30,7 +30,7 @@ async function handleRequest(request) {
   }
 
   if (incoming.pathname === '/cases') {
-    return Response.redirect(incoming.origin + '/projects' + incoming.search, 301);
+    return Response.redirect(incoming.origin + '/en/projects/' + incoming.search, 301);
   }
 
   if (TRAILING_SLASH_PATHS.has(incoming.pathname)) {

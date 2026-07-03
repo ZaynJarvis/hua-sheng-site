@@ -2,7 +2,36 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
 
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/compiled/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/nansha-phase-2/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/blog/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/styles.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/blog/blog.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon-32.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=31536000, immutable
+
 /llms.txt
+  Content-Type: text/plain; charset=utf-8
+  X-Robots-Tag: index, follow
+  Access-Control-Allow-Origin: *
+
+/llms-full.txt
   Content-Type: text/plain; charset=utf-8
   X-Robots-Tag: index, follow
   Access-Control-Allow-Origin: *

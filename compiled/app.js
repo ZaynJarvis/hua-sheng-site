@@ -180,6 +180,8 @@
       { id: "about", label: t.nav.about, href: routePath("about", lang) },
       { id: "capabilities", label: t.nav.capabilities, href: routePath("capabilities", lang) },
       { id: "cases", label: t.nav.cases, href: routePath("cases", lang) },
+      { id: "bus-stop-shelters", label: lang === "cn" ? "\u516C\u4EA4\u7AD9\u4EAD" : "Bus stop shelters", href: lang === "cn" ? "/zh/bus-stop-shelters/" : "/en/bus-stop-shelters/", external: true },
+      { id: "metal-furniture", label: lang === "cn" ? "\u91D1\u5C5E\u5BB6\u5177" : "Metal furniture", href: lang === "cn" ? "/zh/metal-furniture/" : "/en/metal-furniture/", external: true },
       { id: "quality", label: t.nav.quality, href: routePath("quality", lang) },
       { id: "blog", label: t.nav.blog || "Blog", href: lang === "cn" ? "/zh/blog/" : "/en/blog/", external: true },
       { id: "contact", label: t.nav.contact, href: routePath("contact", lang) }
@@ -192,7 +194,7 @@
     return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("header", { className: "site-header" + (scrolled ? " scrolled" : "") }, /* @__PURE__ */ React.createElement("div", { className: "container-wide nav-inner" }, /* @__PURE__ */ React.createElement("a", { className: "brand", href: routePath("home", lang), onClick: (e) => {
       e.preventDefault();
       go("home");
-    }, "data-comment-anchor": "brand" }, /* @__PURE__ */ React.createElement("span", { className: "brand-mark" }, /* @__PURE__ */ React.createElement("img", { src: "assets/logo.png?v=huasheng-logo-20260525", alt: "HuaSheng" })), /* @__PURE__ */ React.createElement("span", { className: "brand-text" }, /* @__PURE__ */ React.createElement("span", { className: "a" }, t.brand.short), /* @__PURE__ */ React.createElement("span", { className: "b" }, lang === "cn" ? "HUASHENG \xB7 1989" : "Est. 1989 \xB7 Guangzhou"))), /* @__PURE__ */ React.createElement("nav", { className: "nav-links" }, nav.map((n) => /* @__PURE__ */ React.createElement(
+    }, "data-comment-anchor": "brand" }, /* @__PURE__ */ React.createElement("span", { className: "brand-mark" }, /* @__PURE__ */ React.createElement("img", { src: "assets/logo.webp?v=huasheng-logo-20260525", alt: "HuaSheng" })), /* @__PURE__ */ React.createElement("span", { className: "brand-text" }, /* @__PURE__ */ React.createElement("span", { className: "a" }, t.brand.short), /* @__PURE__ */ React.createElement("span", { className: "b" }, lang === "cn" ? "HUASHENG \xB7 1989" : "Est. 1989 \xB7 Guangzhou"))), /* @__PURE__ */ React.createElement("nav", { className: "nav-links" }, nav.map((n) => /* @__PURE__ */ React.createElement(
       "a",
       {
         key: n.id,
@@ -234,7 +236,7 @@
     return /* @__PURE__ */ React.createElement("footer", { className: "site-footer" }, /* @__PURE__ */ React.createElement("div", { className: "container-wide" }, /* @__PURE__ */ React.createElement("div", { className: "footer-grid" }, /* @__PURE__ */ React.createElement("div", { className: "footer-col brand-col" }, /* @__PURE__ */ React.createElement("a", { className: "brand", href: routePath("home", lang), onClick: (e) => {
       e.preventDefault();
       go("home");
-    }, style: { marginBottom: 20 } }, /* @__PURE__ */ React.createElement("span", { className: "brand-mark" }, /* @__PURE__ */ React.createElement("img", { src: "assets/logo.png?v=huasheng-logo-20260525", alt: "HuaSheng" })), /* @__PURE__ */ React.createElement("span", { className: "brand-text" }, /* @__PURE__ */ React.createElement("span", { className: "a" }, t.brand.short), /* @__PURE__ */ React.createElement("span", { className: "b" }, lang === "cn" ? "\u5E7F\u5DDE \xB7 1989" : "Guangzhou \xB7 1989"))), /* @__PURE__ */ React.createElement("p", { className: "footer-tag" }, t.brand.tagline)), /* @__PURE__ */ React.createElement("div", { className: "footer-col" }, /* @__PURE__ */ React.createElement("h4", null, lang === "cn" ? "\u7F51\u7AD9\u5730\u56FE" : "Sitemap"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: routePath("home", lang), onClick: (e) => {
+    }, style: { marginBottom: 20 } }, /* @__PURE__ */ React.createElement("span", { className: "brand-mark" }, /* @__PURE__ */ React.createElement("img", { src: "assets/logo.webp?v=huasheng-logo-20260525", alt: "HuaSheng" })), /* @__PURE__ */ React.createElement("span", { className: "brand-text" }, /* @__PURE__ */ React.createElement("span", { className: "a" }, t.brand.short), /* @__PURE__ */ React.createElement("span", { className: "b" }, lang === "cn" ? "\u5E7F\u5DDE \xB7 1989" : "Guangzhou \xB7 1989"))), /* @__PURE__ */ React.createElement("p", { className: "footer-tag" }, t.brand.tagline)), /* @__PURE__ */ React.createElement("div", { className: "footer-col" }, /* @__PURE__ */ React.createElement("h4", null, lang === "cn" ? "\u7F51\u7AD9\u5730\u56FE" : "Sitemap"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: routePath("home", lang), onClick: (e) => {
       e.preventDefault();
       go("home");
     } }, t.nav.home)), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: routePath("about", lang), onClick: (e) => {

@@ -27,15 +27,16 @@
 <meta name="twitter:image" content="https://hua-sheng.org/assets/huasheng/quality-control.webp" />
 <meta name="geo.region" content="CN-GD" />
 <meta name="geo.placename" content="Guangzhou" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=huasheng-site-20260618-geo2" />
-<link rel="shortcut icon" href="favicon.ico?v=huasheng-site-20260618-geo2" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=huasheng-site-20260618-geo2" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=huasheng-site-20260703-geo3" />
+<link rel="shortcut icon" href="favicon.ico?v=huasheng-site-20260703-geo3" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=huasheng-site-20260703-geo3" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="styles.css?v=huasheng-site-20260618-geo2" />
+<link rel="stylesheet" href="styles.css?v=huasheng-site-20260703-geo3" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -52,14 +53,18 @@
         "华盛金属"
       ],
       "url": "https://hua-sheng.org",
-      "logo": "https://hua-sheng.org/assets/logo.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://hua-sheng.org/assets/logo.png"
+      },
       "image": "https://hua-sheng.org/assets/huasheng/hero-bus-shelter-deployed.webp",
       "foundingDate": "1989",
+      "dateModified": "2026-07-03",
       "foundingLocation": {
         "@type": "Place",
         "name": "Guangzhou, Guangdong, China"
       },
-      "slogan": "30 years of metal craftsmanship for urban public facilities",
+      "slogan": "Metal craftsmanship for urban public facilities since 1989",
       "description": "Guangzhou-based manufacturer of bus shelters, advertising light boxes, urban furniture, outdoor kiosks, stainless steel structures and precision metal OEM products.",
       "address": {
         "@type": "PostalAddress",
@@ -93,8 +98,7 @@
       "sameAs": [
         "https://gzhsgm.en.alibaba.com/",
         "https://gz-huasheng.en.made-in-china.com/",
-        "https://gzhsgm.goldsupplier.com/",
-        "https://github.com/ZaynJarvis/hua-sheng-site"
+        "https://gzhsgm.goldsupplier.com/"
       ],
       "areaServed": [
         "China",
@@ -425,6 +429,7 @@
         "en",
         "zh-CN"
       ],
+      "dateModified": "2026-07-03",
       "publisher": {
         "@id": "https://hua-sheng.org/#organization"
       }
@@ -464,13 +469,67 @@
         "@type": "ImageObject",
         "url": "https://hua-sheng.org/assets/huasheng/quality-control.webp"
       },
-      "mainEntity": [
-        "ISO 9001 quality management",
-        "DMAIC process",
-        "bus shelter design patents",
-        "utility patents",
-        "IKEA supplier qualification"
-      ],
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "HuaSheng quality credentials",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "ISO 9001 quality management",
+              "about": {
+                "@id": "https://hua-sheng.org/#organization"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "DMAIC process",
+              "about": {
+                "@id": "https://hua-sheng.org/#organization"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "bus shelter design patents",
+              "about": {
+                "@id": "https://hua-sheng.org/#organization"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "utility patents",
+              "about": {
+                "@id": "https://hua-sheng.org/#organization"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "IKEA supplier qualification",
+              "about": {
+                "@id": "https://hua-sheng.org/#organization"
+              }
+            }
+          }
+        ]
+      },
       "breadcrumb": {
         "@id": "https://hua-sheng.org/en/quality/#breadcrumb"
       }
@@ -484,6 +543,7 @@
   <div id="root">
   <div class="seo-prerender">
     <h1>Trust, made into a verifiable process</h1>
+    <img class="seo-prerender-hero" src="https://hua-sheng.org/assets/huasheng/quality-control.webp" alt="Metal manufacturing quality control and certification process" width="1200" height="800" decoding="async" />
     <p class="seo-prerender-lede">ISO 9001 certified. Multiple design patents. DMAIC-based quality management.</p>
     <section>
       <h2>Quality policy</h2>
@@ -519,6 +579,9 @@
         <a href="/en/projects/">Projects</a>
         <a href="/en/quality/">Quality</a>
         <a href="/en/bus-stop-shelters/">Bus stop shelters</a>
+        <a href="/en/advertising-light-boxes/">Advertising light boxes</a>
+        <a href="/en/street-furniture/">Street furniture</a>
+        <a href="/en/stainless-steel-fabrication/">Stainless steel fabrication</a>
         <a href="/en/metal-furniture/">Metal furniture</a>
         <a href="/en/answers/">AI answers</a>
         <a href="/en/blog/">Blog</a>
@@ -532,19 +595,19 @@
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 
   <!-- Content (plain JS — sets window.HS_CONTENT) -->
-  <script src="content.js?v=huasheng-site-20260618-geo2"></script>
+  <script src="content.js?v=huasheng-site-20260703-geo3"></script>
 
   <!-- Shared UI primitives + pages -->
-  <script src="compiled/ui.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/home.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/about.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/capabilities.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/cases.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/quality.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/contact.js?v=huasheng-site-20260618-geo2"></script>
+  <script src="compiled/ui.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/home.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/about.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/capabilities.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/cases.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/quality.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/contact.js?v=huasheng-site-20260703-geo3"></script>
 
   <!-- App shell (mounts) -->
-  <script src="compiled/app.js?v=huasheng-site-20260618-geo2"></script>
+  <script src="compiled/app.js?v=huasheng-site-20260703-geo3"></script>
   <script>window.__startApp && window.__startApp();</script>
 </body>
 </html>

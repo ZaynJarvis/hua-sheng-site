@@ -27,15 +27,16 @@
 <meta name="twitter:image" content="https://hua-sheng.org/assets/huasheng/capabilities-workshop.webp" />
 <meta name="geo.region" content="CN-GD" />
 <meta name="geo.placename" content="Guangzhou" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=huasheng-site-20260618-geo2" />
-<link rel="shortcut icon" href="favicon.ico?v=huasheng-site-20260618-geo2" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=huasheng-site-20260618-geo2" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=huasheng-site-20260703-geo3" />
+<link rel="shortcut icon" href="favicon.ico?v=huasheng-site-20260703-geo3" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=huasheng-site-20260703-geo3" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="styles.css?v=huasheng-site-20260618-geo2" />
+<link rel="stylesheet" href="styles.css?v=huasheng-site-20260703-geo3" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -52,14 +53,18 @@
         "华盛金属"
       ],
       "url": "https://hua-sheng.org",
-      "logo": "https://hua-sheng.org/assets/logo.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://hua-sheng.org/assets/logo.png"
+      },
       "image": "https://hua-sheng.org/assets/huasheng/hero-bus-shelter-deployed.webp",
       "foundingDate": "1989",
+      "dateModified": "2026-07-03",
       "foundingLocation": {
         "@type": "Place",
         "name": "Guangzhou, Guangdong, China"
       },
-      "slogan": "30 years of metal craftsmanship for urban public facilities",
+      "slogan": "Metal craftsmanship for urban public facilities since 1989",
       "description": "Guangzhou-based manufacturer of bus shelters, advertising light boxes, urban furniture, outdoor kiosks, stainless steel structures and precision metal OEM products.",
       "address": {
         "@type": "PostalAddress",
@@ -93,8 +98,7 @@
       "sameAs": [
         "https://gzhsgm.en.alibaba.com/",
         "https://gz-huasheng.en.made-in-china.com/",
-        "https://gzhsgm.goldsupplier.com/",
-        "https://github.com/ZaynJarvis/hua-sheng-site"
+        "https://gzhsgm.goldsupplier.com/"
       ],
       "areaServed": [
         "China",
@@ -425,6 +429,7 @@
         "en",
         "zh-CN"
       ],
+      "dateModified": "2026-07-03",
       "publisher": {
         "@id": "https://hua-sheng.org/#organization"
       }
@@ -457,14 +462,10 @@
       "isPartOf": {
         "@id": "https://hua-sheng.org/#website"
       },
-      "about": {
-        "@id": "https://hua-sheng.org/#organization"
-      },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://hua-sheng.org/assets/huasheng/capabilities-workshop.webp"
-      },
-      "mainEntity": [
+      "about": [
+        {
+          "@id": "https://hua-sheng.org/#organization"
+        },
         {
           "@type": "Service",
           "name": "公交站亭、候车亭与公共交通设施",
@@ -549,9 +550,73 @@
           }
         }
       ],
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://hua-sheng.org/assets/huasheng/capabilities-workshop.webp"
+      },
+      "mainEntity": {
+        "@id": "https://hua-sheng.org/zh/capabilities/#howto"
+      },
       "breadcrumb": {
         "@id": "https://hua-sheng.org/zh/capabilities/#breadcrumb"
       }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://hua-sheng.org/zh/capabilities/#howto",
+      "name": "华盛金属制造与交付流程",
+      "description": "华盛金属从设计与工艺评审到包装、装柜、发货的标准生产工艺流程。",
+      "inLanguage": "zh-CN",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "设计 / 工艺评审",
+          "text": "工程团队评估图纸、出工艺方案"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "材料 IQC 进料检验",
+          "text": "钢材、铝材、配件入库前抽检"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "下料 / 切割 / 成型",
+          "text": "激光切割、冲剪、折弯、弯管"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "焊接 / 铆接",
+          "text": "机器人焊接 + 人工精焊"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "表面处理",
+          "text": "前处理、电泳、喷涂、烘烤"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "装配 / 调试",
+          "text": "电气、配件、灯箱集成与点亮测试"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "FQC 终检",
+          "text": "外观、结构、电气全项检验"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "包装 / 装柜 / 发货",
+          "text": "图腾装柜方案，海外吊装指导"
+        }
+      ]
     }
   ]
 }
@@ -561,7 +626,8 @@
 <body data-theme="clarity" data-lang="cn">
   <div id="root">
   <div class="seo-prerender">
-    <h1>一座 5 万平米的金属工厂，能做的事</h1>
+    <h1>12 万平米基地里，一座 5 万平米的金属加工车间能做的事</h1>
+    <img class="seo-prerender-hero" src="https://hua-sheng.org/assets/huasheng/capabilities-workshop.webp" alt="华盛金属加工车间" width="1200" height="800" decoding="async" />
     <p class="seo-prerender-lede">从原材料到成品装柜，全流程在自有厂房内闭环完成。</p>
     <section>
       <h2>五大加工车间</h2>
@@ -606,6 +672,9 @@
         <a href="/zh/projects/">项目案例</a>
         <a href="/zh/quality/">质量与认证</a>
         <a href="/zh/bus-stop-shelters/">公交站亭 / 候车亭</a>
+        <a href="/zh/advertising-light-boxes/">广告灯箱</a>
+        <a href="/zh/street-furniture/">街道家具</a>
+        <a href="/zh/stainless-steel-fabrication/">不锈钢加工</a>
         <a href="/zh/metal-furniture/">金属家具</a>
         <a href="/zh/answers/">AI 搜索答案</a>
         <a href="/zh/blog/">企业动态</a>
@@ -619,19 +688,19 @@
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 
   <!-- Content (plain JS — sets window.HS_CONTENT) -->
-  <script src="content.js?v=huasheng-site-20260618-geo2"></script>
+  <script src="content.js?v=huasheng-site-20260703-geo3"></script>
 
   <!-- Shared UI primitives + pages -->
-  <script src="compiled/ui.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/home.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/about.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/capabilities.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/cases.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/quality.js?v=huasheng-site-20260618-geo2"></script>
-  <script src="compiled/pages/contact.js?v=huasheng-site-20260618-geo2"></script>
+  <script src="compiled/ui.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/home.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/about.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/capabilities.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/cases.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/quality.js?v=huasheng-site-20260703-geo3"></script>
+  <script src="compiled/pages/contact.js?v=huasheng-site-20260703-geo3"></script>
 
   <!-- App shell (mounts) -->
-  <script src="compiled/app.js?v=huasheng-site-20260618-geo2"></script>
+  <script src="compiled/app.js?v=huasheng-site-20260703-geo3"></script>
   <script>window.__startApp && window.__startApp();</script>
 </body>
 </html>

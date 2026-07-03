@@ -203,6 +203,8 @@ function Header({ route, setRoute, lang, setLang, t, openMenu, setOpenMenu }) {
     { id: "about", label: t.nav.about, href: routePath("about", lang) },
     { id: "capabilities", label: t.nav.capabilities, href: routePath("capabilities", lang) },
     { id: "cases", label: t.nav.cases, href: routePath("cases", lang) },
+    { id: "bus-stop-shelters", label: lang === "cn" ? "公交站亭" : "Bus stop shelters", href: lang === "cn" ? "/zh/bus-stop-shelters/" : "/en/bus-stop-shelters/", external: true },
+    { id: "metal-furniture", label: lang === "cn" ? "金属家具" : "Metal furniture", href: lang === "cn" ? "/zh/metal-furniture/" : "/en/metal-furniture/", external: true },
     { id: "quality", label: t.nav.quality, href: routePath("quality", lang) },
     { id: "blog", label: t.nav.blog || "Blog", href: lang === "cn" ? "/zh/blog/" : "/en/blog/", external: true },
     { id: "contact", label: t.nav.contact, href: routePath("contact", lang) },
@@ -219,7 +221,7 @@ function Header({ route, setRoute, lang, setLang, t, openMenu, setOpenMenu }) {
       <header className={"site-header" + (scrolled ? " scrolled" : "")}>
         <div className="container-wide nav-inner">
           <a className="brand" href={routePath("home", lang)} onClick={(e) => { e.preventDefault(); go("home"); }} data-comment-anchor="brand">
-            <span className="brand-mark"><img src="assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+            <span className="brand-mark"><img src="assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
             <span className="brand-text">
               <span className="a">{t.brand.short}</span>
               <span className="b">{lang === "cn" ? "HUASHENG · 1989" : "Est. 1989 · Guangzhou"}</span>
@@ -297,7 +299,7 @@ function Footer({ lang, t, setRoute }) {
         <div className="footer-grid">
           <div className="footer-col brand-col">
             <a className="brand" href={routePath("home", lang)} onClick={(e) => { e.preventDefault(); go("home"); }} style={{ marginBottom: 20 }}>
-              <span className="brand-mark"><img src="assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+              <span className="brand-mark"><img src="assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
               <span className="brand-text">
                 <span className="a">{t.brand.short}</span>
                 <span className="b">{lang === "cn" ? "广州 · 1989" : "Guangzhou · 1989"}</span>
