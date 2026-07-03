@@ -291,6 +291,12 @@ function headFor(page) {
   const oppositeLang = page.lang === "zh" ? "en" : "zh";
   const alternateEn = canonicalUrl(page.route, "en");
   const alternateZh = canonicalUrl(page.route, "zh");
+  // Locale-aware webfonts: EN pages have no rendered CJK (only JSON-LD), so they
+  // skip the two full CJK families (Noto Serif/Sans SC) and load the Latin display
+  // face (Cormorant Garamond). ZH pages load the CJK families instead.
+  const fontHref = page.lang === "zh"
+    ? "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    : "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap";
   const jsonLd = JSON.stringify(commonJsonLd(page, meta, locale, canonical), null, 2)
     .replace(/</g, "\\u003c");
 
@@ -327,7 +333,8 @@ function headFor(page) {
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link href="${fontHref}" rel="stylesheet" />
 
 <link rel="stylesheet" href="styles.css?v=${VERSION}" />
 <script type="application/ld+json">

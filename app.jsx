@@ -221,7 +221,7 @@ function Header({ route, setRoute, lang, setLang, t, openMenu, setOpenMenu }) {
       <header className={"site-header" + (scrolled ? " scrolled" : "")}>
         <div className="container-wide nav-inner">
           <a className="brand" href={routePath("home", lang)} onClick={(e) => { e.preventDefault(); go("home"); }} data-comment-anchor="brand">
-            <span className="brand-mark"><img src="assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+            <span className="brand-mark"><img src="assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
             <span className="brand-text">
               <span className="a">{t.brand.short}</span>
               <span className="b">{lang === "cn" ? "HUASHENG · 1989" : "Est. 1989 · Guangzhou"}</span>
@@ -299,7 +299,7 @@ function Footer({ lang, t, setRoute }) {
         <div className="footer-grid">
           <div className="footer-col brand-col">
             <a className="brand" href={routePath("home", lang)} onClick={(e) => { e.preventDefault(); go("home"); }} style={{ marginBottom: 20 }}>
-              <span className="brand-mark"><img src="assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+              <span className="brand-mark"><img src="assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
               <span className="brand-text">
                 <span className="a">{t.brand.short}</span>
                 <span className="b">{lang === "cn" ? "广州 · 1989" : "Guangzhou · 1989"}</span>

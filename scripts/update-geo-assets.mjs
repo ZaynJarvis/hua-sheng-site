@@ -785,7 +785,7 @@ const pages = [
     title: "Nansha Phase 2: From Phase 1 Reference to Phase 2 Production Start",
     description:
       "A Nansha Phase 2 case article showing Phase 1 installed references and the Phase 2 production start for 23 bus shelters.",
-    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.png`,
+    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.webp`,
     published: "2026-06-11",
     modified: LASTMOD,
   }),
@@ -793,7 +793,7 @@ const pages = [
     title: "华盛项目｜南沙项目二期：从一期落地到二期制作启动",
     description:
       "南沙项目二期案例文章：以一期已落地实景为参考，记录二期 23 座候车亭制作启动与华盛定制推进方式。",
-    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.png`,
+    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.webp`,
     published: "2026-06-11",
     modified: LASTMOD,
   }),
@@ -832,7 +832,7 @@ const pages = [
   page("nansha-h5", "zh", "/nansha-phase-2/", "nansha-phase-2/index.html", {
     title: "华盛项目｜南沙项目二期：从一期落地到二期制作启动",
     description: "南沙项目二期：一期落地参考，二期23座候车亭制作启动。",
-    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.png`,
+    image: `${SITE}/nansha-phase-2/assets/701de1f002da05a0373b72f7d5f5310c-9ebcf55b.webp`,
     priority: "0.64",
     changefreq: "monthly",
     kind: "Article",
@@ -1322,7 +1322,7 @@ ${jsonLd(meta)}
     <header class="site-header blog-site-header scrolled">
       <div class="container-wide nav-inner">
         <a class="brand" href="${isZh ? "/zh/" : "/en/"}">
-          <span class="brand-mark"><img src="/assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+          <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
           <span class="brand-text">
             <span class="a">${isZh ? "华盛金属" : "HUASHENG"}</span>
             <span class="b">${isZh ? "AI 搜索答案页" : "AI SEARCH ANSWERS"}</span>
@@ -2305,7 +2305,7 @@ ${hubJsonLd(meta)}
     <header class="site-header blog-site-header scrolled">
       <div class="container-wide nav-inner">
         <a class="brand" href="${isZh ? "/zh/" : "/en/"}">
-          <span class="brand-mark"><img src="/assets/logo.png?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+          <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
           <span class="brand-text">
             <span class="a">${isZh ? "华盛金属" : "HUASHENG"}</span>
             <span class="b">${escapeHtml(data.tagline)}</span>
