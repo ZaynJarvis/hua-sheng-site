@@ -312,6 +312,7 @@ const hubs = {
   "bus-stop-shelters": {
     serviceName: "Bus stop shelter and bus shelter manufacturing",
     image: `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`,
+    related: ["advertising-light-boxes", "street-furniture"],
     en: {
       h1: "Bus Stop Shelter Manufacturer",
       tagline: "Metal & steel bus stops · smart bus shelters · export-ready",
@@ -330,11 +331,25 @@ const hubs = {
         },
         {
           h2: "Materials & build quality",
+          spec: true,
           bullets: [
             ["Structure", "Hot-dip galvanized steel, 304/201 stainless steel or aluminium profiles, finished with outdoor powder coating or electrophoresis."],
             ["Glazing & roofing", "Tempered safety glass panels, polycarbonate or metal canopies with curved drainage and shading."],
             ["Process", "Laser cutting, CNC forming, robotic welding, automatic powder coating, clean assembly and pre-shipment testing in a 120,000 m² plant."],
             ["Certification", "ISO 9001 quality management, bus shelter design patents and structural utility patents."],
+          ],
+        },
+        {
+          h2: "Smart bus shelters",
+          spec: true,
+          p: "HuaSheng smart bus shelters turn a standard metal bus stop into a connected city touchpoint, integrating displays, lighting and power features that are tested before shipment. Dimensions and bay layout are engineered to your route, footprint and local transit standards — not fixed to a single size.",
+          bullets: [
+            ["Bay configuration", "Single-bay to multi-bay shelters engineered to your route, footprint and local transit standards."],
+            ["Structure & finish", "Hot-dip galvanized or 304/201 stainless steel and aluminium profiles with outdoor powder coating or electrophoresis."],
+            ["Displays & information", "Integrated LED/LCD route displays, e-paper and touch information screens using HuaSheng in-house LED/LCD display systems."],
+            ["Connectivity & power", "Wi-Fi, USB charging and integrated lighting for day-and-night use."],
+            ["Advertising", "Backlit advertising light boxes and route media built into the shelter for transit-advertising operators."],
+            ["Proven deployments", "Beijing LED route signs, Shanghai smart shelters, Shenzhen Qianhai and Futian smart shelters, and Xi'an LCD shelters."],
           ],
         },
         {
@@ -368,11 +383,25 @@ const hubs = {
         },
         {
           h2: "材料与制造质量",
+          spec: true,
           bullets: [
             ["结构", "热镀锌钢、304/201 不锈钢或铝型材，配合户外粉末喷涂或电泳处理。"],
             ["玻璃与顶棚", "钢化安全玻璃面板、聚碳酸酯或金属顶棚，配曲面排水与遮阳。"],
             ["工艺", "在 120,000 平方米基地完成激光切割、CNC 成型、机器人焊接、自动粉末喷涂、清洁装配与出厂前测试。"],
             ["认证", "ISO 9001 质量管理体系、候车亭外观设计专利与结构实用新型专利。"],
+          ],
+        },
+        {
+          h2: "智慧候车亭",
+          spec: true,
+          p: "华盛智慧候车亭将标准金属公交站台升级为互联城市触点，集成显示、照明与供电功能，并在出厂前完成测试。尺寸与舱位布局按线路、占地与当地公交标准进行工程设计，并非固定单一规格。",
+          bullets: [
+            ["舱位配置", "从单舱到多舱候车亭，按线路、占地与当地公交标准进行工程设计。"],
+            ["结构与表面", "热镀锌或 304/201 不锈钢与铝型材，配合户外粉末喷涂或电泳处理。"],
+            ["显示与信息", "集成 LED/LCD 线路屏、电子纸与触控信息屏，采用华盛自研 LED/LCD 显示系统。"],
+            ["联网与供电", "Wi-Fi、USB 充电与集成照明，适应昼夜使用。"],
+            ["广告", "在候车亭内集成背光广告灯箱与线路媒体，服务交通广告运营商。"],
+            ["落地案例", "北京 LED 公交线路牌、上海智能候车亭、深圳前海与福田智慧候车亭、西安 LCD 智能候车亭。"],
           ],
         },
         {
@@ -392,6 +421,7 @@ const hubs = {
   "metal-furniture": {
     serviceName: "Metal furniture manufacturing and OEM/ODM",
     image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    related: ["street-furniture", "stainless-steel-fabrication"],
     en: {
       h1: "Metal Furniture Manufacturer & OEM",
       tagline: "Outdoor, home, kitchen & street metal furniture · IKEA-grade OEM",
@@ -414,6 +444,7 @@ const hubs = {
         },
         {
           h2: "Materials, finishes & process",
+          spec: true,
           bullets: [
             ["Materials", "Cold-rolled steel, stainless steel and aluminium profiles selected for indoor and outdoor metal furniture."],
             ["Finishes", "Automatic powder coating, electrophoresis and surface treatment for durable, weather-resistant finishes."],
@@ -452,6 +483,7 @@ const hubs = {
         },
         {
           h2: "材料、表面与工艺",
+          spec: true,
           bullets: [
             ["材料", "冷轧钢、不锈钢与铝型材，适配室内与户外金属家具。"],
             ["表面处理", "自动粉末喷涂、电泳与表面处理，实现耐用、耐候的表面效果。"],
@@ -466,6 +498,239 @@ const hubs = {
         ["金属家具有哪些材料和表面可选？", "冷轧钢、不锈钢与铝材，配合粉末喷涂、电泳或不锈钢处理——适用于室内家居、厨房家具以及耐用的户外金属家具。"],
         ["华盛是否向全球出口金属家具？", "是。华盛为国际品牌与城市项目提供出口包装与装柜，交付参考覆盖欧洲、中东、亚洲与大洋洲。"],
         ["OEM 金属家具的最小起订量是多少？", "华盛同时支持开发批量与大批量复购生产。提供产品类型、数量与图纸即可确认起订量、交期与报价。"],
+      ],
+    },
+  },
+  "advertising-light-boxes": {
+    serviceName: "Advertising light box and transit media manufacturing",
+    image: `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`,
+    related: ["bus-stop-shelters", "street-furniture"],
+    en: {
+      h1: "Advertising Light Box Manufacturer",
+      tagline: "Backlit light boxes · LED/LCD transit media · bus shelter advertising",
+      lede: "HuaSheng manufactures backlit advertising light boxes, LED/LCD route displays and transit media built into bus stop shelters and urban information kiosks, for transit-advertising operators and city projects worldwide.",
+      sections: [
+        {
+          h2: "Advertising light boxes we make",
+          bullets: [
+            ["Backlit poster light boxes", "Weather-resistant backlit poster light boxes built into bus stop shelters for outdoor transit advertising."],
+            ["Scrolling & route media", "Scrolling and route-media light boxes for transit-advertising operators."],
+            ["LED/LCD advertising screens", "In-house LED/LCD display systems for bus-shelter advertising screens, wayfinding screens and urban information kiosks, with real-time information and touch interaction."],
+            ["Information kiosks & pylons", "Standalone illuminated wayfinding pylons and urban information kiosks with integrated media."],
+          ],
+        },
+        {
+          h2: "Materials & build quality",
+          spec: true,
+          bullets: [
+            ["Frames", "Hot-dip galvanized steel, stainless steel or aluminium frames with outdoor powder coating for long outdoor life."],
+            ["Glazing", "Tempered safety glass or polycarbonate faces with weather-resistant sealing."],
+            ["Electrical", "Backlighting, LED/LCD components and wiring tested before shipment."],
+            ["Process", "Laser cutting, CNC forming, robotic welding and automatic powder coating in a 120,000 m² plant."],
+          ],
+        },
+        {
+          h2: "Where our light boxes are installed",
+          p: "HuaSheng integrates advertising light boxes into transit projects such as the Shanghai Expo shelters (city landscape, light boxes and accessible waiting), Qatar (Doha) shelters with shade, cooling and light-box integration, and smart-shelter programmes in Beijing, Shenzhen and Xi'an.",
+        },
+      ],
+      faq: [
+        ["Does HuaSheng make advertising light boxes for bus shelters?", "Yes. HuaSheng builds backlit advertising light boxes, LED/LCD displays and route media directly into bus stop shelters, with electrical components and weather-resistant frames tested before shipment."],
+        ["What materials are used for outdoor advertising light boxes?", "Galvanized steel, stainless steel or aluminium frames with tempered glass or polycarbonate faces and outdoor powder coating, so the light boxes withstand heat, rain and coastal climates."],
+        ["Can the light boxes use LED or LCD displays?", "Yes. HuaSheng uses in-house LED/LCD display systems for bus-shelter advertising screens, wayfinding screens and urban information kiosks, supporting real-time information and touch interaction."],
+        ["Can HuaSheng supply light boxes for transit-advertising operators?", "Yes. HuaSheng supplies backlit and scrolling/route-media light boxes for transit-advertising operators, integrated into shelters or as standalone kiosks and pylons, with export packaging and installation support."],
+      ],
+    },
+    zh: {
+      h1: "广告灯箱制造商",
+      tagline: "背光灯箱 · LED/LCD 交通媒体 · 候车亭广告",
+      lede: "华盛制造背光广告灯箱、LED/LCD 线路显示与交通媒体，可集成于公交候车亭与城市信息亭，服务全球交通广告运营商与城市项目。",
+      sections: [
+        {
+          h2: "我们制造的广告灯箱",
+          bullets: [
+            ["背光海报灯箱", "耐候背光海报灯箱，集成于公交候车亭，用于户外交通广告。"],
+            ["滚动与线路媒体", "为交通广告运营商提供滚动与线路媒体灯箱。"],
+            ["LED/LCD 广告屏", "自研 LED/LCD 显示系统，用于候车亭广告屏、导视屏与城市信息亭，支持实时信息与触控交互。"],
+            ["信息亭与立柱", "独立发光导视立柱与城市信息亭，集成媒体。"],
+          ],
+        },
+        {
+          h2: "材料与制造质量",
+          spec: true,
+          bullets: [
+            ["框架", "热镀锌钢、不锈钢或铝框架，配合户外粉末喷涂，保证长期户外使用寿命。"],
+            ["面板", "钢化安全玻璃或聚碳酸酯面板，耐候密封。"],
+            ["电气", "背光、LED/LCD 组件与线路在出货前完成测试。"],
+            ["工艺", "在 120,000 平方米基地完成激光切割、CNC 成型、机器人焊接与自动粉末喷涂。"],
+          ],
+        },
+        {
+          h2: "我们的灯箱落地在哪里",
+          p: "华盛将广告灯箱集成到交通项目中，例如上海世博候车亭（城市景观、灯箱与无障碍候车）、卡塔尔（多哈）候车亭（遮阳、降温与灯箱集成），以及北京、深圳和西安的智慧候车亭项目。",
+        },
+      ],
+      faq: [
+        ["华盛能为候车亭制造广告灯箱吗？", "可以。华盛在公交候车亭内直接集成背光广告灯箱、LED/LCD 显示与线路媒体，电气组件与耐候框架在出货前完成测试。"],
+        ["户外广告灯箱使用什么材料？", "镀锌钢、不锈钢或铝框架，配合钢化玻璃或聚碳酸酯面板与户外粉末喷涂，使灯箱耐高温、雨水与沿海气候。"],
+        ["灯箱可以用 LED 或 LCD 显示吗？", "可以。华盛采用自研 LED/LCD 显示系统，用于候车亭广告屏、导视屏与城市信息亭，支持实时信息与触控交互。"],
+        ["华盛能为交通广告运营商供应灯箱吗？", "可以。华盛为交通广告运营商供应背光与滚动/线路媒体灯箱，可集成于候车亭或作为独立信息亭与立柱，并提供出口包装与安装支持。"],
+      ],
+    },
+  },
+  "street-furniture": {
+    serviceName: "Street furniture and urban furniture manufacturing",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    related: ["bus-stop-shelters", "metal-furniture"],
+    en: {
+      h1: "Street Furniture Manufacturer",
+      tagline: "Benches · bins · planters · wayfinding · public-space metal furniture",
+      lede: "HuaSheng is a Guangzhou street furniture manufacturer producing benches, planters, waste bins, wayfinding pylons and public-space metal furniture for cities, parks and transit areas, with delivery references across Europe, the Middle East, Asia and Oceania.",
+      sections: [
+        {
+          h2: "Street furniture we make",
+          bullets: [
+            ["Benches & seating", "Metal benches and public seating engineered for weather and long outdoor life."],
+            ["Planters & bins", "Planters, waste bins and public-space metal furniture for cities, parks and transit areas."],
+            ["Wayfinding pylons", "Standalone wayfinding pylons and signage to complete a bus stop or public space."],
+            ["Bus stop street furniture", "Matching seating, bins and pylons designed alongside HuaSheng bus stop shelters."],
+            ["Custom urban furniture", "Custom public-space metal furniture from your drawings for parks, plazas and transit areas."],
+          ],
+        },
+        {
+          h2: "Materials, finishes & process",
+          spec: true,
+          bullets: [
+            ["Materials", "Hot-dip galvanized steel, stainless steel and aluminium profiles selected for outdoor street furniture."],
+            ["Finishes", "Automatic powder coating, electrophoresis and surface treatment for durable, weather-resistant finishes."],
+            ["Process", "Laser cutting, CNC forming, robotic welding, clean assembly and quality inspection across a 120,000 m² plant with 297 machines."],
+            ["Quality", "ISO 9001 quality management and DMAIC process control."],
+          ],
+        },
+        {
+          h2: "Street furniture for cities and brands",
+          p: "HuaSheng understands street furniture, public facilities and urban use cases, and has long supplied overseas outdoor public facilities and city furniture with White Horse Outdoor / Belson Outdoors, supporting structure, packaging and delivery across different city environments.",
+        },
+      ],
+      faq: [
+        ["What street furniture does HuaSheng manufacture?", "HuaSheng manufactures benches, planters, waste bins, wayfinding pylons and public-space metal furniture for cities, parks and transit areas, often matched to its bus stop shelters."],
+        ["What materials make street furniture last outdoors?", "Hot-dip galvanized steel, stainless steel and aluminium with outdoor powder coating and electrophoresis give street furniture long service life in heat, rain and coastal salt environments."],
+        ["Can HuaSheng make custom or branded street furniture?", "Yes. HuaSheng produces custom and OEM/ODM street furniture from your drawings, with material selection, welding, surface finishing and export packaging."],
+        ["Does HuaSheng export street furniture?", "Yes. HuaSheng has long supplied overseas outdoor public facilities and city furniture, with delivery references across Europe, the Middle East, Asia and Oceania."],
+      ],
+    },
+    zh: {
+      h1: "街道家具与城市家具制造商",
+      tagline: "座椅 · 垃圾箱 · 花箱 · 导视 · 公共空间金属家具",
+      lede: "华盛是位于广州的街道家具制造商，生产座椅、花箱、垃圾箱、导视立柱与公共空间金属家具，服务城市、公园与公交区域，交付参考覆盖欧洲、中东、亚洲与大洋洲。",
+      sections: [
+        {
+          h2: "我们制造的街道家具",
+          bullets: [
+            ["座椅", "针对气候与长期户外使用进行工程设计的金属座椅与公共座椅。"],
+            ["花箱与垃圾箱", "为城市、公园和交通区域提供花箱、垃圾箱与公共空间金属家具。"],
+            ["导视立柱", "独立导视立柱与标识，用于完善公交站台或公共空间。"],
+            ["公交站台街道家具", "与华盛公交站亭配套设计的座椅、垃圾箱与立柱。"],
+            ["定制城市家具", "按图纸定制的公共空间金属家具，适用于公园、广场与交通区域。"],
+          ],
+        },
+        {
+          h2: "材料、表面与工艺",
+          spec: true,
+          bullets: [
+            ["材料", "热镀锌钢、不锈钢与铝型材，适配户外街道家具。"],
+            ["表面处理", "自动粉末喷涂、电泳与表面处理，实现耐用、耐候的表面效果。"],
+            ["工艺", "在 120,000 平方米、297 台设备的基地完成激光切割、CNC 成型、机器人焊接、清洁装配与质量检验。"],
+            ["质量", "ISO 9001 质量管理与 DMAIC 过程控制。"],
+          ],
+        },
+        {
+          h2: "面向城市与品牌的街道家具",
+          p: "华盛深入理解街道家具、公共设施与城市使用场景，并长期与 White Horse Outdoor / Belson Outdoors 合作供应海外户外公共设施与城市家具，支持不同城市环境下的结构、包装与交付。",
+        },
+      ],
+      faq: [
+        ["华盛制造哪些街道家具？", "华盛制造座椅、花箱、垃圾箱、导视立柱与公共空间金属家具，服务城市、公园与交通区域，并常与其公交站亭配套。"],
+        ["什么材料让街道家具更耐用？", "热镀锌钢、不锈钢与铝材，配合户外粉末喷涂与电泳，使街道家具在高温、雨水和沿海盐雾环境下保持长久使用寿命。"],
+        ["华盛能定制或代工品牌街道家具吗？", "可以。华盛按图纸提供定制与 OEM/ODM 街道家具，包含材料选择、焊接、表面处理与出口包装。"],
+        ["华盛是否出口街道家具？", "是。华盛长期供应海外户外公共设施与城市家具，交付参考覆盖欧洲、中东、亚洲与大洋洲。"],
+      ],
+    },
+  },
+  "stainless-steel-fabrication": {
+    serviceName: "Stainless steel fabrication and stainless steel structure manufacturing",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    related: ["metal-furniture", "bus-stop-shelters"],
+    en: {
+      h1: "Stainless Steel Fabrication in Guangzhou",
+      tagline: "304/201 stainless steel · facades · shelters · retail fixtures",
+      lede: "HuaSheng provides stainless steel fabrication in Guangzhou, China — 304 and 201 stainless steel structures, facades, decorative metalwork, bus shelters and retail fixtures — with laser cutting, CNC forming, robotic welding and mirror-finish surface treatment.",
+      sections: [
+        {
+          h2: "Stainless steel work we fabricate",
+          bullets: [
+            ["Stainless steel structures & facades", "Stainless steel facades, decorative structures and custom architectural metalwork for public and commercial spaces."],
+            ["Stainless steel bus shelters", "Stainless steel bus stop shelters, including the Beijing Olympic stainless steel shelters."],
+            ["Retail & counter fixtures", "Stainless steel display, shelving and counters, including Hong Kong MTR ticket and information counters and Swiss retail fixtures for Coop and Migros."],
+            ["Stainless steel furniture & components", "Stainless steel furniture frames, kitchen and bathroom units and precision components."],
+          ],
+        },
+        {
+          h2: "Materials, finishes & process",
+          spec: true,
+          bullets: [
+            ["Grades", "304 and 201 stainless steel, and aluminium or galvanized steel where specified."],
+            ["Finishes", "Mirror-finish detailing, powder coating, electrophoresis and surface treatment."],
+            ["Process", "Laser cutting, CNC forming, robotic and manual welding, clean assembly and quality inspection across a 120,000 m² plant with 297 machines."],
+            ["Quality", "ISO 9001 quality management and DMAIC process control."],
+          ],
+        },
+        {
+          h2: "Representative stainless steel projects",
+          p: "HuaSheng stainless steel work includes the Beijing Olympic stainless steel bus shelters, Hong Kong MTR stainless steel ticket and information counters (2016), canal-city and LCD smart shelters with stainless structures and mirror-finish details, and stainless steel retail fixtures for Coop and Migros through Ladenbau Schmidt.",
+        },
+      ],
+      faq: [
+        ["Does HuaSheng offer stainless steel fabrication in Guangzhou?", "Yes. HuaSheng is a Guangzhou, China stainless steel fabrication manufacturer working in 304 and 201 stainless steel, from structures and facades to shelters, counters and furniture, with laser cutting, CNC forming and robotic welding."],
+        ["What stainless steel grades and finishes does HuaSheng use?", "HuaSheng works mainly in 304 and 201 stainless steel with mirror-finish detailing, powder coating, electrophoresis and surface treatment for durable indoor and outdoor use."],
+        ["What stainless steel projects has HuaSheng delivered?", "Representative work includes the Beijing Olympic stainless steel bus shelters, Hong Kong MTR stainless steel ticket and information counters, and stainless steel retail fixtures for Coop and Migros."],
+        ["Can HuaSheng fabricate custom stainless steel structures and fixtures?", "Yes. HuaSheng fabricates custom stainless steel structures, facades, counters and fixtures from your drawings, with welding, surface finishing, quality inspection and export packaging."],
+      ],
+    },
+    zh: {
+      h1: "不锈钢加工与不锈钢工程",
+      tagline: "304/201 不锈钢 · 幕墙 · 候车亭 · 零售陈列",
+      lede: "华盛提供广州不锈钢加工与不锈钢工程——304 与 201 不锈钢结构、幕墙、装饰构件、候车亭与零售陈列——配合激光切割、CNC 成型、机器人焊接与镜面表面处理。",
+      sections: [
+        {
+          h2: "我们制作的不锈钢产品",
+          bullets: [
+            ["不锈钢结构与幕墙", "不锈钢幕墙、装饰构件与定制建筑金属，用于公共与商业空间。"],
+            ["不锈钢候车亭", "不锈钢公交候车亭，包括北京奥运不锈钢候车亭。"],
+            ["零售与柜台陈列", "不锈钢陈列、货架与柜台，包括香港 MTR 售票与咨询柜台，以及为 Coop、Migros 提供的瑞士零售陈列。"],
+            ["不锈钢家具与配件", "不锈钢家具框架、厨房与卫浴单元及精密配件。"],
+          ],
+        },
+        {
+          h2: "材料、表面与工艺",
+          spec: true,
+          bullets: [
+            ["牌号", "304 与 201 不锈钢，并按需选用铝材或镀锌钢。"],
+            ["表面", "镜面细节处理、粉末喷涂、电泳与表面处理。"],
+            ["工艺", "在 120,000 平方米、297 台设备的基地完成激光切割、CNC 成型、机器人与人工焊接、清洁装配与质量检验。"],
+            ["质量", "ISO 9001 质量管理与 DMAIC 过程控制。"],
+          ],
+        },
+        {
+          h2: "代表性不锈钢项目",
+          p: "华盛的不锈钢项目包括北京奥运不锈钢候车亭、香港 MTR 不锈钢售票与咨询柜台（2016）、结合不锈钢结构与镜面细节的运河城市与 LCD 智能候车亭，以及通过 Ladenbau Schmidt 为 Coop、Migros 提供的不锈钢零售陈列。",
+        },
+      ],
+      faq: [
+        ["华盛在广州提供不锈钢加工吗？", "提供。华盛是位于广州的不锈钢加工制造商，采用 304 与 201 不锈钢，从结构、幕墙到候车亭、柜台与家具，配合激光切割、CNC 成型与机器人焊接。"],
+        ["华盛使用哪些不锈钢牌号和表面？", "华盛主要采用 304 与 201 不锈钢，配合镜面细节、粉末喷涂、电泳与表面处理，适用于耐用的室内外场景。"],
+        ["华盛交付过哪些不锈钢项目？", "代表性项目包括北京奥运不锈钢候车亭、香港 MTR 不锈钢售票与咨询柜台，以及为 Coop、Migros 提供的不锈钢零售陈列。"],
+        ["华盛能定制不锈钢结构与陈列吗？", "可以。华盛按图纸定制不锈钢结构、幕墙、柜台与陈列，包含焊接、表面处理、质量检验与出口包装。"],
       ],
     },
   },
@@ -761,6 +1026,60 @@ const pages = [
       "华盛是位于广州的金属家具制造商与 OEM/ODM 合作伙伴，覆盖户外金属家具、街道家具以及厨房、卫浴与家居金属家具，提供全球出口包装。",
     image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
     priority: "0.9",
+    changefreq: "monthly",
+  }),
+  page("advertising-light-boxes", "en", "/en/advertising-light-boxes/", "en/advertising-light-boxes/index.html", {
+    hub: "advertising-light-boxes",
+    title: "Advertising Light Box Manufacturer | Bus Shelter Media",
+    description:
+      "HuaSheng manufactures backlit advertising light boxes, LED/LCD displays and transit media built into bus stop shelters for operators worldwide.",
+    image: `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`,
+    priority: "0.85",
+    changefreq: "monthly",
+  }),
+  page("advertising-light-boxes", "zh", "/zh/advertising-light-boxes/", "zh/advertising-light-boxes/index.html", {
+    hub: "advertising-light-boxes",
+    title: "广告灯箱制造商 | 候车亭广告与 LED/LCD 媒体 | 华盛金属",
+    description:
+      "华盛制造背光广告灯箱、LED/LCD 线路显示与交通媒体，可集成于公交候车亭与城市信息亭，服务交通广告运营商与城市项目。",
+    image: `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`,
+    priority: "0.85",
+    changefreq: "monthly",
+  }),
+  page("street-furniture", "en", "/en/street-furniture/", "en/street-furniture/index.html", {
+    hub: "street-furniture",
+    title: "Street Furniture Manufacturer | Benches, Bins & Planters",
+    description:
+      "HuaSheng, a Guangzhou street furniture manufacturer of benches, planters, bins, wayfinding pylons and public-space metal furniture for cities worldwide.",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    priority: "0.85",
+    changefreq: "monthly",
+  }),
+  page("street-furniture", "zh", "/zh/street-furniture/", "zh/street-furniture/index.html", {
+    hub: "street-furniture",
+    title: "街道家具与城市家具制造商 | 座椅、垃圾箱与花箱 | 华盛金属",
+    description:
+      "华盛是广州街道家具制造商，生产座椅、花箱、垃圾箱、导视立柱与公共空间金属家具，服务城市、公园与公交区域，支持全球出口。",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    priority: "0.85",
+    changefreq: "monthly",
+  }),
+  page("stainless-steel-fabrication", "en", "/en/stainless-steel-fabrication/", "en/stainless-steel-fabrication/index.html", {
+    hub: "stainless-steel-fabrication",
+    title: "Stainless Steel Fabrication Guangzhou | 304/201 Structures",
+    description:
+      "HuaSheng offers stainless steel fabrication in Guangzhou, China: 304/201 structures, facades, bus shelters and retail fixtures with mirror-finish welding.",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    priority: "0.85",
+    changefreq: "monthly",
+  }),
+  page("stainless-steel-fabrication", "zh", "/zh/stainless-steel-fabrication/", "zh/stainless-steel-fabrication/index.html", {
+    hub: "stainless-steel-fabrication",
+    title: "不锈钢加工与不锈钢工程 | 广州 304/201 制造 | 华盛金属",
+    description:
+      "华盛提供广州不锈钢加工与不锈钢工程：304/201 不锈钢结构、幕墙、候车亭与零售陈列，配合激光切割、机器人焊接与镜面处理。",
+    image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
+    priority: "0.85",
     changefreq: "monthly",
   }),
   page("blog", "en", "/en/blog/", "en/blog/index.html", {
@@ -1616,6 +1935,12 @@ function writeLlms() {
     ["Bus stop shelters ZH", "/zh/bus-stop-shelters/", "公交站亭制造商专题，含产品与规格表"],
     ["Metal furniture EN", "/en/metal-furniture/", "Metal furniture manufacturer and OEM/ODM hub with spec table"],
     ["Metal furniture ZH", "/zh/metal-furniture/", "金属家具制造与 OEM/ODM 专题，含规格表"],
+    ["Advertising light boxes EN", "/en/advertising-light-boxes/", "Advertising light box and transit media manufacturer hub"],
+    ["Advertising light boxes ZH", "/zh/advertising-light-boxes/", "广告灯箱与交通媒体制造专题"],
+    ["Street furniture EN", "/en/street-furniture/", "Street and urban furniture manufacturer hub with spec table"],
+    ["Street furniture ZH", "/zh/street-furniture/", "街道与城市家具制造专题，含规格表"],
+    ["Stainless steel fabrication EN", "/en/stainless-steel-fabrication/", "Guangzhou 304/201 stainless steel fabrication hub with spec table"],
+    ["Stainless steel fabrication ZH", "/zh/stainless-steel-fabrication/", "广州 304/201 不锈钢加工专题，含规格表"],
     ["Blog EN", "/en/blog/", "Project news and capability articles"],
     ["Blog ZH", "/zh/blog/", "项目动态与能力文章"],
     ["Nansha Phase 2 EN", "/en/blog/nansha-phase-2/", "Nansha Phase 2 bus shelter manufacturing project"],
@@ -1844,6 +2169,30 @@ ${hubMarkdown("metal-furniture", "en")}
 
 ${hubMarkdown("metal-furniture", "zh")}
 
+## Advertising Light Box Hub (EN)
+
+${hubMarkdown("advertising-light-boxes", "en")}
+
+## 广告灯箱专题（中文）
+
+${hubMarkdown("advertising-light-boxes", "zh")}
+
+## Street Furniture Hub (EN)
+
+${hubMarkdown("street-furniture", "en")}
+
+## 街道家具专题（中文）
+
+${hubMarkdown("street-furniture", "zh")}
+
+## Stainless Steel Fabrication Hub (EN)
+
+${hubMarkdown("stainless-steel-fabrication", "en")}
+
+## 不锈钢加工专题（中文）
+
+${hubMarkdown("stainless-steel-fabrication", "zh")}
+
 ## Representative Projects
 
 ${projectLines}
@@ -1876,6 +2225,14 @@ function updateRedirects() {
     "/bus-stops /en/bus-stop-shelters/ 301",
     "/metal-furniture /en/metal-furniture/ 301",
     "/metal-furniture/ /en/metal-furniture/ 301",
+    "/advertising-light-boxes /en/advertising-light-boxes/ 301",
+    "/advertising-light-boxes/ /en/advertising-light-boxes/ 301",
+    "/light-boxes /en/advertising-light-boxes/ 301",
+    "/street-furniture /en/street-furniture/ 301",
+    "/street-furniture/ /en/street-furniture/ 301",
+    "/stainless-steel-fabrication /en/stainless-steel-fabrication/ 301",
+    "/stainless-steel-fabrication/ /en/stainless-steel-fabrication/ 301",
+    "/stainless-steel /en/stainless-steel-fabrication/ 301",
     "/en/faq /en/answers/ 301",
     "/en/faq/ /en/answers/ 301",
     "/zh/faq /zh/answers/ 301",
@@ -2085,6 +2442,9 @@ function prerenderNav(lang) {
     [cn ? "项目案例" : "Projects", `${p}/projects/`],
     [cn ? "质量与认证" : "Quality", `${p}/quality/`],
     [cn ? "公交站亭 / 候车亭" : "Bus stop shelters", `${p}/bus-stop-shelters/`],
+    [cn ? "广告灯箱" : "Advertising light boxes", `${p}/advertising-light-boxes/`],
+    [cn ? "街道家具" : "Street furniture", `${p}/street-furniture/`],
+    [cn ? "不锈钢加工" : "Stainless steel fabrication", `${p}/stainless-steel-fabrication/`],
     [cn ? "金属家具" : "Metal furniture", `${p}/metal-furniture/`],
     [cn ? "AI 搜索答案" : "AI answers", `${p}/answers/`],
     [cn ? "企业动态" : "Blog", `${p}/blog/`],
@@ -2230,12 +2590,19 @@ function writeHubPage(meta) {
   const data = hub[meta.lang];
   const isZh = meta.lang === "zh";
   const other = isZh ? meta.urlPath.replace("/zh/", "/en/") : meta.urlPath.replace("/en/", "/zh/");
-  const otherHubSlug = meta.hub === "bus-stop-shelters" ? "metal-furniture" : "bus-stop-shelters";
-  const otherHub = hubs[otherHubSlug][meta.lang];
-  // Render the material/spec section (the last bulleted section in every hub) as a
-  // comparison table built only from existing bullet data — the tabular form AI answer
-  // engines preferentially extract. Other bulleted sections stay as lists.
-  const specSectionIndex = data.sections.reduce(
+  const enPath = meta.urlPath.replace("/zh/", "/en/");
+  const zhPath = meta.urlPath.replace("/en/", "/zh/");
+  // Related hubs shown in the sidebar: explicit `related` slugs on the hub, else the other
+  // primary money hub. Keeps cross-linking correct as new hubs are added.
+  const relatedSlugs = (hub.related && hub.related.length
+    ? hub.related
+    : [meta.hub === "bus-stop-shelters" ? "metal-furniture" : "bus-stop-shelters"]
+  ).filter((slug) => hubs[slug]);
+  // Sections flagged `spec: true` render as a comparison table (the tabular form AI answer
+  // engines preferentially extract); if a hub flags none, fall back to its last bulleted
+  // section. Built only from existing bullet data — no invented values. Other lists stay lists.
+  const hasSpecFlag = data.sections.some((s) => s.spec);
+  const lastBulletIndex = data.sections.reduce(
     (acc, s, i) => (s.bullets && s.bullets.length ? i : acc),
     -1,
   );
@@ -2246,7 +2613,7 @@ function writeHubPage(meta) {
       let inner = "";
       if (s.p) inner += `<p>${escapeHtml(s.p)}</p>\n              `;
       if (s.bullets) {
-        if (i === specSectionIndex) {
+        if (hasSpecFlag ? s.spec : i === lastBulletIndex) {
           inner += specTable(s.bullets, isZh);
         } else {
           inner += `<ul class="answer-list">\n              ${s.bullets
@@ -2272,9 +2639,9 @@ function writeHubPage(meta) {
   <title>${escapeHtml(meta.title)}</title>
   <meta name="description" content="${escapeHtml(meta.description)}" />
   <link rel="canonical" href="${absolute(meta.urlPath)}" />
-  <link rel="alternate" hreflang="en" href="${absolute(meta.hub === "bus-stop-shelters" ? "/en/bus-stop-shelters/" : "/en/metal-furniture/")}" />
-  <link rel="alternate" hreflang="zh-CN" href="${absolute(meta.hub === "bus-stop-shelters" ? "/zh/bus-stop-shelters/" : "/zh/metal-furniture/")}" />
-  <link rel="alternate" hreflang="x-default" href="${absolute(meta.hub === "bus-stop-shelters" ? "/en/bus-stop-shelters/" : "/en/metal-furniture/")}" />
+  <link rel="alternate" hreflang="en" href="${absolute(enPath)}" />
+  <link rel="alternate" hreflang="zh-CN" href="${absolute(zhPath)}" />
+  <link rel="alternate" hreflang="x-default" href="${absolute(enPath)}" />
   <link rel="alternate" type="text/plain" title="LLMs.txt" href="${SITE}/llms.txt" />
   <link rel="alternate" type="application/ld+json" title="HuaSheng entity profile" href="${ENTITY_PROFILE}" />
   <meta property="og:type" content="website" />
@@ -2316,8 +2683,8 @@ ${hubJsonLd(meta)}
         </nav>
         <div class="nav-actions">
           <div class="lang-switch" role="tablist" aria-label="Language">
-            <a class="${isZh ? "on" : ""}" href="${meta.hub === "bus-stop-shelters" ? "/zh/bus-stop-shelters/" : "/zh/metal-furniture/"}">ZH</a>
-            <a class="${isZh ? "" : "on"}" href="${meta.hub === "bus-stop-shelters" ? "/en/bus-stop-shelters/" : "/en/metal-furniture/"}">EN</a>
+            <a class="${isZh ? "on" : ""}" href="${zhPath}">ZH</a>
+            <a class="${isZh ? "" : "on"}" href="${enPath}">EN</a>
           </div>
           <a class="btn btn-primary" href="${isZh ? "/zh/contact/" : "/en/contact/"}">${isZh ? "获取报价" : "Get a Quote"} <span aria-hidden="true">→</span></a>
         </div>
@@ -2357,7 +2724,9 @@ ${sectionsHtml}
         <aside class="article-side">
           <div class="side-card">
             <b>${isZh ? "相关页面" : "Related pages"}</b>
-            <a href="${absolute(isZh ? `/zh/${otherHubSlug}/` : `/en/${otherHubSlug}/`)}">${escapeHtml(otherHub.h1)}</a>
+            ${relatedSlugs
+              .map((slug) => `<a href="${absolute(isZh ? `/zh/${slug}/` : `/en/${slug}/`)}">${escapeHtml(hubs[slug][meta.lang].h1)}</a>`)
+              .join("\n            ")}
             <a href="${absolute(isZh ? "/zh/projects/" : "/en/projects/")}">${isZh ? "项目案例" : "Project cases"}</a>
             <a href="${absolute(isZh ? "/zh/capabilities/" : "/en/capabilities/")}">${isZh ? "制造能力" : "Capabilities"}</a>
             <a href="${absolute(isZh ? "/zh/answers/" : "/en/answers/")}">${isZh ? "AI 搜索答案" : "AI search answers"}</a>

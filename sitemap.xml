@@ -164,6 +164,60 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://hua-sheng.org/en/advertising-light-boxes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/advertising-light-boxes/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/advertising-light-boxes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/advertising-light-boxes/" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/zh/advertising-light-boxes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/advertising-light-boxes/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/advertising-light-boxes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/advertising-light-boxes/" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/en/street-furniture/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/street-furniture/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/street-furniture/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/street-furniture/" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/zh/street-furniture/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/street-furniture/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/street-furniture/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/street-furniture/" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/en/stainless-steel-fabrication/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/stainless-steel-fabrication/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/stainless-steel-fabrication/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/stainless-steel-fabrication/" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hua-sheng.org/zh/stainless-steel-fabrication/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/stainless-steel-fabrication/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/stainless-steel-fabrication/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/en/stainless-steel-fabrication/" />
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://hua-sheng.org/en/blog/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://hua-sheng.org/en/blog/" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hua-sheng.org/zh/blog/" />

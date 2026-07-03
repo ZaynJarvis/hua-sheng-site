@@ -107,6 +107,12 @@ Canonical domain: https://hua-sheng.org
 - [Bus stop shelters ZH](https://hua-sheng.org/zh/bus-stop-shelters/): 公交站亭制造商专题，含产品与规格表
 - [Metal furniture EN](https://hua-sheng.org/en/metal-furniture/): Metal furniture manufacturer and OEM/ODM hub with spec table
 - [Metal furniture ZH](https://hua-sheng.org/zh/metal-furniture/): 金属家具制造与 OEM/ODM 专题，含规格表
+- [Advertising light boxes EN](https://hua-sheng.org/en/advertising-light-boxes/): Advertising light box and transit media manufacturer hub
+- [Advertising light boxes ZH](https://hua-sheng.org/zh/advertising-light-boxes/): 广告灯箱与交通媒体制造专题
+- [Street furniture EN](https://hua-sheng.org/en/street-furniture/): Street and urban furniture manufacturer hub with spec table
+- [Street furniture ZH](https://hua-sheng.org/zh/street-furniture/): 街道与城市家具制造专题，含规格表
+- [Stainless steel fabrication EN](https://hua-sheng.org/en/stainless-steel-fabrication/): Guangzhou 304/201 stainless steel fabrication hub with spec table
+- [Stainless steel fabrication ZH](https://hua-sheng.org/zh/stainless-steel-fabrication/): 广州 304/201 不锈钢加工专题，含规格表
 - [Blog EN](https://hua-sheng.org/en/blog/): Project news and capability articles
 - [Blog ZH](https://hua-sheng.org/zh/blog/): 项目动态与能力文章
 - [Nansha Phase 2 EN](https://hua-sheng.org/en/blog/nansha-phase-2/): Nansha Phase 2 bus shelter manufacturing project
