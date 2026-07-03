@@ -1798,6 +1798,60 @@ function plainList(items) {
   return `<ul>\n${items.map((x) => `        <li>${escapeHtml(x)}</li>`).join("\n")}\n      </ul>`;
 }
 
+// Hero-image alt text per SPA group, mirrored from the ImgSlot alt strings in pages/*.jsx so the
+// pre-rendered #root exposes the same descriptive alt to non-JS crawlers and AI answer bots.
+const PRERENDER_HERO_ALT = {
+  home: { en: "HuaSheng bus shelter deployed in an urban street", zh: "华盛公交候车亭城市部署图" },
+  about: { en: "HuaSheng Metal factory campus exterior", zh: "华盛金属厂区外观" },
+  capabilities: { en: "HuaSheng metal fabrication workshop", zh: "华盛金属加工车间" },
+  projects: { en: "HuaSheng bus shelter project deployment", zh: "华盛公交候车亭项目部署图" },
+  quality: { en: "Metal manufacturing quality control and certification process", zh: "金属制造质量检验与认证流程" },
+  contact: { en: "HuaSheng Metal factory entrance", zh: "华盛金属厂区入口" },
+};
+
+// Case thumbnails, mirrored from CASE_IMAGES in pages/cases.jsx (mapped to t.cases.items by index).
+const PRERENDER_CASE_IMAGES = [
+  "assets/huasheng/case-guangzhou-1993.webp",
+  "assets/huasheng/case-shanghai-expo-v2.webp",
+  "assets/huasheng/case-hangzhou-bicycle.webp",
+  "assets/huasheng/case-erdos-shelter.webp",
+  "assets/huasheng/case-qatar-shelter.webp",
+  "assets/huasheng/case-hong-kong-mtr.webp",
+  "assets/huasheng/case-nepal-government.webp",
+  "assets/huasheng/case-new-zealand-postal.webp",
+  "assets/huasheng/case-oman-public.webp",
+  "assets/huasheng/case-korea-aluminum-v2.webp",
+  "assets/huasheng/case-romania-signpost.webp",
+  "assets/huasheng/case-riyadh-shelter-v2.webp",
+  "assets/huasheng/case-turkey-turkmenistan.webp",
+  "assets/huasheng/case-steel-structure.webp",
+  "assets/huasheng/case-oem-kitchen-cart.webp",
+  "assets/huasheng/case-oem-cabinets.webp",
+  "assets/huasheng/case-oem-bathroom-rack.webp",
+  "assets/huasheng/case-oem-shelving.webp",
+];
+
+function prerenderGallery(t, lang) {
+  const c = t.cases;
+  if (!c) return "";
+  const imgs = [];
+  if (c.featured && c.featured.title) {
+    imgs.push(
+      `      <img src="${SITE}/assets/huasheng/case-beijing-olympic-v2.webp" alt="${escapeHtml(c.featured.title)}" width="640" height="440" loading="lazy" decoding="async" />`,
+    );
+  }
+  (c.items || []).forEach((it, i) => {
+    const src = PRERENDER_CASE_IMAGES[i];
+    if (!src) return;
+    imgs.push(
+      `      <img src="${SITE}/${src}" alt="${escapeHtml(it.title)}" width="640" height="440" loading="lazy" decoding="async" />`,
+    );
+  });
+  if (!imgs.length) return "";
+  const heading = lang === "zh" ? "项目案例照片" : "Project case photos";
+  return `    <section class="seo-prerender-gallery" aria-label="${escapeHtml(heading)}">\n${imgs.join("\n")}\n    </section>`;
+}
+
 function prerenderSections(group, t, lang) {
   const cn = lang === "zh";
   const S = [];
@@ -1875,10 +1929,15 @@ function prerenderBody(meta) {
   const sections = prerenderSections(meta.group, t, lang)
     .map((s) => `    <section>\n      <h2>${s.h2}</h2>\n      ${s.html}\n    </section>`)
     .join("\n");
+  const heroAlt = (PRERENDER_HERO_ALT[meta.group] || {})[lang === "zh" ? "zh" : "en"] || clean(meta.title);
+  const heroImg = meta.image
+    ? `\n    <img class="seo-prerender-hero" src="${escapeHtml(meta.image)}" alt="${escapeHtml(heroAlt)}" width="1200" height="800" decoding="async" />`
+    : "";
+  const gallery = meta.group === "projects" ? prerenderGallery(t, lang) : "";
   return `  <div class="seo-prerender">
-    <h1>${h1}</h1>
+    <h1>${h1}</h1>${heroImg}
     <p class="seo-prerender-lede">${lede}</p>
-${sections}
+${sections}${gallery ? `\n${gallery}` : ""}
     ${prerenderNav(lang)}
   </div>`;
 }

@@ -21,7 +21,7 @@ window.HS_CONTENT = {
     },
     home: {
       eyebrow: "始于 1989 · 国内第一批现代化候车亭制造商",
-      heroTitle: "为城市，造一件\n经得起时间的金属作品",
+      heroTitle: "为城市，造一件经得起时间的\n公交候车亭与金属作品",
       heroSub: "从北京奥运到香港高铁，从卡塔尔到尼泊尔——华盛 30 年专注公交候车亭与公交站亭、广告灯箱、不锈钢工程、金属家具与精密金属 OEM。",
       heroCta1: "查看项目案例",
       heroCta2: "了解生产能力",
@@ -242,7 +242,7 @@ window.HS_CONTENT = {
     cap: {
       hero: {
         eyebrow: "核心能力",
-        title: "12 万平米基地里，一座 5 万平米的金属工厂能做的事",
+        title: "12 万平米基地里，一座 5 万平米的金属加工车间能做的事",
         sub: "从原材料到成品装柜，全流程在自有厂房内闭环完成。",
       },
       plantStats: [
@@ -295,7 +295,7 @@ window.HS_CONTENT = {
     cases: {
       hero: {
         eyebrow: "项目案例",
-        title: "三十年里，我们造过的金属",
+        title: "三十年里，我们造过的候车亭与金属工程",
         sub: "从一座北京奥运的不锈钢候车亭，到一座尼泊尔山城的政府岗亭。",
       },
       filters: ["全部", "国内候车亭", "海外项目", "钢结构工程", "OEM 代工"],
@@ -412,7 +412,7 @@ window.HS_CONTENT = {
     },
     home: {
       eyebrow: "Since 1989 · China's first generation of modern bus shelter makers",
-      heroTitle: "Built for the street.\nMade to last decades.",
+      heroTitle: "Bus stop shelters built for the street.\nMade to last decades.",
       heroSub: "From the Beijing Olympics to Hong Kong MTR, from Qatar to Nepal — HuaSheng has spent 30 years designing and manufacturing bus stop shelters, advertising light boxes, stainless steel structures, metal furniture and precision metal OEM.",
       heroCta1: "Browse projects",
       heroCta2: "Our capabilities",
@@ -617,7 +617,7 @@ window.HS_CONTENT = {
     cap: {
       hero: {
         eyebrow: "Capabilities",
-        title: "What a 50,000-m² metal workshop inside our 120,000-m² base can actually do",
+        title: "What a 50,000-m² metal fabrication workshop inside our 120,000-m² base can actually do",
         sub: "Raw stock to packed container — every step closed inside our own plant.",
       },
       plantStats: [
@@ -661,7 +661,7 @@ window.HS_CONTENT = {
     cases: {
       hero: {
         eyebrow: "Projects",
-        title: "Three decades of metal we have made",
+        title: "Three decades of bus stop shelters and metal projects we have made",
         sub: "From a stainless steel shelter at the Beijing Olympics to a government kiosk in a Nepalese hill town.",
       },
       filters: ["All", "Domestic shelters", "Overseas", "Steel structures", "OEM"],
