@@ -215,12 +215,6 @@ const routeMeta = {
 
 const aliases = [
   { file: "index.html", route: "home", lang: "en", urlPath: "/", canonicalLang: "en" },
-  { file: "about/index.html", route: "about", lang: "en", urlPath: "/about/", canonicalLang: "en" },
-  { file: "capabilities/index.html", route: "capabilities", lang: "en", urlPath: "/capabilities/", canonicalLang: "en" },
-  { file: "cases/index.html", route: "projects", lang: "en", urlPath: "/cases/", canonicalLang: "en" },
-  { file: "projects/index.html", route: "projects", lang: "en", urlPath: "/projects/", canonicalLang: "en" },
-  { file: "quality/index.html", route: "quality", lang: "en", urlPath: "/quality/", canonicalLang: "en" },
-  { file: "contact/index.html", route: "contact", lang: "en", urlPath: "/contact/", canonicalLang: "en" },
 ];
 
 const canonicalPages = Object.entries(routeMeta).flatMap(([route, meta]) => [
@@ -386,6 +380,7 @@ function updateMainPage(page) {
 
 function updateBlogIndex() {
   const file = path.join(ROOT, "blog/index.html");
+  if (!fs.existsSync(file)) return;
   let html = fs.readFileSync(file, "utf8");
   const title = "华盛企业动态 | 项目案例、产品能力与AI提效实践";
   const description = "华盛企业动态记录项目案例、产品能力、资质认证、服务流程和AI提效实践，是华盛官网长期内容中心。";
@@ -439,6 +434,7 @@ ${jsonLd}
 
 function updateBlogArticle() {
   const file = path.join(ROOT, "blog/ai-application-meeting/index.html");
+  if (!fs.existsSync(file)) return;
   let html = fs.readFileSync(file, "utf8");
   const title = "借力 AI 提效赋能，深耕服务聚力前行 · 华盛企业动态";
   const description = "华盛召开AI工具应用及群组管理专项会议，推动AI进入报价准备、方案设计、内容表达、组织协同和客户服务流程。";

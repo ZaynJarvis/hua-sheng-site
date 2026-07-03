@@ -235,11 +235,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.66</priority>
   </url>
-  <url>
-    <loc>https://hua-sheng.org/nansha-phase-2/</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hua-sheng.org/nansha-phase-2/" />
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
 </urlset>

@@ -1087,13 +1087,14 @@ function ensureHeadLink(html, marker, line) {
 }
 
 function updateHead(html, meta) {
-  const canonical = absolute(meta.urlPath);
+  const canonical = meta.group === "nansha-h5" ? absolute("/zh/blog/nansha-phase-2/") : absolute(meta.urlPath);
+  const robotsContent = meta.group === "nansha-h5" ? "noindex,follow" : "index, follow, max-image-preview:large";
   const alternateEn = alternateFor(meta, "en");
   const alternateZh = alternateFor(meta, "zh");
   const ogType = meta.kind === "BlogPosting" || meta.kind === "Article" ? "article" : "website";
 
   html = html.replace(/<html lang="[^"]*"/, `<html lang="${meta.lang === "zh" ? "zh-CN" : "en"}"`);
-  html = replaceMeta(html, /<meta name="robots" content="[^"]*" \/>/, `<meta name="robots" content="index, follow, max-image-preview:large" />`);
+  html = replaceMeta(html, /<meta name="robots" content="[^"]*" \/>/, `<meta name="robots" content="${robotsContent}" />`);
   html = replaceMeta(html, /<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(meta.title)}</title>`);
   html = replaceMeta(html, /<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(meta.description)}" />`);
   html = replaceMeta(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonical}" />`);
@@ -1421,7 +1422,7 @@ function writeEntityProfile() {
 
 function writeSitemap() {
   const entries = pages
-    .filter((item) => item.urlPath.startsWith("/") && item.file && !item.aliasOnly)
+    .filter((item) => item.urlPath.startsWith("/") && item.file && !item.aliasOnly && item.group !== "nansha-h5")
     .map((item) => {
       const alternates = alternateLinksFor(item);
       const xhtml = alternates
@@ -1684,9 +1685,18 @@ function updateRedirects() {
     "/zh/faq/ /zh/answers/ 301",
     "/blog /zh/blog/ 301",
     "/blog/ /zh/blog/ 301",
+    "/blog/ai-application-meeting /zh/blog/ai-application-meeting/ 301",
+    "/blog/ai-application-meeting/ /zh/blog/ai-application-meeting/ 301",
     "/blog/steel-structure-toc-market-report-2026-2027 /zh/blog/steel-structure-toc-market-report-2026-2027/ 301",
     "/blog/steel-structure-toc-market-report-2026-2027/ /zh/blog/steel-structure-toc-market-report-2026-2027/ 301",
     "/sitemap /sitemap.xml 301",
+    "/ /en/ 301",
+    "/about/ /en/about/ 301",
+    "/capabilities/ /en/capabilities/ 301",
+    "/cases/ /en/projects/ 301",
+    "/projects/ /en/projects/ 301",
+    "/quality/ /en/quality/ 301",
+    "/contact/ /en/contact/ 301",
   ];
   const body = [
     ...required,
