@@ -1474,7 +1474,9 @@ function ensureHeadLink(html, marker, line) {
 }
 
 function updateHead(html, meta) {
-  const canonical = meta.group === "nansha-h5" ? absolute("/zh/blog/nansha-phase-2/") : absolute(meta.urlPath);
+  // nansha-h5 stays reachable but de-indexed; keep the canonical self-referential —
+  // noindex combined with a cross-page canonical sends contradictory signals to Google.
+  const canonical = absolute(meta.urlPath);
   const robotsContent = meta.group === "nansha-h5" ? "noindex,follow" : "index, follow, max-image-preview:large";
   const alternateEn = alternateFor(meta, "en");
   const alternateZh = alternateFor(meta, "zh");
