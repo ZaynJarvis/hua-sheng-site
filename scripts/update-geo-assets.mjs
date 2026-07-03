@@ -2274,7 +2274,15 @@ function updateRedirects() {
 function writeHeaders() {
   writeFile(
     "_headers",
-    `/*
+    `# Keep the pages.dev origin (production + previews) out of search indexes;
+# the canonical host is hua-sheng.org.
+https://hua-sheng-site.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.hua-sheng-site.pages.dev/*
+  X-Robots-Tag: noindex
+
+/*
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
 
