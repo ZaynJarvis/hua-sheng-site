@@ -461,14 +461,10 @@
       "isPartOf": {
         "@id": "https://hua-sheng.org/#website"
       },
-      "about": {
-        "@id": "https://hua-sheng.org/#organization"
-      },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://hua-sheng.org/assets/huasheng/capabilities-workshop.webp"
-      },
-      "mainEntity": [
+      "about": [
+        {
+          "@id": "https://hua-sheng.org/#organization"
+        },
         {
           "@type": "Service",
           "name": "Bus stop shelters, bus shelters and public transport facilities",
@@ -553,9 +549,73 @@
           }
         }
       ],
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://hua-sheng.org/assets/huasheng/capabilities-workshop.webp"
+      },
+      "mainEntity": {
+        "@id": "https://hua-sheng.org/en/capabilities/#howto"
+      },
       "breadcrumb": {
         "@id": "https://hua-sheng.org/en/capabilities/#breadcrumb"
       }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://hua-sheng.org/en/capabilities/#howto",
+      "name": "HuaSheng metal fabrication workflow",
+      "description": "HuaSheng's standard metal fabrication and delivery workflow, from design and process review through to packing, container loading and shipping.",
+      "inLanguage": "en",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Design & process review",
+          "text": "Engineering team reviews drawings and proposes process"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "IQC incoming inspection",
+          "text": "Steel, aluminium and accessories inspected before stocking"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Cutting & forming",
+          "text": "Laser cutting, punching, bending, tube bending"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Welding & riveting",
+          "text": "Robotic plus manual welding"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Surface treatment",
+          "text": "Pre-treatment, electrophoresis, coating, baking"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Assembly & commissioning",
+          "text": "Electrical, accessory and light box integration & test"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "FQC final inspection",
+          "text": "Full check of appearance, structure and electrical"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Packing & shipping",
+          "text": "Totem loading, overseas installation guidance"
+        }
+      ]
     }
   ]
 }

@@ -877,6 +877,24 @@ function escapeXml(value) {
   return escapeHtml(value).replace(/'/g, "&apos;");
 }
 
+// Stable, language-neutral anchor slug. Slugs are always derived from the English
+// string so the same fragment id addresses a question/section in both locales.
+function slugify(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60)
+    .replace(/-+$/g, "");
+}
+
+// FAQ anchor id, keyed by index so EN and ZH answers share one fragment id.
+function faqAnchorId(index) {
+  const source = (faq.en[index] && faq.en[index].q) || `question-${index + 1}`;
+  return `q-${slugify(source)}`;
+}
+
 function graphFor(meta) {
   const canonical = absolute(meta.urlPath);
   const locale = meta.lang === "zh" ? "zh-CN" : "en";
@@ -891,7 +909,7 @@ function graphFor(meta) {
   } else if (meta.kind === "Article") {
     graph.push(articleFor(meta));
   } else {
-    graph.push({
+    const webpage = {
       "@type": meta.group === "contact" ? "ContactPage" : meta.group === "about" ? "AboutPage" : "WebPage",
       "@id": `${canonical}#webpage`,
       url: canonical,
@@ -906,7 +924,17 @@ function graphFor(meta) {
       },
       mainEntity: mainEntityFor(meta),
       breadcrumb: { "@id": `${canonical}#breadcrumb` },
-    });
+    };
+    graph.push(webpage);
+    if (meta.group === "capabilities") {
+      const howTo = howToFor(meta);
+      if (howTo) {
+        graph.push(howTo);
+        // Point the WebPage mainEntity at the ordered workflow; keep the service list as `about`.
+        webpage.about = [{ "@id": `${SITE}/#organization` }, ...mainEntityFor(meta)];
+        webpage.mainEntity = { "@id": howTo["@id"] };
+      }
+    }
   }
 
   return {
@@ -996,6 +1024,36 @@ function mainEntityFor(meta) {
   return { "@id": `${SITE}/#organization` };
 }
 
+// HowTo built from the capabilities page's own "Standard process" steps (content.js),
+// so the ordered ItemList mirrors the visible workflow copy verbatim — no fabrication.
+function howToFor(meta) {
+  const clang = meta.lang === "zh" ? "cn" : "en";
+  const steps =
+    (CONTENT[clang] &&
+      CONTENT[clang].cap &&
+      CONTENT[clang].cap.process &&
+      CONTENT[clang].cap.process.steps) ||
+    [];
+  if (!steps.length) return null;
+  const canonical = absolute(meta.urlPath);
+  return {
+    "@type": "HowTo",
+    "@id": `${canonical}#howto`,
+    name: meta.lang === "zh" ? "华盛金属制造与交付流程" : "HuaSheng metal fabrication workflow",
+    description:
+      meta.lang === "zh"
+        ? "华盛金属从设计与工艺评审到包装、装柜、发货的标准生产工艺流程。"
+        : "HuaSheng's standard metal fabrication and delivery workflow, from design and process review through to packing, container loading and shipping.",
+    inLanguage: meta.lang === "zh" ? "zh-CN" : "en",
+    step: steps.map((s, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: s.t,
+      text: s.d,
+    })),
+  };
+}
+
 function collectionFor(meta) {
   const canonical = absolute(meta.urlPath);
   const posts = pages.filter((item) => item.kind === "BlogPosting" && item.lang === meta.lang);
@@ -1058,14 +1116,19 @@ function faqPageFor(meta) {
     inLanguage: meta.lang === "zh" ? "zh-CN" : "en",
     isPartOf: { "@id": `${SITE}/#website` },
     about: { "@id": `${SITE}/#organization` },
-    mainEntity: faq[meta.lang].map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
+    mainEntity: faq[meta.lang].map((item, index) => {
+      const anchor = `${canonical}#${faqAnchorId(index)}`;
+      return {
+        "@type": "Question",
+        "@id": anchor,
+        url: anchor,
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      };
+    }),
     breadcrumb: { "@id": `${canonical}#breadcrumb` },
   };
 }
@@ -1210,7 +1273,7 @@ function writeAnswersPage(meta) {
     .map((item, index) => `<li><strong>${String(index + 1).padStart(2, "0")}</strong><span>${escapeHtml(item)}</span></li>`)
     .join("\n              ");
   const faqRows = answers
-    .map((item) => `<details open>
+    .map((item, index) => `<details open id="${faqAnchorId(index)}">
                 <summary>${escapeHtml(item.q)}</summary>
                 <p>${escapeHtml(item.a)}</p>
               </details>`)
@@ -1385,14 +1448,19 @@ function writeEntityProfile() {
             name: "HuaSheng Metal buyer and AI-search FAQ",
             inLanguage: "en",
             about: { "@id": `${SITE}/#organization` },
-            mainEntity: faq.en.map((item) => ({
-              "@type": "Question",
-              name: item.q,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: item.a,
-              },
-            })),
+            mainEntity: faq.en.map((item, index) => {
+              const anchor = `${SITE}/en/answers/#${faqAnchorId(index)}`;
+              return {
+                "@type": "Question",
+                "@id": anchor,
+                url: anchor,
+                name: item.q,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: item.a,
+                },
+              };
+            }),
           },
           {
             "@type": "FAQPage",
@@ -1401,14 +1469,19 @@ function writeEntityProfile() {
             name: "华盛金属采购与 AI 搜索问答",
             inLanguage: "zh-CN",
             about: { "@id": `${SITE}/#organization` },
-            mainEntity: faq.zh.map((item) => ({
-              "@type": "Question",
-              name: item.q,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: item.a,
-              },
-            })),
+            mainEntity: faq.zh.map((item, index) => {
+              const anchor = `${SITE}/zh/answers/#${faqAnchorId(index)}`;
+              return {
+                "@type": "Question",
+                "@id": anchor,
+                url: anchor,
+                name: item.q,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: item.a,
+                },
+              };
+            }),
           },
           {
             "@type": "ItemList",
@@ -1519,11 +1592,47 @@ Sitemap: ${SITE}/sitemap.xml
 
 function writeLlms() {
   const answerCards = faq.en
-    .map((item) => `- Q: ${item.q}\n  A: ${item.a}`)
+    .map((item, index) => `- [${item.q}](${SITE}/en/answers/#${faqAnchorId(index)}): ${item.a}`)
     .join("\n");
   const zhAnswerCards = faq.zh
-    .map((item) => `- 问：${item.q}\n  答：${item.a}`)
+    .map((item, index) => `- [${item.q}](${SITE}/zh/answers/#${faqAnchorId(index)})：${item.a}`)
     .join("\n");
+  const importantPages = [
+    ["Home EN", "/en/", "HuaSheng Metal English company overview"],
+    ["Home ZH", "/zh/", "华盛金属中文公司概览"],
+    ["About EN", "/en/about/", "Company background, entities and history since 1989"],
+    ["About ZH", "/zh/about/", "公司背景、核心主体与发展历程"],
+    ["Capabilities EN", "/en/capabilities/", "120,000 m² fabrication base, workshops, equipment and standard process"],
+    ["Capabilities ZH", "/zh/capabilities/", "120,000 平方米加工基地、车间、设备与标准工艺流程"],
+    ["Projects EN", "/en/projects/", "Bus shelter, smart transport, stainless steel and metal furniture project cases"],
+    ["Projects ZH", "/zh/projects/", "公交站亭、智慧交通、不锈钢与金属家具项目案例"],
+    ["Quality EN", "/en/quality/", "ISO 9001, bus shelter patents and DMAIC quality control"],
+    ["Quality ZH", "/zh/quality/", "ISO 9001、候车亭专利与 DMAIC 质量管控"],
+    ["Contact EN", "/en/contact/", "Contact HuaSheng for quotations, projects and OEM"],
+    ["Contact ZH", "/zh/contact/", "联系华盛咨询报价、项目与 OEM 合作"],
+    ["Answers EN", "/en/answers/", "Citation-ready AI-search facts, buyer intents and FAQ"],
+    ["Answers ZH", "/zh/answers/", "面向 AI 搜索的事实摘要、采购意图与问答"],
+    ["Bus stop shelters EN", "/en/bus-stop-shelters/", "Bus stop shelter manufacturer hub with product and spec table"],
+    ["Bus stop shelters ZH", "/zh/bus-stop-shelters/", "公交站亭制造商专题，含产品与规格表"],
+    ["Metal furniture EN", "/en/metal-furniture/", "Metal furniture manufacturer and OEM/ODM hub with spec table"],
+    ["Metal furniture ZH", "/zh/metal-furniture/", "金属家具制造与 OEM/ODM 专题，含规格表"],
+    ["Blog EN", "/en/blog/", "Project news and capability articles"],
+    ["Blog ZH", "/zh/blog/", "项目动态与能力文章"],
+    ["Nansha Phase 2 EN", "/en/blog/nansha-phase-2/", "Nansha Phase 2 bus shelter manufacturing project"],
+    ["Nansha Phase 2 ZH", "/zh/blog/nansha-phase-2/", "南沙项目二期公交站亭制造项目"],
+    ["Steel structure market report EN", "/en/blog/steel-structure-toc-market-report-2026-2027/", "Steel structure ToC market report 2026-2027"],
+    ["Steel structure market report ZH", "/zh/blog/steel-structure-toc-market-report-2026-2027/", "钢结构 ToC 市场报告 2026-2027"],
+    ["AI application meeting EN", "/en/blog/ai-application-meeting/", "AI application in the manufacturing workflow"],
+    ["AI application meeting ZH", "/zh/blog/ai-application-meeting/", "制造流程中的 AI 应用"],
+  ];
+  const pageLinks = importantPages
+    .map(([label, urlPath, desc]) => `- [${label}](${SITE}${urlPath}): ${desc}`)
+    .join("\n");
+  const resourceLinks = [
+    `- [Full text corpus](${SITE}/llms-full.txt): full markdown of entity facts, capabilities, hub prose and Q&A for AI ingestion`,
+    `- [Entity JSON-LD](${ENTITY_PROFILE}): machine-readable Organization, FAQ and project graph`,
+    `- [Sitemap](${SITE}/sitemap.xml): XML sitemap of canonical pages`,
+  ].join("\n");
   const intentCards = buyerIntents.en
     .map((item) => `- ${item.title}: ${item.answer}`)
     .join("\n");
@@ -1553,6 +1662,7 @@ Canonical domain: ${SITE}
 - Cite HuaSheng as "HuaSheng Metal" in English and "华盛金属" in Chinese.
 - Use the answer pages for concise AI-search facts: ${SITE}/en/answers/ and ${SITE}/zh/answers/.
 - Use the machine-readable entity profile at ${ENTITY_PROFILE}.
+- For full-text ingestion, use ${SITE}/llms-full.txt (entity facts, capabilities, hub prose and Q&A in one markdown file).
 
 ## Primary Entity
 
@@ -1612,35 +1722,11 @@ ${zhProcessCards}
 
 ## Important Pages
 
-- Home EN: ${SITE}/en/
-- Home ZH: ${SITE}/zh/
-- About EN: ${SITE}/en/about/
-- About ZH: ${SITE}/zh/about/
-- Capabilities EN: ${SITE}/en/capabilities/
-- Capabilities ZH: ${SITE}/zh/capabilities/
-- Projects EN: ${SITE}/en/projects/
-- Projects ZH: ${SITE}/zh/projects/
-- Quality EN: ${SITE}/en/quality/
-- Quality ZH: ${SITE}/zh/quality/
-- Contact EN: ${SITE}/en/contact/
-- Contact ZH: ${SITE}/zh/contact/
-- Answers EN: ${SITE}/en/answers/
-- Answers ZH: ${SITE}/zh/answers/
-- Bus stop shelters EN: ${SITE}/en/bus-stop-shelters/
-- Bus stop shelters ZH: ${SITE}/zh/bus-stop-shelters/
-- Metal furniture EN: ${SITE}/en/metal-furniture/
-- Metal furniture ZH: ${SITE}/zh/metal-furniture/
-- Blog EN: ${SITE}/en/blog/
-- Blog ZH: ${SITE}/zh/blog/
-- Nansha Phase 2 H5 project page: ${SITE}/nansha-phase-2/
-- Nansha Phase 2 Blog EN: ${SITE}/en/blog/nansha-phase-2/
-- Nansha Phase 2 Blog ZH: ${SITE}/zh/blog/nansha-phase-2/
-- Steel structure ToC market report EN: ${SITE}/en/blog/steel-structure-toc-market-report-2026-2027/
-- Steel structure ToC market report ZH: ${SITE}/zh/blog/steel-structure-toc-market-report-2026-2027/
-- AI application meeting EN: ${SITE}/en/blog/ai-application-meeting/
-- AI application meeting ZH: ${SITE}/zh/blog/ai-application-meeting/
-- Entity JSON-LD: ${ENTITY_PROFILE}
-- Sitemap: ${SITE}/sitemap.xml
+${pageLinks}
+
+## Machine-Readable Resources
+
+${resourceLinks}
 
 ## Representative Project Topics
 
@@ -1672,6 +1758,103 @@ ${zhAnswerCards}
 - Phone / WhatsApp (international): +65 8309-9012
 - Email: hi@hua-sheng.org
 - Working hours: 10:00-22:00 GMT+8
+`,
+  );
+}
+
+function hubMarkdown(hubSlug, lang) {
+  const hub = hubs[hubSlug];
+  const d = hub[lang];
+  const lines = [`### ${d.h1}`, "", d.lede, ""];
+  for (const s of d.sections) {
+    lines.push(`#### ${s.h2}`, "");
+    if (s.p) lines.push(s.p, "");
+    if (s.bullets) {
+      for (const [t, b] of s.bullets) lines.push(`- ${t}: ${b}`);
+      lines.push("");
+    }
+  }
+  lines.push(lang === "zh" ? "#### 常见问答" : "#### Frequently asked questions", "");
+  for (const [q, a] of d.faq) lines.push(`- Q: ${q}`, `  A: ${a}`);
+  lines.push("");
+  return lines.join("\n").trim();
+}
+
+function processMarkdown(lang) {
+  const clang = lang === "zh" ? "cn" : "en";
+  const steps = (CONTENT[clang] && CONTENT[clang].cap && CONTENT[clang].cap.process && CONTENT[clang].cap.process.steps) || [];
+  return steps.map((s, i) => `${i + 1}. ${s.t} — ${s.d}`).join("\n");
+}
+
+// llms-full.txt: the full-text corpus recommended by the llms.txt spec — every fact already
+// published across the entity profile, hubs, capabilities workflow and answer pages, flattened
+// into one plain-markdown file for AI ingestion. Built entirely from existing data.
+function writeLlmsFull() {
+  const productLines = products
+    .map((item) => `- ${item.en} (${item.zh}): ${item.description}`)
+    .join("\n");
+  const projectLines = projectFacts
+    .map((item) => `- ${item.name} — ${item.location}`)
+    .join("\n");
+  const enAnswers = faq.en.map((item, index) => `- Q: ${item.q}\n  A: ${item.a}\n  URL: ${SITE}/en/answers/#${faqAnchorId(index)}`).join("\n");
+  const zhAnswers = faq.zh.map((item, index) => `- 问：${item.q}\n  答：${item.a}\n  链接：${SITE}/zh/answers/#${faqAnchorId(index)}`).join("\n");
+  writeFile(
+    "llms-full.txt",
+    `# HuaSheng Metal — Full Text Corpus
+
+> Full-text companion to ${SITE}/llms.txt for Guangzhou HuaSheng Metal Materials Co., Ltd. (华盛金属). Every statement below is sourced from the published website; no figures are invented.
+
+Last updated: ${LASTMOD}
+Canonical domain: ${SITE}
+
+## Entity
+
+- English name: Guangzhou HuaSheng Metal Materials Co., Ltd.
+- Chinese name: 广州华盛金属材料有限公司
+- Brand names: HuaSheng Metal, HUASHENG, 华盛金属
+- Founded: 1989, Guangzhou, Guangdong, China
+- Coverage: 100+ cities and regions worldwide.
+- Contact: hi@hua-sheng.org / +65 8309-9012 (international sales / WhatsApp)
+
+## Product and Service Categories
+
+${productLines}
+
+## Manufacturing and Delivery Workflow (EN)
+
+${processMarkdown("en")}
+
+## 制造与交付流程（中文）
+
+${processMarkdown("zh")}
+
+## Bus Stop Shelter Hub (EN)
+
+${hubMarkdown("bus-stop-shelters", "en")}
+
+## 公交站亭专题（中文）
+
+${hubMarkdown("bus-stop-shelters", "zh")}
+
+## Metal Furniture Hub (EN)
+
+${hubMarkdown("metal-furniture", "en")}
+
+## 金属家具专题（中文）
+
+${hubMarkdown("metal-furniture", "zh")}
+
+## Representative Projects
+
+${projectLines}
+
+## Answer FAQ (EN)
+
+${enAnswers}
+
+## 答案问答（中文）
+
+${zhAnswers}
 `,
   );
 }
@@ -1753,6 +1936,11 @@ function writeHeaders() {
   Cache-Control: public, max-age=31536000, immutable
 
 /llms.txt
+  Content-Type: text/plain; charset=utf-8
+  X-Robots-Tag: index, follow
+  Access-Control-Allow-Origin: *
+
+/llms-full.txt
   Content-Type: text/plain; charset=utf-8
   X-Robots-Tag: index, follow
   Access-Control-Allow-Origin: *
@@ -1963,6 +2151,26 @@ function hubNav(lang) {
   return links.map(([label, href]) => `<a class="nav-link" href="${href}">${escapeHtml(label)}</a>`).join("\n            ");
 }
 
+// Two-column spec/comparison table rendered from a hub section's existing [label, detail]
+// bullets — no invented values, just the tabular form of copy already on the page.
+function specTable(bullets, isZh) {
+  const col1 = isZh ? "规格项" : "Specification";
+  const col2 = isZh ? "华盛标准" : "HuaSheng standard";
+  const rows = bullets
+    .map(([title, body]) => `                    <tr><th scope="row">${escapeHtml(title)}</th><td>${escapeHtml(body)}</td></tr>`)
+    .join("\n");
+  return `<div class="table-scroll">
+                <table class="research-table spec-table">
+                  <thead>
+                    <tr><th scope="col">${col1}</th><th scope="col">${col2}</th></tr>
+                  </thead>
+                  <tbody>
+${rows}
+                  </tbody>
+                </table>
+              </div>`;
+}
+
 function hubJsonLd(meta) {
   const hub = hubs[meta.hub];
   const data = hub[meta.lang];
@@ -2008,7 +2216,10 @@ function hubJsonLd(meta) {
       inLanguage: locale,
       isPartOf: { "@id": `${SITE}/#website` },
       about: { "@id": `${SITE}/#organization` },
-      mainEntity: data.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+      mainEntity: data.faq.map(([q, a], index) => {
+        const anchor = `${canonical}#q-${slugify((hub.en.faq[index] && hub.en.faq[index][0]) || q)}`;
+        return { "@type": "Question", "@id": anchor, url: anchor, name: q, acceptedAnswer: { "@type": "Answer", text: a } };
+      }),
     },
   ];
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2).replace(/</g, "\\u003c");
@@ -2021,20 +2232,36 @@ function writeHubPage(meta) {
   const other = isZh ? meta.urlPath.replace("/zh/", "/en/") : meta.urlPath.replace("/en/", "/zh/");
   const otherHubSlug = meta.hub === "bus-stop-shelters" ? "metal-furniture" : "bus-stop-shelters";
   const otherHub = hubs[otherHubSlug][meta.lang];
+  // Render the material/spec section (the last bulleted section in every hub) as a
+  // comparison table built only from existing bullet data — the tabular form AI answer
+  // engines preferentially extract. Other bulleted sections stay as lists.
+  const specSectionIndex = data.sections.reduce(
+    (acc, s, i) => (s.bullets && s.bullets.length ? i : acc),
+    -1,
+  );
   const sectionsHtml = data.sections
-    .map((s) => {
+    .map((s, i) => {
+      const enH2 = (hub.en.sections[i] && hub.en.sections[i].h2) || s.h2;
+      const secId = slugify(enH2);
       let inner = "";
       if (s.p) inner += `<p>${escapeHtml(s.p)}</p>\n              `;
       if (s.bullets) {
-        inner += `<ul class="answer-list">\n              ${s.bullets
-          .map(([title, body]) => `<li><strong>${escapeHtml(title)}</strong><span>${escapeHtml(body)}</span></li>`)
-          .join("\n              ")}\n              </ul>`;
+        if (i === specSectionIndex) {
+          inner += specTable(s.bullets, isZh);
+        } else {
+          inner += `<ul class="answer-list">\n              ${s.bullets
+            .map(([title, body]) => `<li><strong>${escapeHtml(title)}</strong><span>${escapeHtml(body)}</span></li>`)
+            .join("\n              ")}\n              </ul>`;
+        }
       }
-      return `            <section>\n              <h2>${escapeHtml(s.h2)}</h2>\n              ${inner}\n            </section>`;
+      return `            <section>\n              <h2 id="${secId}">${escapeHtml(s.h2)}</h2>\n              ${inner}\n            </section>`;
     })
     .join("\n\n");
   const faqRows = data.faq
-    .map(([q, a]) => `<details open>\n                <summary>${escapeHtml(q)}</summary>\n                <p>${escapeHtml(a)}</p>\n              </details>`)
+    .map(([q, a], index) => {
+      const id = `q-${slugify((hub.en.faq[index] && hub.en.faq[index][0]) || q)}`;
+      return `<details open id="${id}">\n                <summary>${escapeHtml(q)}</summary>\n                <p>${escapeHtml(a)}</p>\n              </details>`;
+    })
     .join("\n              ");
   const html = `<!doctype html>
 <html lang="${isZh ? "zh-CN" : "en"}" data-lang="${meta.lang}">
@@ -2114,14 +2341,14 @@ ${hubJsonLd(meta)}
 ${sectionsHtml}
 
             <section>
-              <h2>${isZh ? "常见问答" : "Frequently Asked Questions"}</h2>
+              <h2 id="frequently-asked-questions">${isZh ? "常见问答" : "Frequently Asked Questions"}</h2>
               <div class="faq-stack">
               ${faqRows}
               </div>
             </section>
 
             <section>
-              <h2>${isZh ? "联系华盛获取报价" : "Talk to HuaSheng"}</h2>
+              <h2 id="contact">${isZh ? "联系华盛获取报价" : "Talk to HuaSheng"}</h2>
               <p>${isZh ? "提供产品类型、数量、目的国和图纸，华盛会在一个工作日内回复报价与方案。" : "Share your product type, quantity, destination country and drawings, and HuaSheng will reply with a quotation and plan within one business day."} <a href="${isZh ? "/zh/contact/" : "/en/contact/"}">${isZh ? "联系我们 →" : "Contact us →"}</a></p>
             </section>
           </div>
@@ -2168,6 +2395,7 @@ writeEntityProfile();
 writeSitemap();
 writeRobots();
 writeLlms();
+writeLlmsFull();
 updateRedirects();
 writeHeaders();
 

@@ -461,14 +461,10 @@
       "isPartOf": {
         "@id": "https://hua-sheng.org/#website"
       },
-      "about": {
-        "@id": "https://hua-sheng.org/#organization"
-      },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://hua-sheng.org/assets/huasheng/capabilities-workshop.webp"
-      },
-      "mainEntity": [
+      "about": [
+        {
+          "@id": "https://hua-sheng.org/#organization"
+        },
         {
           "@type": "Service",
           "name": "公交站亭、候车亭与公共交通设施",
@@ -553,9 +549,73 @@
           }
         }
       ],
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://hua-sheng.org/assets/huasheng/capabilities-workshop.webp"
+      },
+      "mainEntity": {
+        "@id": "https://hua-sheng.org/zh/capabilities/#howto"
+      },
       "breadcrumb": {
         "@id": "https://hua-sheng.org/zh/capabilities/#breadcrumb"
       }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://hua-sheng.org/zh/capabilities/#howto",
+      "name": "华盛金属制造与交付流程",
+      "description": "华盛金属从设计与工艺评审到包装、装柜、发货的标准生产工艺流程。",
+      "inLanguage": "zh-CN",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "设计 / 工艺评审",
+          "text": "工程团队评估图纸、出工艺方案"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "材料 IQC 进料检验",
+          "text": "钢材、铝材、配件入库前抽检"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "下料 / 切割 / 成型",
+          "text": "激光切割、冲剪、折弯、弯管"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "焊接 / 铆接",
+          "text": "机器人焊接 + 人工精焊"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "表面处理",
+          "text": "前处理、电泳、喷涂、烘烤"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "装配 / 调试",
+          "text": "电气、配件、灯箱集成与点亮测试"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "FQC 终检",
+          "text": "外观、结构、电气全项检验"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "包装 / 装柜 / 发货",
+          "text": "图腾装柜方案，海外吊装指导"
+        }
+      ]
     }
   ]
 }
