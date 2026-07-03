@@ -3,8 +3,9 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const SITE = "https://hua-sheng.org";
-const LASTMOD = "2026-06-18";
-const VERSION = "huasheng-site-20260618-geo2";
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
+const LASTMOD = BUILD_DATE;
+const VERSION = `huasheng-site-${BUILD_DATE.replace(/-/g, "")}-geo3`;
 const DEFAULT_IMAGE = `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`;
 const LOGO = `${SITE}/assets/logo.png`;
 const ENTITY_PROFILE = `${SITE}/entity-profile.jsonld`;
@@ -480,6 +481,7 @@ const organization = {
   logo: { "@type": "ImageObject", "url": LOGO },
   image: DEFAULT_IMAGE,
   foundingDate: "1989",
+  dateModified: LASTMOD,
   foundingLocation: {
     "@type": "Place",
     name: "Guangzhou, Guangdong, China",
@@ -609,6 +611,7 @@ const siteGraph = [
     name: "HuaSheng Metal",
     alternateName: ["华盛金属", "HUASHENG"],
     inLanguage: ["en", "zh-CN"],
+    dateModified: LASTMOD,
     publisher: { "@id": `${SITE}/#organization` },
   },
 ];
@@ -618,7 +621,7 @@ const pages = [
     aliases: ["index.html"],
     title: "Bus Stop Shelter & Metal Furniture Manufacturer | HuaSheng",
     description:
-      "HuaSheng Metal is a Guangzhou manufacturer of bus stop shelters, bus shelters, advertising light boxes, urban and metal furniture, outdoor kiosks and precision metal OEM products serving 100+ cities and regions.",
+      "HuaSheng Metal, Guangzhou bus stop shelter and metal furniture manufacturer, producing advertising light boxes and precision metal OEM for 100+ cities.",
     image: DEFAULT_IMAGE,
     priority: "1.0",
     changefreq: "weekly",
@@ -635,7 +638,7 @@ const pages = [
     aliases: ["about/index.html"],
     title: "About HuaSheng | Guangzhou Manufacturer Founded in 1989",
     description:
-      "Learn about HuaSheng's 1989 founding, five core operating entities, four business pillars, global clients, bus stop shelter and metal furniture projects, manufacturing technology and quality values.",
+      "Learn about HuaSheng's 1989 Guangzhou founding, five entities, four pillars, global bus stop shelter and metal furniture projects and quality values.",
     image: `${SITE}/assets/huasheng/about-factory-campus.webp`,
     priority: "0.9",
   }),
@@ -650,7 +653,7 @@ const pages = [
     aliases: ["capabilities/index.html"],
     title: "Manufacturing Capabilities | 120,000 m2 Metal Fabrication Base",
     description:
-      "HuaSheng's production capability includes 120,000 m2 of plant area, five workshops, 297 precision machines, robotic welding, CNC forming and automated powder coating.",
+      "HuaSheng's 120,000 m2 metal fabrication base: five workshops, 297 precision machines, robotic welding, CNC forming and automated powder coating.",
     image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
     priority: "0.85",
   }),
@@ -665,7 +668,7 @@ const pages = [
     aliases: ["projects/index.html", "cases/index.html"],
     title: "Bus Stop Shelter & Metal Project Cases | HuaSheng Metal",
     description:
-      "Explore HuaSheng bus stop shelter, smart transport, stainless steel, metal furniture, overseas public facility and OEM cases across Beijing, Shanghai, Guangzhou, Qatar, Nepal and more.",
+      "HuaSheng bus stop shelter, smart transport, stainless steel and metal furniture project cases in Beijing, Shanghai, Guangzhou, Qatar, Nepal and more.",
     image: `${SITE}/assets/huasheng/projects-overview.webp`,
     priority: "0.9",
   }),
@@ -728,7 +731,7 @@ const pages = [
     hub: "bus-stop-shelters",
     title: "Bus Stop Shelter Manufacturer | Metal & Steel Bus Stops",
     description:
-      "HuaSheng manufactures custom metal and steel bus stop shelters, smart bus shelters, advertising light boxes and modular bus stops for cities and export markets worldwide.",
+      "HuaSheng manufactures custom metal and steel bus stop shelters, smart shelters, advertising light boxes and modular bus stops for cities and export worldwide.",
     image: `${SITE}/assets/huasheng/hero-bus-shelter-deployed.webp`,
     priority: "0.9",
     changefreq: "monthly",
@@ -746,7 +749,7 @@ const pages = [
     hub: "metal-furniture",
     title: "Metal Furniture Manufacturer & OEM | Outdoor, Home & Street",
     description:
-      "HuaSheng is a Guangzhou metal furniture manufacturer and OEM/ODM partner for outdoor metal furniture, street furniture, and kitchen, bathroom and home metal furniture, with export packaging worldwide.",
+      "HuaSheng, Guangzhou metal furniture manufacturer and OEM/ODM partner for outdoor, street, kitchen, bathroom and home metal furniture, export worldwide.",
     image: `${SITE}/assets/huasheng/capabilities-workshop.webp`,
     priority: "0.9",
     changefreq: "monthly",
@@ -761,7 +764,7 @@ const pages = [
     changefreq: "monthly",
   }),
   page("blog", "en", "/en/blog/", "en/blog/index.html", {
-    title: "Huasheng Blog | Project Cases, Product Capabilities and AI Workflows",
+    title: "Huasheng Blog | Project Cases, Capabilities & AI Workflows",
     description:
       "Huasheng Blog records project cases, product capabilities, certifications, service workflows, and AI-enabled operating practices.",
     image: `${SITE}/blog/assets/meeting-room.jpg`,
@@ -813,7 +816,7 @@ const pages = [
   article("steel-structure-toc-market-report-2026-2027", "en", "/en/blog/steel-structure-toc-market-report-2026-2027/", "en/blog/steel-structure-toc-market-report-2026-2027/index.html", {
     title: "2026-2027 ToC Market Report for Steel Outdoor Structures",
     description:
-      "Market signals, successful product cases, Huasheng fit and an 18-month product roadmap for carports, pergolas, sheds, bike shelters and compact community structures.",
+      "Market signals, product cases, HuaSheng fit and 18-month roadmap for carports, pergolas, sheds, bike shelters and compact community structures.",
     image: `${SITE}/assets/huasheng/case-steel-structure.webp`,
     published: "2026-06-03",
     modified: LASTMOD,
@@ -1050,6 +1053,8 @@ function faqPageFor(meta) {
     url: canonical,
     name: meta.title,
     description: meta.description,
+    datePublished: LASTMOD,
+    dateModified: LASTMOD,
     inLanguage: meta.lang === "zh" ? "zh-CN" : "en",
     isPartOf: { "@id": `${SITE}/#website` },
     about: { "@id": `${SITE}/#organization` },
@@ -1109,12 +1114,17 @@ function updateHead(html, meta) {
   html = replaceMeta(html, /<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${escapeHtml(meta.description)}" />`);
   html = replaceMeta(html, /<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${canonical}" />`);
   html = replaceMeta(html, /<meta property="og:image" content="[^"]*" \/>/, `<meta property="og:image" content="${meta.image || DEFAULT_IMAGE}" />`);
+  html = replaceMeta(html, /<meta property="og:locale" content="[^"]*" \/>/, `<meta property="og:locale" content="${meta.lang === "zh" ? "zh_CN" : "en_US"}" />`);
+  html = ensureHeadLink(html, 'property="og:locale:alternate"', `<meta property="og:locale:alternate" content="${meta.lang === "zh" ? "en_US" : "zh_CN"}" />`);
   html = replaceMeta(html, /<meta name="twitter:card" content="[^"]*" \/>/, `<meta name="twitter:card" content="summary_large_image" />`);
   html = replaceMeta(html, /<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${escapeHtml(meta.title)}" />`);
   html = replaceMeta(html, /<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${escapeHtml(meta.description)}" />`);
   html = replaceMeta(html, /<meta name="twitter:image" content="[^"]*" \/>/, `<meta name="twitter:image" content="${meta.image || DEFAULT_IMAGE}" />`);
   html = ensureHeadLink(html, 'name="geo.region"', '<meta name="geo.region" content="CN-GD" />');
   html = ensureHeadLink(html, 'name="geo.placename"', '<meta name="geo.placename" content="Guangzhou" />');
+  html = replaceMeta(html, /<link rel="icon" type="image\/png" sizes="32x32" href="[^"]*" \/>/, `<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=${VERSION}" />`);
+  html = ensureHeadLink(html, 'rel="shortcut icon"', `<link rel="shortcut icon" href="/favicon.ico?v=${VERSION}" />`);
+  html = ensureHeadLink(html, 'rel="apple-touch-icon"', `<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=${VERSION}" />`);
   html = html.replace(/huasheng-site-\d{8}[-a-z0-9]*/g, VERSION);
   html = replaceOrInsertJsonLd(html, meta);
 
@@ -1227,6 +1237,8 @@ function writeAnswersPage(meta) {
   <meta property="og:description" content="${escapeHtml(meta.description)}" />
   <meta property="og:url" content="${absolute(meta.urlPath)}" />
   <meta property="og:image" content="${meta.image || DEFAULT_IMAGE}" />
+  <meta property="og:locale" content="${isZh ? "zh_CN" : "en_US"}" />
+  <meta property="og:locale:alternate" content="${isZh ? "en_US" : "zh_CN"}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeHtml(meta.title)}" />
   <meta name="twitter:description" content="${escapeHtml(meta.description)}" />
@@ -1234,6 +1246,8 @@ function writeAnswersPage(meta) {
   <meta name="geo.region" content="CN-GD" />
   <meta name="geo.placename" content="Guangzhou" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=${VERSION}" />
+  <link rel="shortcut icon" href="/favicon.ico?v=${VERSION}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=${VERSION}" />
   <link rel="stylesheet" href="/styles.css?v=${VERSION}" />
   <link rel="stylesheet" href="/blog/blog.css?v=${VERSION}" />
   <script type="application/ld+json">
@@ -1714,6 +1728,30 @@ function writeHeaders() {
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
 
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/compiled/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/nansha-phase-2/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/blog/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/styles.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/blog/blog.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon-32.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=31536000, immutable
+
 /llms.txt
   Content-Type: text/plain; charset=utf-8
   X-Robots-Tag: index, follow
@@ -1959,6 +1997,8 @@ function writeHubPage(meta) {
   <meta property="og:description" content="${escapeHtml(meta.description)}" />
   <meta property="og:url" content="${absolute(meta.urlPath)}" />
   <meta property="og:image" content="${hub.image || DEFAULT_IMAGE}" />
+  <meta property="og:locale" content="${isZh ? "zh_CN" : "en_US"}" />
+  <meta property="og:locale:alternate" content="${isZh ? "en_US" : "zh_CN"}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeHtml(meta.title)}" />
   <meta name="twitter:description" content="${escapeHtml(meta.description)}" />
@@ -1966,6 +2006,8 @@ function writeHubPage(meta) {
   <meta name="geo.region" content="CN-GD" />
   <meta name="geo.placename" content="Guangzhou" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=${VERSION}" />
+  <link rel="shortcut icon" href="/favicon.ico?v=${VERSION}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=${VERSION}" />
   <link rel="stylesheet" href="/styles.css?v=${VERSION}" />
   <link rel="stylesheet" href="/blog/blog.css?v=${VERSION}" />
   <script type="application/ld+json">
