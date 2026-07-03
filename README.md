@@ -43,6 +43,66 @@ For a new corporate page:
 5. Add any direct route fallback in `/_redirects`.
 6. Keep language-scoped links under `/en/...` and `/zh/...`; legacy unprefixed paths redirect to `/en/...`.
 
+## Deployment
+
+This site has no CI (no `.github/`, no build script). Deploys are manual: push to
+GitHub, or drag-and-drop the project directory into the Cloudflare Pages dashboard.
+
+**After every production deploy**, run the smoke check to confirm the GEO/prerender
+layer is live (not a stale build):
+
+```
+node scripts/smoke-check.mjs
+```
+
+It HEAD-requests 10 critical URLs (answer pages, keyword hubs, entity profile,
+sitemap, llms.txt, homepage) and exits non-zero if any return non-2xx. This
+prevents silent regressions where a deploy serves an older build.
+
+To check a pending deploy before promoting it:
+
+```
+BASE_URL=https://hua-sheng-site-<alias>.pages.dev node scripts/smoke-check.mjs
+```
+
+## Blocking the pages.dev origin
+
+The Cloudflare Pages origin `hua-sheng-site.pages.dev` is a complete crawlable
+duplicate of `hua-sheng.org`. No repo file can reliably block it (the worker
+fetches *from* pages.dev, and `robots.txt`/canonical are served identically on
+both hosts). Fix it at the edge via the Cloudflare dashboard:
+
+1. Go to **Rules > Redirect Rules** (zone-level, for `hua-sheng.org`).
+2. Create a rule:
+   - **When**: Hostname equals `hua-sheng-site.pages.dev`
+   - **Then**: Static redirect `301` to `https://hua-sheng.org${http.request.uri.path}${http.request.uri.query}`
+   - **Status code**: 301 Permanent
+3. Save and deploy.
+
+After this, `curl -sI https://hua-sheng-site.pages.dev/en/` should return `301`
+pointing at `hua-sheng.org`, not a 200 indexable page.
+
+## IndexNow
+
+An IndexNow key file (`a36fde7d61dfbfe80fdb0c19133cfc80.txt`) is committed at the
+repo root. It deploys with the site so Bing/Yandex can verify key ownership.
+
+To submit changed URLs to IndexNow (Bing/Yandex only, low priority):
+
+```
+INDEXNOW_KEY=a36fde7d61dfbfe80fdb0c19133cfc80 node scripts/submit-indexnow.mjs
+```
+
+If you ever rotate the key, regenerate the key file and commit it:
+
+```
+INDEXNOW_KEY=<new-key> node scripts/submit-indexnow.mjs --write-key
+git add <new-key>.txt
+git commit -m "Rotate IndexNow key"
+```
+
+Then deploy so the new key file is reachable at `https://hua-sheng.org/<new-key>.txt`.
+
 ## Search and GEO Updates
 
 After adding or changing public pages:
@@ -50,7 +110,4 @@ After adding or changing public pages:
 1. Run `node scripts/update-geo-assets.mjs` (this regenerates the answer pages, both keyword hubs, the `#root` pre-render content, and all GEO assets). Keyword data (products, FAQ, hubs, `knowsAbout`) lives at the top of that script.
 2. Verify `sitemap.xml`, `llms.txt`, `/en/answers/`, `/zh/answers/`, `/en/bus-stop-shelters/`, `/en/metal-furniture/`, `/entity-profile.jsonld`, `robots.txt`, `_headers`, and `_redirects`.
 3. Confirm the answer pages still expose buyer-intent cards, manufacturing workflow, FAQ structured data, and canonical citation links in both English and Chinese.
-4. If an IndexNow key is configured, write/deploy the key file and submit changed URLs:
-   `INDEXNOW_KEY=<key> node scripts/submit-indexnow.mjs --write-key`
-   Deploy the generated `<key>.txt`, then run:
-   `INDEXNOW_KEY=<key> node scripts/submit-indexnow.mjs`
+4. Run the post-deploy smoke check (see **Deployment** above) and submit to IndexNow if needed (see **IndexNow** above).
