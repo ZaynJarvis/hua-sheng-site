@@ -180,8 +180,6 @@
       { id: "about", label: t.nav.about, href: routePath("about", lang) },
       { id: "capabilities", label: t.nav.capabilities, href: routePath("capabilities", lang) },
       { id: "cases", label: t.nav.cases, href: routePath("cases", lang) },
-      { id: "bus-stop-shelters", label: lang === "cn" ? "\u516C\u4EA4\u7AD9\u4EAD" : "Bus stop shelters", href: lang === "cn" ? "/zh/bus-stop-shelters/" : "/en/bus-stop-shelters/", external: true },
-      { id: "metal-furniture", label: lang === "cn" ? "\u91D1\u5C5E\u5BB6\u5177" : "Metal furniture", href: lang === "cn" ? "/zh/metal-furniture/" : "/en/metal-furniture/", external: true },
       { id: "quality", label: t.nav.quality, href: routePath("quality", lang) },
       { id: "blog", label: t.nav.blog || "Blog", href: lang === "cn" ? "/zh/blog/" : "/en/blog/", external: true },
       { id: "contact", label: t.nav.contact, href: routePath("contact", lang) }
