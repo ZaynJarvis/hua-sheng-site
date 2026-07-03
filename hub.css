@@ -1,0 +1,198 @@
+/* ============================================================
+   Hub pages (bus stop shelters, metal furniture, light boxes,
+   street furniture, stainless steel) — static product/sourcing
+   hubs skinned in the site's heritage design system.
+   Builds on styles.css tokens; no standalone palette.
+   ============================================================ */
+
+/* ----- Hero ----- */
+.hub-hero { padding: 148px 0 56px; }
+@media (max-width: 920px) { .hub-hero { padding: 40px 0 48px; } }
+.hub-hero .display-xl { max-width: 22ch; margin: 18px 0 20px; }
+.hub-hero .lede { max-width: 62ch; }
+
+.hub-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.hub-pills span {
+  font-family: var(--font-mono);
+  font-size: 12px; letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 7px 14px;
+}
+body[data-lang="cn"] .hub-pills span { font-family: var(--font-body); font-size: 13px; letter-spacing: 0.12em; }
+
+.hub-cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+
+/* ----- Mobile quick nav (desktop nav-links hide ≤920px) ----- */
+.hub-quicknav { display: none; }
+@media (max-width: 920px) {
+  .hub-quicknav {
+    display: flex; gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-top: 72px; /* clear the fixed site header */
+    padding: 12px var(--container-pad);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .hub-quicknav::-webkit-scrollbar { display: none; }
+  .hub-quicknav a {
+    flex: 0 0 auto;
+    font-size: 13px; color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 7px 14px;
+    white-space: nowrap;
+  }
+  .hub-quicknav a[aria-current="page"] { color: var(--ink); border-color: var(--accent); }
+}
+
+/* ----- Layout: content + rail ----- */
+.hub-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 72px;
+  padding: 24px 0 96px;
+}
+@media (max-width: 1080px) {
+  .hub-layout { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+}
+
+/* ----- Article prose ----- */
+.hub-article { max-width: 70ch; }
+/* styles.css pads every bare <section> 96px for the SPA; hub prose sections are compact */
+.hub-article section { padding: 0; margin-bottom: 56px; }
+.hub-article h2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.18; letter-spacing: -0.005em; font-weight: 500;
+  margin: 0 0 16px;
+  scroll-margin-top: 96px;
+}
+.hub-article p { color: var(--ink-soft); margin: 0 0 16px; }
+.hub-article a { color: var(--accent); }
+.hub-article a:hover { color: var(--ink); }
+
+/* Definition-style bullet rows */
+.answer-list { list-style: none; margin: 20px 0 0; padding: 0; }
+.answer-list li {
+  display: grid; gap: 4px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.answer-list li:last-child { border-bottom: 1px solid var(--line); }
+.answer-list li strong { color: var(--ink); font-weight: 600; }
+.answer-list li span { color: var(--ink-soft); }
+
+/* ----- Signature: engineering spec sheet ----- */
+.table-scroll { overflow-x: auto; margin: 24px 0 8px; }
+table.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid var(--warm);
+  font-size: 15px;
+}
+table.spec-table thead th {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ink-mute);
+  text-align: left;
+  padding: 12px 18px 10px 0;
+  border-bottom: 1px solid var(--line-strong);
+}
+body[data-lang="cn"] table.spec-table thead th { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.2em; }
+table.spec-table tbody th,
+table.spec-table tbody td {
+  vertical-align: top;
+  text-align: left;
+  padding: 14px 18px 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+table.spec-table tbody th {
+  font-weight: 600; color: var(--ink);
+  width: 34%; min-width: 180px;
+}
+table.spec-table tbody td { color: var(--ink-soft); }
+
+/* ----- FAQ ----- */
+.hub-faq details { border-top: 1px solid var(--line); }
+.hub-faq details:last-child { border-bottom: 1px solid var(--line); }
+.hub-faq summary {
+  list-style: none;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  cursor: pointer;
+  padding: 18px 0;
+  color: var(--ink); font-weight: 500;
+}
+.hub-faq summary::-webkit-details-marker { display: none; }
+.hub-faq summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+  color: var(--warm);
+  flex: 0 0 auto;
+  transition: transform var(--tr-fast);
+}
+.hub-faq details[open] summary::after { content: "−"; }
+.hub-faq details p { margin: 0 0 20px; color: var(--ink-soft); max-width: 64ch; }
+
+/* ----- Side rail ----- */
+.hub-side { position: sticky; top: 96px; align-self: start; display: grid; gap: 20px; }
+@media (max-width: 1080px) { .hub-side { position: static; } }
+.side-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  display: grid; gap: 2px;
+}
+.side-card b {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  font-weight: 500; color: var(--ink-mute);
+  margin-bottom: 10px;
+}
+body[data-lang="cn"] .side-card b { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.2em; }
+.side-card a {
+  color: var(--ink-soft);
+  padding: 7px 0;
+  border-top: 1px solid var(--line);
+  transition: color var(--tr-fast);
+}
+.side-card a:first-of-type { border-top: 0; }
+.side-card a:hover { color: var(--accent); }
+.side-card p { margin: 0 0 12px; color: var(--ink-soft); font-size: 14px; line-height: 1.55; }
+
+/* ----- Closing CTA band ----- */
+.hub-cta {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 44px 40px;
+  margin: 8px 0 96px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px;
+}
+.hub-cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 500; line-height: 1.2; margin: 0 0 8px;
+  scroll-margin-top: 96px;
+}
+.hub-cta p { margin: 0; color: var(--ink-soft); max-width: 52ch; }
+@media (max-width: 640px) { .hub-cta { padding: 32px 24px; } }
+
+/* styles.css pads every bare <section>; the hero defines its own rhythm */
+section.hub-hero { padding: 148px 0 56px; }
+@media (max-width: 920px) { section.hub-hero { padding: 40px 0 48px; } }
+
+/* ----- Quality floor ----- */
+a:focus-visible, summary:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hub-faq summary::after, .side-card a { transition: none; }
+}

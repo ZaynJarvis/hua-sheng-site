@@ -25,6 +25,9 @@ https://:version.hua-sheng-site.pages.dev/*
 /styles.css
   Cache-Control: public, max-age=31536000, immutable
 
+/hub.css
+  Cache-Control: public, max-age=31536000, immutable
+
 /blog/blog.css
   Cache-Control: public, max-age=31536000, immutable
 

@@ -29,8 +29,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=huasheng-site-20260703-geo3" />
   <link rel="shortcut icon" href="/favicon.ico?v=huasheng-site-20260703-geo3" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=huasheng-site-20260703-geo3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css?v=huasheng-site-20260703-geo3" />
-  <link rel="stylesheet" href="/blog/blog.css?v=huasheng-site-20260703-geo3" />
+  <link rel="stylesheet" href="/hub.css?v=huasheng-site-20260703-geo3" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -557,28 +560,30 @@
 }
   </script>
 </head>
-<body data-theme="clarity" data-lang="zh" data-screen="blog">
-  <div class="blog-shell">
-    <header class="site-header blog-site-header scrolled">
+<body data-theme="clarity" data-lang="cn">
+    <header class="site-header scrolled">
       <div class="container-wide nav-inner">
         <a class="brand" href="/zh/">
           <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
           <span class="brand-text">
             <span class="a">华盛金属</span>
-            <span class="b">户外、家居、厨房与城市金属家具 · IKEA 级 OEM</span>
+            <span class="b">HUASHENG · 1989</span>
           </span>
         </a>
         <nav class="nav-links">
             <a class="nav-link" href="/zh/">首页</a>
-            <a class="nav-link" href="/zh/bus-stop-shelters/">公交站亭</a>
-            <a class="nav-link" href="/zh/metal-furniture/">金属家具</a>
-            <a class="nav-link" href="/zh/projects/">项目案例</a>
+            <a class="nav-link" href="/zh/about/">关于我们</a>
             <a class="nav-link" href="/zh/capabilities/">核心能力</a>
-            <a class="nav-link" href="/zh/contact/">联系</a>
+            <a class="nav-link" href="/zh/projects/">项目案例</a>
+            <a class="nav-link" href="/zh/bus-stop-shelters/">公交站亭</a>
+            <a class="nav-link active" aria-current="page" href="/zh/metal-furniture/">金属家具</a>
+            <a class="nav-link" href="/zh/quality/">质量与认证</a>
+            <a class="nav-link" href="/zh/blog/">企业动态</a>
+            <a class="nav-link" href="/zh/contact/">联系我们</a>
         </nav>
         <div class="nav-actions">
           <div class="lang-switch" role="tablist" aria-label="Language">
-            <a class="on" href="/zh/metal-furniture/">ZH</a>
+            <a class="on" href="/zh/metal-furniture/">中文</a>
             <a class="" href="/en/metal-furniture/">EN</a>
           </div>
           <a class="btn btn-primary" href="/zh/contact/">获取报价 <span aria-hidden="true">→</span></a>
@@ -586,20 +591,39 @@
       </div>
     </header>
 
-    <main class="blog-main">
-      <div class="article-wrap">
-        <article class="article">
-          <header class="article-head">
-            <div class="post-meta">
-              <span class="post-pill red">HuaSheng Metal</span>
-              <span class="post-pill">广州制造</span>
-              <span class="post-pill">全球出口</span>
-            </div>
-            <h1>金属家具制造商与 OEM 代工</h1>
-            <p class="blog-lede">华盛是位于广州的金属家具制造商与 OEM/ODM 合作伙伴，生产户外金属家具、街道家具以及家居、厨房和卫浴金属家具——并长期为 IKEA 等国际品牌供货。</p>
-          </header>
+    <nav class="hub-quicknav" aria-label="页面导航">
+      <a href="/zh/">首页</a>
+      <a href="/zh/about/">关于我们</a>
+      <a href="/zh/capabilities/">核心能力</a>
+      <a href="/zh/projects/">项目案例</a>
+      <a href="/zh/bus-stop-shelters/">公交站亭</a>
+      <a aria-current="page" href="/zh/metal-furniture/">金属家具</a>
+      <a href="/zh/quality/">质量与认证</a>
+      <a href="/zh/blog/">企业动态</a>
+      <a href="/zh/contact/">联系我们</a>
+    </nav>
 
-          <div class="article-body">
+    <main>
+      <section class="hub-hero">
+        <div class="container">
+          <span class="eyebrow"><span class="dot"></span>产品与采购专页</span>
+          <h1 class="display-xl">金属家具制造商与 OEM 代工</h1>
+          <p class="lede">华盛是位于广州的金属家具制造商与 OEM/ODM 合作伙伴，生产户外金属家具、街道家具以及家居、厨房和卫浴金属家具——并长期为 IKEA 等国际品牌供货。</p>
+          <div class="hub-pills">
+            <span>广州工厂</span>
+            <span>始于 1989</span>
+            <span>服务 100+ 城市与地区</span>
+          </div>
+          <div class="hub-cta-row">
+            <a class="btn btn-primary" href="/zh/contact/">获取报价 <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="/zh/projects/">查看项目案例</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="hub-layout">
+          <article class="hub-article">
             <section>
               <h2 id="metal-furniture-we-make">我们制造的金属家具</h2>
               <ul class="answer-list">
@@ -621,7 +645,7 @@
             <section>
               <h2 id="materials-finishes-and-process">材料、表面与工艺</h2>
               <div class="table-scroll">
-                <table class="research-table spec-table">
+                <table class="spec-table">
                   <thead>
                     <tr><th scope="col">规格项</th><th scope="col">华盛标准</th></tr>
                   </thead>
@@ -637,7 +661,7 @@
 
             <section>
               <h2 id="frequently-asked-questions">常见问答</h2>
-              <div class="faq-stack">
+              <div class="hub-faq">
               <details open id="q-is-huasheng-a-metal-furniture-manufacturer-or-an-oem-supplie">
                 <summary>华盛是金属家具制造商还是 OEM 代工厂？</summary>
                 <p>两者皆是。华盛既设计制造自有金属家具，也作为长期金属家具 OEM/ODM 合作伙伴，包括 IKEA 厨房手推车、橱柜、置物架、卫浴架与户外金属家具。</p>
@@ -660,30 +684,85 @@
               </details>
               </div>
             </section>
+          </article>
 
-            <section>
-              <h2 id="contact">联系华盛获取报价</h2>
-              <p>提供产品类型、数量、目的国和图纸，华盛会在一个工作日内回复报价与方案。 <a href="/zh/contact/">联系我们 →</a></p>
-            </section>
-          </div>
-        </article>
+          <aside class="hub-side">
+            <div class="side-card">
+              <b>相关页面</b>
+              <a href="https://hua-sheng.org/zh/street-furniture/">街道家具与城市家具制造商</a>
+              <a href="https://hua-sheng.org/zh/stainless-steel-fabrication/">不锈钢加工与不锈钢工程</a>
+              <a href="https://hua-sheng.org/zh/projects/">项目案例</a>
+              <a href="https://hua-sheng.org/zh/capabilities/">制造能力</a>
+              <a href="https://hua-sheng.org/zh/answers/">AI 搜索答案</a>
+            </div>
+            <div class="side-card">
+              <b>语言</b>
+              <a href="/en/metal-furniture/">English version</a>
+            </div>
+          </aside>
+        </div>
 
-        <aside class="article-side">
-          <div class="side-card">
-            <b>相关页面</b>
-            <a href="https://hua-sheng.org/zh/street-furniture/">街道家具与城市家具制造商</a>
-            <a href="https://hua-sheng.org/zh/stainless-steel-fabrication/">不锈钢加工与不锈钢工程</a>
-            <a href="https://hua-sheng.org/zh/projects/">项目案例</a>
-            <a href="https://hua-sheng.org/zh/capabilities/">制造能力</a>
-            <a href="https://hua-sheng.org/zh/answers/">AI 搜索答案</a>
+        <div class="hub-cta">
+          <div>
+            <h2 id="contact">联系华盛获取报价</h2>
+            <p>提供产品类型、数量、目的国和图纸，华盛会在一个工作日内回复报价与方案。</p>
           </div>
-          <div class="side-card">
-            <b>语言</b>
-            <a href="/en/metal-furniture/">English version</a>
-          </div>
-        </aside>
+          <a class="btn btn-primary" href="/zh/contact/">联系我们 <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </main>
-  </div>
+
+    <footer class="site-footer">
+      <div class="container-wide">
+        <div class="footer-grid">
+          <div class="footer-col brand-col">
+            <a class="brand" href="/zh/" style="margin-bottom:20px">
+              <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+              <span class="brand-text">
+                <span class="a">华盛金属</span>
+                <span class="b">广州 · 1989</span>
+              </span>
+            </a>
+            <p class="footer-tag">30 年金属精工，匠造城市公共器物</p>
+          </div>
+          <div class="footer-col">
+            <h4>网站地图</h4>
+            <ul>
+              <li><a href="/zh/">首页</a></li>
+              <li><a href="/zh/about/">关于我们</a></li>
+              <li><a href="/zh/capabilities/">核心能力</a></li>
+              <li><a href="/zh/projects/">项目案例</a></li>
+              <li><a href="/zh/bus-stop-shelters/">公交站亭</a></li>
+              <li><a href="/zh/metal-furniture/">金属家具</a></li>
+              <li><a href="/zh/quality/">质量与认证</a></li>
+              <li><a href="/zh/blog/">企业动态</a></li>
+              <li><a href="/zh/contact/">联系我们</a></li>
+              <li><a href="/zh/answers/">AI 搜索答案页</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>联系</h4>
+            <ul>
+              <li>hi@hua-sheng.org</li>
+              <li>+65 8309 9012（国际销售 / WhatsApp）</li>
+              <li>中国广东省广州市</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>业务</h4>
+            <ul>
+              <li>公交站亭、候车亭与广告灯箱</li>
+              <li>钢结构装修装饰工程</li>
+              <li>金属家具与精密金属 OEM / ODM</li>
+              <li>海外项目工程服务</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 广州华盛金属材料有限公司 版权所有</span>
+          <span>hua-sheng.org</span>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>

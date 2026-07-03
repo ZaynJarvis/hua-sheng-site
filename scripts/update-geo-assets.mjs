@@ -2301,6 +2301,9 @@ https://:version.hua-sheng-site.pages.dev/*
 /styles.css
   Cache-Control: public, max-age=31536000, immutable
 
+/hub.css
+  Cache-Control: public, max-age=31536000, immutable
+
 /blog/blog.css
   Cache-Control: public, max-age=31536000, immutable
 
@@ -2515,18 +2518,37 @@ function injectPrerender(html, meta) {
 }
 
 // ---------- Keyword landing hubs (static, fully pre-rendered) ----------
-function hubNav(lang) {
+// Mirrors the SPA header nav (same order and labels as app.jsx) so moving between
+// the React pages and the static hubs feels like one site.
+function hubNavLinks(lang) {
   const cn = lang === "zh";
   const p = cn ? "/zh" : "/en";
-  const links = [
+  return [
     [cn ? "首页" : "Home", `${p}/`],
+    [cn ? "关于我们" : "About", `${p}/about/`],
+    [cn ? "核心能力" : "Capabilities", `${p}/capabilities/`],
+    [cn ? "项目案例" : "Projects", `${p}/projects/`],
     [cn ? "公交站亭" : "Bus stop shelters", `${p}/bus-stop-shelters/`],
     [cn ? "金属家具" : "Metal furniture", `${p}/metal-furniture/`],
-    [cn ? "项目案例" : "Projects", `${p}/projects/`],
-    [cn ? "核心能力" : "Capabilities", `${p}/capabilities/`],
-    [cn ? "联系" : "Contact", `${p}/contact/`],
+    [cn ? "质量与认证" : "Quality", `${p}/quality/`],
+    [cn ? "企业动态" : "Blog", `${p}/blog/`],
+    [cn ? "联系我们" : "Contact", `${p}/contact/`],
   ];
-  return links.map(([label, href]) => `<a class="nav-link" href="${href}">${escapeHtml(label)}</a>`).join("\n            ");
+}
+
+function hubNav(lang, currentPath) {
+  return hubNavLinks(lang)
+    .map(([label, href]) => {
+      const active = href === currentPath;
+      return `<a class="nav-link${active ? " active" : ""}"${active ? ' aria-current="page"' : ""} href="${href}">${escapeHtml(label)}</a>`;
+    })
+    .join("\n            ");
+}
+
+function hubQuickNav(lang, currentPath) {
+  return hubNavLinks(lang)
+    .map(([label, href]) => `<a${href === currentPath ? ' aria-current="page"' : ""} href="${href}">${escapeHtml(label)}</a>`)
+    .join("\n      ");
 }
 
 // Two-column spec/comparison table rendered from a hub section's existing [label, detail]
@@ -2538,7 +2560,7 @@ function specTable(bullets, isZh) {
     .map(([title, body]) => `                    <tr><th scope="row">${escapeHtml(title)}</th><td>${escapeHtml(body)}</td></tr>`)
     .join("\n");
   return `<div class="table-scroll">
-                <table class="research-table spec-table">
+                <table class="spec-table">
                   <thead>
                     <tr><th scope="col">${col1}</th><th scope="col">${col2}</th></tr>
                   </thead>
@@ -2679,29 +2701,33 @@ function writeHubPage(meta) {
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=${VERSION}" />
   <link rel="shortcut icon" href="/favicon.ico?v=${VERSION}" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=${VERSION}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="${isZh
+    ? "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    : "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"}" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css?v=${VERSION}" />
-  <link rel="stylesheet" href="/blog/blog.css?v=${VERSION}" />
+  <link rel="stylesheet" href="/hub.css?v=${VERSION}" />
   <script type="application/ld+json">
 ${hubJsonLd(meta)}
   </script>
 </head>
-<body data-theme="clarity" data-lang="${meta.lang}" data-screen="blog">
-  <div class="blog-shell">
-    <header class="site-header blog-site-header scrolled">
+<body data-theme="clarity" data-lang="${isZh ? "cn" : "en"}">
+    <header class="site-header scrolled">
       <div class="container-wide nav-inner">
         <a class="brand" href="${isZh ? "/zh/" : "/en/"}">
           <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
           <span class="brand-text">
             <span class="a">${isZh ? "华盛金属" : "HUASHENG"}</span>
-            <span class="b">${escapeHtml(data.tagline)}</span>
+            <span class="b">${isZh ? "HUASHENG · 1989" : "Est. 1989 · Guangzhou"}</span>
           </span>
         </a>
         <nav class="nav-links">
-            ${hubNav(meta.lang)}
+            ${hubNav(meta.lang, meta.urlPath)}
         </nav>
         <div class="nav-actions">
           <div class="lang-switch" role="tablist" aria-label="Language">
-            <a class="${isZh ? "on" : ""}" href="${zhPath}">ZH</a>
+            <a class="${isZh ? "on" : ""}" href="${zhPath}">中文</a>
             <a class="${isZh ? "" : "on"}" href="${enPath}">EN</a>
           </div>
           <a class="btn btn-primary" href="${isZh ? "/zh/contact/" : "/en/contact/"}">${isZh ? "获取报价" : "Get a Quote"} <span aria-hidden="true">→</span></a>
@@ -2709,54 +2735,112 @@ ${hubJsonLd(meta)}
       </div>
     </header>
 
-    <main class="blog-main">
-      <div class="article-wrap">
-        <article class="article">
-          <header class="article-head">
-            <div class="post-meta">
-              <span class="post-pill red">HuaSheng Metal</span>
-              <span class="post-pill">${isZh ? "广州制造" : "Guangzhou factory"}</span>
-              <span class="post-pill">${isZh ? "全球出口" : "Global export"}</span>
-            </div>
-            <h1>${escapeHtml(data.h1)}</h1>
-            <p class="blog-lede">${escapeHtml(data.lede)}</p>
-          </header>
+    <nav class="hub-quicknav" aria-label="${isZh ? "页面导航" : "Site navigation"}">
+      ${hubQuickNav(meta.lang, meta.urlPath)}
+    </nav>
 
-          <div class="article-body">
+    <main>
+      <section class="hub-hero">
+        <div class="container">
+          <span class="eyebrow"><span class="dot"></span>${isZh ? "产品与采购专页" : "Product &amp; sourcing hub"}</span>
+          <h1 class="display-xl">${escapeHtml(data.h1)}</h1>
+          <p class="lede">${escapeHtml(data.lede)}</p>
+          <div class="hub-pills">
+            <span>${isZh ? "广州工厂" : "Guangzhou factory"}</span>
+            <span>${isZh ? "始于 1989" : "Since 1989"}</span>
+            <span>${isZh ? "服务 100+ 城市与地区" : "100+ cities served"}</span>
+          </div>
+          <div class="hub-cta-row">
+            <a class="btn btn-primary" href="${isZh ? "/zh/contact/" : "/en/contact/"}">${isZh ? "获取报价" : "Get a Quote"} <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="${isZh ? "/zh/projects/" : "/en/projects/"}">${isZh ? "查看项目案例" : "See project cases"}</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="hub-layout">
+          <article class="hub-article">
 ${sectionsHtml}
 
             <section>
               <h2 id="frequently-asked-questions">${isZh ? "常见问答" : "Frequently Asked Questions"}</h2>
-              <div class="faq-stack">
+              <div class="hub-faq">
               ${faqRows}
               </div>
             </section>
+          </article>
 
-            <section>
-              <h2 id="contact">${isZh ? "联系华盛获取报价" : "Talk to HuaSheng"}</h2>
-              <p>${isZh ? "提供产品类型、数量、目的国和图纸，华盛会在一个工作日内回复报价与方案。" : "Share your product type, quantity, destination country and drawings, and HuaSheng will reply with a quotation and plan within one business day."} <a href="${isZh ? "/zh/contact/" : "/en/contact/"}">${isZh ? "联系我们 →" : "Contact us →"}</a></p>
-            </section>
-          </div>
-        </article>
+          <aside class="hub-side">
+            <div class="side-card">
+              <b>${isZh ? "相关页面" : "Related pages"}</b>
+              ${relatedSlugs
+                .map((slug) => `<a href="${absolute(isZh ? `/zh/${slug}/` : `/en/${slug}/`)}">${escapeHtml(hubs[slug][meta.lang].h1)}</a>`)
+                .join("\n              ")}
+              <a href="${absolute(isZh ? "/zh/projects/" : "/en/projects/")}">${isZh ? "项目案例" : "Project cases"}</a>
+              <a href="${absolute(isZh ? "/zh/capabilities/" : "/en/capabilities/")}">${isZh ? "制造能力" : "Capabilities"}</a>
+              <a href="${absolute(isZh ? "/zh/answers/" : "/en/answers/")}">${isZh ? "AI 搜索答案" : "AI search answers"}</a>
+            </div>
+            <div class="side-card">
+              <b>${isZh ? "语言" : "Language"}</b>
+              <a href="${other}">${isZh ? "English version" : "中文版本"}</a>
+            </div>
+          </aside>
+        </div>
 
-        <aside class="article-side">
-          <div class="side-card">
-            <b>${isZh ? "相关页面" : "Related pages"}</b>
-            ${relatedSlugs
-              .map((slug) => `<a href="${absolute(isZh ? `/zh/${slug}/` : `/en/${slug}/`)}">${escapeHtml(hubs[slug][meta.lang].h1)}</a>`)
-              .join("\n            ")}
-            <a href="${absolute(isZh ? "/zh/projects/" : "/en/projects/")}">${isZh ? "项目案例" : "Project cases"}</a>
-            <a href="${absolute(isZh ? "/zh/capabilities/" : "/en/capabilities/")}">${isZh ? "制造能力" : "Capabilities"}</a>
-            <a href="${absolute(isZh ? "/zh/answers/" : "/en/answers/")}">${isZh ? "AI 搜索答案" : "AI search answers"}</a>
+        <div class="hub-cta">
+          <div>
+            <h2 id="contact">${isZh ? "联系华盛获取报价" : "Talk to HuaSheng"}</h2>
+            <p>${isZh ? "提供产品类型、数量、目的国和图纸，华盛会在一个工作日内回复报价与方案。" : "Share your product type, quantity, destination country and drawings, and HuaSheng will reply with a quotation and plan within one business day."}</p>
           </div>
-          <div class="side-card">
-            <b>${isZh ? "语言" : "Language"}</b>
-            <a href="${other}">${isZh ? "English version" : "中文版本"}</a>
-          </div>
-        </aside>
+          <a class="btn btn-primary" href="${isZh ? "/zh/contact/" : "/en/contact/"}">${isZh ? "联系我们" : "Contact us"} <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </main>
-  </div>
+
+    <footer class="site-footer">
+      <div class="container-wide">
+        <div class="footer-grid">
+          <div class="footer-col brand-col">
+            <a class="brand" href="${isZh ? "/zh/" : "/en/"}" style="margin-bottom:20px">
+              <span class="brand-mark"><img src="/assets/logo.webp?v=huasheng-logo-20260525" alt="HuaSheng" /></span>
+              <span class="brand-text">
+                <span class="a">${isZh ? "华盛金属" : "HUASHENG"}</span>
+                <span class="b">${isZh ? "广州 · 1989" : "Guangzhou · 1989"}</span>
+              </span>
+            </a>
+            <p class="footer-tag">${isZh ? "30 年金属精工，匠造城市公共器物" : "30 Years of Metal Craft for Public Cityscapes"}</p>
+          </div>
+          <div class="footer-col">
+            <h4>${isZh ? "网站地图" : "Sitemap"}</h4>
+            <ul>
+              ${hubNavLinks(meta.lang).map(([label, href]) => `<li><a href="${href}">${escapeHtml(label)}</a></li>`).join("\n              ")}
+              <li><a href="${isZh ? "/zh/answers/" : "/en/answers/"}">${isZh ? "AI 搜索答案页" : "AI search answers"}</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>${isZh ? "联系" : "Contact"}</h4>
+            <ul>
+              <li>hi@hua-sheng.org</li>
+              <li>+65 8309 9012${isZh ? "（国际销售 / WhatsApp）" : " (International sales / WhatsApp)"}</li>
+              <li>${isZh ? "中国广东省广州市" : "Guangzhou, Guangdong, China"}</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>${isZh ? "业务" : "Lines of business"}</h4>
+            <ul>
+              <li>${isZh ? "公交站亭、候车亭与广告灯箱" : "Bus stops, shelters &amp; light boxes"}</li>
+              <li>${isZh ? "钢结构装修装饰工程" : "Steel structure &amp; decoration"}</li>
+              <li>${isZh ? "金属家具与精密金属 OEM / ODM" : "Metal furniture &amp; precision metal OEM / ODM"}</li>
+              <li>${isZh ? "海外项目工程服务" : "Overseas project services"}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>${isZh ? "© 2025 广州华盛金属材料有限公司 版权所有" : "© 2025 Guangzhou HuaSheng Metal Materials Co., Ltd. All Rights Reserved."}</span>
+          <span>hua-sheng.org</span>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>
 `;
