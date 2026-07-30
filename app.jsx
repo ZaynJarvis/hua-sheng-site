@@ -215,6 +215,9 @@ function Header({ route, setRoute, lang, setLang, t, openMenu, setOpenMenu }) {
     setOpenMenu(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
+  const nextLang = lang === "cn" ? "en" : "cn";
+  const nextLangLabel = lang === "cn" ? "EN" : "中文";
+  const nextLangAriaLabel = lang === "cn" ? "Switch to English" : "切换到中文";
 
   return (
     <React.Fragment>
@@ -244,10 +247,13 @@ function Header({ route, setRoute, lang, setLang, t, openMenu, setOpenMenu }) {
           </nav>
 
           <div className="nav-actions">
-            <div className="lang-switch" role="tablist" aria-label="Language">
+            <div className="lang-switch desktop-lang-switch" role="tablist" aria-label="Language">
               <button className={lang === "cn" ? "on" : ""} onClick={() => setLang("cn")} aria-pressed={lang === "cn"}>中文</button>
               <button className={lang === "en" ? "on" : ""} onClick={() => setLang("en")} aria-pressed={lang === "en"}>EN</button>
             </div>
+            <button className="mobile-lang-btn" type="button" onClick={() => setLang(nextLang)} aria-label={nextLangAriaLabel}>
+              {nextLangLabel}
+            </button>
             <a className="btn btn-primary" href={routePath("contact", lang)} onClick={(e) => { e.preventDefault(); go("contact"); }}>
               {t.nav.cta} <span aria-hidden="true">→</span>
             </a>
@@ -278,12 +284,6 @@ function Header({ route, setRoute, lang, setLang, t, openMenu, setOpenMenu }) {
           <a className="btn btn-primary" href={routePath("contact", lang)} onClick={(e) => { e.preventDefault(); go("contact"); }}>
             {t.nav.cta} →
           </a>
-          <div className="row" style={{ justifyContent: "center" }}>
-            <div className="lang-switch">
-              <button className={lang === "cn" ? "on" : ""} onClick={() => setLang("cn")} aria-pressed={lang === "cn"}>中文</button>
-              <button className={lang === "en" ? "on" : ""} onClick={() => setLang("en")} aria-pressed={lang === "en"}>English</button>
-            </div>
-          </div>
         </div>
       </div>
     </React.Fragment>

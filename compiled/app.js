@@ -191,6 +191,9 @@
       setOpenMenu(false);
       window.scrollTo({ top: 0, behavior: "instant" });
     };
+    const nextLang = lang === "cn" ? "en" : "cn";
+    const nextLangLabel = lang === "cn" ? "EN" : "\u4E2D\u6587";
+    const nextLangAriaLabel = lang === "cn" ? "Switch to English" : "\u5207\u6362\u5230\u4E2D\u6587";
     return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("header", { className: "site-header" + (scrolled ? " scrolled" : "") }, /* @__PURE__ */ React.createElement("div", { className: "container-wide nav-inner" }, /* @__PURE__ */ React.createElement("a", { className: "brand", href: routePath("home", lang), onClick: (e) => {
       e.preventDefault();
       go("home");
@@ -207,7 +210,7 @@
         }
       },
       n.label
-    ))), /* @__PURE__ */ React.createElement("div", { className: "nav-actions" }, /* @__PURE__ */ React.createElement("div", { className: "lang-switch", role: "tablist", "aria-label": "Language" }, /* @__PURE__ */ React.createElement("button", { className: lang === "cn" ? "on" : "", onClick: () => setLang("cn"), "aria-pressed": lang === "cn" }, "\u4E2D\u6587"), /* @__PURE__ */ React.createElement("button", { className: lang === "en" ? "on" : "", onClick: () => setLang("en"), "aria-pressed": lang === "en" }, "EN")), /* @__PURE__ */ React.createElement("a", { className: "btn btn-primary", href: routePath("contact", lang), onClick: (e) => {
+    ))), /* @__PURE__ */ React.createElement("div", { className: "nav-actions" }, /* @__PURE__ */ React.createElement("div", { className: "lang-switch desktop-lang-switch", role: "tablist", "aria-label": "Language" }, /* @__PURE__ */ React.createElement("button", { className: lang === "cn" ? "on" : "", onClick: () => setLang("cn"), "aria-pressed": lang === "cn" }, "\u4E2D\u6587"), /* @__PURE__ */ React.createElement("button", { className: lang === "en" ? "on" : "", onClick: () => setLang("en"), "aria-pressed": lang === "en" }, "EN")), /* @__PURE__ */ React.createElement("button", { className: "mobile-lang-btn", type: "button", onClick: () => setLang(nextLang), "aria-label": nextLangAriaLabel }, nextLangLabel), /* @__PURE__ */ React.createElement("a", { className: "btn btn-primary", href: routePath("contact", lang), onClick: (e) => {
       e.preventDefault();
       go("contact");
     } }, t.nav.cta, " ", /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, "\u2192")), /* @__PURE__ */ React.createElement("button", { className: "menu-btn", "aria-label": "Menu", onClick: () => setOpenMenu(!openMenu) }, openMenu ? /* @__PURE__ */ React.createElement("svg", { width: "20", height: "20", viewBox: "0 0 20 20", fill: "none" }, /* @__PURE__ */ React.createElement("path", { d: "M4 4 L16 16 M16 4 L4 16", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round" })) : /* @__PURE__ */ React.createElement("svg", { width: "20", height: "20", viewBox: "0 0 20 20", fill: "none" }, /* @__PURE__ */ React.createElement("path", { d: "M3 6 H17 M3 10 H17 M3 14 H17", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round" })))))), /* @__PURE__ */ React.createElement("div", { className: "mobile-menu" + (openMenu ? " open" : ""), "aria-hidden": !openMenu }, nav.map((n) => /* @__PURE__ */ React.createElement(
@@ -226,7 +229,7 @@
     )), /* @__PURE__ */ React.createElement("div", { className: "mobile-actions" }, /* @__PURE__ */ React.createElement("a", { className: "btn btn-primary", href: routePath("contact", lang), onClick: (e) => {
       e.preventDefault();
       go("contact");
-    } }, t.nav.cta, " \u2192"), /* @__PURE__ */ React.createElement("div", { className: "row", style: { justifyContent: "center" } }, /* @__PURE__ */ React.createElement("div", { className: "lang-switch" }, /* @__PURE__ */ React.createElement("button", { className: lang === "cn" ? "on" : "", onClick: () => setLang("cn"), "aria-pressed": lang === "cn" }, "\u4E2D\u6587"), /* @__PURE__ */ React.createElement("button", { className: lang === "en" ? "on" : "", onClick: () => setLang("en"), "aria-pressed": lang === "en" }, "English"))))));
+    } }, t.nav.cta, " \u2192"))));
   }
   function Footer({ lang, t, setRoute }) {
     const go = (id) => {

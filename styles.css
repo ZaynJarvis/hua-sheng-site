@@ -215,12 +215,48 @@ body[data-lang="en"] .brand-text .b { letter-spacing: 0.15em; }
 .lang-switch button.on,
 .lang-switch a.on { background: var(--accent); color: #fff; }
 
+.mobile-lang-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg-elev);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 1px 0 rgba(20,24,29,.04);
+}
+
 .menu-btn { display: none; }
 
 @media (max-width: 920px) {
   .nav-links { display: none; }
   .nav-inner { gap: 16px; }
+  .desktop-lang-switch { display: none; }
   .nav-actions .btn { display: none; }
+  .mobile-lang-btn { display: inline-flex; }
+  .nav-actions .lang-switch:not(.desktop-lang-switch) {
+    padding: 0;
+    border-radius: 8px;
+  }
+  .nav-actions .lang-switch:not(.desktop-lang-switch) .on { display: none; }
+  .nav-actions .lang-switch:not(.desktop-lang-switch) button,
+  .nav-actions .lang-switch:not(.desktop-lang-switch) a {
+    min-width: 56px;
+    height: 38px;
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    white-space: nowrap;
+  }
   .menu-btn {
     display: inline-flex; align-items: center; justify-content: center;
     width: 40px; height: 40px;
