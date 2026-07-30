@@ -238,6 +238,7 @@ body[data-lang="en"] .brand-text .b { letter-spacing: 0.15em; }
 @media (max-width: 920px) {
   .nav-links { display: none; }
   .nav-inner { gap: 16px; }
+  .nav-actions { margin-left: auto; }
   .desktop-lang-switch { display: none; }
   .nav-actions .btn { display: none; }
   .mobile-lang-btn { display: inline-flex; }
