@@ -45,6 +45,20 @@
                     </div>
                   ))}
                 </div>
+
+                {/* Request-a-Quote framing: what to include so quotation can start immediately */}
+                {c.rfq && (
+                  <div className="reveal" style={{ marginTop: 36 }}>
+                    <Eyebrow>{c.rfq.eyebrow}</Eyebrow>
+                    <h3 style={{ margin: "14px 0 8px" }}>{c.rfq.title}</h3>
+                    <p className="body" style={{ margin: "0 0 12px", color: "var(--ink-soft)" }}>{c.rfq.sub}</p>
+                    <ul style={{ margin: 0, paddingLeft: 20, color: "var(--ink-soft)", lineHeight: 1.8 }}>
+                      {c.rfq.items.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               {/* Form */}

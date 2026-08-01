@@ -203,6 +203,7 @@ function Header({ route, setRoute, lang, setLang, t, openMenu, setOpenMenu }) {
     { id: "about", label: t.nav.about, href: routePath("about", lang) },
     { id: "capabilities", label: t.nav.capabilities, href: routePath("capabilities", lang) },
     { id: "cases", label: t.nav.cases, href: routePath("cases", lang) },
+    { id: "products", label: lang === "cn" ? "产品中心" : "Products", href: lang === "cn" ? "/zh/products/" : "/en/products/", external: true },
     { id: "bus-stop-shelters", label: lang === "cn" ? "公交站亭" : "Bus stop shelters", href: lang === "cn" ? "/zh/bus-stop-shelters/" : "/en/bus-stop-shelters/", external: true },
     { id: "metal-furniture", label: lang === "cn" ? "金属家具" : "Metal furniture", href: lang === "cn" ? "/zh/metal-furniture/" : "/en/metal-furniture/", external: true },
     { id: "quality", label: t.nav.quality, href: routePath("quality", lang) },
@@ -314,6 +315,7 @@ function Footer({ lang, t, setRoute }) {
               <li><a href={routePath("about", lang)} onClick={(e) => { e.preventDefault(); go("about"); }}>{t.nav.about}</a></li>
               <li><a href={routePath("capabilities", lang)} onClick={(e) => { e.preventDefault(); go("capabilities"); }}>{t.nav.capabilities}</a></li>
               <li><a href={routePath("cases", lang)} onClick={(e) => { e.preventDefault(); go("cases"); }}>{t.nav.cases}</a></li>
+              <li><a href={lang === "cn" ? "/zh/products/" : "/en/products/"}>{lang === "cn" ? "产品中心" : "Products"}</a></li>
               <li><a href={routePath("quality", lang)} onClick={(e) => { e.preventDefault(); go("quality"); }}>{t.nav.quality}</a></li>
               <li><a href={lang === "cn" ? "/zh/blog/" : "/en/blog/"}>{t.nav.blog || "Blog"}</a></li>
               <li><a href={lang === "cn" ? "/zh/bus-stop-shelters/" : "/en/bus-stop-shelters/"}>{lang === "cn" ? "公交站亭 / 候车亭" : "Bus stop shelters"}</a></li>

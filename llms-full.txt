@@ -2,7 +2,7 @@
 
 > Full-text companion to https://hua-sheng.org/llms.txt for Guangzhou HuaSheng Metal Materials Co., Ltd. (华盛金属). Every statement below is sourced from the published website; no figures are invented.
 
-Last updated: 2026-07-03
+Last updated: 2026-08-01
 Canonical domain: https://hua-sheng.org
 
 ## Entity
@@ -443,6 +443,8 @@ HuaSheng stainless steel work includes the Beijing Olympic stainless steel bus s
 - Nansha Phase 2 bus shelter manufacturing project — Nansha, Guangzhou, Guangdong, China
 - Qatar, Saudi Arabia, Oman and Nepal public facility projects — Middle East and Asia
 - IKEA and international precision metal OEM supply — International OEM supply chain
+
+Six project case studies (Qatar, Riyadh, Oman, Korea, Romania, New Zealand) are published under https://hua-sheng.org/en/projects/<slug>/ with Chinese versions under https://hua-sheng.org/zh/projects/<slug>/ (slugs: qatar-bus-shelter, riyadh-bus-shelter, oman-public-facilities, korea-aluminum-shelter, romania-signpost, new-zealand-postal). The full product catalogue lives at https://hua-sheng.org/en/products/ and https://hua-sheng.org/zh/products/.
 
 ## Answer FAQ (EN)
 

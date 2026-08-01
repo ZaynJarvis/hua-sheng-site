@@ -180,6 +180,7 @@
       { id: "about", label: t.nav.about, href: routePath("about", lang) },
       { id: "capabilities", label: t.nav.capabilities, href: routePath("capabilities", lang) },
       { id: "cases", label: t.nav.cases, href: routePath("cases", lang) },
+      { id: "products", label: lang === "cn" ? "\u4EA7\u54C1\u4E2D\u5FC3" : "Products", href: lang === "cn" ? "/zh/products/" : "/en/products/", external: true },
       { id: "bus-stop-shelters", label: lang === "cn" ? "\u516C\u4EA4\u7AD9\u4EAD" : "Bus stop shelters", href: lang === "cn" ? "/zh/bus-stop-shelters/" : "/en/bus-stop-shelters/", external: true },
       { id: "metal-furniture", label: lang === "cn" ? "\u91D1\u5C5E\u5BB6\u5177" : "Metal furniture", href: lang === "cn" ? "/zh/metal-furniture/" : "/en/metal-furniture/", external: true },
       { id: "quality", label: t.nav.quality, href: routePath("quality", lang) },
@@ -251,7 +252,7 @@
     } }, t.nav.capabilities)), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: routePath("cases", lang), onClick: (e) => {
       e.preventDefault();
       go("cases");
-    } }, t.nav.cases)), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: routePath("quality", lang), onClick: (e) => {
+    } }, t.nav.cases)), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: lang === "cn" ? "/zh/products/" : "/en/products/" }, lang === "cn" ? "\u4EA7\u54C1\u4E2D\u5FC3" : "Products")), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: routePath("quality", lang), onClick: (e) => {
       e.preventDefault();
       go("quality");
     } }, t.nav.quality)), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: lang === "cn" ? "/zh/blog/" : "/en/blog/" }, t.nav.blog || "Blog")), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: lang === "cn" ? "/zh/bus-stop-shelters/" : "/en/bus-stop-shelters/" }, lang === "cn" ? "\u516C\u4EA4\u7AD9\u4EAD / \u5019\u8F66\u4EAD" : "Bus stop shelters")), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: lang === "cn" ? "/zh/metal-furniture/" : "/en/metal-furniture/" }, lang === "cn" ? "\u91D1\u5C5E\u5BB6\u5177" : "Metal furniture")), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: lang === "cn" ? "/zh/answers/" : "/en/answers/" }, lang === "cn" ? "AI \u641C\u7D22\u7B54\u6848\u9875" : "AI search answers")), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: routePath("contact", lang), onClick: (e) => {
