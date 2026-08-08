@@ -204,8 +204,6 @@ function Header({ route, setRoute, lang, setLang, t, openMenu, setOpenMenu }) {
     { id: "capabilities", label: t.nav.capabilities, href: routePath("capabilities", lang) },
     { id: "cases", label: t.nav.cases, href: routePath("cases", lang) },
     { id: "products", label: lang === "cn" ? "产品中心" : "Products", href: lang === "cn" ? "/zh/products/" : "/en/products/", external: true },
-    { id: "bus-stop-shelters", label: lang === "cn" ? "公交站亭" : "Bus stop shelters", href: lang === "cn" ? "/zh/bus-stop-shelters/" : "/en/bus-stop-shelters/", external: true },
-    { id: "metal-furniture", label: lang === "cn" ? "金属家具" : "Metal furniture", href: lang === "cn" ? "/zh/metal-furniture/" : "/en/metal-furniture/", external: true },
     { id: "quality", label: t.nav.quality, href: routePath("quality", lang) },
     { id: "blog", label: t.nav.blog || "Blog", href: lang === "cn" ? "/zh/blog/" : "/en/blog/", external: true },
     { id: "contact", label: t.nav.contact, href: routePath("contact", lang) },
@@ -332,6 +330,7 @@ function Footer({ lang, t, setRoute }) {
               <li>{t.contact.info.email.v}</li>
               <li>{t.contact.info.hours.v}</li>
               <li>{t.contact.info.addr.v}</li>
+              <li><a href="https://www.huasheng-metal.com" target="_blank" rel="noopener">{lang === "cn" ? "阿里巴巴店铺" : "Alibaba Store"}</a></li>
             </ul>
           </div>
           <div className="footer-col">

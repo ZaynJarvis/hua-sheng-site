@@ -19,7 +19,7 @@
       },
       "image": "https://hua-sheng.org/assets/huasheng/hero-bus-shelter-deployed.webp",
       "foundingDate": "1989",
-      "dateModified": "2026-08-01",
+      "dateModified": "2026-08-08",
       "foundingLocation": {
         "@type": "Place",
         "name": "Guangzhou, Guangdong, China"
@@ -389,7 +389,7 @@
         "en",
         "zh-CN"
       ],
-      "dateModified": "2026-08-01",
+      "dateModified": "2026-08-08",
       "publisher": {
         "@id": "https://hua-sheng.org/#organization"
       }

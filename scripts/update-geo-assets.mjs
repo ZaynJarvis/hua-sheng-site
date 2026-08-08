@@ -2512,10 +2512,47 @@ function prerenderSections(group, t, lang) {
     S.push({ h2: cn ? "联系方式" : "Contact details", html: bulletList(Object.values(info).map((v) => ({ t: v.t, b: v.v }))) });
     // "Request a Quote" framing block (content.js contact.rfq): what to include in an enquiry.
     if (t.contact.rfq) {
-      S.push({ h2: clean(t.contact.rfq.title), html: `<p>${clean(t.contact.rfq.sub)}</p>\n      ${plainList(t.contact.rfq.items)}` });
+      S.push({
+        h2: clean(t.contact.rfq.title),
+        html: `<p class="seo-prerender-eyebrow">${clean(t.contact.rfq.eyebrow)}</p>\n      <p>${clean(t.contact.rfq.sub)}</p>\n      ${plainList(t.contact.rfq.items)}`,
+      });
+    }
+    // Structured RFQ form (content.js contact.form): static markup for crawlers / no-JS
+    // visitors; React's client render replaces it with the interactive version on hydration.
+    if (t.contact.form && t.contact.form.fields) {
+      S.push({ h2: clean(t.contact.form.title), html: rfqFormHtml(t, lang) });
     }
   }
   return S;
+}
+
+// Static mirror of the React RFQ form in pages/contact.jsx (same labels, same
+// zero-backend send channels: mailto + WhatsApp deep link from content.js contact.info).
+const RFQ_WHATSAPP = "6583099012"; // +65 8309-9012 (content.js contact.info.phone)
+function rfqFormHtml(t, lang) {
+  const cn = lang === "zh";
+  const f = t.contact.form.fields;
+  const email = (t.contact.info && t.contact.info.email && t.contact.info.email.v) || "hi@hua-sheng.org";
+  const field = (id, label) =>
+    `        <div class="field"><label for="rfq-${id}">${escapeHtml(label)}</label><input id="rfq-${id}" name="${id}" /></div>`;
+  const options = f.types.map((tp) => `<option>${escapeHtml(tp)}</option>`).join("");
+  const mailto = `mailto:${email}?subject=${encodeURIComponent(cn ? "RFQ 询价" : "RFQ enquiry")}`;
+  return `<p>${clean(t.contact.form.sub)}</p>
+      <form class="contact-form-card" aria-label="${clean(t.contact.form.title)}">
+        <div class="form-grid">
+${field("name", f.name)}
+${field("company", f.company)}
+${field("country", f.country)}
+        <div class="field"><label for="rfq-type">${escapeHtml(f.type)}</label><select id="rfq-type" name="type">${options}</select></div>
+${field("quantity", f.quantity)}
+${field("timeline", f.timeline)}
+        <div class="field full"><label for="rfq-message">${escapeHtml(f.message)}</label><textarea id="rfq-message" name="message" rows="4"></textarea></div>
+        <div class="full">
+          <a class="btn btn-primary" href="${escapeHtml(mailto)}">${escapeHtml(f.sendEmail)}</a>
+          <a class="btn btn-primary" href="https://wa.me/${RFQ_WHATSAPP}" target="_blank" rel="noopener">${escapeHtml(f.sendWhatsApp)}</a>
+        </div>
+        </div>
+      </form>`;
 }
 
 function prerenderNav(lang) {
@@ -2528,11 +2565,6 @@ function prerenderNav(lang) {
     [cn ? "项目案例" : "Projects", `${p}/projects/`],
     [cn ? "产品中心" : "Products", `${p}/products/`],
     [cn ? "质量与认证" : "Quality", `${p}/quality/`],
-    [cn ? "公交站亭 / 候车亭" : "Bus stop shelters", `${p}/bus-stop-shelters/`],
-    [cn ? "广告灯箱" : "Advertising light boxes", `${p}/advertising-light-boxes/`],
-    [cn ? "街道家具" : "Street furniture", `${p}/street-furniture/`],
-    [cn ? "不锈钢加工" : "Stainless steel fabrication", `${p}/stainless-steel-fabrication/`],
-    [cn ? "金属家具" : "Metal furniture", `${p}/metal-furniture/`],
     [cn ? "AI 搜索答案" : "AI answers", `${p}/answers/`],
     [cn ? "企业动态" : "Blog", `${p}/blog/`],
     [cn ? "联系我们" : "Contact", `${p}/contact/`],
@@ -2602,12 +2634,23 @@ function hubNavLinks(lang) {
     [cn ? "核心能力" : "Capabilities", `${p}/capabilities/`],
     [cn ? "项目案例" : "Projects", `${p}/projects/`],
     [cn ? "产品中心" : "Products", `${p}/products/`],
-    [cn ? "公交站亭" : "Bus stop shelters", `${p}/bus-stop-shelters/`],
-    [cn ? "金属家具" : "Metal furniture", `${p}/metal-furniture/`],
     [cn ? "质量与认证" : "Quality", `${p}/quality/`],
     [cn ? "企业动态" : "Blog", `${p}/blog/`],
     [cn ? "联系我们" : "Contact", `${p}/contact/`],
   ];
+}
+
+// Footer sitemap column keeps the full link inventory (header navs stay slim; the
+// keyword hub links live here instead of crowding the top nav).
+function footerNavLinks(lang) {
+  const cn = lang === "zh";
+  const p = cn ? "/zh" : "/en";
+  const links = hubNavLinks(lang).slice();
+  links.splice(5, 0,
+    [cn ? "公交站亭" : "Bus stop shelters", `${p}/bus-stop-shelters/`],
+    [cn ? "金属家具" : "Metal furniture", `${p}/metal-furniture/`],
+  );
+  return links;
 }
 
 function hubNav(lang, currentPath) {
@@ -2674,7 +2717,7 @@ function siteFooterHtml(lang) {
           <div class="footer-col">
             <h4>${isZh ? "网站地图" : "Sitemap"}</h4>
             <ul>
-              ${hubNavLinks(lang).map(([label, href]) => `<li><a href="${href}">${escapeHtml(label)}</a></li>`).join("\n              ")}
+              ${footerNavLinks(lang).map(([label, href]) => `<li><a href="${href}">${escapeHtml(label)}</a></li>`).join("\n              ")}
               <li><a href="${isZh ? "/zh/answers/" : "/en/answers/"}">${isZh ? "AI 搜索答案页" : "AI search answers"}</a></li>
             </ul>
           </div>
@@ -2684,6 +2727,7 @@ function siteFooterHtml(lang) {
               <li>hi@hua-sheng.org</li>
               <li>+65 8309 9012${isZh ? "（国际销售 / WhatsApp）" : " (International sales / WhatsApp)"}</li>
               <li>${isZh ? "中国广东省广州市" : "Guangzhou, Guangdong, China"}</li>
+              <li><a href="https://www.huasheng-metal.com" target="_blank" rel="noopener">${isZh ? "阿里巴巴店铺" : "Alibaba Store"}</a></li>
             </ul>
           </div>
           <div class="footer-col">

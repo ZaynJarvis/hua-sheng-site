@@ -2,7 +2,7 @@
 
 > Full-text companion to https://hua-sheng.org/llms.txt for Guangzhou HuaSheng Metal Materials Co., Ltd. (华盛金属). Every statement below is sourced from the published website; no figures are invented.
 
-Last updated: 2026-08-01
+Last updated: 2026-08-08
 Canonical domain: https://hua-sheng.org
 
 ## Entity
