@@ -2,7 +2,7 @@
 
 > Official bilingual website for Guangzhou HuaSheng Metal Materials Co., Ltd. (华盛金属), a Guangzhou-based manufacturer of bus stop shelters, bus shelters, advertising light boxes, urban and street furniture, metal furniture, outdoor kiosks, stainless steel structures and precision metal OEM/ODM products.
 
-Last updated: 2026-07-03
+Last updated: 2026-08-01
 Canonical domain: https://hua-sheng.org
 
 ## Crawl and Citation Preferences
@@ -97,6 +97,8 @@ Canonical domain: https://hua-sheng.org
 - [Capabilities ZH](https://hua-sheng.org/zh/capabilities/): 120,000 平方米加工基地、车间、设备与标准工艺流程
 - [Projects EN](https://hua-sheng.org/en/projects/): Bus shelter, smart transport, stainless steel and metal furniture project cases
 - [Projects ZH](https://hua-sheng.org/zh/projects/): 公交站亭、智慧交通、不锈钢与金属家具项目案例
+- [Products EN](https://hua-sheng.org/en/products/): Product catalogue of all five product lines with specs and hub links
+- [Products ZH](https://hua-sheng.org/zh/products/): 五大产品线目录，含规格摘要与专题页链接
 - [Quality EN](https://hua-sheng.org/en/quality/): ISO 9001, bus shelter patents and DMAIC quality control
 - [Quality ZH](https://hua-sheng.org/zh/quality/): ISO 9001、候车亭专利与 DMAIC 质量管控
 - [Contact EN](https://hua-sheng.org/en/contact/): Contact HuaSheng for quotations, projects and OEM
@@ -121,6 +123,9 @@ Canonical domain: https://hua-sheng.org
 - [Steel structure market report ZH](https://hua-sheng.org/zh/blog/steel-structure-toc-market-report-2026-2027/): 钢结构 ToC 市场报告 2026-2027
 - [AI application meeting EN](https://hua-sheng.org/en/blog/ai-application-meeting/): AI application in the manufacturing workflow
 - [AI application meeting ZH](https://hua-sheng.org/zh/blog/ai-application-meeting/): 制造流程中的 AI 应用
+- [Bus shelter sourcing guide EN](https://hua-sheng.org/en/blog/how-to-source-a-bus-shelter-from-china/): How to source a bus shelter from China — procurement guide with RFQ checklist
+- [Bus shelter sourcing guide ZH](https://hua-sheng.org/zh/blog/how-to-source-a-bus-shelter-from-china/): 如何从中国采购公交候车亭——含询价清单的完整采购指南
+- Six project case studies (Qatar, Riyadh, Oman, Korea, Romania, New Zealand) are published under https://hua-sheng.org/en/projects/<slug>/ with Chinese versions under https://hua-sheng.org/zh/projects/<slug>/ (slugs: qatar-bus-shelter, riyadh-bus-shelter, oman-public-facilities, korea-aluminum-shelter, romania-signpost, new-zealand-postal).
 
 ## Machine-Readable Resources
 

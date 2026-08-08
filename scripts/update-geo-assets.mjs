@@ -946,6 +946,20 @@ const pages = [
     image: `${SITE}/assets/huasheng/projects-overview.webp`,
     priority: "0.9",
   }),
+  // Hand-authored static case-study pages. `skipHtml: true` keeps the generators from
+  // rewriting their heads/JSON-LD; they are listed here for the sitemap and hreflang pairs.
+  caseStudy("qatar-bus-shelter", "en", "Qatar Bus Shelter Project (Doha) — HuaSheng Case Study"),
+  caseStudy("qatar-bus-shelter", "zh", "卡塔尔多哈公交候车亭项目案例 | 华盛金属"),
+  caseStudy("riyadh-bus-shelter", "en", "Riyadh Bus Shelter Project — HuaSheng Saudi Case Study"),
+  caseStudy("riyadh-bus-shelter", "zh", "沙特利雅得公交候车亭项目案例 | 华盛金属"),
+  caseStudy("oman-public-facilities", "en", "Oman Public Facilities Project — HuaSheng Case Study"),
+  caseStudy("oman-public-facilities", "zh", "阿曼公共设施项目案例 | 华盛金属"),
+  caseStudy("korea-aluminum-shelter", "en", "Korea Aluminium Bus Shelter Supplier — HuaSheng Case Study"),
+  caseStudy("korea-aluminum-shelter", "zh", "韩国铝合金公交候车亭项目案例 | 华盛金属"),
+  caseStudy("romania-signpost", "en", "Romania Aluminium Transport Signage — HuaSheng Case Study"),
+  caseStudy("romania-signpost", "zh", "罗马尼亚铝合金交通导向路牌项目案例 | 华盛金属"),
+  caseStudy("new-zealand-postal", "en", "New Zealand Postal Shelters — HuaSheng Metal Case Study"),
+  caseStudy("new-zealand-postal", "zh", "新西兰邮政服务亭项目案例 | 华盛金属"),
   page("quality", "en", "/en/quality/", "en/quality/index.html", {
     aliases: ["quality/index.html"],
     title: "Quality & Certifications | ISO 9001, Patents and DMAIC Process",
@@ -1084,6 +1098,19 @@ const pages = [
     priority: "0.85",
     changefreq: "monthly",
   }),
+  // Hand-authored static products catalogue pages (sitemap-only, see skipHtml above).
+  page("products", "en", "/en/products/", "en/products/index.html", {
+    title: "Products | Bus Shelter & Street Furniture Manufacturer",
+    priority: "0.9",
+    changefreq: "monthly",
+    skipHtml: true,
+  }),
+  page("products", "zh", "/zh/products/", "zh/products/index.html", {
+    title: "产品中心 | 公交站亭、街道家具与金属制造 | 华盛金属",
+    priority: "0.9",
+    changefreq: "monthly",
+    skipHtml: true,
+  }),
   page("blog", "en", "/en/blog/", "en/blog/index.html", {
     title: "Huasheng Blog | Project Cases, Capabilities & AI Workflows",
     description:
@@ -1101,6 +1128,19 @@ const pages = [
     priority: "0.7",
     changefreq: "weekly",
     kind: "CollectionPage",
+  }),
+  // Hand-authored static blog post (sitemap + blog CollectionPage ItemList only, see skipHtml above).
+  article("how-to-source-a-bus-shelter-from-china", "en", "/en/blog/how-to-source-a-bus-shelter-from-china/", "en/blog/how-to-source-a-bus-shelter-from-china/index.html", {
+    title: "How to Source a Bus Shelter from China: A Procurement Guide",
+    published: "2026-08-01",
+    modified: "2026-08-01",
+    skipHtml: true,
+  }),
+  article("how-to-source-a-bus-shelter-from-china", "zh", "/zh/blog/how-to-source-a-bus-shelter-from-china/", "zh/blog/how-to-source-a-bus-shelter-from-china/index.html", {
+    title: "如何从中国采购公交候车亭：一份完整采购指南",
+    published: "2026-08-01",
+    modified: "2026-08-01",
+    skipHtml: true,
   }),
   article("nansha-phase-2", "en", "/en/blog/nansha-phase-2/", "en/blog/nansha-phase-2/index.html", {
     title: "Nansha Phase 2: From Phase 1 Reference to Phase 2 Production Start",
@@ -1179,6 +1219,17 @@ function article(group, lang, urlPath, file, options) {
     priority: "0.66",
     changefreq: "monthly",
     ...options,
+  });
+}
+
+// Hand-authored static case-study page under /en|zh/projects/<slug>/. Kept out of the
+// HTML-rewriting pipeline (skipHtml) but included in the sitemap with hreflang pairing.
+function caseStudy(slug, lang, title) {
+  return page(`case-${slug}`, lang, `/${lang}/projects/${slug}/`, `${lang}/projects/${slug}/index.html`, {
+    title,
+    priority: "0.7",
+    changefreq: "monthly",
+    skipHtml: true,
   });
 }
 
@@ -1566,7 +1617,7 @@ function updateExistingFile(meta, file) {
 function fixBlogStaticLinks(html, lang) {
   const prefix = lang === "en" ? "/en" : "/zh";
   const otherPrefix = lang === "en" ? "/zh" : "/en";
-  const routeMap = ["", "about", "capabilities", "projects", "quality", "contact", "blog"];
+  const routeMap = ["", "about", "capabilities", "projects", "products", "quality", "contact", "blog"];
   for (const route of routeMap) {
     const target = `${prefix}/${route ? `${route}/` : ""}`;
     const other = `${otherPrefix}/${route ? `${route}/` : ""}`;
@@ -1912,6 +1963,8 @@ function writeLlms() {
     ["Capabilities ZH", "/zh/capabilities/", "120,000 平方米加工基地、车间、设备与标准工艺流程"],
     ["Projects EN", "/en/projects/", "Bus shelter, smart transport, stainless steel and metal furniture project cases"],
     ["Projects ZH", "/zh/projects/", "公交站亭、智慧交通、不锈钢与金属家具项目案例"],
+    ["Products EN", "/en/products/", "Product catalogue of all five product lines with specs and hub links"],
+    ["Products ZH", "/zh/products/", "五大产品线目录，含规格摘要与专题页链接"],
     ["Quality EN", "/en/quality/", "ISO 9001, bus shelter patents and DMAIC quality control"],
     ["Quality ZH", "/zh/quality/", "ISO 9001、候车亭专利与 DMAIC 质量管控"],
     ["Contact EN", "/en/contact/", "Contact HuaSheng for quotations, projects and OEM"],
@@ -1936,10 +1989,13 @@ function writeLlms() {
     ["Steel structure market report ZH", "/zh/blog/steel-structure-toc-market-report-2026-2027/", "钢结构 ToC 市场报告 2026-2027"],
     ["AI application meeting EN", "/en/blog/ai-application-meeting/", "AI application in the manufacturing workflow"],
     ["AI application meeting ZH", "/zh/blog/ai-application-meeting/", "制造流程中的 AI 应用"],
+    ["Bus shelter sourcing guide EN", "/en/blog/how-to-source-a-bus-shelter-from-china/", "How to source a bus shelter from China — procurement guide with RFQ checklist"],
+    ["Bus shelter sourcing guide ZH", "/zh/blog/how-to-source-a-bus-shelter-from-china/", "如何从中国采购公交候车亭——含询价清单的完整采购指南"],
   ];
-  const pageLinks = importantPages
-    .map(([label, urlPath, desc]) => `- [${label}](${SITE}${urlPath}): ${desc}`)
-    .join("\n");
+  const pageLinks = [
+    ...importantPages.map(([label, urlPath, desc]) => `- [${label}](${SITE}${urlPath}): ${desc}`),
+    `- Six project case studies (Qatar, Riyadh, Oman, Korea, Romania, New Zealand) are published under ${SITE}/en/projects/<slug>/ with Chinese versions under ${SITE}/zh/projects/<slug>/ (slugs: qatar-bus-shelter, riyadh-bus-shelter, oman-public-facilities, korea-aluminum-shelter, romania-signpost, new-zealand-postal).`,
+  ].join("\n");
   const resourceLinks = [
     `- [Full text corpus](${SITE}/llms-full.txt): full markdown of entity facts, capabilities, hub prose and Q&A for AI ingestion`,
     `- [Entity JSON-LD](${ENTITY_PROFILE}): machine-readable Organization, FAQ and project graph`,
@@ -2184,6 +2240,8 @@ ${hubMarkdown("stainless-steel-fabrication", "zh")}
 
 ${projectLines}
 
+Six project case studies (Qatar, Riyadh, Oman, Korea, Romania, New Zealand) are published under ${SITE}/en/projects/<slug>/ with Chinese versions under ${SITE}/zh/projects/<slug>/ (slugs: qatar-bus-shelter, riyadh-bus-shelter, oman-public-facilities, korea-aluminum-shelter, romania-signpost, new-zealand-postal). The full product catalogue lives at ${SITE}/en/products/ and ${SITE}/zh/products/.
+
 ## Answer FAQ (EN)
 
 ${enAnswers}
@@ -2228,6 +2286,10 @@ function updateRedirects() {
     "/products/metal-kiosks/ /en/street-furniture/ 301",
     "/products/precision-metal-oem /en/metal-furniture/ 301",
     "/products/precision-metal-oem/ /en/metal-furniture/ 301",
+    "/products /en/products/ 301",
+    "/products/ /en/products/ 301",
+    "/en/products /en/products/ 301",
+    "/zh/products /zh/products/ 301",
     "/en/faq /en/answers/ 301",
     "/en/faq/ /en/answers/ 301",
     "/zh/faq /zh/answers/ 301",
@@ -2238,6 +2300,8 @@ function updateRedirects() {
     "/blog/ai-application-meeting/ /zh/blog/ai-application-meeting/ 301",
     "/blog/steel-structure-toc-market-report-2026-2027 /zh/blog/steel-structure-toc-market-report-2026-2027/ 301",
     "/blog/steel-structure-toc-market-report-2026-2027/ /zh/blog/steel-structure-toc-market-report-2026-2027/ 301",
+    "/blog/how-to-source-a-bus-shelter-from-china /zh/blog/how-to-source-a-bus-shelter-from-china/ 301",
+    "/blog/how-to-source-a-bus-shelter-from-china/ /zh/blog/how-to-source-a-bus-shelter-from-china/ 301",
     "/sitemap /sitemap.xml 301",
     "/ /en/ 301",
     "/about/ /en/about/ 301",
@@ -2425,7 +2489,19 @@ function prerenderSections(group, t, lang) {
   } else if (group === "projects" && t.cases) {
     const c = t.cases;
     if (c.featured) S.push({ h2: clean(c.featured.title), html: `<p>${clean(c.featured.body)} (${clean(c.featured.loc)} · ${clean(c.featured.year)})</p>` });
-    if (c.items) S.push({ h2: cn ? "项目案例" : "Project cases", html: bulletList(c.items.map((i) => ({ t: `${i.title} — ${i.loc}`, b: i.body }))) });
+    if (c.items) {
+      // Mirror the React case cards: items with a caseStudyUrl (content.js) link out to
+      // their static case-study page so the crawlable prerender exposes the same hrefs.
+      const caseItems = c.items
+        .map((i) => {
+          const link = i.caseStudyUrl
+            ? ` <a href="${escapeHtml(i.caseStudyUrl)}">${cn ? "阅读案例详情" : "Read case study"} →</a>`
+            : "";
+          return `        <li><strong>${escapeHtml(`${i.title} — ${i.loc}`)}</strong> — ${escapeHtml(i.body)}${link}</li>`;
+        })
+        .join("\n");
+      S.push({ h2: cn ? "项目案例" : "Project cases", html: `<ul>\n${caseItems}\n      </ul>` });
+    }
   } else if (group === "quality" && t.quality) {
     const q = t.quality;
     if (q.policy) S.push({ h2: clean(q.policy.title), html: `<p>${clean(q.policy.sub)}</p>\n      ${bulletList(q.policy.pillars.map((i) => ({ t: i.t, b: i.d })))}` });
@@ -2434,6 +2510,10 @@ function prerenderSections(group, t, lang) {
   } else if (group === "contact" && t.contact) {
     const info = t.contact.info || {};
     S.push({ h2: cn ? "联系方式" : "Contact details", html: bulletList(Object.values(info).map((v) => ({ t: v.t, b: v.v }))) });
+    // "Request a Quote" framing block (content.js contact.rfq): what to include in an enquiry.
+    if (t.contact.rfq) {
+      S.push({ h2: clean(t.contact.rfq.title), html: `<p>${clean(t.contact.rfq.sub)}</p>\n      ${plainList(t.contact.rfq.items)}` });
+    }
   }
   return S;
 }
@@ -2446,6 +2526,7 @@ function prerenderNav(lang) {
     [cn ? "关于我们" : "About", `${p}/about/`],
     [cn ? "核心能力" : "Capabilities", `${p}/capabilities/`],
     [cn ? "项目案例" : "Projects", `${p}/projects/`],
+    [cn ? "产品中心" : "Products", `${p}/products/`],
     [cn ? "质量与认证" : "Quality", `${p}/quality/`],
     [cn ? "公交站亭 / 候车亭" : "Bus stop shelters", `${p}/bus-stop-shelters/`],
     [cn ? "广告灯箱" : "Advertising light boxes", `${p}/advertising-light-boxes/`],
@@ -2488,9 +2569,16 @@ function prerenderBody(meta) {
     ? `\n    <img class="seo-prerender-hero" src="${escapeHtml(meta.image)}" alt="${escapeHtml(heroAlt)}" width="1200" height="800" decoding="async" />`
     : "";
   const gallery = meta.group === "projects" ? prerenderGallery(t, lang) : "";
+  // Homepage hero CTAs mirrored from content.js (heroCta1 → projects, heroCta2 → contact)
+  // so the crawlable prerender carries the same conversion links as the React hero.
+  let heroCtas = "";
+  if (meta.group === "home" && t.home && t.home.heroCta1 && t.home.heroCta2) {
+    const p = lang === "zh" ? "/zh" : "/en";
+    heroCtas = `\n    <p class="seo-prerender-cta"><a href="${p}/projects/">${clean(t.home.heroCta1)} →</a> <a href="${p}/contact/">${clean(t.home.heroCta2)} →</a></p>`;
+  }
   return `  <div class="seo-prerender">
     <h1>${h1}</h1>${heroImg}
-    <p class="seo-prerender-lede">${lede}</p>
+    <p class="seo-prerender-lede">${lede}</p>${heroCtas}
 ${sections}${gallery ? `\n${gallery}` : ""}
     ${prerenderNav(lang)}
   </div>`;
@@ -2513,6 +2601,7 @@ function hubNavLinks(lang) {
     [cn ? "关于我们" : "About", `${p}/about/`],
     [cn ? "核心能力" : "Capabilities", `${p}/capabilities/`],
     [cn ? "项目案例" : "Projects", `${p}/projects/`],
+    [cn ? "产品中心" : "Products", `${p}/products/`],
     [cn ? "公交站亭" : "Bus stop shelters", `${p}/bus-stop-shelters/`],
     [cn ? "金属家具" : "Metal furniture", `${p}/metal-furniture/`],
     [cn ? "质量与认证" : "Quality", `${p}/quality/`],
@@ -2851,6 +2940,9 @@ function updateAllHtml() {
       continue;
     }
     if (meta.generated) writeAnswersPage(meta);
+    // Hand-authored static pages (products, case studies, sourcing-guide post) own their
+    // heads and JSON-LD; they are registered only for sitemap/llms/collection data.
+    if (meta.skipHtml) continue;
     updateExistingFile(meta, meta.file);
     for (const alias of meta.aliases || []) {
       updateExistingFile(meta, alias);

@@ -18,7 +18,7 @@
                 <p className="home-hero-sub reveal">{h.heroSub}</p>
                 <div className="home-hero-actions reveal">
                   <button className="btn btn-primary" onClick={() => go("cases")}>{h.heroCta1} →</button>
-                  <button className="btn btn-ghost" onClick={() => go("capabilities")}>{h.heroCta2}</button>
+                  <button className="btn btn-ghost" onClick={() => go("contact")}>{h.heroCta2}</button>
                 </div>
               </div>
               <div className="home-hero-media reveal">

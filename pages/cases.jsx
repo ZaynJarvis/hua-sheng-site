@@ -104,6 +104,11 @@
                     </div>
                     {it.amount !== "—" && <div className="cat" style={{ color: "var(--accent)" }}>{it.amount}</div>}
                     <p>{it.body}</p>
+                    {it.caseStudyUrl && (
+                      <a className="btn btn-text" href={it.caseStudyUrl} style={{ marginTop: 10, alignSelf: "flex-start" }}>
+                        {lang === "cn" ? "阅读案例详情" : "Read case study"} <span className="arrow">→</span>
+                      </a>
+                    )}
                   </div>
                 </article>
               ))}
